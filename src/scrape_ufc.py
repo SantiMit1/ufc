@@ -19,7 +19,10 @@ def load_json(path):
     if not os.path.exists(path):
         return []
     with open(path, "r", encoding="utf-8") as f:
-        return json.load(f)
+        content = f.read()
+    if not content.strip():
+        return []
+    return json.loads(content)
 
 
 def save_json(path, data):
@@ -142,13 +145,18 @@ def parse_event_page(html, event_name, event_date):
         if not round_num.isdigit():
             round_num = None
 
-        first_wins = wl_text == "win"
-        if first_wins:
+        wl_lower = wl_text.lower()
+        if wl_lower == "win":
             winner = f1_name
-        else:
+        elif wl_lower == "loss":
             winner = f2_name
-
-        if method and "Draw" in method:
+        elif "draw" in wl_lower:
+            winner = "Draw"
+        elif "nc" in wl_lower or "no contest" in wl_lower:
+            winner = "No Contest"
+        elif "Overturned" in method:
+            winner = "No Contest"
+        else:
             winner = None
 
         fight = {

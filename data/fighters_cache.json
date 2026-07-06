@@ -1300,5 +1300,47 @@
     "reach_cm": null,
     "stance": "Orthodox",
     "dob": "1973-09-22"
+  },
+  "Steve Judson": {
+    "height_cm": 180,
+    "weight_lbs": 230,
+    "reach_cm": null,
+    "stance": "Orthodox",
+    "dob": null
+  },
+  "Matt Hughes": {
+    "height_cm": 175,
+    "weight_lbs": 170,
+    "reach_cm": 185,
+    "stance": "Switch",
+    "dob": "1973-10-13"
+  },
+  "John Lewis": {
+    "height_cm": 183,
+    "weight_lbs": 155,
+    "reach_cm": null,
+    "stance": "Southpaw",
+    "dob": null
+  },
+  "Lowell Anderson": {
+    "height_cm": 168,
+    "weight_lbs": 160,
+    "reach_cm": null,
+    "stance": "Orthodox",
+    "dob": null
+  },
+  "Jens Pulver": {
+    "height_cm": 170,
+    "weight_lbs": 145,
+    "reach_cm": 178,
+    "stance": "Southpaw",
+    "dob": "1974-12-06"
+  },
+  "Alfonso Alcarez": {
+    "height_cm": 160,
+    "weight_lbs": 145,
+    "reach_cm": null,
+    "stance": null,
+    "dob": "1970-06-10"
   }
 }
