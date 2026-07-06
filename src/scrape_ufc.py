@@ -130,12 +130,10 @@ def parse_event_page(html, event_name, event_date):
         f2_url = fighter_links[1]["href"] if len(fighter_links) > 1 else None
 
         weight_cell = cells[6]
-        weight_class = weight_cell.get_text(strip=True)
+        category = weight_cell.get_text(strip=True)
         has_belt = bool(weight_cell.find("img"))
-        if has_belt and "Title Bout" not in weight_class:
-            category = "Title Bout " + weight_class
-        else:
-            category = weight_class
+        title_bout = has_belt
+
 
         method = cells[7].get_text(strip=True)
         round_num = cells[8].get_text(strip=True)
@@ -157,6 +155,7 @@ def parse_event_page(html, event_name, event_date):
             "event_name": event_name,
             "event_date": event_date,
             "category": category,
+            "title_bout": title_bout,
             "fighter_1": f1_name,
             "fighter_2": f2_name,
             "fighter_1_url": f1_url,
