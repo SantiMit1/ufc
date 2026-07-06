@@ -1,0 +1,121 @@
+{
+  "Royce Gracie": {
+    "height_cm": 185,
+    "weight_lbs": 175,
+    "reach_cm": null,
+    "stance": "Southpaw",
+    "dob": "1966-12-12"
+  },
+  "Patrick Smith": {
+    "height_cm": 188,
+    "weight_lbs": 225,
+    "reach_cm": null,
+    "stance": "Orthodox",
+    "dob": "1963-08-28"
+  },
+  "Remco Pardoel": {
+    "height_cm": 190,
+    "weight_lbs": 260,
+    "reach_cm": null,
+    "stance": "Southpaw",
+    "dob": "1969-05-23"
+  },
+  "Johnny Rhodes": {
+    "height_cm": 183,
+    "weight_lbs": 210,
+    "reach_cm": null,
+    "stance": "Orthodox",
+    "dob": null
+  },
+  "Jason DeLucia": {
+    "height_cm": 180,
+    "weight_lbs": 190,
+    "reach_cm": null,
+    "stance": "Southpaw",
+    "dob": "1969-07-24"
+  },
+  "Orlando Wiet": {
+    "height_cm": 178,
+    "weight_lbs": 170,
+    "reach_cm": null,
+    "stance": "Southpaw",
+    "dob": "1965-10-24"
+  },
+  "Fred Ettish": {
+    "height_cm": 183,
+    "weight_lbs": 180,
+    "reach_cm": null,
+    "stance": "Southpaw",
+    "dob": "1955-10-12"
+  },
+  "Scott Morris": {
+    "height_cm": 178,
+    "weight_lbs": 210,
+    "reach_cm": null,
+    "stance": "Orthodox",
+    "dob": null
+  },
+  "Minoki Ichihara": {
+    "height_cm": 170,
+    "weight_lbs": 178,
+    "reach_cm": null,
+    "stance": "Orthodox",
+    "dob": "1968-06-30"
+  },
+  "Scott Baker": {
+    "height_cm": 183,
+    "weight_lbs": 210,
+    "reach_cm": null,
+    "stance": null,
+    "dob": null
+  },
+  "Alberta Cerra Leon": {
+    "height_cm": 173,
+    "weight_lbs": 238,
+    "reach_cm": null,
+    "stance": null,
+    "dob": null
+  },
+  "Robert Lucarelli": {
+    "height_cm": 188,
+    "weight_lbs": 245,
+    "reach_cm": null,
+    "stance": null,
+    "dob": null
+  },
+  "Frank Hamaker": {
+    "height_cm": null,
+    "weight_lbs": null,
+    "reach_cm": null,
+    "stance": null,
+    "dob": null
+  },
+  "Thaddeus Luster": {
+    "height_cm": 190,
+    "weight_lbs": 210,
+    "reach_cm": null,
+    "stance": null,
+    "dob": null
+  },
+  "David Levicki": {
+    "height_cm": 196,
+    "weight_lbs": 275,
+    "reach_cm": null,
+    "stance": null,
+    "dob": null
+  },
+  "Ray Wizard": {
+    "height_cm": null,
+    "weight_lbs": null,
+    "reach_cm": null,
+    "stance": null,
+    "dob": null
+  },
+  "Sean Daugherty": {
+    "height_cm": 183,
+    "weight_lbs": 175,
+    "reach_cm": null,
+    "stance": null,
+    "dob": "1975-12-04"
+  }
+}

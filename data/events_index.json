@@ -3,7 +3,7 @@
     "name": "UFC 2: No Way Out",
     "date": "1994-03-11",
     "url": "http://ufcstats.com/event-details/a6a9ab5a824e8f66",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC 3: The American Dream",
@@ -4671,12 +4671,6 @@
     "name": "UFC Fight Night: Fiziev vs. Torres",
     "date": "2026-06-27",
     "url": "http://ufcstats.com/event-details/31e1ea6fe6b682f8",
-    "scrapped": false
-  },
-  {
-    "name": "UFC 329: McGregor vs. Holloway 2",
-    "date": "2026-07-11",
-    "url": "http://ufcstats.com/event-details/fccb0fee256b7b4d",
     "scrapped": false
   }
 ]

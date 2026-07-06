@@ -1,0 +1,1472 @@
+[
+  {
+    "event_name": "UFC 2: No Way Out",
+    "event_date": "1994-03-11",
+    "category": "Title Bout Open Weight",
+    "fighter_1": "Royce Gracie",
+    "fighter_2": "Patrick Smith",
+    "winner": "Royce Gracie",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "1:17",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 4,
+        "attempted": 4
+      },
+      "total_strikes": {
+        "landed": 11,
+        "attempted": 11
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 3,
+        "attempted": 3
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "total_strikes": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 27,
+    "fighter_2_age": 30,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 188,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 2: No Way Out",
+    "event_date": "1994-03-11",
+    "category": "Open Weight",
+    "fighter_1": "Royce Gracie",
+    "fighter_2": "Remco Pardoel",
+    "winner": "Royce Gracie",
+    "method": "SUBGi Choke",
+    "round": 1,
+    "time": "1:31",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "total_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "total_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 27,
+    "fighter_2_age": 24,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 190,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 2: No Way Out",
+    "event_date": "1994-03-11",
+    "category": "Open Weight",
+    "fighter_1": "Patrick Smith",
+    "fighter_2": "Johnny Rhodes",
+    "winner": "Patrick Smith",
+    "method": "SUBGuillotine Choke",
+    "round": 1,
+    "time": "1:07",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 5,
+        "attempted": 12
+      },
+      "total_strikes": {
+        "landed": 5,
+        "attempted": 12
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 1,
+        "attempted": 4
+      },
+      "body": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 6
+      },
+      "distance": {
+        "landed": 3,
+        "attempted": 10
+      },
+      "clinch": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 4,
+        "attempted": 9
+      },
+      "total_strikes": {
+        "landed": 4,
+        "attempted": 9
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 2,
+        "attempted": 5
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 4
+      },
+      "distance": {
+        "landed": 4,
+        "attempted": 9
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 30,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 188,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 183,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 2: No Way Out",
+    "event_date": "1994-03-11",
+    "category": "Open Weight",
+    "fighter_1": "Royce Gracie",
+    "fighter_2": "Jason DeLucia",
+    "winner": "Royce Gracie",
+    "method": "SUBArmbar",
+    "round": 1,
+    "time": "1:07",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "total_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "total_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 27,
+    "fighter_2_age": 24,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 180,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 2: No Way Out",
+    "event_date": "1994-03-11",
+    "category": "Open Weight",
+    "fighter_1": "Remco Pardoel",
+    "fighter_2": "Orlando Wiet",
+    "winner": "Remco Pardoel",
+    "method": "KO/TKOElbows",
+    "round": 1,
+    "time": "1:29",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 7,
+        "attempted": 7
+      },
+      "total_strikes": {
+        "landed": 7,
+        "attempted": 7
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 7,
+        "attempted": 7
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 7,
+        "attempted": 7
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "total_strikes": {
+        "landed": 5,
+        "attempted": 7
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 24,
+    "fighter_2_age": 28,
+    "fighter_1_height_cm": 190,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 178,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 2: No Way Out",
+    "event_date": "1994-03-11",
+    "category": "Open Weight",
+    "fighter_1": "Johnny Rhodes",
+    "fighter_2": "Fred Ettish",
+    "winner": "Johnny Rhodes",
+    "method": "SUBBulldog Choke",
+    "round": 1,
+    "time": "3:07",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 13,
+        "attempted": 29
+      },
+      "total_strikes": {
+        "landed": 21,
+        "attempted": 38
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 12,
+        "attempted": 28
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 3,
+        "attempted": 6
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "ground": {
+        "landed": 9,
+        "attempted": 21
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 4,
+        "attempted": 7
+      },
+      "total_strikes": {
+        "landed": 7,
+        "attempted": 11
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "body": {
+        "landed": 2,
+        "attempted": 4
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 4,
+        "attempted": 7
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": null,
+    "fighter_2_age": 38,
+    "fighter_1_height_cm": 183,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 183,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 2: No Way Out",
+    "event_date": "1994-03-11",
+    "category": "Open Weight",
+    "fighter_1": "Patrick Smith",
+    "fighter_2": "Scott Morris",
+    "winner": "Patrick Smith",
+    "method": "KO/TKOElbows",
+    "round": 1,
+    "time": "0:30",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 13,
+        "attempted": 17
+      },
+      "total_strikes": {
+        "landed": 19,
+        "attempted": 25
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 12,
+        "attempted": 16
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 12,
+        "attempted": 16
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "total_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 30,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 188,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 178,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 2: No Way Out",
+    "event_date": "1994-03-11",
+    "category": "Open Weight",
+    "fighter_1": "Royce Gracie",
+    "fighter_2": "Minoki Ichihara",
+    "winner": "Royce Gracie",
+    "method": "SUBArmbar",
+    "round": 1,
+    "time": "5:08",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 2,
+        "attempted": 4
+      },
+      "total_strikes": {
+        "landed": 110,
+        "attempted": 114
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 2,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 4
+      },
+      "distance": {
+        "landed": 2,
+        "attempted": 4
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 3,
+        "attempted": 7
+      },
+      "total_strikes": {
+        "landed": 12,
+        "attempted": 16
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 3,
+        "attempted": 6
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 3,
+        "attempted": 5
+      }
+    },
+    "fighter_1_age": 27,
+    "fighter_2_age": 25,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 170,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 2: No Way Out",
+    "event_date": "1994-03-11",
+    "category": "Open Weight",
+    "fighter_1": "Jason DeLucia",
+    "fighter_2": "Scott Baker",
+    "winner": "Jason DeLucia",
+    "method": "SUBTriangle Choke",
+    "round": 1,
+    "time": "6:41",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 3,
+        "attempted": 5
+      },
+      "total_strikes": {
+        "landed": 20,
+        "attempted": 25
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 5,
+      "head": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 2,
+        "attempted": 4
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 1
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "total_strikes": {
+        "landed": 14,
+        "attempted": 23
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 24,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 180,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 183,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 2: No Way Out",
+    "event_date": "1994-03-11",
+    "category": "Open Weight",
+    "fighter_1": "Remco Pardoel",
+    "fighter_2": "Alberta Cerra Leon",
+    "winner": "Remco Pardoel",
+    "method": "SUBEzekiel Choke",
+    "round": 1,
+    "time": "9:51",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 4,
+        "attempted": 6
+      },
+      "total_strikes": {
+        "landed": 20,
+        "attempted": 22
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 4,
+        "attempted": 5
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 4,
+        "attempted": 5
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 3
+      },
+      "total_strikes": {
+        "landed": 9,
+        "attempted": 11
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 1,
+        "attempted": 3
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 2
+      }
+    },
+    "fighter_1_age": 24,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 190,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 173,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 2: No Way Out",
+    "event_date": "1994-03-11",
+    "category": "Open Weight",
+    "fighter_1": "Orlando Wiet",
+    "fighter_2": "Robert Lucarelli",
+    "winner": "Orlando Wiet",
+    "method": "KO/TKO",
+    "round": 1,
+    "time": "2:50",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 8,
+        "attempted": 12
+      },
+      "total_strikes": {
+        "landed": 11,
+        "attempted": 15
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 7,
+        "attempted": 11
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 3
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 7,
+        "attempted": 9
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 2,
+        "attempted": 6
+      },
+      "total_strikes": {
+        "landed": 2,
+        "attempted": 6
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 3
+      },
+      "distance": {
+        "landed": 2,
+        "attempted": 6
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 28,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 178,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 188,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 2: No Way Out",
+    "event_date": "1994-03-11",
+    "category": "Open Weight",
+    "fighter_1": "Frank Hamaker",
+    "fighter_2": "Thaddeus Luster",
+    "winner": "Frank Hamaker",
+    "method": "SUBKeylock",
+    "round": 1,
+    "time": "4:52",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "total_strikes": {
+        "landed": 14,
+        "attempted": 15
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 3,
+      "head": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 2
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "total_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": null,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": null,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 190,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 2: No Way Out",
+    "event_date": "1994-03-11",
+    "category": "Open Weight",
+    "fighter_1": "Johnny Rhodes",
+    "fighter_2": "David Levicki",
+    "winner": "Johnny Rhodes",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "12:13",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 11,
+        "attempted": 17
+      },
+      "total_strikes": {
+        "landed": 74,
+        "attempted": 86
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 9,
+        "attempted": 15
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 9,
+        "attempted": 15
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 4,
+        "attempted": 5
+      },
+      "total_strikes": {
+        "landed": 95,
+        "attempted": 102
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 4,
+        "attempted": 5
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "clinch": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 1
+      }
+    },
+    "fighter_1_age": null,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 183,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 196,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 2: No Way Out",
+    "event_date": "1994-03-11",
+    "category": "Open Weight",
+    "fighter_1": "Patrick Smith",
+    "fighter_2": "Ray Wizard",
+    "winner": "Patrick Smith",
+    "method": "SUBGuillotine Choke",
+    "round": 1,
+    "time": "0:58",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "total_strikes": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "total_strikes": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 30,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 188,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": null,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 2: No Way Out",
+    "event_date": "1994-03-11",
+    "category": "Open Weight",
+    "fighter_1": "Scott Morris",
+    "fighter_2": "Sean Daugherty",
+    "winner": "Scott Morris",
+    "method": "SUBGuillotine Choke",
+    "round": 1,
+    "time": "0:20",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "total_strikes": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 4
+      },
+      "total_strikes": {
+        "landed": 1,
+        "attempted": 5
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 3
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": null,
+    "fighter_2_age": 18,
+    "fighter_1_height_cm": 178,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 183,
+    "fighter_2_reach_cm": null
+  }
+]
