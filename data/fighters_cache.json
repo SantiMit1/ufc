@@ -17491,5 +17491,537 @@
     "reach_cm": 163,
     "stance": "Switch",
     "dob": "1998-10-16"
+  },
+  "Puja Tomar": {
+    "height_cm": 155,
+    "weight_lbs": 115,
+    "reach_cm": 150,
+    "stance": "Southpaw",
+    "dob": "1993-12-05"
+  },
+  "Carli Judice": {
+    "height_cm": 170,
+    "weight_lbs": 125,
+    "reach_cm": 173,
+    "stance": "Southpaw",
+    "dob": "1999-03-02"
+  },
+  "Julia Polastri": {
+    "height_cm": 157,
+    "weight_lbs": 115,
+    "reach_cm": 160,
+    "stance": "Orthodox",
+    "dob": "1998-03-05"
+  },
+  "Antonio Trocoli": {
+    "height_cm": 196,
+    "weight_lbs": 185,
+    "reach_cm": 203,
+    "stance": "Orthodox",
+    "dob": "1990-12-06"
+  },
+  "Felipe Lima": {
+    "height_cm": 168,
+    "weight_lbs": 135,
+    "reach_cm": 173,
+    "stance": "Orthodox",
+    "dob": "1998-05-07"
+  },
+  "Magomed Gadzhiyasulov": {
+    "height_cm": 188,
+    "weight_lbs": 205,
+    "reach_cm": 190,
+    "stance": "Orthodox",
+    "dob": "1993-11-04"
+  },
+  "ChangHo Lee": {
+    "height_cm": 173,
+    "weight_lbs": 135,
+    "reach_cm": 175,
+    "stance": "Orthodox",
+    "dob": "1994-05-09"
+  },
+  "Xiao Long": {
+    "height_cm": 173,
+    "weight_lbs": 135,
+    "reach_cm": 178,
+    "stance": "Orthodox",
+    "dob": "1998-04-13"
+  },
+  "Rei Tsuruya": {
+    "height_cm": 168,
+    "weight_lbs": 125,
+    "reach_cm": 173,
+    "stance": "Orthodox",
+    "dob": "2002-06-22"
+  },
+  "Fatima Kline": {
+    "height_cm": 168,
+    "weight_lbs": 115,
+    "reach_cm": 170,
+    "stance": "Orthodox",
+    "dob": "2000-07-12"
+  },
+  "Alice Ardelean": {
+    "height_cm": 160,
+    "weight_lbs": 115,
+    "reach_cm": 157,
+    "stance": "Orthodox",
+    "dob": "1992-04-19"
+  },
+  "Jordan Vucenic": {
+    "height_cm": 178,
+    "weight_lbs": 155,
+    "reach_cm": 185,
+    "stance": "Orthodox",
+    "dob": "1996-03-02"
+  },
+  "Nikolay Veretennikov": {
+    "height_cm": 185,
+    "weight_lbs": 170,
+    "reach_cm": 188,
+    "stance": "Orthodox",
+    "dob": "1989-12-22"
+  },
+  "Quang Le": {
+    "height_cm": 170,
+    "weight_lbs": 135,
+    "reach_cm": 178,
+    "stance": "Orthodox",
+    "dob": "1991-10-18"
+  },
+  "Stephanie Luciano": {
+    "height_cm": 168,
+    "weight_lbs": 115,
+    "reach_cm": 165,
+    "stance": "Orthodox",
+    "dob": "1999-12-16"
+  },
+  "Stewart Nicoll": {
+    "height_cm": 165,
+    "weight_lbs": 125,
+    "reach_cm": 165,
+    "stance": "Orthodox",
+    "dob": "1996-04-11"
+  },
+  "Ryan Loder": {
+    "height_cm": 188,
+    "weight_lbs": 185,
+    "reach_cm": 193,
+    "stance": "Southpaw",
+    "dob": "1991-06-05"
+  },
+  "Robert Valentin": {
+    "height_cm": 188,
+    "weight_lbs": 185,
+    "reach_cm": 196,
+    "stance": "Orthodox",
+    "dob": "1995-03-31"
+  },
+  "Mairon Santos": {
+    "height_cm": 170,
+    "weight_lbs": 145,
+    "reach_cm": 183,
+    "stance": "Orthodox",
+    "dob": "2000-06-10"
+  },
+  "Kaan Ofli": {
+    "height_cm": 170,
+    "weight_lbs": 145,
+    "reach_cm": 168,
+    "stance": "Orthodox",
+    "dob": "1993-06-19"
+  },
+  "Jose Daniel Medina": {
+    "height_cm": 183,
+    "weight_lbs": 185,
+    "reach_cm": 188,
+    "stance": "Orthodox",
+    "dob": "1991-05-17"
+  },
+  "Wang Cong": {
+    "height_cm": 168,
+    "weight_lbs": 125,
+    "reach_cm": 168,
+    "stance": "Southpaw",
+    "dob": "1992-05-15"
+  },
+  "Nathan Fletcher": {
+    "height_cm": 170,
+    "weight_lbs": 135,
+    "reach_cm": 178,
+    "stance": "Orthodox",
+    "dob": "1998-01-03"
+  },
+  "Zygimantas Ramaska": {
+    "height_cm": 180,
+    "weight_lbs": 145,
+    "reach_cm": 180,
+    "stance": "Orthodox",
+    "dob": "1996-12-27"
+  },
+  "Ivan Erslan": {
+    "height_cm": 188,
+    "weight_lbs": 205,
+    "reach_cm": 183,
+    "stance": "Orthodox",
+    "dob": "1991-11-15"
+  },
+  "Ramazan Temirov": {
+    "height_cm": 163,
+    "weight_lbs": 125,
+    "reach_cm": 160,
+    "stance": "Orthodox",
+    "dob": "1997-01-31"
+  },
+  "Sean Sharaf": {
+    "height_cm": 190,
+    "weight_lbs": 252,
+    "reach_cm": 196,
+    "stance": "Orthodox",
+    "dob": "1993-07-11"
+  },
+  "Cody Haddon": {
+    "height_cm": 170,
+    "weight_lbs": 135,
+    "reach_cm": 175,
+    "stance": "Orthodox",
+    "dob": "1998-09-08"
+  },
+  "Lucas Rocha": {
+    "height_cm": 160,
+    "weight_lbs": 125,
+    "reach_cm": 163,
+    "stance": "Orthodox",
+    "dob": "2000-08-12"
+  },
+  "Cameron Smotherman": {
+    "height_cm": 175,
+    "weight_lbs": 135,
+    "reach_cm": 175,
+    "stance": "Orthodox",
+    "dob": "1997-09-17"
+  },
+  "Rafael Cerqueira": {
+    "height_cm": 190,
+    "weight_lbs": 205,
+    "reach_cm": 193,
+    "stance": "Southpaw",
+    "dob": "1990-03-15"
+  },
+  "Carlos Leal": {
+    "height_cm": 180,
+    "weight_lbs": 170,
+    "reach_cm": 188,
+    "stance": "Orthodox",
+    "dob": "1994-05-04"
+  },
+  "Reinier de Ridder": {
+    "height_cm": 193,
+    "weight_lbs": 185,
+    "reach_cm": 198,
+    "stance": "Southpaw",
+    "dob": "1990-09-07"
+  },
+  "Cortavious Romious": {
+    "height_cm": 163,
+    "weight_lbs": 135,
+    "reach_cm": 173,
+    "stance": "Southpaw",
+    "dob": "1994-01-06"
+  },
+  "Mansur Abdul-Malik": {
+    "height_cm": 188,
+    "weight_lbs": 185,
+    "reach_cm": 203,
+    "stance": "Orthodox",
+    "dob": "1997-10-07"
+  },
+  "Zachary Scroggin": {
+    "height_cm": 190,
+    "weight_lbs": 170,
+    "reach_cm": 188,
+    "stance": "Orthodox",
+    "dob": "1996-03-09"
+  },
+  "Klaudia Sygula": {
+    "height_cm": 173,
+    "weight_lbs": 135,
+    "reach_cm": 175,
+    "stance": "Orthodox",
+    "dob": "1998-12-30"
+  },
+  "Roberto Romero": {
+    "height_cm": 173,
+    "weight_lbs": 145,
+    "reach_cm": 178,
+    "stance": "Orthodox",
+    "dob": "2000-01-30"
+  },
+  "Ozzy Diaz": {
+    "height_cm": 193,
+    "weight_lbs": 185,
+    "reach_cm": 201,
+    "stance": "Orthodox",
+    "dob": "1990-11-22"
+  },
+  "SuYoung You": {
+    "height_cm": 168,
+    "weight_lbs": 135,
+    "reach_cm": 165,
+    "stance": "Orthodox",
+    "dob": "1995-12-11"
+  },
+  "Baergeng Jieleyisi": {
+    "height_cm": 175,
+    "weight_lbs": 145,
+    "reach_cm": 180,
+    "stance": "Orthodox",
+    "dob": "1995-11-24"
+  },
+  "DongHun Choi": {
+    "height_cm": 165,
+    "weight_lbs": 125,
+    "reach_cm": 168,
+    "stance": "Switch",
+    "dob": "1999-01-02"
+  },
+  "Kiru Sahota": {
+    "height_cm": 178,
+    "weight_lbs": 125,
+    "reach_cm": 185,
+    "stance": "Orthodox",
+    "dob": "1995-05-28"
+  },
+  "Shi Ming": {
+    "height_cm": 157,
+    "weight_lbs": 115,
+    "reach_cm": 152,
+    "stance": "Orthodox",
+    "dob": "1994-11-14"
+  },
+  "Feng Xiaocan": {
+    "height_cm": 168,
+    "weight_lbs": 115,
+    "reach_cm": 170,
+    "stance": "Southpaw",
+    "dob": "2001-10-27"
+  },
+  "Nyamjargal Tumendemberel": {
+    "height_cm": 170,
+    "weight_lbs": 125,
+    "reach_cm": 180,
+    "stance": "Orthodox",
+    "dob": "1998-03-22"
+  },
+  "Lone'er Kavanagh": {
+    "height_cm": 168,
+    "weight_lbs": 125,
+    "reach_cm": 170,
+    "stance": "Orthodox",
+    "dob": "1999-06-09"
+  },
+  "Jose Ochoa": {
+    "height_cm": 170,
+    "weight_lbs": 125,
+    "reach_cm": 170,
+    "stance": "Southpaw",
+    "dob": "2000-12-31"
+  },
+  "Kai Asakura": {
+    "height_cm": 173,
+    "weight_lbs": 135,
+    "reach_cm": 175,
+    "stance": "Orthodox",
+    "dob": "1993-10-31"
+  },
+  "Navajo Stirling": {
+    "height_cm": 193,
+    "weight_lbs": 205,
+    "reach_cm": 201,
+    "stance": "Orthodox",
+    "dob": "1997-11-07"
+  },
+  "Austin Bashi": {
+    "height_cm": 168,
+    "weight_lbs": 145,
+    "reach_cm": 178,
+    "stance": "Orthodox",
+    "dob": "2001-09-29"
+  },
+  "Marco Tulio": {
+    "height_cm": 183,
+    "weight_lbs": 185,
+    "reach_cm": 188,
+    "stance": "Orthodox",
+    "dob": "1994-06-13"
+  },
+  "Jacobe Smith": {
+    "height_cm": 178,
+    "weight_lbs": 170,
+    "reach_cm": 183,
+    "stance": "Southpaw",
+    "dob": "1996-01-17"
+  },
+  "Nicolle Caliari": {
+    "height_cm": 160,
+    "weight_lbs": 115,
+    "reach_cm": 157,
+    "stance": "Orthodox",
+    "dob": "1996-11-04"
+  },
+  "Bruno Lopes": {
+    "height_cm": 188,
+    "weight_lbs": 205,
+    "reach_cm": 188,
+    "stance": "Orthodox",
+    "dob": "1993-04-24"
+  },
+  "Azamat Bekoev": {
+    "height_cm": 183,
+    "weight_lbs": 185,
+    "reach_cm": 183,
+    "stance": "Orthodox",
+    "dob": "1995-12-30"
+  },
+  "Billy Elekana": {
+    "height_cm": 190,
+    "weight_lbs": 205,
+    "reach_cm": 196,
+    "stance": "Southpaw",
+    "dob": "1995-05-28"
+  },
+  "Bogdan Grad": {
+    "height_cm": 173,
+    "weight_lbs": 145,
+    "reach_cm": 178,
+    "stance": "Orthodox",
+    "dob": "1995-09-28"
+  },
+  "Tallison Teixeira": {
+    "height_cm": 201,
+    "weight_lbs": 258,
+    "reach_cm": 211,
+    "stance": "Orthodox",
+    "dob": "1999-12-07"
+  },
+  "Aleksandre Topuria": {
+    "height_cm": 170,
+    "weight_lbs": 135,
+    "reach_cm": 173,
+    "stance": "Orthodox",
+    "dob": "1996-01-28"
+  },
+  "Colby Thicknesse": {
+    "height_cm": 170,
+    "weight_lbs": 135,
+    "reach_cm": 175,
+    "stance": "Orthodox",
+    "dob": "1999-06-23"
+  },
+  "Kody Steele": {
+    "height_cm": 175,
+    "weight_lbs": 155,
+    "reach_cm": 180,
+    "stance": "Orthodox",
+    "dob": "1995-04-21"
+  },
+  "Jonathan Micallef": {
+    "height_cm": 183,
+    "weight_lbs": 170,
+    "reach_cm": 196,
+    "stance": "Southpaw",
+    "dob": "1999-03-05"
+  },
+  "Quillan Salkilld": {
+    "height_cm": 183,
+    "weight_lbs": 155,
+    "reach_cm": 190,
+    "stance": "Orthodox",
+    "dob": "1999-12-28"
+  },
+  "Jose Delgado": {
+    "height_cm": 180,
+    "weight_lbs": 145,
+    "reach_cm": 188,
+    "stance": "Switch",
+    "dob": "1998-04-21"
+  },
+  "Elijah Smith": {
+    "height_cm": 175,
+    "weight_lbs": 135,
+    "reach_cm": 180,
+    "stance": "Orthodox",
+    "dob": "2002-09-05"
+  },
+  "Julius Walker": {
+    "height_cm": 193,
+    "weight_lbs": 205,
+    "reach_cm": 198,
+    "stance": "Orthodox",
+    "dob": "1999-07-16"
+  },
+  "Nick Klein": {
+    "height_cm": 185,
+    "weight_lbs": 185,
+    "reach_cm": 196,
+    "stance": "Orthodox",
+    "dob": "1995-09-08"
+  },
+  "Austin Vanderford": {
+    "height_cm": 180,
+    "weight_lbs": 170,
+    "reach_cm": 188,
+    "stance": "Orthodox",
+    "dob": "1990-03-21"
+  },
+  "Eric McConico": {
+    "height_cm": 183,
+    "weight_lbs": 185,
+    "reach_cm": 196,
+    "stance": "Southpaw",
+    "dob": "1990-05-09"
+  },
+  "Mario Pinto": {
+    "height_cm": 196,
+    "weight_lbs": 265,
+    "reach_cm": 201,
+    "stance": "Orthodox",
+    "dob": "1998-03-14"
+  },
+  "Djorden Santos": {
+    "height_cm": 183,
+    "weight_lbs": 185,
+    "reach_cm": 190,
+    "stance": "Orthodox",
+    "dob": "1997-08-01"
+  },
+  "Diyar Nurgozhay": {
+    "height_cm": 188,
+    "weight_lbs": 205,
+    "reach_cm": 188,
+    "stance": "Southpaw",
+    "dob": "1997-04-22"
+  },
+  "Kevin Vallejos": {
+    "height_cm": 170,
+    "weight_lbs": 145,
+    "reach_cm": 173,
+    "stance": "Switch",
+    "dob": "2001-12-08"
+  },
+  "Josias Musasa": {
+    "height_cm": 173,
+    "weight_lbs": 135,
+    "reach_cm": 188,
+    "stance": "Southpaw",
+    "dob": "1998-10-10"
+  },
+  "Yuneisy Duben": {
+    "height_cm": 163,
+    "weight_lbs": 125,
+    "reach_cm": 165,
+    "stance": "Orthodox",
+    "dob": "1996-07-08"
   }
 }
