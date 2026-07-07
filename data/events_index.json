@@ -3645,301 +3645,301 @@
     "name": "UFC Fight Night: Kattar vs. Emmett",
     "date": "2022-06-18",
     "url": "http://ufcstats.com/event-details/a0a680fe2f6cc8e6",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Tsarukyan vs. Gamrot",
     "date": "2022-06-25",
     "url": "http://ufcstats.com/event-details/eb42d4febfafefd1",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC 276: Adesanya vs. Cannonier",
     "date": "2022-07-02",
     "url": "http://ufcstats.com/event-details/4a9e305633f3ef47",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Dos Anjos vs. Fiziev",
     "date": "2022-07-09",
     "url": "http://ufcstats.com/event-details/31da66df48c0c1a0",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Ortega vs. Rodriguez",
     "date": "2022-07-16",
     "url": "http://ufcstats.com/event-details/8fd76e1b49c00ae2",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Blaydes vs. Aspinall",
     "date": "2022-07-23",
     "url": "http://ufcstats.com/event-details/319c15b8aac5bfde",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC 277: Pena vs. Nunes 2",
     "date": "2022-07-30",
     "url": "http://ufcstats.com/event-details/b0a6124751a56bc4",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Santos vs. Hill",
     "date": "2022-08-06",
     "url": "http://ufcstats.com/event-details/8f6a18831a120817",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Vera vs. Cruz",
     "date": "2022-08-13",
     "url": "http://ufcstats.com/event-details/a23e63184c65f5b8",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC 278: Usman vs. Edwards",
     "date": "2022-08-20",
     "url": "http://ufcstats.com/event-details/4f853e98886283cf",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Gane vs. Tuivasa",
     "date": "2022-09-03",
     "url": "http://ufcstats.com/event-details/00a905a4a4a2b071",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC 279: Diaz vs. Ferguson",
     "date": "2022-09-10",
     "url": "http://ufcstats.com/event-details/93bf96be327fcd98",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Sandhagen vs. Song",
     "date": "2022-09-17",
     "url": "http://ufcstats.com/event-details/8d477c3fbe001f9d",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Dern vs. Yan",
     "date": "2022-10-01",
     "url": "http://ufcstats.com/event-details/4f670b7972fa0a2e",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Grasso vs. Araujo",
     "date": "2022-10-15",
     "url": "http://ufcstats.com/event-details/49c29e57d4e2be6f",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC 280: Oliveira vs. Makhachev",
     "date": "2022-10-22",
     "url": "http://ufcstats.com/event-details/885e7f70dcac0007",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Kattar vs. Allen",
     "date": "2022-10-29",
     "url": "http://ufcstats.com/event-details/be5aab761c40ef35",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Rodriguez vs. Lemos",
     "date": "2022-11-05",
     "url": "http://ufcstats.com/event-details/756f45905fb20cb5",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC 281: Adesanya vs. Pereira",
     "date": "2022-11-12",
     "url": "http://ufcstats.com/event-details/b3b6e80b7d5f8f0d",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Nzechukwu vs. Cutelaba",
     "date": "2022-11-19",
     "url": "http://ufcstats.com/event-details/012fc7cd0779c09a",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Thompson vs. Holland",
     "date": "2022-12-03",
     "url": "http://ufcstats.com/event-details/b23388ff8ac6637b",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC 282: Blachowicz vs. Ankalaev",
     "date": "2022-12-10",
     "url": "http://ufcstats.com/event-details/f65a0eb902f9476b",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Cannonier vs. Strickland",
     "date": "2022-12-17",
     "url": "http://ufcstats.com/event-details/56ec58954158966a",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Strickland vs. Imavov",
     "date": "2023-01-14",
     "url": "http://ufcstats.com/event-details/2e2cdb6e9eb84bb9",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC 283: Teixeira vs. Hill",
     "date": "2023-01-21",
     "url": "http://ufcstats.com/event-details/5717efc6f271cd52",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Lewis vs. Spivac",
     "date": "2023-02-04",
     "url": "http://ufcstats.com/event-details/d26394fc0e8e880a",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC 284: Makhachev vs. Volkanovski",
     "date": "2023-02-11",
     "url": "http://ufcstats.com/event-details/01dd4cdc2446f665",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Andrade vs. Blanchfield",
     "date": "2023-02-18",
     "url": "http://ufcstats.com/event-details/f21a3d68fb9df387",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Muniz vs. Allen",
     "date": "2023-02-25",
     "url": "http://ufcstats.com/event-details/806975e1b4f47b27",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC 285: Jones vs. Gane",
     "date": "2023-03-04",
     "url": "http://ufcstats.com/event-details/1ccff7f0cfdf85eb",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Yan vs. Dvalishvili",
     "date": "2023-03-11",
     "url": "http://ufcstats.com/event-details/35080a7f406f9ab3",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC 286: Edwards vs. Usman 3",
     "date": "2023-03-18",
     "url": "http://ufcstats.com/event-details/e4bb7e483c4ad318",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Vera vs. Sandhagen",
     "date": "2023-03-25",
     "url": "http://ufcstats.com/event-details/aec273fcb765330d",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC 287: Pereira vs. Adesanya 2",
     "date": "2023-04-08",
     "url": "http://ufcstats.com/event-details/3dc3022232b79c7a",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Holloway vs. Allen",
     "date": "2023-04-15",
     "url": "http://ufcstats.com/event-details/15b1b21cd743d652",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Pavlovich vs. Blaydes",
     "date": "2023-04-22",
     "url": "http://ufcstats.com/event-details/6fb1ba67bef41b37",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Song vs. Simon",
     "date": "2023-04-29",
     "url": "http://ufcstats.com/event-details/51b1e2fd9872005b",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC 288: Sterling vs. Cejudo",
     "date": "2023-05-06",
     "url": "http://ufcstats.com/event-details/3c6976f8182d9527",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Rozenstruik vs. Almeida",
     "date": "2023-05-13",
     "url": "http://ufcstats.com/event-details/901cddcbfa079097",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Dern vs. Hill",
     "date": "2023-05-20",
     "url": "http://ufcstats.com/event-details/6f812143641ceff8",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Kara-France vs. Albazi",
     "date": "2023-06-03",
     "url": "http://ufcstats.com/event-details/7abe471b61725980",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC 289: Nunes vs. Aldana",
     "date": "2023-06-10",
     "url": "http://ufcstats.com/event-details/b6c6d1731ff00eeb",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Vettori vs. Cannonier",
     "date": "2023-06-17",
     "url": "http://ufcstats.com/event-details/b9415726dc3ec526",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Emmett vs. Topuria",
     "date": "2023-06-24",
     "url": "http://ufcstats.com/event-details/a780d16cf7eed44d",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Strickland vs. Magomedov",
     "date": "2023-07-01",
     "url": "http://ufcstats.com/event-details/e9e1acc96536bb4f",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC 290: Volkanovski vs. Rodriguez",
     "date": "2023-07-08",
     "url": "http://ufcstats.com/event-details/6085ceb59087514b",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Holm vs. Bueno Silva",
     "date": "2023-07-15",
     "url": "http://ufcstats.com/event-details/c9885b1b7c7055a0",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Aspinall vs. Tybura",
     "date": "2023-07-22",
     "url": "http://ufcstats.com/event-details/1174782eacde9b0c",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC 291: Poirier vs. Gaethje 2",
     "date": "2023-07-29",
     "url": "http://ufcstats.com/event-details/ccd58ff71e260ed5",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Sandhagen vs. Font",
     "date": "2023-08-05",
     "url": "http://ufcstats.com/event-details/6f81b6de2557739a",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Luque vs. Dos Anjos",
