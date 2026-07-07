@@ -561,9 +561,6 @@ def main():
 
     print(f"\n  PREDICTION")
     print(f"  {'-' * 56}")
-    print(f"  {fighter_a:<30s}  {prob_a * 100:5.1f}%")
-    print(f"  {fighter_b:<30s}  {prob_b * 100:5.1f}%")
-    print(f"  {'-' * 56}")
     print(f"\n  Favorite: {favorite} ({fav_prob * 100:.1f}%)")
     print(f"  Underdog: {underdog} ({dog_prob * 100:.1f}%)")
 
