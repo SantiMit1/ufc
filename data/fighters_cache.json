@@ -17211,5 +17211,285 @@
     "reach_cm": 178,
     "stance": "Switch",
     "dob": "1990-05-28"
+  },
+  "Carlos Vera": {
+    "height_cm": 168,
+    "weight_lbs": 135,
+    "reach_cm": 175,
+    "stance": "Orthodox",
+    "dob": "1987-11-05"
+  },
+  "Zhang Mingyang": {
+    "height_cm": 188,
+    "weight_lbs": 205,
+    "reach_cm": 190,
+    "stance": "Orthodox",
+    "dob": "1998-08-16"
+  },
+  "Brendson Ribeiro": {
+    "height_cm": 190,
+    "weight_lbs": 205,
+    "reach_cm": 206,
+    "stance": "Orthodox",
+    "dob": "1996-09-08"
+  },
+  "Danny Barlow": {
+    "height_cm": 188,
+    "weight_lbs": 185,
+    "reach_cm": 201,
+    "stance": "Southpaw",
+    "dob": "1995-08-02"
+  },
+  "Oban Elliott": {
+    "height_cm": 183,
+    "weight_lbs": 170,
+    "reach_cm": 183,
+    "stance": "Orthodox",
+    "dob": "1997-12-19"
+  },
+  "Ronaldo Rodriguez": {
+    "height_cm": 168,
+    "weight_lbs": 125,
+    "reach_cm": 165,
+    "stance": "Orthodox",
+    "dob": "1999-05-07"
+  },
+  "Bekzat Almakhan": {
+    "height_cm": 170,
+    "weight_lbs": 135,
+    "reach_cm": 173,
+    "stance": "Orthodox",
+    "dob": "1997-10-08"
+  },
+  "Vinicius Oliveira": {
+    "height_cm": 175,
+    "weight_lbs": 145,
+    "reach_cm": 178,
+    "stance": "Switch",
+    "dob": "1995-11-30"
+  },
+  "Benardo Sopaj": {
+    "height_cm": 168,
+    "weight_lbs": 135,
+    "reach_cm": 168,
+    "stance": "Orthodox",
+    "dob": "2000-09-25"
+  },
+  "AJ Cunningham": {
+    "height_cm": 178,
+    "weight_lbs": 135,
+    "reach_cm": 180,
+    "stance": "Orthodox",
+    "dob": "1994-09-07"
+  },
+  "Abdul-Kareem Al-Selwady": {
+    "height_cm": 173,
+    "weight_lbs": 155,
+    "reach_cm": 175,
+    "stance": "Orthodox",
+    "dob": "1995-04-10"
+  },
+  "Michael Page": {
+    "height_cm": 190,
+    "weight_lbs": 170,
+    "reach_cm": 201,
+    "stance": "Switch",
+    "dob": "1987-04-07"
+  },
+  "Robelis Despaigne": {
+    "height_cm": 201,
+    "weight_lbs": 265,
+    "reach_cm": 213,
+    "stance": "Orthodox",
+    "dob": "1988-09-09"
+  },
+  "Danny Silva": {
+    "height_cm": 170,
+    "weight_lbs": 145,
+    "reach_cm": 175,
+    "stance": "Switch",
+    "dob": "1997-01-30"
+  },
+  "Mitch Ramirez": {
+    "height_cm": 180,
+    "weight_lbs": 155,
+    "reach_cm": 180,
+    "stance": "Orthodox",
+    "dob": "1992-11-03"
+  },
+  "Charalampos Grigoriou": {
+    "height_cm": 170,
+    "weight_lbs": 135,
+    "reach_cm": 170,
+    "stance": "Orthodox",
+    "dob": "1992-03-31"
+  },
+  "Luis Pajuelo": {
+    "height_cm": 178,
+    "weight_lbs": 145,
+    "reach_cm": 175,
+    "stance": "Orthodox",
+    "dob": "1994-12-18"
+  },
+  "Steven Nguyen": {
+    "height_cm": 180,
+    "weight_lbs": 145,
+    "reach_cm": 185,
+    "stance": "Switch",
+    "dob": "1993-05-19"
+  },
+  "Daria Zhelezniakova": {
+    "height_cm": 175,
+    "weight_lbs": 135,
+    "reach_cm": 173,
+    "stance": "Orthodox",
+    "dob": "1996-01-23"
+  },
+  "Andre Lima": {
+    "height_cm": 170,
+    "weight_lbs": 125,
+    "reach_cm": 170,
+    "stance": "Orthodox",
+    "dob": "1999-02-04"
+  },
+  "Igor Severino": {
+    "height_cm": 170,
+    "weight_lbs": 125,
+    "reach_cm": 175,
+    "stance": "Orthodox",
+    "dob": "2003-04-21"
+  },
+  "Connor Matthews": {
+    "height_cm": 173,
+    "weight_lbs": 145,
+    "reach_cm": 180,
+    "stance": "Switch",
+    "dob": "1992-05-31"
+  },
+  "Ibo Aslan": {
+    "height_cm": 190,
+    "weight_lbs": 205,
+    "reach_cm": 196,
+    "stance": "Orthodox",
+    "dob": "1996-04-23"
+  },
+  "Angel Pacheco": {
+    "height_cm": 173,
+    "weight_lbs": 135,
+    "reach_cm": 178,
+    "stance": "Orthodox",
+    "dob": "1992-01-13"
+  },
+  "Valter Walker": {
+    "height_cm": 198,
+    "weight_lbs": 244,
+    "reach_cm": 198,
+    "stance": "Orthodox",
+    "dob": "1997-12-14"
+  },
+  "Victor Hugo": {
+    "height_cm": 170,
+    "weight_lbs": 135,
+    "reach_cm": 180,
+    "stance": "Orthodox",
+    "dob": "1992-11-22"
+  },
+  "Pedro Falcao": {
+    "height_cm": 168,
+    "weight_lbs": 135,
+    "reach_cm": 168,
+    "stance": "Orthodox",
+    "dob": "1992-07-30"
+  },
+  "Jean Matsumoto": {
+    "height_cm": 168,
+    "weight_lbs": 135,
+    "reach_cm": 173,
+    "stance": "Orthodox",
+    "dob": "1999-09-09"
+  },
+  "Cesar Almeida": {
+    "height_cm": 185,
+    "weight_lbs": 185,
+    "reach_cm": 188,
+    "stance": "Orthodox",
+    "dob": "1988-03-28"
+  },
+  "Dylan Budka": {
+    "height_cm": 183,
+    "weight_lbs": 185,
+    "reach_cm": 190,
+    "stance": "Switch",
+    "dob": "2000-01-14"
+  },
+  "Kayla Harrison": {
+    "height_cm": 173,
+    "weight_lbs": 135,
+    "reach_cm": 168,
+    "stance": "Southpaw",
+    "dob": "1990-07-02"
+  },
+  "Jhonata Diniz": {
+    "height_cm": 193,
+    "weight_lbs": 254,
+    "reach_cm": 201,
+    "stance": "Orthodox",
+    "dob": "1991-06-23"
+  },
+  "Chris Padilla": {
+    "height_cm": 175,
+    "weight_lbs": 155,
+    "reach_cm": 188,
+    "stance": "Orthodox",
+    "dob": "1995-09-14"
+  },
+  "James Llontop": {
+    "height_cm": 183,
+    "weight_lbs": 155,
+    "reach_cm": 185,
+    "stance": "Orthodox",
+    "dob": "1999-08-02"
+  },
+  "Mauricio Ruffy": {
+    "height_cm": 180,
+    "weight_lbs": 155,
+    "reach_cm": 190,
+    "stance": "Orthodox",
+    "dob": "1996-06-17"
+  },
+  "Dione Barbosa": {
+    "height_cm": 168,
+    "weight_lbs": 125,
+    "reach_cm": 168,
+    "stance": "Orthodox",
+    "dob": "1992-05-08"
+  },
+  "Ernesta Kareckaite": {
+    "height_cm": 175,
+    "weight_lbs": 125,
+    "reach_cm": 180,
+    "stance": "Orthodox",
+    "dob": "1998-07-05"
+  },
+  "Oumar Sy": {
+    "height_cm": 193,
+    "weight_lbs": 205,
+    "reach_cm": 211,
+    "stance": "Orthodox",
+    "dob": "1995-11-21"
+  },
+  "Tuco Tokkos": {
+    "height_cm": 193,
+    "weight_lbs": 205,
+    "reach_cm": 193,
+    "stance": "Orthodox",
+    "dob": "1990-06-30"
+  },
+  "Mitch Raposo": {
+    "height_cm": 165,
+    "weight_lbs": 125,
+    "reach_cm": 163,
+    "stance": "Switch",
+    "dob": "1998-10-16"
   }
 }
