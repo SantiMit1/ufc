@@ -10,9 +10,9 @@ import argparse
 
 FIGHTS_PATH = "data/fights.json"
 FIGHTERS_CACHE_PATH = "data/fighters_cache.json"
-MODEL_PATH = "models/ufc_model_logreg_full2.pkl"
+MODEL_PATH = "models/ufc_model_lgbm.pkl"
 SCALER_PATH = "models/ufc_scaler_logreg_full2.pkl"
-FEATURE_COLS_PATH = "models/ufc_logreg_full_feature_cols2.pkl"
+FEATURE_COLS_PATH = "models/ufc_lgbm_feature_cols.pkl"
 
 CUTOFF_DATE = datetime(2001, 1, 1)
 ELO_K = 32
