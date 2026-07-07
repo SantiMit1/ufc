@@ -26,7 +26,18 @@ y = (df['winner'] == 1).astype(int)
 exclude_cols = {'fight_id', 'event_date', 'fighter_a_name', 'fighter_b_name', 'winner'}
 diff_cols = [c for c in df.columns if c.endswith('_diff')]
 other_feats = ['age_a', 'age_b', 'stance_a', 'stance_b',
-               'is_debut_a', 'is_debut_b', 'category']
+               'is_debut_a', 'is_debut_b', 'category',
+               'recent_3_wins_a', 'recent_3_wins_b',
+               'recent_3_losses_a', 'recent_3_losses_b',
+               'recent_5_wins_a', 'recent_5_wins_b',
+               'recent_5_losses_a', 'recent_5_losses_b',
+               'recent_3_ko_loss_rate_a', 'recent_3_ko_loss_rate_b',
+               'recent_5_ko_loss_rate_a', 'recent_5_ko_loss_rate_b',
+               'decay_sig_per_min_a', 'decay_sig_per_min_b',
+               'decay_sig_absorbed_per_min_a', 'decay_sig_absorbed_per_min_b',
+               'decay_td_per_15min_a', 'decay_td_per_15min_b',
+               'avg_opp_elo_a', 'avg_opp_elo_b',
+               'avg_opp_elo_wins_a', 'avg_opp_elo_wins_b']
 if 'title_bout' in df.columns:
     other_feats.append('title_bout')
 

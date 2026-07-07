@@ -11,7 +11,7 @@ OUTPUT_PATH = "data/dataset.csv"
 
 CUTOFF_DATE = datetime(2001, 1, 1)
 SEED = 42
-ELO_K = 32
+ELO_K = 96
 ELO_INITIAL = 1500
 
 
@@ -165,6 +165,49 @@ def compute_stats(
 
     is_debut = total_fights == 0
 
+    # --- Recent form ---
+    recent = f["recent_fights"]
+    last_3 = recent[-3:] if len(recent) >= 3 else recent
+    last_5 = recent[-5:] if len(recent) >= 5 else recent
+
+    recent_3_wins = sum(1 for r in last_3 if r["won"] is True)
+    recent_3_losses = sum(1 for r in last_3 if r["won"] is False)
+    recent_5_wins = sum(1 for r in last_5 if r["won"] is True)
+    recent_5_losses = sum(1 for r in last_5 if r["won"] is False)
+
+    recent_3_ko_losses = sum(1 for r in last_3 if r["ko_loss"])
+    recent_5_ko_losses = sum(1 for r in last_5 if r["ko_loss"])
+
+    recent_3_ko_loss_rate = recent_3_ko_losses / len(last_3) if len(last_3) > 0 else np.nan
+    recent_5_ko_loss_rate = recent_5_ko_losses / len(last_5) if len(last_5) > 0 else np.nan
+
+    # --- Decay-weighted stats (lambda = 0.5 per year) ---
+    LAMBDA = 0.5
+    total_w = 0.0
+    w_sig = 0.0
+    w_sig_abs = 0.0
+    w_td = 0.0
+    w_sec = 0.0
+    fight_date = datetime.strptime(fight["event_date"], "%Y-%m-%d")
+    for r in recent:
+        years_ago = (fight_date - r["date"]).days / 365.25
+        w = np.exp(-LAMBDA * years_ago)
+        total_w += w
+        w_sig += r["sig_landed"] * w
+        w_sig_abs += r["sig_absorbed"] * w
+        w_td += r["td_landed"] * w
+        w_sec += r["total_seconds"] * w
+
+    decay_sig_per_min = w_sig / (w_sec / 60.0) if w_sec > 0 else np.nan
+    decay_sig_absorbed_per_min = w_sig_abs / (w_sec / 60.0) if w_sec > 0 else np.nan
+    decay_td_per_15min = w_td / (w_sec / 60.0) * 15.0 if w_sec > 0 else np.nan
+
+    # --- Opponent quality ---
+    count_faced = f["count_opp_faced"]
+    count_wins = f["count_opp_wins"]
+    avg_opp_elo = f["sum_opp_elo"] / count_faced if count_faced > 0 else np.nan
+    avg_opp_elo_wins = f["sum_opp_elo_wins"] / count_wins if count_wins > 0 else np.nan
+
     return {
         "age": age,
         "stance": stance,
@@ -188,10 +231,21 @@ def compute_stats(
         "total_fights": total_fights,
         "is_debut": is_debut,
         "elo": f["elo"],
+        "recent_3_wins": recent_3_wins,
+        "recent_3_losses": recent_3_losses,
+        "recent_5_wins": recent_5_wins,
+        "recent_5_losses": recent_5_losses,
+        "recent_3_ko_loss_rate": recent_3_ko_loss_rate,
+        "recent_5_ko_loss_rate": recent_5_ko_loss_rate,
+        "decay_sig_per_min": decay_sig_per_min,
+        "decay_sig_absorbed_per_min": decay_sig_absorbed_per_min,
+        "decay_td_per_15min": decay_td_per_15min,
+        "avg_opp_elo": avg_opp_elo,
+        "avg_opp_elo_wins": avg_opp_elo_wins,
     }
 
 
-def update_state(state: dict, fight: dict, is_fighter_1: bool, is_win_loss: bool, win_side: int, finish_type: str | None) -> None:
+def update_state(state: dict, fight: dict, is_fighter_1: bool, is_win_loss: bool, win_side: int, finish_type: str | None, opponent_elo: float | None = None) -> None:
     """
     Update accumulated state for a fighter after a fight.
     """
@@ -200,8 +254,10 @@ def update_state(state: dict, fight: dict, is_fighter_1: bool, is_win_loss: bool
 
     state["total_fights"] += 1
 
+    won = None
     if is_win_loss:
         fighter_won = (is_fighter_1 and win_side == 1) or (not is_fighter_1 and win_side == 2)
+        won = fighter_won
         if fighter_won:
             state["wins"] += 1
             state["current_win_streak"] += 1
@@ -267,6 +323,35 @@ def update_state(state: dict, fight: dict, is_fighter_1: bool, is_win_loss: bool
 
     state["last_fight_date"] = datetime.strptime(fight["event_date"], "%Y-%m-%d")
 
+    # --- Recent fights tracking ---
+    ko_loss = won is False and finish_type == "KO"
+    sub_loss = won is False and finish_type == "SUB"
+    fight_date = datetime.strptime(fight["event_date"], "%Y-%m-%d")
+    fight_record = {
+        "date": fight_date,
+        "sig_landed": sig_landed,
+        "sig_attempted": sig_attempted,
+        "sig_absorbed": opp_sig_landed,
+        "td_landed": td_landed,
+        "td_attempted": td_attempted,
+        "sub_attempts": sub_attempts,
+        "total_seconds": fight_secs,
+        "won": won,
+        "ko_loss": ko_loss,
+        "sub_loss": sub_loss,
+    }
+    state["recent_fights"].append(fight_record)
+    if len(state["recent_fights"]) > 5:
+        state["recent_fights"].pop(0)
+
+    # --- Opponent quality ---
+    if opponent_elo is not None:
+        state["sum_opp_elo"] += opponent_elo
+        state["count_opp_faced"] += 1
+        if won is True:
+            state["sum_opp_elo_wins"] += opponent_elo
+            state["count_opp_wins"] += 1
+
 
 def main():
     random.seed(SEED)
@@ -326,6 +411,11 @@ def main():
             "total_seconds_fought": 0,
             "last_fight_date": None,
             "elo": ELO_INITIAL,
+            "recent_fights": [],
+            "sum_opp_elo": 0.0,
+            "count_opp_faced": 0,
+            "sum_opp_elo_wins": 0.0,
+            "count_opp_wins": 0,
         }
 
     rows = []
@@ -453,6 +543,39 @@ def main():
             "elo_diff": feat_a["elo"] - feat_b["elo"],
             "is_debut_a": feat_a["is_debut"],
             "is_debut_b": feat_b["is_debut"],
+            "recent_3_wins_a": feat_a["recent_3_wins"],
+            "recent_3_wins_b": feat_b["recent_3_wins"],
+            "recent_3_losses_a": feat_a["recent_3_losses"],
+            "recent_3_losses_b": feat_b["recent_3_losses"],
+            "recent_5_wins_a": feat_a["recent_5_wins"],
+            "recent_5_wins_b": feat_b["recent_5_wins"],
+            "recent_5_losses_a": feat_a["recent_5_losses"],
+            "recent_5_losses_b": feat_b["recent_5_losses"],
+            "recent_3_ko_loss_rate_a": feat_a["recent_3_ko_loss_rate"],
+            "recent_3_ko_loss_rate_b": feat_b["recent_3_ko_loss_rate"],
+            "recent_5_ko_loss_rate_a": feat_a["recent_5_ko_loss_rate"],
+            "recent_5_ko_loss_rate_b": feat_b["recent_5_ko_loss_rate"],
+            "decay_sig_per_min_a": feat_a["decay_sig_per_min"],
+            "decay_sig_per_min_b": feat_b["decay_sig_per_min"],
+            "decay_sig_absorbed_per_min_a": feat_a["decay_sig_absorbed_per_min"],
+            "decay_sig_absorbed_per_min_b": feat_b["decay_sig_absorbed_per_min"],
+            "decay_td_per_15min_a": feat_a["decay_td_per_15min"],
+            "decay_td_per_15min_b": feat_b["decay_td_per_15min"],
+            "avg_opp_elo_a": feat_a["avg_opp_elo"],
+            "avg_opp_elo_b": feat_b["avg_opp_elo"],
+            "avg_opp_elo_wins_a": feat_a["avg_opp_elo_wins"],
+            "avg_opp_elo_wins_b": feat_b["avg_opp_elo_wins"],
+            "recent_3_wins_diff": feat_a["recent_3_wins"] - feat_b["recent_3_wins"],
+            "recent_3_losses_diff": feat_a["recent_3_losses"] - feat_b["recent_3_losses"],
+            "recent_5_wins_diff": feat_a["recent_5_wins"] - feat_b["recent_5_wins"],
+            "recent_5_losses_diff": feat_a["recent_5_losses"] - feat_b["recent_5_losses"],
+            "recent_3_ko_loss_rate_diff": feat_a["recent_3_ko_loss_rate"] - feat_b["recent_3_ko_loss_rate"] if not (np.isnan(feat_a["recent_3_ko_loss_rate"]) or np.isnan(feat_b["recent_3_ko_loss_rate"])) else np.nan,
+            "recent_5_ko_loss_rate_diff": feat_a["recent_5_ko_loss_rate"] - feat_b["recent_5_ko_loss_rate"] if not (np.isnan(feat_a["recent_5_ko_loss_rate"]) or np.isnan(feat_b["recent_5_ko_loss_rate"])) else np.nan,
+            "decay_sig_per_min_diff": feat_a["decay_sig_per_min"] - feat_b["decay_sig_per_min"] if not (np.isnan(feat_a["decay_sig_per_min"]) or np.isnan(feat_b["decay_sig_per_min"])) else np.nan,
+            "decay_sig_absorbed_per_min_diff": feat_a["decay_sig_absorbed_per_min"] - feat_b["decay_sig_absorbed_per_min"] if not (np.isnan(feat_a["decay_sig_absorbed_per_min"]) or np.isnan(feat_b["decay_sig_absorbed_per_min"])) else np.nan,
+            "decay_td_per_15min_diff": feat_a["decay_td_per_15min"] - feat_b["decay_td_per_15min"] if not (np.isnan(feat_a["decay_td_per_15min"]) or np.isnan(feat_b["decay_td_per_15min"])) else np.nan,
+            "avg_opp_elo_diff": feat_a["avg_opp_elo"] - feat_b["avg_opp_elo"] if not (np.isnan(feat_a["avg_opp_elo"]) or np.isnan(feat_b["avg_opp_elo"])) else np.nan,
+            "avg_opp_elo_wins_diff": feat_a["avg_opp_elo_wins"] - feat_b["avg_opp_elo_wins"] if not (np.isnan(feat_a["avg_opp_elo_wins"]) or np.isnan(feat_b["avg_opp_elo_wins"])) else np.nan,
             "winner": winner_label,
         }
         rows.append(row)
@@ -463,8 +586,11 @@ def main():
             fight["method"], fight["winner"], fight["fighter_1"], fight["fighter_2"]
         )
 
-        update_state(fighter_state[fight["fighter_1"]], fight, True, is_win_loss, win_side, finish_type)
-        update_state(fighter_state[fight["fighter_2"]], fight, False, is_win_loss, win_side, finish_type)
+        f1_elo_before = fighter_state[fight["fighter_1"]]["elo"]
+        f2_elo_before = fighter_state[fight["fighter_2"]]["elo"]
+
+        update_state(fighter_state[fight["fighter_1"]], fight, True, is_win_loss, win_side, finish_type, opponent_elo=f2_elo_before)
+        update_state(fighter_state[fight["fighter_2"]], fight, False, is_win_loss, win_side, finish_type, opponent_elo=f1_elo_before)
 
         # Elo update
         f1_state = fighter_state[fight["fighter_1"]]
