@@ -4635,42 +4635,42 @@
     "name": "UFC 328: Chimaev vs. Strickland",
     "date": "2026-05-09",
     "url": "http://ufcstats.com/event-details/9eedac48b497de5a",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Allen vs. Costa",
     "date": "2026-05-16",
     "url": "http://ufcstats.com/event-details/73abb7a5c57fb443",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Song vs. Figueiredo",
     "date": "2026-05-30",
     "url": "http://ufcstats.com/event-details/1e75e6c9de99fa76",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Muhammad vs. Bonfim",
     "date": "2026-06-06",
     "url": "http://ufcstats.com/event-details/ba17afef01ed78b6",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Freedom 250",
     "date": "2026-06-14",
     "url": "http://ufcstats.com/event-details/48544433372ecfa6",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Kape vs. Horiguchi",
     "date": "2026-06-20",
     "url": "http://ufcstats.com/event-details/c8661e204c66f325",
-    "scrapped": false
+    "scrapped": true
   },
   {
     "name": "UFC Fight Night: Fiziev vs. Torres",
     "date": "2026-06-27",
     "url": "http://ufcstats.com/event-details/31e1ea6fe6b682f8",
-    "scrapped": false
+    "scrapped": true
   }
 ]

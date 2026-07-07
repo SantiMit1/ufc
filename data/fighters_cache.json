@@ -18814,5 +18814,152 @@
     "reach_cm": 193,
     "stance": "Orthodox",
     "dob": "1990-10-11"
+  },
+  "Juan Diaz": {
+    "height_cm": 173,
+    "weight_lbs": 135,
+    "reach_cm": 175,
+    "stance": "Orthodox",
+    "dob": "1998-06-03"
+  },
+  "Christian Edwards": {
+    "height_cm": 196,
+    "weight_lbs": 205,
+    "reach_cm": 198,
+    "stance": "Southpaw",
+    "dob": "1998-11-05"
+  },
+  "Tommy Gantt": {
+    "height_cm": 180,
+    "weight_lbs": 155,
+    "reach_cm": 193,
+    "stance": "Orthodox",
+    "dob": "1993-01-09"
+  },
+  "Artur Minev": {
+    "height_cm": 175,
+    "weight_lbs": 155,
+    "reach_cm": 175,
+    "stance": "Orthodox",
+    "dob": "2003-09-27"
+  },
+  "Luis Felipe Dias": {
+    "height_cm": 178,
+    "weight_lbs": 185,
+    "reach_cm": 188,
+    "stance": null,
+    "dob": "1995-01-17"
+  },
+  "YiSak Lee": {
+    "height_cm": 183,
+    "weight_lbs": 185,
+    "reach_cm": 183,
+    "stance": "Orthodox",
+    "dob": "2000-01-01"
+  },
+  "Jose Souza": {
+    "height_cm": 190,
+    "weight_lbs": 170,
+    "reach_cm": 201,
+    "stance": "Orthodox",
+    "dob": "2002-05-23"
+  },
+  "Ding Meng": {
+    "height_cm": 188,
+    "weight_lbs": 170,
+    "reach_cm": 185,
+    "stance": "Orthodox",
+    "dob": "1994-09-27"
+  },
+  "Xiong Jingnan": {
+    "height_cm": 163,
+    "weight_lbs": 115,
+    "reach_cm": 160,
+    "stance": "Switch",
+    "dob": "1988-01-12"
+  },
+  "Rodrigo Vera": {
+    "height_cm": 173,
+    "weight_lbs": 145,
+    "reach_cm": 173,
+    "stance": "Orthodox",
+    "dob": "1995-10-18"
+  },
+  "Zhu Kangjie": {
+    "height_cm": 168,
+    "weight_lbs": 145,
+    "reach_cm": 178,
+    "stance": "Orthodox",
+    "dob": "1996-01-16"
+  },
+  "Jeisla Chaves": {
+    "height_cm": 168,
+    "weight_lbs": 125,
+    "reach_cm": 173,
+    "stance": "Orthodox",
+    "dob": "1997-02-02"
+  },
+  "Murtazali Magomedov": {
+    "height_cm": 175,
+    "weight_lbs": 145,
+    "reach_cm": 178,
+    "stance": "Orthodox",
+    "dob": "1999-08-26"
+  },
+  "Levan Chokheli": {
+    "height_cm": 180,
+    "weight_lbs": 170,
+    "reach_cm": 183,
+    "stance": "Orthodox",
+    "dob": "1996-10-02"
+  },
+  "Leon Shahbazyan": {
+    "height_cm": 193,
+    "weight_lbs": 170,
+    "reach_cm": 188,
+    "stance": "Orthodox",
+    "dob": "1995-11-18"
+  },
+  "Shane Collins": {
+    "height_cm": 175,
+    "weight_lbs": 145,
+    "reach_cm": 180,
+    "stance": "Orthodox",
+    "dob": "2000-03-08"
+  },
+  "Otari Tanzilovi": {
+    "height_cm": 175,
+    "weight_lbs": 145,
+    "reach_cm": 178,
+    "stance": "Orthodox",
+    "dob": "1998-04-09"
+  },
+  "Farman Hasanov": {
+    "height_cm": 180,
+    "weight_lbs": 170,
+    "reach_cm": 188,
+    "stance": "Orthodox",
+    "dob": "1995-08-01"
+  },
+  "Theodor Berggren": {
+    "height_cm": 180,
+    "weight_lbs": 170,
+    "reach_cm": 190,
+    "stance": "Switch",
+    "dob": "2000-04-09"
+  },
+  "Tahir Abdullayev": {
+    "height_cm": 173,
+    "weight_lbs": 170,
+    "reach_cm": 185,
+    "stance": "Orthodox",
+    "dob": "1997-02-02"
+  },
+  "Jefferson Nascimento": {
+    "height_cm": 173,
+    "weight_lbs": 170,
+    "reach_cm": 178,
+    "stance": "Orthodox",
+    "dob": "1998-11-19"
   }
 }
