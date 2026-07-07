@@ -476,8 +476,8 @@ def main():
         else:
             reach_a = float(reach_a)
 
-        height_key_b = "fighter_2_height_cm" if b_is_f1 else "fighter_1_height_cm"
-        reach_key_b = "fighter_2_reach_cm" if b_is_f1 else "fighter_1_reach_cm"
+        height_key_b = "fighter_1_height_cm" if b_is_f1 else "fighter_2_height_cm"
+        reach_key_b = "fighter_1_reach_cm" if b_is_f1 else "fighter_2_reach_cm"
 
         height_b = fight.get(height_key_b)
         if height_b is None:
