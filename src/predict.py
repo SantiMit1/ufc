@@ -7,12 +7,12 @@ from datetime import datetime
 from typing import Any
 
 import argparse
+from ensemble_utils import ChronologicalStackingEnsemble
 
 FIGHTS_PATH = "data/fights.json"
 FIGHTERS_CACHE_PATH = "data/fighters_cache.json"
-MODEL_PATH = "models/ufc_model_lgbm.pkl"
-SCALER_PATH = "models/ufc_scaler_logreg_full2.pkl"
-FEATURE_COLS_PATH = "models/ufc_lgbm_feature_cols.pkl"
+MODEL_PATH = "models/ufc_stacking_ensemble.pkl"
+FEATURE_COLS_PATH = "models/ufc_stacking_ensemble_meta.pkl"
 
 CUTOFF_DATE = datetime(2001, 1, 1)
 ELO_K = 96
@@ -430,7 +430,6 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", default=MODEL_PATH)
     parser.add_argument("--features", default=FEATURE_COLS_PATH)
-    parser.add_argument("--scaler", default=SCALER_PATH)
     parser.add_argument("--no-scaler", action="store_true")
     args = parser.parse_args()
 
@@ -455,6 +454,9 @@ def main():
     if model_type == "lightgbm":
         scaler = None
         print(f"  Model type: LightGBM")
+    elif model_type == "stacking":
+        scaler = None
+        print(f"  Model type: Stacked ensemble")
     else:
         if args.no_scaler:
             scaler = None
@@ -464,14 +466,21 @@ def main():
     print("  Model loaded")
 
     shap_explainer = None
-    if model_type == "lightgbm":
-        if hasattr(model, 'calibrated_classifiers_'):
+    if model_type in ("lightgbm", "stacking"):
+        if model_type == "stacking":
+            lgb_base = model.named_estimators_.get("lgbm")
+        elif hasattr(model, 'calibrated_classifiers_'):
             cc = model.calibrated_classifiers_[0]
             lgb_base = cc.estimator if hasattr(cc, 'estimator') else cc.base_estimator_
         else:
             lgb_base = model
+        if lgb_base is not None and hasattr(lgb_base, "named_steps"):
+            lgb_base = lgb_base.named_steps.get("logreg", lgb_base)
         shap_explainer = shap.TreeExplainer(lgb_base)
-        print("  SHAP explainer ready")
+        if model_type == "stacking":
+            print("  SHAP explainer ready (LightGBM base of stacked ensemble)")
+        else:
+            print("  SHAP explainer ready")
 
     print("  Building fighter histories...")
     fighter_states = build_fighter_states(fights, fighters_cache)
@@ -583,14 +592,20 @@ def main():
                 X_encoded[col] = 0
         X_encoded = X_encoded[feature_meta["feature_cols_final"]]
 
-        if model_type == "lightgbm":
+        if model_type in ("lightgbm", "stacking"):
             prob = model.predict_proba(X_encoded)[0, 1]
         else:
             prob = model.predict_proba(scaler.transform(X_encoded))[0, 1]
 
         shap_vals = None
         if shap_explainer is not None:
-            sv = shap_explainer.shap_values(X_encoded)
+            import warnings as _warnings
+            with _warnings.catch_warnings():
+                _warnings.filterwarnings(
+                    "ignore",
+                    message="LightGBM binary classifier with TreeExplainer shap values output has changed to a list of ndarray",
+                )
+                sv = shap_explainer.shap_values(X_encoded)
             if isinstance(sv, list):
                 shap_vals = sv[1][0]
             else:

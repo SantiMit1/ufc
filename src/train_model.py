@@ -1,19 +1,22 @@
 import pandas as pd
 import numpy as np
 import lightgbm as lgb
-from sklearn.calibration import CalibratedClassifierCV
-from sklearn.frozen import FrozenEstimator
+import xgboost as xgb
 from sklearn.metrics import roc_auc_score, accuracy_score, log_loss, brier_score_loss
+from sklearn.linear_model import LogisticRegression
+from sklearn.impute import SimpleImputer
+from sklearn.model_selection import TimeSeriesSplit
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
 import joblib
-import itertools
 import warnings
+from ensemble_utils import ChronologicalStackingEnsemble
 warnings.filterwarnings("ignore")
 
 TEST_SPLIT = 0.15
 VALIDATION_SPLIT = 0.10
-MODEL_PATH = "models/ufc_model_lgbm.pkl"
-FEATURE_COLS_PATH = "models/ufc_lgbm_feature_cols.pkl"
-
+MODEL_PATH = "models/ufc_stacking_ensemble.pkl"
+FEATURE_COLS_PATH = "models/ufc_stacking_ensemble_meta.pkl"
 df = pd.read_csv("data/dataset.csv")
 df = df[df["winner"].isin(["1", "2", 1, 2])].copy()
 df["winner"] = df["winner"].astype(int)
@@ -115,52 +118,59 @@ print(f"\nBest hyperparams (val_auc={best_score:.4f}, iters={best_n}):")
 for k, v in best_params.items():
     print(f"  {k}: {v}")
 
-# ─── CALIBRATION (Platt scaling) ──────────────────────────────────────────────
+def build_lgbm_model(n_estimators: int) -> lgb.LGBMClassifier:
+    return lgb.LGBMClassifier(
+        n_estimators=n_estimators,
+        verbose=-1,
+        random_state=42,
+        missing=float("nan"),
+        class_weight="balanced",
+        max_depth=-1,
+        **best_params,
+    )
 
-model = lgb.LGBMClassifier(
-    n_estimators=2000, verbose=-1, random_state=42, missing=float("nan"),
-    class_weight="balanced", max_depth=-1,
-    **best_params,
+
+def build_xgb_model() -> xgb.XGBClassifier:
+    return xgb.XGBClassifier(
+        n_estimators=max(best_n, 300),
+        learning_rate=0.05,
+        max_depth=4,
+        min_child_weight=2,
+        subsample=0.8,
+        colsample_bytree=0.8,
+        reg_alpha=0.0,
+        reg_lambda=1.0,
+        objective="binary:logistic",
+        eval_metric="logloss",
+        tree_method="hist",
+        random_state=42,
+        n_jobs=-1,
+        missing=np.nan,
+    )
+
+
+lr_base = Pipeline([
+    ("imputer", SimpleImputer(strategy="median")),
+    ("scaler", StandardScaler()),
+    ("logreg", LogisticRegression(max_iter=3000, class_weight="balanced", solver="lbfgs")),
+])
+
+stacking_model = ChronologicalStackingEnsemble(
+    estimators=[
+        ("lgbm", build_lgbm_model(best_n)),
+        ("xgb", build_xgb_model()),
+        ("logreg", lr_base),
+    ],
+    final_estimator=LogisticRegression(max_iter=3000, class_weight="balanced", solver="lbfgs"),
+    cv=TimeSeriesSplit(n_splits=5),
 )
-model.fit(X_train, y_train, eval_set=[(X_val, y_val)], eval_metric="logloss",
-          callbacks=[lgb.early_stopping(50), lgb.log_evaluation(0)])
-best_n = model.best_iteration_
-
-model.set_params(n_estimators=best_n)
-model.fit(X_train, y_train)
-
-# Uncalibrated vs calibrated comparison
-y_prob_raw = model.predict_proba(X_test)[:, 1]
-calibrated = CalibratedClassifierCV(FrozenEstimator(model), method='sigmoid')
-calibrated.fit(X_val, y_val)
-y_prob_cal = calibrated.predict_proba(X_test)[:, 1]
-
-ll_raw = log_loss(y_test, y_prob_raw)
-ll_cal = log_loss(y_test, y_prob_cal)
-bs_raw = brier_score_loss(y_test, y_prob_raw)
-bs_cal = brier_score_loss(y_test, y_prob_cal)
-roc_raw = roc_auc_score(y_test, y_prob_raw)
-roc_cal = roc_auc_score(y_test, y_prob_cal)
 
 print(f"\n{'='*50}")
-print("Calibration (Platt scaling)")
+print("Training stacked ensemble (LightGBM + XGBoost + Logistic Regression)")
 print(f"{'='*50}")
-print(f"{'':20s} {'Raw':>8s} {'Calibrated':>12s}")
-print(f"{'ROC-AUC':20s} {roc_raw:8.4f} {roc_cal:12.4f}")
-print(f"{'Log Loss':20s} {ll_raw:8.4f} {ll_cal:12.4f}")
-print(f"{'Brier score':20s} {bs_raw:8.4f} {bs_cal:12.4f}")
+stacking_model.fit(X_train_all, y_train_all)
 
-# ─── FINAL MODEL (on all training data) ────────────────────────────────────────
-model_all = lgb.LGBMClassifier(
-    n_estimators=best_n, verbose=-1, random_state=42, missing=float("nan"),
-    class_weight="balanced", max_depth=-1,
-    **best_params,
-)
-model_all.fit(X_train_all, y_train_all)
-
-final_model = CalibratedClassifierCV(model_all, method='sigmoid', cv=5)
-final_model.fit(X_train_all, y_train_all)
-
+final_model = stacking_model
 y_prob = final_model.predict_proba(X_test)[:, 1]
 y_pred = final_model.predict(X_test)
 acc = accuracy_score(y_test, y_pred)
@@ -169,7 +179,7 @@ bs = brier_score_loss(y_test, y_prob)
 roc = roc_auc_score(y_test, y_prob)
 
 print(f"\n{'='*50}")
-print("Test set evaluation (LightGBM + Platt scaling)")
+print("Test set evaluation (stacked ensemble)")
 print(f"{'='*50}")
 print(f"Accuracy:     {acc:.4f}")
 print(f"Log Loss:     {ll:.4f}")
@@ -177,10 +187,10 @@ print(f"Brier score:  {bs:.4f}")
 print(f"ROC-AUC:      {roc:.4f}")
 print(f"Best rounds:  {best_n}")
 
-# Calibration (post-calibration)
+# Probability calibration of the ensemble predictions
 bins = np.linspace(0.0, 1.0, 11)
 bin_indices = np.clip(np.digitize(y_prob, bins) - 1, 0, 9)
-print(f"\n{'Post-Calibration':^50s}")
+print(f"\n{'Ensemble Calibration':^50s}")
 print(f"  {'Bin range':<12s} {'n':>5s} {'avg_prob':>9s} {'obs_freq':>9s}")
 print(f"  {'-'*35}")
 for i in range(10):
@@ -190,6 +200,7 @@ for i in range(10):
     print(f"  [{bins[i]:.1f}-{bins[i+1]:.1f})  {nb:5d} {y_prob[mask].mean():9.3f} {y_test.values[mask].mean():9.3f}")
 
 # ─── FEATURE IMPORTANCES ───────────────────────────────────────────────────────
+model_all = final_model.named_estimators_["lgbm"]
 importances = pd.DataFrame({
     "feature": feature_cols_final,
     "gain": model_all.booster_.feature_importance(importance_type="gain"),
@@ -243,14 +254,14 @@ try:
     ax.set_yticklabels(short.values[::-1])
     ax.invert_yaxis()
     ax.set_xlabel("Gain (total improvement from splits)")
-    ax.set_title(f"LightGBM Feature Importance  |  Test ROC-AUC = {roc:.3f}")
+    ax.set_title(f"Stacked Ensemble Feature Importance  |  Test ROC-AUC = {roc:.3f}")
 
     for i, v in enumerate(top["gain"].values[::-1]):
         ax.text(v + top["gain"].max() * 0.01, i, f"{v:.0f}", va="center", fontsize=8)
 
     plt.tight_layout()
-    fig.savefig("models/lgbm_feature_importance.png", dpi=150)
-    print(f"\nPlot saved to models/lgbm_feature_importance.png")
+    fig.savefig("models/stacking_ensemble_feature_importance.png", dpi=150)
+    print(f"\nPlot saved to models/stacking_ensemble_feature_importance.png")
 except ImportError:
     print("\nmatplotlib not installed, skipping plot")
 except Exception as e:
@@ -263,8 +274,10 @@ joblib.dump({
     "cat_cols": cat_cols,
     "numeric_cols": numeric_cols,
     "feature_cols_final": feature_cols_final,
-    "model_type": "lightgbm",
+    "model_type": "stacking",
     "best_params": best_params,
+    "ensemble_estimators": ["lightgbm", "xgboost", "logistic_regression"],
+    "ensemble_cv": "TimeSeriesSplit(n_splits=5)",
     "test_roc_auc": roc,
     "test_accuracy": acc,
     "feature_importance": importances.to_dict(orient="records"),
