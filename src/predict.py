@@ -615,8 +615,8 @@ def main():
 
     print(f"\n  PREDICTION")
     print(f"  {'-' * 56}")
-    print(f"\n  Favorite: {favorite} ({fav_prob * 100:.1f}%)")
-    print(f"  Underdog: {underdog} ({dog_prob * 100:.1f}%)")
+    print(f"\n  Favorite: {favorite} ({fav_prob * 100:.1f}%, Fair Odds: {1.0 / fav_prob:.2f})")
+    print(f"  Underdog: {underdog} ({dog_prob * 100:.1f}%, Fair Odds: {1.0 / dog_prob:.2f})")
 
     print(f"\n  FIGHTER STATS")
     print(f"  {'-' * 56}")
