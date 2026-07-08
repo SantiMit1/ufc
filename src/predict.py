@@ -3,6 +3,7 @@ import sys
 import numpy as np
 import pandas as pd
 import joblib
+import shap
 from datetime import datetime
 from typing import Any
 
@@ -435,6 +436,16 @@ def main():
         print(f"  Model type: Logistic Regression")
     print("  Model loaded")
 
+    shap_explainer = None
+    if model_type == "lightgbm":
+        if hasattr(model, 'calibrated_classifiers_'):
+            cc = model.calibrated_classifiers_[0]
+            lgb_base = cc.estimator if hasattr(cc, 'estimator') else cc.base_estimator_
+        else:
+            lgb_base = model
+        shap_explainer = shap.TreeExplainer(lgb_base)
+        print("  SHAP explainer ready")
+
     print("  Building fighter histories...")
     fighter_states = build_fighter_states(fights, fighters_cache)
     print(f"  {len(fighter_states)} fighters with fight history")
@@ -554,11 +565,19 @@ def main():
             prob = model.predict_proba(X_encoded)[0, 1]
         else:
             prob = model.predict_proba(scaler.transform(X_encoded))[0, 1]
-        return prob
+
+        shap_vals = None
+        if shap_explainer is not None:
+            sv = shap_explainer.shap_values(X_encoded)
+            if isinstance(sv, list):
+                shap_vals = sv[1][0]
+            else:
+                shap_vals = sv[0]
+        return prob, shap_vals
 
     # Predict in both orders and average to remove order-dependent bias
-    prob_a_forward = predict_order(fighter_a, fighter_b)
-    prob_b_forward = predict_order(fighter_b, fighter_a)
+    prob_a_forward, shap_a_forward = predict_order(fighter_a, fighter_b)
+    prob_b_forward, shap_b_forward = predict_order(fighter_b, fighter_a)
     prob_a = (prob_a_forward + (1.0 - prob_b_forward)) / 2.0
     prob_b = 1.0 - prob_a
 
@@ -607,6 +626,21 @@ def main():
             elif feat["current_losing_streak"] > 0:
                 print(f"    Losing Streak: {feat['current_losing_streak']}")
     print()
+
+    # ─── SHAP EXPLANATION ───────────────────────────────────────────────────────
+    if shap_explainer is not None and shap_a_forward is not None:
+        feat_names = feature_meta["feature_cols_final"]
+        shap_fav = shap_a_forward if prob_a >= prob_b else shap_b_forward
+
+        pairs = list(zip(feat_names, shap_fav))
+        pairs.sort(key=lambda x: abs(x[1]), reverse=True)
+
+        print(f"  SHAP — {favorite} (fav) vs {underdog} (dog)")
+        print(f"  {'-' * 56}")
+        for feat, val in pairs[:8]:
+            favor = favorite if val > 0 else underdog
+            print(f"    {feat:<42s} {val:+7.4f}  → {favor}")
+        print()
 
 
 def safe_sub(a, b):
