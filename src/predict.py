@@ -1,5 +1,4 @@
 import json
-import sys
 import numpy as np
 import pandas as pd
 import joblib
@@ -573,11 +572,6 @@ def main():
         for c in ["is_debut_a", "is_debut_b"]:
             if c in X_raw.columns:
                 X_raw[c] = X_raw[c].astype(int)
-
-        if model_type == "lightgbm":
-            for c in ["is_debut_a", "is_debut_b"]:
-                if c in X_raw.columns:
-                    X_raw[c] = X_raw[c].astype(int)
         else:
             for c in feature_meta["numeric_cols"]:
                 if c in X_raw.columns and c in feature_meta.get("medians", {}):
