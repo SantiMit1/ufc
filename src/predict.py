@@ -15,7 +15,7 @@ SCALER_PATH = "models/ufc_scaler_logreg_full2.pkl"
 FEATURE_COLS_PATH = "models/ufc_lgbm_feature_cols.pkl"
 
 CUTOFF_DATE = datetime(2001, 1, 1)
-ELO_K = 32
+ELO_K = 96
 ELO_INITIAL = 1500
 
 

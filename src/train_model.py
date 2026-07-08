@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 import lightgbm as lgb
+from sklearn.calibration import CalibratedClassifierCV
+from sklearn.frozen import FrozenEstimator
 from sklearn.metrics import roc_auc_score, accuracy_score, log_loss, brier_score_loss
 import joblib
 import itertools
@@ -113,7 +115,8 @@ print(f"\nBest hyperparams (val_auc={best_score:.4f}, iters={best_n}):")
 for k, v in best_params.items():
     print(f"  {k}: {v}")
 
-# ─── FINAL MODEL ──────────────────────────────────────────────────────────────
+# ─── CALIBRATION (Platt scaling) ──────────────────────────────────────────────
+
 model = lgb.LGBMClassifier(
     n_estimators=2000, verbose=-1, random_state=42, missing=float("nan"),
     class_weight="balanced", max_depth=-1,
@@ -121,20 +124,52 @@ model = lgb.LGBMClassifier(
 )
 model.fit(X_train, y_train, eval_set=[(X_val, y_val)], eval_metric="logloss",
           callbacks=[lgb.early_stopping(50), lgb.log_evaluation(0)])
-
 best_n = model.best_iteration_
-model.set_params(n_estimators=best_n)
-model.fit(X_train_all, y_train_all)
 
-y_prob = model.predict_proba(X_test)[:, 1]
-y_pred = model.predict(X_test)
+model.set_params(n_estimators=best_n)
+model.fit(X_train, y_train)
+
+# Uncalibrated vs calibrated comparison
+y_prob_raw = model.predict_proba(X_test)[:, 1]
+calibrated = CalibratedClassifierCV(FrozenEstimator(model), method='sigmoid')
+calibrated.fit(X_val, y_val)
+y_prob_cal = calibrated.predict_proba(X_test)[:, 1]
+
+ll_raw = log_loss(y_test, y_prob_raw)
+ll_cal = log_loss(y_test, y_prob_cal)
+bs_raw = brier_score_loss(y_test, y_prob_raw)
+bs_cal = brier_score_loss(y_test, y_prob_cal)
+roc_raw = roc_auc_score(y_test, y_prob_raw)
+roc_cal = roc_auc_score(y_test, y_prob_cal)
+
+print(f"\n{'='*50}")
+print("Calibration (Platt scaling)")
+print(f"{'='*50}")
+print(f"{'':20s} {'Raw':>8s} {'Calibrated':>12s}")
+print(f"{'ROC-AUC':20s} {roc_raw:8.4f} {roc_cal:12.4f}")
+print(f"{'Log Loss':20s} {ll_raw:8.4f} {ll_cal:12.4f}")
+print(f"{'Brier score':20s} {bs_raw:8.4f} {bs_cal:12.4f}")
+
+# ─── FINAL MODEL (on all training data) ────────────────────────────────────────
+model_all = lgb.LGBMClassifier(
+    n_estimators=best_n, verbose=-1, random_state=42, missing=float("nan"),
+    class_weight="balanced", max_depth=-1,
+    **best_params,
+)
+model_all.fit(X_train_all, y_train_all)
+
+final_model = CalibratedClassifierCV(model_all, method='sigmoid', cv=5)
+final_model.fit(X_train_all, y_train_all)
+
+y_prob = final_model.predict_proba(X_test)[:, 1]
+y_pred = final_model.predict(X_test)
 acc = accuracy_score(y_test, y_pred)
 ll = log_loss(y_test, y_prob)
 bs = brier_score_loss(y_test, y_prob)
 roc = roc_auc_score(y_test, y_prob)
 
 print(f"\n{'='*50}")
-print("Test set evaluation (LightGBM)")
+print("Test set evaluation (LightGBM + Platt scaling)")
 print(f"{'='*50}")
 print(f"Accuracy:     {acc:.4f}")
 print(f"Log Loss:     {ll:.4f}")
@@ -142,10 +177,10 @@ print(f"Brier score:  {bs:.4f}")
 print(f"ROC-AUC:      {roc:.4f}")
 print(f"Best rounds:  {best_n}")
 
-# Calibration
+# Calibration (post-calibration)
 bins = np.linspace(0.0, 1.0, 11)
 bin_indices = np.clip(np.digitize(y_prob, bins) - 1, 0, 9)
-print(f"\n{'Calibration':^50s}")
+print(f"\n{'Post-Calibration':^50s}")
 print(f"  {'Bin range':<12s} {'n':>5s} {'avg_prob':>9s} {'obs_freq':>9s}")
 print(f"  {'-'*35}")
 for i in range(10):
@@ -157,8 +192,8 @@ for i in range(10):
 # ─── FEATURE IMPORTANCES ───────────────────────────────────────────────────────
 importances = pd.DataFrame({
     "feature": feature_cols_final,
-    "gain": model.booster_.feature_importance(importance_type="gain"),
-    "split": model.booster_.feature_importance(importance_type="split"),
+    "gain": model_all.booster_.feature_importance(importance_type="gain"),
+    "split": model_all.booster_.feature_importance(importance_type="split"),
 }).sort_values("gain", ascending=False)
 importances["pct"] = importances["gain"] / importances["gain"].sum() * 100
 
@@ -222,7 +257,7 @@ except Exception as e:
     print(f"\nPlot failed: {e}")
 
 # ─── SAVE ──────────────────────────────────────────────────────────────────────
-joblib.dump(model, MODEL_PATH)
+joblib.dump(final_model, MODEL_PATH)
 joblib.dump({
     "raw_feature_cols": raw_feature_cols,
     "cat_cols": cat_cols,
