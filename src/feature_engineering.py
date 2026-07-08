@@ -76,15 +76,37 @@ def classify_method(method: str, winner: str, fighter_1: str, fighter_2: str) ->
     return is_win_loss, win_side, finish_type
 
 
+def get_k_factor(total_fights: int) -> float:
+    if total_fights <= 5:
+        return 96.0
+    elif total_fights <= 10:
+        return 64.0
+    elif total_fights <= 20:
+        return 40.0
+    else:
+        return 24.0
+
+
+def apply_elo_decay(elo: float, last_fight_date: datetime | None, fight_date: datetime) -> float:
+    if last_fight_date is None:
+        return elo
+    days_inactive = (fight_date - last_fight_date).days
+    if days_inactive <= 365:
+        return elo
+    years_inactive = days_inactive / 365.0
+    decay_ratio = min(0.85, (years_inactive - 1.0) * 0.25)
+    return elo - (elo - ELO_INITIAL) * decay_ratio
+
+
 def elo_expected(rating_a: float, rating_b: float) -> float:
     return 1.0 / (1.0 + 10.0 ** ((rating_b - rating_a) / 400.0))
 
 
-def elo_update(rating_a: float, rating_b: float, score_a: float, k: float = ELO_K) -> tuple[float, float]:
+def elo_update(rating_a: float, rating_b: float, score_a: float, k_a: float = ELO_K, k_b: float = ELO_K) -> tuple[float, float]:
     expected_a = elo_expected(rating_a, rating_b)
     expected_b = 1.0 - expected_a
-    new_a = rating_a + k * (score_a - expected_a)
-    new_b = rating_b + k * ((1.0 - score_a) - expected_b)
+    new_a = rating_a + k_a * (score_a - expected_a)
+    new_b = rating_b + k_b * ((1.0 - score_a) - expected_b)
     return new_a, new_b
 
 
@@ -433,6 +455,12 @@ def main():
         if f2_name not in fighter_state:
             fighter_state[f2_name] = make_initial_state()
 
+        # Apply Elo decay for inactivity (>1 year)
+        f1_state = fighter_state[f1_name]
+        f2_state = fighter_state[f2_name]
+        f1_state["elo"] = apply_elo_decay(f1_state["elo"], f1_state["last_fight_date"], fight["_parsed_date"])
+        f2_state["elo"] = apply_elo_decay(f2_state["elo"], f2_state["last_fight_date"], fight["_parsed_date"])
+
         # Randomly assign fighter_a/fighter_b
         if random.random() < 0.5:
             a_name, b_name = f1_name, f2_name
@@ -592,7 +620,7 @@ def main():
         update_state(fighter_state[fight["fighter_1"]], fight, True, is_win_loss, win_side, finish_type, opponent_elo=f2_elo_before)
         update_state(fighter_state[fight["fighter_2"]], fight, False, is_win_loss, win_side, finish_type, opponent_elo=f1_elo_before)
 
-        # Elo update
+        # Elo update (with variable K-factor)
         f1_state = fighter_state[fight["fighter_1"]]
         f2_state = fighter_state[fight["fighter_2"]]
         if is_win_loss:
@@ -600,7 +628,9 @@ def main():
                 score_a = 1.0
             else:
                 score_a = 0.0
-            f1_new_elo, f2_new_elo = elo_update(f1_state["elo"], f2_state["elo"], score_a)
+            k_a = get_k_factor(f1_state["total_fights"])
+            k_b = get_k_factor(f2_state["total_fights"])
+            f1_new_elo, f2_new_elo = elo_update(f1_state["elo"], f2_state["elo"], score_a, k_a=k_a, k_b=k_b)
             f1_state["elo"] = f1_new_elo
             f2_state["elo"] = f2_new_elo
         # else: no change for draws/no-contests

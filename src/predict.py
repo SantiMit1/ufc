@@ -59,13 +59,35 @@ def classify_method(method: str, winner: str, fighter_1: str, fighter_2: str) ->
     return True, win_side, ft
 
 
+def get_k_factor(total_fights: int) -> float:
+    if total_fights <= 5:
+        return 96.0
+    elif total_fights <= 10:
+        return 64.0
+    elif total_fights <= 20:
+        return 40.0
+    else:
+        return 24.0
+
+
+def apply_elo_decay(elo: float, last_fight_date: datetime | None, fight_date: datetime) -> float:
+    if last_fight_date is None:
+        return elo
+    days_inactive = (fight_date - last_fight_date).days
+    if days_inactive <= 365:
+        return elo
+    years_inactive = days_inactive / 365.0
+    decay_ratio = min(0.85, (years_inactive - 1.0) * 0.25)
+    return elo - (elo - ELO_INITIAL) * decay_ratio
+
+
 def elo_expected(rating_a: float, rating_b: float) -> float:
     return 1.0 / (1.0 + 10.0 ** ((rating_b - rating_a) / 400.0))
 
 
-def elo_update(rating_a: float, rating_b: float, score_a: float, k: float = ELO_K) -> tuple:
+def elo_update(rating_a: float, rating_b: float, score_a: float, k_a: float = ELO_K, k_b: float = ELO_K) -> tuple:
     exp_a = elo_expected(rating_a, rating_b)
-    return rating_a + k * (score_a - exp_a), rating_b + k * ((1.0 - score_a) - (1.0 - exp_a))
+    return rating_a + k_a * (score_a - exp_a), rating_b + k_b * ((1.0 - score_a) - (1.0 - exp_a))
 
 
 def make_initial_state() -> dict:
@@ -340,6 +362,10 @@ def build_fighter_states(fights: list, fighters_cache: dict) -> dict:
         if f2 not in fighter_state:
             fighter_state[f2] = make_initial_state()
 
+        # Apply Elo decay for inactivity (>1 year)
+        fighter_state[f1]["elo"] = apply_elo_decay(fighter_state[f1]["elo"], fighter_state[f1]["last_fight_date"], fight["_parsed_date"])
+        fighter_state[f2]["elo"] = apply_elo_decay(fighter_state[f2]["elo"], fighter_state[f2]["last_fight_date"], fight["_parsed_date"])
+
         is_win_loss, win_side, finish_type = classify_method(fight["method"], fight["winner"], f1, f2)
         f1_elo_before = fighter_state[f1]["elo"]
         f2_elo_before = fighter_state[f2]["elo"]
@@ -348,7 +374,9 @@ def build_fighter_states(fights: list, fighters_cache: dict) -> dict:
 
         if is_win_loss:
             score_a = 1.0 if win_side == 1 else 0.0
-            f1_new, f2_new = elo_update(fighter_state[f1]["elo"], fighter_state[f2]["elo"], score_a)
+            k_a = get_k_factor(fighter_state[f1]["total_fights"])
+            k_b = get_k_factor(fighter_state[f2]["total_fights"])
+            f1_new, f2_new = elo_update(fighter_state[f1]["elo"], fighter_state[f2]["elo"], score_a, k_a=k_a, k_b=k_b)
             fighter_state[f1]["elo"] = f1_new
             fighter_state[f2]["elo"] = f2_new
 
