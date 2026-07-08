@@ -475,86 +475,99 @@ def main():
         v = fighters_cache.get(name, {}).get(key)
         return float(v) if v is not None else np.nan
 
-    height_a, reach_a = get_phys(fighter_a, "height_cm"), get_phys(fighter_a, "reach_cm")
-    height_b, reach_b = get_phys(fighter_b, "height_cm"), get_phys(fighter_b, "reach_cm")
+    def predict_order(f1, f2):
+        height1, reach1 = get_phys(f1, "height_cm"), get_phys(f1, "reach_cm")
+        height2, reach2 = get_phys(f2, "height_cm"), get_phys(f2, "reach_cm")
 
-    state_a = fighter_states.get(fighter_a, make_initial_state())
-    state_b = fighter_states.get(fighter_b, make_initial_state())
+        state1 = fighter_states.get(f1, make_initial_state())
+        state2 = fighter_states.get(f2, make_initial_state())
 
-    feat_a = compute_stats_from_state(state_a, fighter_a, fighters_cache, current_date)
-    feat_b = compute_stats_from_state(state_b, fighter_b, fighters_cache, current_date)
+        feat1 = compute_stats_from_state(state1, f1, fighters_cache, current_date)
+        feat2 = compute_stats_from_state(state2, f2, fighters_cache, current_date)
 
-    # Build feature row
-    row = {}
+        row = {}
 
-    diff_fields = [
-        "win_pct", "ko_rate", "sub_rate", "dec_rate",
-        "ko_loss_rate", "sub_loss_rate",
-        "sig_str_landed_per_min", "sig_str_absorbed_per_min", "sig_str_accuracy",
-        "td_avg_per_15min", "td_accuracy", "td_defense",
-        "sub_att_per_15min", "ctrl_time_pct", "days_since_last_fight",
-    ]
+        diff_fields = [
+            "win_pct", "ko_rate", "sub_rate", "dec_rate",
+            "ko_loss_rate", "sub_loss_rate",
+            "sig_str_landed_per_min", "sig_str_absorbed_per_min", "sig_str_accuracy",
+            "td_avg_per_15min", "td_accuracy", "td_defense",
+            "sub_att_per_15min", "ctrl_time_pct", "days_since_last_fight",
+        ]
 
-    row["age_a"] = feat_a["age"]
-    row["age_b"] = feat_b["age"]
-    row["stance_a"] = feat_a["stance"]
-    row["stance_b"] = feat_b["stance"]
-    row["is_debut_a"] = int(feat_a["is_debut"])
-    row["is_debut_b"] = int(feat_b["is_debut"])
-    row["category"] = category
-    row["age_diff"] = safe_sub(feat_a["age"], feat_b["age"])
-    row["height_diff"] = safe_sub(height_a, height_b)
-    row["reach_diff"] = safe_sub(reach_a, reach_b)
-    row["win_streak_diff"] = feat_a["current_win_streak"] - feat_b["current_win_streak"]
-    row["losing_streak_diff"] = feat_a["current_losing_streak"] - feat_b["current_losing_streak"]
-    row["total_fights_diff"] = feat_a["total_fights"] - feat_b["total_fights"]
-    row["elo_diff"] = feat_a["elo"] - feat_b["elo"]
+        row["age_a"] = feat1["age"]
+        row["age_b"] = feat2["age"]
+        row["stance_a"] = feat1["stance"]
+        row["stance_b"] = feat2["stance"]
+        row["is_debut_a"] = int(feat1["is_debut"])
+        row["is_debut_b"] = int(feat2["is_debut"])
+        row["category"] = category
+        row["age_diff"] = safe_sub(feat1["age"], feat2["age"])
+        row["height_diff"] = safe_sub(height1, height2)
+        row["reach_diff"] = safe_sub(reach1, reach2)
+        row["win_streak_diff"] = feat1["current_win_streak"] - feat2["current_win_streak"]
+        row["losing_streak_diff"] = feat1["current_losing_streak"] - feat2["current_losing_streak"]
+        row["total_fights_diff"] = feat1["total_fights"] - feat2["total_fights"]
+        row["elo_diff"] = feat1["elo"] - feat2["elo"]
 
-    for field in diff_fields:
-        row[f"{field}_diff"] = safe_sub(feat_a[field], feat_b[field])
+        for field in diff_fields:
+            row[f"{field}_diff"] = safe_sub(feat1[field], feat2[field])
 
-    new_fighter_fields = [
-        "recent_3_wins", "recent_3_losses", "recent_5_wins", "recent_5_losses",
-        "recent_3_ko_loss_rate", "recent_5_ko_loss_rate",
-        "decay_sig_per_min", "decay_sig_absorbed_per_min", "decay_td_per_15min",
-        "avg_opp_elo", "avg_opp_elo_wins",
-    ]
-    for field in new_fighter_fields:
-        row[f"{field}_a"] = feat_a[field]
-        row[f"{field}_b"] = feat_b[field]
-        row[f"{field}_diff"] = safe_sub(feat_a[field], feat_b[field])
+        new_fighter_fields = [
+            "recent_3_wins", "recent_3_losses", "recent_5_wins", "recent_5_losses",
+            "recent_3_ko_loss_rate", "recent_5_ko_loss_rate",
+            "decay_sig_per_min", "decay_sig_absorbed_per_min", "decay_td_per_15min",
+            "avg_opp_elo", "avg_opp_elo_wins",
+        ]
+        for field in new_fighter_fields:
+            row[f"{field}_a"] = feat1[field]
+            row[f"{field}_b"] = feat2[field]
+            row[f"{field}_diff"] = safe_sub(feat1[field], feat2[field])
 
-    raw_cols = feature_meta["raw_feature_cols"]
-    X_raw = pd.DataFrame([row])[raw_cols]
+        raw_cols = feature_meta["raw_feature_cols"]
+        X_raw = pd.DataFrame([row])[raw_cols]
 
-    for c in feature_meta["numeric_cols"]:
-        if c in X_raw.columns:
-            X_raw[c] = X_raw[c].astype(float)
+        for c in feature_meta["numeric_cols"]:
+            if c in X_raw.columns:
+                X_raw[c] = X_raw[c].astype(float)
 
-    for c in ["is_debut_a", "is_debut_b"]:
-        if c in X_raw.columns:
-            X_raw[c] = X_raw[c].astype(int)
-
-    if model_type == "lightgbm":
         for c in ["is_debut_a", "is_debut_b"]:
             if c in X_raw.columns:
                 X_raw[c] = X_raw[c].astype(int)
-    else:
-        for c in feature_meta["numeric_cols"]:
-            if c in X_raw.columns and c in feature_meta.get("medians", {}):
-                X_raw[c] = X_raw[c].fillna(feature_meta["medians"][c])
 
-    X_encoded = pd.get_dummies(X_raw, columns=feature_meta["cat_cols"], drop_first=True)
-    for col in feature_meta["feature_cols_final"]:
-        if col not in X_encoded.columns:
-            X_encoded[col] = 0
-    X_encoded = X_encoded[feature_meta["feature_cols_final"]]
+        if model_type == "lightgbm":
+            for c in ["is_debut_a", "is_debut_b"]:
+                if c in X_raw.columns:
+                    X_raw[c] = X_raw[c].astype(int)
+        else:
+            for c in feature_meta["numeric_cols"]:
+                if c in X_raw.columns and c in feature_meta.get("medians", {}):
+                    X_raw[c] = X_raw[c].fillna(feature_meta["medians"][c])
 
-    if model_type == "lightgbm":
-        prob_a = model.predict_proba(X_encoded)[0, 1]
-    else:
-        prob_a = model.predict_proba(scaler.transform(X_encoded))[0, 1]
+        X_encoded = pd.get_dummies(X_raw, columns=feature_meta["cat_cols"], drop_first=True)
+        for col in feature_meta["feature_cols_final"]:
+            if col not in X_encoded.columns:
+                X_encoded[col] = 0
+        X_encoded = X_encoded[feature_meta["feature_cols_final"]]
+
+        if model_type == "lightgbm":
+            prob = model.predict_proba(X_encoded)[0, 1]
+        else:
+            prob = model.predict_proba(scaler.transform(X_encoded))[0, 1]
+        return prob
+
+    # Predict in both orders and average to remove order-dependent bias
+    prob_a_forward = predict_order(fighter_a, fighter_b)
+    prob_b_forward = predict_order(fighter_b, fighter_a)
+    prob_a = (prob_a_forward + (1.0 - prob_b_forward)) / 2.0
     prob_b = 1.0 - prob_a
+
+    height_a, reach_a = get_phys(fighter_a, "height_cm"), get_phys(fighter_a, "reach_cm")
+    height_b, reach_b = get_phys(fighter_b, "height_cm"), get_phys(fighter_b, "reach_cm")
+    state_a = fighter_states.get(fighter_a, make_initial_state())
+    state_b = fighter_states.get(fighter_b, make_initial_state())
+    feat_a = compute_stats_from_state(state_a, fighter_a, fighters_cache, current_date)
+    feat_b = compute_stats_from_state(state_b, fighter_b, fighters_cache, current_date)
 
     favorite, underdog = (fighter_a, fighter_b) if prob_a >= prob_b else (fighter_b, fighter_a)
     fav_prob, dog_prob = (prob_a, prob_b) if prob_a >= prob_b else (prob_b, prob_a)
@@ -589,7 +602,6 @@ def main():
         if not np.isnan(feat["avg_opp_elo_wins"]):
             print(f"    Avg Opp Elo (wins): {feat['avg_opp_elo_wins']:.0f}")
         if not np.isnan(feat["elo"]):
-            s = "Win Streak" if feat["current_win_streak"] > 0 else "Losing Streak" if feat["current_losing_streak"] > 0 else "No Streak"
             if feat["current_win_streak"] > 0:
                 print(f"    Win Streak: {feat['current_win_streak']}")
             elif feat["current_losing_streak"] > 0:
