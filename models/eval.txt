@@ -1,22 +1,48 @@
 ==================================================
-Training stacked ensemble (LightGBM + XGBoost + Logistic Regression)
-==================================================
-
-==================================================
 Test set evaluation (stacked ensemble)
 ==================================================
-Accuracy:     0.6270
-Log Loss:     0.6470
-Brier score:  0.2276
-ROC-AUC:      0.6828
-Best rounds:  171
+Accuracy:     0.6262
+Log Loss:     0.6464
+Brier score:  0.2273
+ROC-AUC:      0.6832
+LGB rounds:   252  |  XGB rounds:  35
 
                Ensemble Calibration               
   Bin range        n  avg_prob  obs_freq
   -----------------------------------
-  [0.2-0.3)     16     0.278     0.062
-  [0.3-0.4)    261     0.357     0.276
-  [0.4-0.5)    382     0.453     0.442
-  [0.5-0.6)    376     0.548     0.556
-  [0.6-0.7)    207     0.637     0.729
-  [0.7-0.8)     10     0.722     0.800
+  [0.2-0.3)     18     0.280     0.056
+  [0.3-0.4)    253     0.356     0.289
+  [0.4-0.5)    395     0.453     0.435
+  [0.5-0.6)    379     0.548     0.565
+  [0.6-0.7)    194     0.637     0.716
+  [0.7-0.8)     13     0.719     0.846
+
+               Feature Importances (by gain):               
+  Feature                                        Gain      %  Split
+  --------------------------------------------------------------
+  elo_diff                                      11711  14.4%    541
+  age_diff                                       8830  10.9%    519
+  reach_diff                                     4638   5.7%    421
+  decay_td_per_15min_b                           3350   4.1%    300
+  decay_sig_absorbed_per_min_b                   3189   3.9%    314
+  age_a                                          2492   3.1%    229
+  decay_sig_absorbed_per_min_a                   2471   3.0%    275
+  days_since_last_fight_diff                     2327   2.9%    242
+  decay_sig_per_min_b                            2262   2.8%    268
+  decay_td_per_15min_a                           2008   2.5%    208
+  td_accuracy_diff                               2007   2.5%    230
+  avg_opp_elo_wins_a                             1950   2.4%    227
+  avg_opp_elo_wins_b                             1756   2.2%    207
+  td_defense_diff                                1751   2.2%    203
+  avg_opp_elo_diff                               1725   2.1%    163
+  sig_str_absorbed_per_min_diff                  1716   2.1%    149
+  decay_td_per_15min_diff                        1592   2.0%    161
+  td_avg_per_15min_diff                          1511   1.9%    184
+  avg_opp_elo_b                                  1499   1.8%    167
+  win_pct_diff                                   1394   1.7%    145
+  sig_str_accuracy_diff                          1390   1.7%    164
+  avg_opp_elo_a                                  1189   1.5%    143
+  avg_opp_elo_wins_diff                          1138   1.4%    125
+  ctrl_time_pct_diff                             1126   1.4%    130
+  decay_sig_per_min_a                            1117   1.4%    132
+                           Top-25 cumulative           81.4%
