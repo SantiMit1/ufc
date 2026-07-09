@@ -566,8 +566,6 @@ def main():
         row["age_b"] = feat2["age"]
         row["stance_a"] = feat1["stance"]
         row["stance_b"] = feat2["stance"]
-        row["is_debut_a"] = int(feat1["is_debut"])
-        row["is_debut_b"] = int(feat2["is_debut"])
         row["category"] = category
         row["age_diff"] = safe_sub(feat1["age"], feat2["age"])
         row["height_diff"] = safe_sub(height1, height2)
@@ -587,8 +585,6 @@ def main():
             "avg_opp_elo", "avg_opp_elo_wins",
         ]
         for field in new_fighter_fields:
-            row[f"{field}_a"] = feat1[field]
-            row[f"{field}_b"] = feat2[field]
             row[f"{field}_diff"] = safe_sub(feat1[field], feat2[field])
 
         raw_cols = feature_meta["raw_feature_cols"]
@@ -597,10 +593,6 @@ def main():
         for c in feature_meta["numeric_cols"]:
             if c in X_raw.columns:
                 X_raw[c] = X_raw[c].astype(float)
-
-        for c in ["is_debut_a", "is_debut_b"]:
-            if c in X_raw.columns:
-                X_raw[c] = X_raw[c].astype(int)
 
         for c in feature_meta["numeric_cols"]:
             if c in X_raw.columns and c in feature_meta.get("medians", {}):
