@@ -474,15 +474,9 @@ def predict_fight(fighter_a: str, fighter_b: str, category: str,
             if c in X_raw.columns:
                 X_raw[c] = X_raw[c].astype(int)
 
-        model_type = feature_meta.get("model_type")
-        if model_type in ("lightgbm", "stacking"):
-            for c in ["is_debut_a", "is_debut_b"]:
-                if c in X_raw.columns:
-                    X_raw[c] = X_raw[c].astype(int)
-        else:
-            for c in feature_meta["numeric_cols"]:
-                if c in X_raw.columns and c in feature_meta.get("medians", {}):
-                    X_raw[c] = X_raw[c].fillna(feature_meta["medians"][c])
+        for c in feature_meta["numeric_cols"]:
+            if c in X_raw.columns and c in feature_meta.get("medians", {}):
+                X_raw[c] = X_raw[c].fillna(feature_meta["medians"][c])
 
         X_encoded = pd.get_dummies(X_raw, columns=feature_meta["cat_cols"], drop_first=True)
         for col in feature_meta["feature_cols_final"]:

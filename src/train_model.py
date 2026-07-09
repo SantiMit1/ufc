@@ -76,8 +76,8 @@ X_test = X_test[feature_cols_final]
 
 print(f"Train: {len(X_train)}  Val: {len(X_val)}  Test: {len(X_test)}  Features: {len(feature_cols_final)}")
 
-# ─── HYPERPARAMETER SEARCH ────────────────────────────────────────────────────
-param_grid = {
+# ─── LIGHTGBM HYPERPARAMETER SEARCH ───────────────────────────────────────────
+lgb_param_grid = {
     "learning_rate": [0.01, 0.03, 0.05],
     "num_leaves": [31, 63, 127],
     "min_child_samples": [10, 20, 50],
@@ -87,16 +87,16 @@ param_grid = {
     "colsample_bytree": [0.7, 0.8, 1.0],
 }
 
-keys = list(param_grid.keys())
-best_score = 0
-best_params = {}
-n_trials = 50
-print(f"\nHyperparameter search ({n_trials} random trials)...")
+best_lgb_score = 0
+best_lgb_params = {}
+best_n_lgb = 0
+n_lgb_trials = 50
+print(f"\nLightGBM hyperparameter search ({n_lgb_trials} random trials)...")
 print(f"{'trial':>5s} {'val_auc':>8s} {'val_ll':>8s} {'lr':>5s} {'leaves':>5s} {'min_child':>9s} {'reg_a':>6s} {'reg_l':>6s} {'sub':>5s} {'col':>5s}")
 print(f"{'-'*75}")
 
-for trial in range(n_trials):
-    params = {k: np.random.choice(v) for k, v in param_grid.items()}
+for trial in range(n_lgb_trials):
+    params = {k: np.random.choice(v) for k, v in lgb_param_grid.items()}
     m = lgb.LGBMClassifier(
         n_estimators=2000, verbose=-1, random_state=42, missing=float("nan"),
         class_weight="balanced", max_depth=-1,
@@ -107,45 +107,90 @@ for trial in range(n_trials):
     yv_pred = m.predict_proba(X_val)[:, 1]
     va = roc_auc_score(y_val, yv_pred)
     vl = log_loss(y_val, yv_pred)
-    if va > best_score:
-        best_score = va
-        best_params = params.copy()
-        best_n = m.best_iteration_
+    if va > best_lgb_score:
+        best_lgb_score = va
+        best_lgb_params = params.copy()
+        best_n_lgb = m.best_iteration_
     if trial < 20:
         print(f"{trial:5d} {va:8.4f} {vl:8.4f}  {params['learning_rate']:5.2f} {params['num_leaves']:5d} {params['min_child_samples']:9d} {params['reg_alpha']:6.2f} {params['reg_lambda']:6.2f} {params['subsample']:5.2f} {params['colsample_bytree']:5.2f}")
 
-print(f"\nBest hyperparams (val_auc={best_score:.4f}, iters={best_n}):")
-for k, v in best_params.items():
+print(f"\nBest LightGBM hyperparams (val_auc={best_lgb_score:.4f}, iters={best_n_lgb}):")
+for k, v in best_lgb_params.items():
     print(f"  {k}: {v}")
 
-def build_lgbm_model(n_estimators: int) -> lgb.LGBMClassifier:
-    return lgb.LGBMClassifier(
-        n_estimators=n_estimators,
-        verbose=-1,
-        random_state=42,
-        missing=float("nan"),
-        class_weight="balanced",
-        max_depth=-1,
-        **best_params,
-    )
 
+# ─── XGBoost HYPERPARAMETER SEARCH ────────────────────────────────────────────
+xgb_param_grid = {
+    "learning_rate": [0.01, 0.03, 0.05, 0.1],
+    "max_depth": [3, 4, 6],
+    "min_child_weight": [1, 2, 5],
+    "subsample": [0.7, 0.8, 1.0],
+    "colsample_bytree": [0.7, 0.8, 1.0],
+    "reg_alpha": [0.0, 0.01, 0.1],
+    "reg_lambda": [0.0, 0.5, 1.0],
+}
 
-def build_xgb_model() -> xgb.XGBClassifier:
-    return xgb.XGBClassifier(
-        n_estimators=max(best_n, 300),
-        learning_rate=0.05,
-        max_depth=4,
-        min_child_weight=2,
-        subsample=0.8,
-        colsample_bytree=0.8,
-        reg_alpha=0.0,
-        reg_lambda=1.0,
+best_xgb_score = 0
+best_xgb_params = {}
+best_n_xgb = 0
+n_xgb_trials = 20
+print(f"\nXGBoost hyperparameter search ({n_xgb_trials} random trials)...")
+print(f"{'trial':>5s} {'val_auc':>8s} {'val_ll':>8s} {'lr':>5s} {'max_d':>5s} {'min_child':>9s} {'sub':>5s} {'col':>5s} {'reg_a':>6s} {'reg_l':>6s}")
+print(f"{'-'*80}")
+
+for trial in range(n_xgb_trials):
+    params = {k: np.random.choice(v) for k, v in xgb_param_grid.items()}
+    m = xgb.XGBClassifier(
+        n_estimators=1000,
+        early_stopping_rounds=30,
         objective="binary:logistic",
         eval_metric="logloss",
         tree_method="hist",
         random_state=42,
         n_jobs=-1,
         missing=np.nan,
+        **params,
+    )
+    m.fit(X_train, y_train, eval_set=[(X_val, y_val)], verbose=False)
+    yv_pred = m.predict_proba(X_val)[:, 1]
+    va = roc_auc_score(y_val, yv_pred)
+    vl = log_loss(y_val, yv_pred)
+    n_est = m.best_iteration
+    if va > best_xgb_score:
+        best_xgb_score = va
+        best_xgb_params = params.copy()
+        best_n_xgb = n_est
+    if trial < 10:
+        print(f"{trial:5d} {va:8.4f} {vl:8.4f}  {params['learning_rate']:5.2f} {params['max_depth']:5d} {params['min_child_weight']:9d} {params['subsample']:5.2f} {params['colsample_bytree']:5.2f} {params['reg_alpha']:6.2f} {params['reg_lambda']:6.2f}")
+
+print(f"\nBest XGBoost hyperparams (val_auc={best_xgb_score:.4f}, iters={best_n_xgb}):")
+for k, v in best_xgb_params.items():
+    print(f"  {k}: {v}")
+
+
+# ─── BUILD BASE MODELS FOR ENSEMBLE ───────────────────────────────────────────
+def build_lgbm_model() -> lgb.LGBMClassifier:
+    return lgb.LGBMClassifier(
+        n_estimators=best_n_lgb,
+        verbose=-1,
+        random_state=42,
+        missing=float("nan"),
+        class_weight="balanced",
+        max_depth=-1,
+        **best_lgb_params,
+    )
+
+
+def build_xgb_model() -> xgb.XGBClassifier:
+    return xgb.XGBClassifier(
+        n_estimators=max(best_n_xgb, 50),
+        objective="binary:logistic",
+        eval_metric="logloss",
+        tree_method="hist",
+        random_state=42,
+        n_jobs=-1,
+        missing=np.nan,
+        **best_xgb_params,
     )
 
 
@@ -157,7 +202,7 @@ lr_base = Pipeline([
 
 stacking_model = ChronologicalStackingEnsemble(
     estimators=[
-        ("lgbm", build_lgbm_model(best_n)),
+        ("lgbm", build_lgbm_model()),
         ("xgb", build_xgb_model()),
         ("logreg", lr_base),
     ],
@@ -185,7 +230,7 @@ print(f"Accuracy:     {acc:.4f}")
 print(f"Log Loss:     {ll:.4f}")
 print(f"Brier score:  {bs:.4f}")
 print(f"ROC-AUC:      {roc:.4f}")
-print(f"Best rounds:  {best_n}")
+print(f"LGB rounds:   {best_n_lgb}  |  XGB rounds:  {best_n_xgb}")
 
 # Probability calibration of the ensemble predictions
 bins = np.linspace(0.0, 1.0, 11)
@@ -223,7 +268,6 @@ try:
     plt.rcParams.update({"font.size": 9})
     top_n = 20
     top = importances.head(top_n).copy()
-    # Rename new columns for cleaner display
     rename_map = {
         "decay_sig_absorbed_per_min": "decay_sig_abs/min",
         "decay_sig_per_min": "decay_sig/min",
@@ -275,7 +319,10 @@ joblib.dump({
     "numeric_cols": numeric_cols,
     "feature_cols_final": feature_cols_final,
     "model_type": "stacking",
-    "best_params": best_params,
+    "best_lgb_params": best_lgb_params,
+    "best_n_lgb": best_n_lgb,
+    "best_xgb_params": best_xgb_params,
+    "best_n_xgb": best_n_xgb,
     "ensemble_estimators": ["lightgbm", "xgboost", "logistic_regression"],
     "ensemble_cv": "TimeSeriesSplit(n_splits=5)",
     "test_roc_auc": roc,

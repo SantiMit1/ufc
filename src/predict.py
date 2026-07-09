@@ -430,7 +430,6 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", default=MODEL_PATH)
     parser.add_argument("--features", default=FEATURE_COLS_PATH)
-    parser.add_argument("--no-scaler", action="store_true")
     args = parser.parse_args()
 
     print("=" * 60)
@@ -449,38 +448,35 @@ def main():
     print("  Loading model...")
     model = joblib.load(args.model)
     feature_meta = joblib.load(args.features)
-    model_type = feature_meta.get("model_type")
+    model_type = feature_meta.get("model_type", "stacking")
 
     if model_type == "lightgbm":
-        scaler = None
         print(f"  Model type: LightGBM")
     elif model_type == "stacking":
-        scaler = None
         print(f"  Model type: Stacked ensemble")
     else:
-        if args.no_scaler:
-            scaler = None
-        else:
-            scaler = joblib.load(args.scaler)
         print(f"  Model type: Logistic Regression")
     print("  Model loaded")
 
     shap_explainer = None
     if model_type in ("lightgbm", "stacking"):
+        lgb_base = None
         if model_type == "stacking":
             lgb_base = model.named_estimators_.get("lgbm")
-        elif hasattr(model, 'calibrated_classifiers_'):
-            cc = model.calibrated_classifiers_[0]
-            lgb_base = cc.estimator if hasattr(cc, 'estimator') else cc.base_estimator_
         else:
-            lgb_base = model
+            if hasattr(model, 'calibrated_classifiers_'):
+                cc = model.calibrated_classifiers_[0]
+                lgb_base = cc.estimator if hasattr(cc, 'estimator') else cc.base_estimator_
+            else:
+                lgb_base = model
         if lgb_base is not None and hasattr(lgb_base, "named_steps"):
             lgb_base = lgb_base.named_steps.get("logreg", lgb_base)
-        shap_explainer = shap.TreeExplainer(lgb_base)
-        if model_type == "stacking":
-            print("  SHAP explainer ready (LightGBM base of stacked ensemble)")
-        else:
-            print("  SHAP explainer ready")
+        if lgb_base is not None:
+            shap_explainer = shap.TreeExplainer(lgb_base)
+            if model_type == "stacking":
+                print("  SHAP explainer ready (LightGBM base of stacked ensemble)")
+            else:
+                print("  SHAP explainer ready")
 
     print("  Building fighter histories...")
     fighter_states = build_fighter_states(fights, fighters_cache)
@@ -581,10 +577,10 @@ def main():
         for c in ["is_debut_a", "is_debut_b"]:
             if c in X_raw.columns:
                 X_raw[c] = X_raw[c].astype(int)
-        else:
-            for c in feature_meta["numeric_cols"]:
-                if c in X_raw.columns and c in feature_meta.get("medians", {}):
-                    X_raw[c] = X_raw[c].fillna(feature_meta["medians"][c])
+
+        for c in feature_meta["numeric_cols"]:
+            if c in X_raw.columns and c in feature_meta.get("medians", {}):
+                X_raw[c] = X_raw[c].fillna(feature_meta["medians"][c])
 
         X_encoded = pd.get_dummies(X_raw, columns=feature_meta["cat_cols"], drop_first=True)
         for col in feature_meta["feature_cols_final"]:
@@ -592,10 +588,7 @@ def main():
                 X_encoded[col] = 0
         X_encoded = X_encoded[feature_meta["feature_cols_final"]]
 
-        if model_type in ("lightgbm", "stacking"):
-            prob = model.predict_proba(X_encoded)[0, 1]
-        else:
-            prob = model.predict_proba(scaler.transform(X_encoded))[0, 1]
+        prob = model.predict_proba(X_encoded)[0, 1]
 
         shap_vals = None
         if shap_explainer is not None:
