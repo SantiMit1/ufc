@@ -5,15 +5,20 @@ import joblib
 import shap
 from datetime import datetime
 from typing import Any
+from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import argparse
 from ensemble_utils import ChronologicalStackingEnsemble
 from stats_utils import compute_priors, shrink_rate, shrink_proportion
 
-FIGHTS_PATH = "data/fights.json"
-FIGHTERS_CACHE_PATH = "data/fighters_cache.json"
-MODEL_PATH = "models/ufc_stacking_ensemble.pkl"
-FEATURE_COLS_PATH = "models/ufc_stacking_ensemble_meta.pkl"
+BASE_DIR = Path(__file__).resolve().parent.parent
+FIGHTS_PATH = BASE_DIR / "data" / "fights.json"
+FIGHTERS_CACHE_PATH = BASE_DIR / "data" / "fighters_cache.json"
+MODEL_PATH = BASE_DIR / "models" / "ufc_stacking_ensemble.pkl"
+FEATURE_COLS_PATH = BASE_DIR / "models" / "ufc_stacking_ensemble_meta.pkl"
 
 CUTOFF_DATE = datetime(2001, 1, 1)
 ELO_K = 96
