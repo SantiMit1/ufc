@@ -8,6 +8,7 @@ from typing import Any
 
 import argparse
 from ensemble_utils import ChronologicalStackingEnsemble
+from stats_utils import compute_priors, shrink_rate, shrink_proportion
 
 FIGHTS_PATH = "data/fights.json"
 FIGHTERS_CACHE_PATH = "data/fighters_cache.json"
@@ -209,7 +210,7 @@ def update_state(state: dict, fight: dict, is_fighter_1: bool, is_win_loss: bool
             state["count_opp_wins"] += 1
 
 
-def compute_stats_from_state(fighter_state: dict, fighter_name: str, fighters_cache: dict, current_date: datetime) -> dict:
+def compute_stats_from_state(fighter_state: dict, fighter_name: str, fighters_cache: dict, current_date: datetime, category: str = "", priors: dict | None = None) -> dict:
     f = fighter_state
     total_fights = f["total_fights"]
     wins = f["wins"]
@@ -233,18 +234,26 @@ def compute_stats_from_state(fighter_state: dict, fighter_name: str, fighters_ca
     total_seconds = f["total_seconds_fought"]
     total_minutes = total_seconds / 60.0 if total_seconds > 0 else np.nan
 
+    if priors is not None:
+        p = priors.get(category, priors.get("global", {}))
+    else:
+        p = {}
+
     sig_str_landed = f["sig_str_landed"]
     sig_str_attempted = f["sig_str_attempted"]
     sig_str_absorbed = f["sig_str_absorbed"]
 
     if total_minutes > 0 and not np.isnan(total_minutes):
-        sig_str_landed_per_min = sig_str_landed / total_minutes
-        sig_str_absorbed_per_min = sig_str_absorbed / total_minutes
+        pm = p.get("sig_str_landed_per_min", np.nan)
+        sig_str_landed_per_min = shrink_rate(sig_str_landed, total_minutes, pm, total_fights=total_fights) if not np.isnan(pm) else sig_str_landed / total_minutes
+        pm = p.get("sig_str_absorbed_per_min", np.nan)
+        sig_str_absorbed_per_min = shrink_rate(sig_str_absorbed, total_minutes, pm, total_fights=total_fights) if not np.isnan(pm) else sig_str_absorbed / total_minutes
     else:
         sig_str_landed_per_min = np.nan
         sig_str_absorbed_per_min = np.nan
 
-    sig_str_accuracy = sig_str_landed / sig_str_attempted if sig_str_attempted > 0 else np.nan
+    pa = p.get("sig_str_accuracy", np.nan)
+    sig_str_accuracy = shrink_proportion(sig_str_landed, sig_str_attempted, pa, total_fights=total_fights) if not np.isnan(pa) else (sig_str_landed / sig_str_attempted if sig_str_attempted > 0 else np.nan)
 
     td_landed = f["td_landed"]
     td_attempted = f["td_attempted"]
@@ -252,12 +261,22 @@ def compute_stats_from_state(fighter_state: dict, fighter_name: str, fighters_ca
     td_against_attempted = f["td_against_attempted"]
 
     if total_minutes > 0 and not np.isnan(total_minutes):
-        td_avg_per_15min = td_landed / total_minutes * 15.0
+        pm = p.get("td_avg_per_15min", np.nan)
+        if not np.isnan(pm):
+            td_avg_per_15min = shrink_rate(td_landed, total_minutes, pm, total_fights=total_fights) * 15.0
+        else:
+            td_avg_per_15min = td_landed / total_minutes * 15.0
     else:
         td_avg_per_15min = np.nan
 
-    td_accuracy = td_landed / td_attempted if td_attempted > 0 else np.nan
-    td_defense = (1.0 - td_against_landed / td_against_attempted) if td_against_attempted > 0 else np.nan
+    pa = p.get("td_accuracy", np.nan)
+    td_accuracy = shrink_proportion(td_landed, td_attempted, pa, total_fights=total_fights) if not np.isnan(pa) else (td_landed / td_attempted if td_attempted > 0 else np.nan)
+    pd_ = p.get("td_defense", np.nan)
+    if not np.isnan(pd_):
+        td_def = td_against_attempted - td_against_landed
+        td_defense = shrink_proportion(td_def, td_against_attempted, pd_, total_fights=total_fights)
+    else:
+        td_defense = (1.0 - td_against_landed / td_against_attempted) if td_against_attempted > 0 else np.nan
     sub_att = f["sub_attempts"]
     sub_att_per_15min = sub_att / total_minutes * 15.0 if total_minutes > 0 and not np.isnan(total_minutes) else np.nan
     ctrl_time_pct = f["control_time_seconds"] / total_seconds if total_seconds > 0 else np.nan
@@ -445,6 +464,11 @@ def main():
         fighters_cache = json.load(f)
     print(f"  {len(fighters_cache)} fighters in cache")
 
+    print("  Computing population priors by weight class...")
+    priors = compute_priors(fights)
+    for cat, vals in priors.items():
+        print(f"    {cat}: sig_str/min={vals['sig_str_landed_per_min']:.2f}, td/15min={vals['td_avg_per_15min']:.2f}")
+
     print("  Loading model...")
     model = joblib.load(args.model)
     feature_meta = joblib.load(args.features)
@@ -525,8 +549,8 @@ def main():
         state1 = fighter_states.get(f1, make_initial_state())
         state2 = fighter_states.get(f2, make_initial_state())
 
-        feat1 = compute_stats_from_state(state1, f1, fighters_cache, current_date)
-        feat2 = compute_stats_from_state(state2, f2, fighters_cache, current_date)
+        feat1 = compute_stats_from_state(state1, f1, fighters_cache, current_date, category=category, priors=priors)
+        feat2 = compute_stats_from_state(state2, f2, fighters_cache, current_date, category=category, priors=priors)
 
         row = {}
 
@@ -615,8 +639,8 @@ def main():
     height_b, reach_b = get_phys(fighter_b, "height_cm"), get_phys(fighter_b, "reach_cm")
     state_a = fighter_states.get(fighter_a, make_initial_state())
     state_b = fighter_states.get(fighter_b, make_initial_state())
-    feat_a = compute_stats_from_state(state_a, fighter_a, fighters_cache, current_date)
-    feat_b = compute_stats_from_state(state_b, fighter_b, fighters_cache, current_date)
+    feat_a = compute_stats_from_state(state_a, fighter_a, fighters_cache, current_date, category=category, priors=priors)
+    feat_b = compute_stats_from_state(state_b, fighter_b, fighters_cache, current_date, category=category, priors=priors)
 
     favorite, underdog = (fighter_a, fighter_b) if prob_a >= prob_b else (fighter_b, fighter_a)
     fav_prob, dog_prob = (prob_a, prob_b) if prob_a >= prob_b else (prob_b, prob_a)

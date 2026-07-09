@@ -18,6 +18,7 @@ from pathlib import Path
 from typing import Any
 
 from ensemble_utils import ChronologicalStackingEnsemble
+from stats_utils import compute_priors, shrink_rate, shrink_proportion
 
 # ── Paths (same as predict.py) ───────────────────────────────────────────────
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -224,7 +225,8 @@ def update_state(state: dict, fight: dict, is_fighter_1: bool, is_win_loss: bool
 
 
 def compute_stats_from_state(fighter_state: dict, fighter_name: str,
-                             fighters_cache: dict, current_date: datetime) -> dict:
+                             fighters_cache: dict, current_date: datetime,
+                             category: str = "", priors: dict | None = None) -> dict:
     f = fighter_state
     total_fights = f["total_fights"]
     wins = f["wins"]
@@ -248,18 +250,26 @@ def compute_stats_from_state(fighter_state: dict, fighter_name: str,
     total_seconds = f["total_seconds_fought"]
     total_minutes = total_seconds / 60.0 if total_seconds > 0 else np.nan
 
+    if priors is not None:
+        p = priors.get(category, priors.get("global", {}))
+    else:
+        p = {}
+
     sig_str_landed = f["sig_str_landed"]
     sig_str_attempted = f["sig_str_attempted"]
     sig_str_absorbed = f["sig_str_absorbed"]
 
     if total_minutes > 0 and not np.isnan(total_minutes):
-        sig_str_landed_per_min = sig_str_landed / total_minutes
-        sig_str_absorbed_per_min = sig_str_absorbed / total_minutes
+        pm = p.get("sig_str_landed_per_min", np.nan)
+        sig_str_landed_per_min = shrink_rate(sig_str_landed, total_minutes, pm, total_fights=total_fights) if not np.isnan(pm) else sig_str_landed / total_minutes
+        pm = p.get("sig_str_absorbed_per_min", np.nan)
+        sig_str_absorbed_per_min = shrink_rate(sig_str_absorbed, total_minutes, pm, total_fights=total_fights) if not np.isnan(pm) else sig_str_absorbed / total_minutes
     else:
         sig_str_landed_per_min = np.nan
         sig_str_absorbed_per_min = np.nan
 
-    sig_str_accuracy = sig_str_landed / sig_str_attempted if sig_str_attempted > 0 else np.nan
+    pa = p.get("sig_str_accuracy", np.nan)
+    sig_str_accuracy = shrink_proportion(sig_str_landed, sig_str_attempted, pa, total_fights=total_fights) if not np.isnan(pa) else (sig_str_landed / sig_str_attempted if sig_str_attempted > 0 else np.nan)
 
     td_landed = f["td_landed"]
     td_attempted = f["td_attempted"]
@@ -267,12 +277,22 @@ def compute_stats_from_state(fighter_state: dict, fighter_name: str,
     td_against_attempted = f["td_against_attempted"]
 
     if total_minutes > 0 and not np.isnan(total_minutes):
-        td_avg_per_15min = td_landed / total_minutes * 15.0
+        pm = p.get("td_avg_per_15min", np.nan)
+        if not np.isnan(pm):
+            td_avg_per_15min = shrink_rate(td_landed, total_minutes, pm, total_fights=total_fights) * 15.0
+        else:
+            td_avg_per_15min = td_landed / total_minutes * 15.0
     else:
         td_avg_per_15min = np.nan
 
-    td_accuracy = td_landed / td_attempted if td_attempted > 0 else np.nan
-    td_defense = (1.0 - td_against_landed / td_against_attempted) if td_against_attempted > 0 else np.nan
+    pa = p.get("td_accuracy", np.nan)
+    td_accuracy = shrink_proportion(td_landed, td_attempted, pa, total_fights=total_fights) if not np.isnan(pa) else (td_landed / td_attempted if td_attempted > 0 else np.nan)
+    pd_ = p.get("td_defense", np.nan)
+    if not np.isnan(pd_):
+        td_def = td_against_attempted - td_against_landed
+        td_defense = shrink_proportion(td_def, td_against_attempted, pd_, total_fights=total_fights)
+    else:
+        td_defense = (1.0 - td_against_landed / td_against_attempted) if td_against_attempted > 0 else np.nan
     sub_att = f["sub_attempts"]
     sub_att_per_15min = sub_att / total_minutes * 15.0 if total_minutes > 0 and not np.isnan(total_minutes) else np.nan
     ctrl_time_pct = f["control_time_seconds"] / total_seconds if total_seconds > 0 else np.nan
@@ -408,7 +428,8 @@ def build_fighter_states(fights: list, fighters_cache: dict) -> dict:
 
 def predict_fight(fighter_a: str, fighter_b: str, category: str,
                   fighter_states: dict, fighters_cache: dict,
-                  model, feature_meta: dict, current_date: datetime) -> dict:
+                  model, feature_meta: dict, current_date: datetime,
+                  priors: dict | None = None) -> dict:
     """Predict a single fight and return probabilities."""
     def get_phys(name, key):
         v = fighters_cache.get(name, {}).get(key)
@@ -421,8 +442,8 @@ def predict_fight(fighter_a: str, fighter_b: str, category: str,
         state1 = fighter_states.get(f1, make_initial_state())
         state2 = fighter_states.get(f2, make_initial_state())
 
-        feat1 = compute_stats_from_state(state1, f1, fighters_cache, current_date)
-        feat2 = compute_stats_from_state(state2, f2, fighters_cache, current_date)
+        feat1 = compute_stats_from_state(state1, f1, fighters_cache, current_date, category=category, priors=priors)
+        feat2 = compute_stats_from_state(state2, f2, fighters_cache, current_date, category=category, priors=priors)
 
         row = {}
 
@@ -521,6 +542,8 @@ def main():
     with open(FIGHTERS_CACHE_PATH, encoding="utf-8") as f:
         fighters_cache = json.load(f)
 
+    priors = compute_priors(fights)
+
     # ── Find event fights ────────────────────────────────────────────────────
     event_name = args.event.strip()
     if args.exact:
@@ -569,7 +592,7 @@ def main():
 
         try:
             pred = predict_fight(f1, f2, category, fighter_states,
-                                 fighters_cache, model, feature_meta, current_date)
+                                 fighters_cache, model, feature_meta, current_date, priors=priors)
             pred["winner"] = winner
             predictions.append(pred)
         except Exception as e:
