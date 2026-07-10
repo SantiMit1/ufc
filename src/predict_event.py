@@ -18,7 +18,8 @@ from pathlib import Path
 from typing import Any
 
 from ensemble_utils import ChronologicalStackingEnsemble
-from stats_utils import compute_priors, shrink_rate, shrink_proportion
+from stats_utils import shrink_rate, shrink_proportion, _prior_accum_init, _prior_accum_add, _get_current_priors
+
 
 # ── Paths (same as predict.py) ───────────────────────────────────────────────
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -534,8 +535,6 @@ def main():
     with open(FIGHTERS_CACHE_PATH, encoding="utf-8") as f:
         fighters_cache = json.load(f)
 
-    priors = compute_priors(fights)
-
     # ── Find event fights ────────────────────────────────────────────────────
     event_name = args.event.strip()
     if args.exact:
@@ -570,6 +569,13 @@ def main():
         f for f in fights
         if datetime.strptime(f["event_date"], "%Y-%m-%d") <= event_dt
     ]
+    
+    # Compute priors ONLY from historical fights (no lookahead)
+    _prior_accum_init()
+    for f in sorted(historical_fights, key=lambda x: x.get("event_date", "1970-01-01")):
+        _prior_accum_add(f)
+    priors = _get_current_priors()
+
     fighter_states = build_fighter_states(historical_fights, fighters_cache)
 
     # ── Predict each fight ───────────────────────────────────────────────────

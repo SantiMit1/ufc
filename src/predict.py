@@ -12,7 +12,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import argparse
 from ensemble_utils import ChronologicalStackingEnsemble
-from stats_utils import compute_priors, shrink_rate, shrink_proportion
+from stats_utils import shrink_rate, shrink_proportion
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 FIGHTS_PATH = BASE_DIR / "data" / "fights.json"
@@ -469,8 +469,17 @@ def main():
         fighters_cache = json.load(f)
     print(f"  {len(fighters_cache)} fighters in cache")
 
-    print("  Computing population priors by weight class...")
-    priors = compute_priors(fights)
+    print("  Computing population priors by weight class (incremental, no lookahead)...")
+    from stats_utils import _prior_accum_init, _prior_accum_add, _get_current_priors
+    _prior_accum_init()
+    # Parse dates first
+    for fight in fights:
+        fight["_parsed_date"] = datetime.strptime(fight["event_date"], "%Y-%m-%d")
+    # Sort and add to accumulator
+    for fight in sorted(fights, key=lambda f: f["_parsed_date"]):
+        if fight["_parsed_date"] >= CUTOFF_DATE:
+            _prior_accum_add(fight)
+    priors = _get_current_priors()
     for cat, vals in priors.items():
         print(f"    {cat}: sig_str/min={vals['sig_str_landed_per_min']:.2f}, td/15min={vals['td_avg_per_15min']:.2f}")
 
@@ -708,7 +717,15 @@ def predict_event_valuebets(event_fights: list[dict], bankroll: float) -> None:
     with open(FIGHTERS_CACHE_PATH) as f:
         fighters_cache = json.load(f)
 
-    priors = compute_priors(fights)
+    # Parse dates and build historical priors (no lookahead)
+    from stats_utils import _prior_accum_init, _prior_accum_add, _get_current_priors
+    _prior_accum_init()
+    for fight in fights:
+        fight["_parsed_date"] = datetime.strptime(fight["event_date"], "%Y-%m-%d")
+    for fight in sorted(fights, key=lambda f: f["_parsed_date"]):
+        if fight["_parsed_date"] >= CUTOFF_DATE:
+            _prior_accum_add(fight)
+    priors = _get_current_priors()
 
     model = joblib.load(MODEL_PATH)
     feature_meta = joblib.load(FEATURE_COLS_PATH)
@@ -792,8 +809,9 @@ def predict_event_valuebets(event_fights: list[dict], bankroll: float) -> None:
         prob_b = 1.0 - prob_a
         return prob_a, prob_b
 
-    results = []
     valuebets = []
+    skipped_fights = []
+    warned_fights = []
 
     print("\n" + "=" * 80)
     print("  FIGHT PREDICTIONS")
@@ -807,6 +825,18 @@ def predict_event_valuebets(event_fights: list[dict], bankroll: float) -> None:
         cat = fight.get("category", "Catch Weight")
         odds_a = fight["odds_a"]
         odds_b = fight["odds_b"]
+
+        state1 = fighter_states.get(f1, make_initial_state())
+        state2 = fighter_states.get(f2, make_initial_state())
+        total_fights_f1 = state1["total_fights"]
+        total_fights_f2 = state2["total_fights"]
+
+        if total_fights_f1 == 0 or total_fights_f2 == 0:
+            skipped_fights.append((i, f1, f2, total_fights_f1, total_fights_f2))
+            continue
+
+        if total_fights_f1 < 3 or total_fights_f2 < 3:
+            warned_fights.append((f1, f2, total_fights_f1, total_fights_f2))
 
         prob_a, prob_b = predict_fight(f1, f2, cat)
 
@@ -827,7 +857,7 @@ def predict_event_valuebets(event_fights: list[dict], bankroll: float) -> None:
             (f1, prob_a, odds_a, prob_market_a, edge_a),
             (f2, prob_b, odds_b, prob_market_b, edge_b),
         ]:
-            if edge_v >= 0.05:
+            if edge_v >= 0.15:
                 stake = bankroll * 0.25 * edge_v / (odds_v - 1.0)
                 valuebets.append({
                     "fight": f"{f1} vs {f2}",
@@ -841,11 +871,11 @@ def predict_event_valuebets(event_fights: list[dict], bankroll: float) -> None:
 
     print()
     print("=" * 80)
-    print("  VALUE BETS  (edge >= 5%)")
+    print("  VALUE BETS  (edge >= 15%)")
     print("=" * 80)
 
     if not valuebets:
-        print("\n  No value bets found with edge >= 5%.\n")
+        print("\n  No value bets found with edge >= 15%.\n")
     else:
         print(f"  Bankroll: ${bankroll:.2f}  |  Quarter Kelly")
         print()
@@ -857,6 +887,24 @@ def predict_event_valuebets(event_fights: list[dict], bankroll: float) -> None:
         total_stake = sum(vb["stake"] for vb in valuebets)
         print(f"\n  Total stake across all value bets: ${total_stake:.2f}")
         print(f"  Remaining bankroll: ${bankroll - total_stake:.2f}\n")
+
+    # Warnings for fights with < 3 fights
+    if warned_fights:
+        print("=" * 80)
+        print("  WARNINGS (fighters with < 3 UFC fights)")
+        print("=" * 80)
+        for f1, f2, tf1, tf2 in warned_fights:
+            print(f"  - {f1} ({tf1} fights) vs {f2} ({tf2} fights)")
+        print()
+
+    # Skipped fights with fighters having no UFC fights
+    if skipped_fights:
+        print("=" * 80)
+        print("  SKIPPED FIGHTS (fighters with 0 UFC fights)")
+        print("=" * 80)
+        for _, f1, f2, tf1, tf2 in skipped_fights:
+            print(f"  - {f1} ({tf1} fights) vs {f2} ({tf2} fights)")
+        print()
 
 
 if __name__ == "__main__":

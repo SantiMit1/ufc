@@ -5,7 +5,8 @@ import pandas as pd
 from datetime import datetime, timedelta
 from typing import Any
 
-from stats_utils import compute_priors, shrink_rate, shrink_proportion
+from stats_utils import shrink_rate, shrink_proportion, _prior_accum_init, _prior_accum_add, _get_current_priors
+
 
 FIGHTS_PATH = "data/fights.json"
 FIGHTERS_CACHE_PATH = "data/fighters_cache.json"
@@ -410,10 +411,8 @@ def main():
 
     total_raw = len(fights)
 
-    print("Computing population priors by weight class...")
-    priors = compute_priors(fights)
-    for cat, vals in priors.items():
-        print(f"  {cat}: sig_str/min={vals['sig_str_landed_per_min']:.2f}, td/15min={vals['td_avg_per_15min']:.2f}")
+    # Initialize prior accumulator for incremental (no-lookahead) priors
+    _prior_accum_init()
 
     # Parse dates
     for fight in fights:
@@ -498,9 +497,13 @@ def main():
             a_is_f1 = False
             b_is_f1 = True
 
-        # Compute pre-fight features
+        # Compute pre-fight features using priors from fights BEFORE this one
+        priors = _get_current_priors()
         feat_a = compute_stats(fighter_state[a_name], fight, a_is_f1, fighters_cache, category=fight["category"], priors=priors)
         feat_b = compute_stats(fighter_state[b_name], fight, b_is_f1, fighters_cache, category=fight["category"], priors=priors)
+
+        # Add fight stats to prior accumulator AFTER computing features (no lookahead)
+        _prior_accum_add(fight)
 
         if feat_a["is_debut"]:
             debut_a_count += 1
