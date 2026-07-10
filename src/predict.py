@@ -879,10 +879,11 @@ def predict_event_valuebets(event_fights: list[dict], bankroll: float) -> None:
     else:
         print(f"  Bankroll: ${bankroll:.2f}  |  Quarter Kelly")
         print()
-        print(f"  {'Fight':<35s} {'Pick':<28s} {'Model Prob':<11s} {'Market Prob':<12s} {'Odds':<7s} {'Edge%':<8s} {'Stake $':<10s}")
-        print("  " + "-" * 111)
+        print(f"  {'Fight':<35s} {'Pick':<28s} {'Model Prob':<11s} {'Market Prob':<12s} {'Odds':<7s} {'Edge%':<8s}  {'Bank%':<7s} {'Stake $':<10s}")
+        print("  " + "-" * 119)
         for vb in valuebets:
-            print(f"  {vb['fight']:<35s} {vb['pick']:<28s} {vb['model_prob']*100:<10.1f}% {vb['market_prob']*100:<10.1f}% {vb['odds']:<7.2f} {vb['edge']*100:<7.1f}% ${vb['stake']:<8.2f}")
+            bank_pct = vb['stake'] / bankroll * 100
+            print(f"  {vb['fight']:<35s} {vb['pick']:<28s} {vb['model_prob']*100:<10.1f}% {vb['market_prob']*100:<10.1f}% {vb['odds']:<7.2f} {vb['edge']*100:<7.1f}%  {bank_pct:<6.2f}% ${vb['stake']:<8.2f}")
         print("  " + "-" * 111)
         total_stake = sum(vb["stake"] for vb in valuebets)
         print(f"\n  Total stake across all value bets: ${total_stake:.2f}")
