@@ -815,8 +815,11 @@ def predict_event_valuebets(event_fights: list[dict], bankroll: float) -> None:
 
         print(f"  {i:<6d} {f1:<28s} {f2:<28s} {prob_a*100:<8.1f} {prob_b*100:<8.1f} {fair_a:<11.2f} {fair_b:<11.2f}")
 
-        prob_market_a = 1.0 / odds_a
-        prob_market_b = 1.0 / odds_b
+        implied_a = 1.0 / odds_a
+        implied_b = 1.0 / odds_b
+        total_implied = implied_a + implied_b
+        prob_market_a = implied_a / total_implied
+        prob_market_b = implied_b / total_implied
         edge_a = (prob_a / prob_market_a) - 1.0
         edge_b = (prob_b / prob_market_b) - 1.0
 
