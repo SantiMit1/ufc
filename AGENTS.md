@@ -18,6 +18,7 @@ UFC fight prediction pipeline: build events index → scrape fights → engineer
 5. `python src/predict.py` — interactive fighter-vs-fighter CLI (includes SHAP)
 6. `python src/predict_event.py --event "UFC 328: ..."` — event-level JSON (no SHAP)
 7. `python bets.py` — value-bet calculator using `predict_event_valuebets()` from `predict.py`
+8. `python evaluate_valuebets.py` — evaluate model performance on past events (edit `EVALUATION_FIGHTS` list in the script). Same output format as `bets.py` plus MODEL EVALUATION summary. No lookahead: filters fights to before each `event_date` before building states.
 
 ## Architecture & Gotchas
 
