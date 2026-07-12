@@ -52,13 +52,29 @@ def parse_events(html: str) -> list[dict]:
 
 
 def main():
+    existing = {}
+    try:
+        with open(OUTPUT_PATH, "r", encoding="utf-8") as f:
+            for ev in json.load(f):
+                existing[ev["url"]] = ev
+    except FileNotFoundError:
+        pass
+
     html = asyncio.run(fetch_page(EVENTS_URL))
     events = parse_events(html)
 
-    with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
-        json.dump(events, f, ensure_ascii=False, indent=2)
+    new_count = 0
+    for ev in events:
+        if ev["url"] not in existing:
+            existing[ev["url"]] = ev
+            new_count += 1
 
-    print(f"Index saved to {OUTPUT_PATH} with {len(events)} events")
+    merged = sorted(existing.values(), key=lambda e: e["date"])
+
+    with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
+        json.dump(merged, f, ensure_ascii=False, indent=2)
+
+    print(f"Index saved to {OUTPUT_PATH} with {len(merged)} events ({new_count} new)")
 
 
 if __name__ == "__main__":

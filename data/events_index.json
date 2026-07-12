@@ -4672,5 +4672,11 @@
     "date": "2026-06-27",
     "url": "http://ufcstats.com/event-details/31e1ea6fe6b682f8",
     "scrapped": true
+  },
+  {
+    "name": "UFC 329: McGregor vs. Holloway 2",
+    "date": "2026-07-11",
+    "url": "http://ufcstats.com/event-details/fccb0fee256b7b4d",
+    "scrapped": true
   }
 ]

@@ -18961,5 +18961,19 @@
     "reach_cm": 178,
     "stance": "Orthodox",
     "dob": "1998-11-19"
+  },
+  "Gable Steveson": {
+    "height_cm": 180,
+    "weight_lbs": 249,
+    "reach_cm": 188,
+    "stance": "Orthodox",
+    "dob": "2000-05-31"
+  },
+  "John Garza": {
+    "height_cm": 170,
+    "weight_lbs": 135,
+    "reach_cm": 173,
+    "stance": "Orthodox",
+    "dob": "2002-10-30"
   }
 }
