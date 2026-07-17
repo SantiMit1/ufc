@@ -12,7 +12,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import argparse
 from ensemble_utils import ChronologicalStackingEnsemble
-from stats_utils import shrink_rate, shrink_proportion
+from stats_utils import shrink_rate, shrink_proportion, _prior_accum_init, _prior_accum_add, _get_current_priors
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 FIGHTS_PATH = BASE_DIR / "data" / "fights.json"
@@ -470,7 +471,6 @@ def main():
     print(f"  {len(fighters_cache)} fighters in cache")
 
     print("  Computing population priors by weight class (incremental, no lookahead)...")
-    from stats_utils import _prior_accum_init, _prior_accum_add, _get_current_priors
     _prior_accum_init()
     # Parse dates first
     for fight in fights:
@@ -664,6 +664,8 @@ def main():
             print(f"    Height: {h:.0f} cm")
         if not np.isnan(r):
             print(f"    Reach: {r:.0f} cm")
+        if not np.isnan(feat["age"]):
+            print(f"    Age: {feat['age']:.1f} years")
         print(f"    Stance: {feat['stance']}")
         print(f"    Record: {feat['wins']}W-{feat['losses']}L ({feat['total_fights']} fights)")
         print(f"    Elo: {feat['elo']:.0f}")
@@ -673,8 +675,20 @@ def main():
             print(f"    Sig. Str. Landed/min: {feat['sig_str_landed_per_min']:.2f}")
         if not np.isnan(feat["decay_sig_per_min"]):
             print(f"    Decay Sig. Str./min: {feat['decay_sig_per_min']:.2f}")
+        #print sig absorbed per min
+        if not np.isnan(feat["sig_str_absorbed_per_min"]):
+            print(f"    Sig. Str. Absorbed/min: {feat['sig_str_absorbed_per_min']:.2f}")
+        if not np.isnan(feat["decay_sig_absorbed_per_min"]):
+            print(f"    Decay Sig. Str. Absorbed/min: {feat['decay_sig_absorbed_per_min']:.2f}")
         if not np.isnan(feat["td_avg_per_15min"]):
             print(f"    Takedowns/15min: {feat['td_avg_per_15min']:.2f}")
+        if not np.isnan(feat["decay_td_per_15min"]):
+            print(f"    Decay Takedowns/15min: {feat['decay_td_per_15min']:.2f}")
+        #print td defense and accuracy
+        if not np.isnan(feat["td_accuracy"]):
+            print(f"    Takedown Accuracy: {feat['td_accuracy'] * 100:.1f}%")
+        if not np.isnan(feat["td_defense"]):
+            print(f"    Takedown Defense: {feat['td_defense'] * 100:.1f}%")
         if not np.isnan(feat["recent_5_ko_loss_rate"]):
             print(f"    KO Loss Rate (last 5): {feat['recent_5_ko_loss_rate'] * 100:.0f}%")
         print(f"    Last 5: {feat['recent_5_wins']}W-{feat['recent_5_losses']}L")
