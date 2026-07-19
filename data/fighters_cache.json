@@ -18975,5 +18975,40 @@
     "reach_cm": 173,
     "stance": "Orthodox",
     "dob": "2002-10-30"
+  },
+  "Levi Rodrigues Jr.": {
+    "height_cm": 183,
+    "weight_lbs": 205,
+    "reach_cm": 193,
+    "stance": "Orthodox",
+    "dob": "1996-10-15"
+  },
+  "Ezra Elliott": {
+    "height_cm": 175,
+    "weight_lbs": 145,
+    "reach_cm": 183,
+    "stance": "Orthodox",
+    "dob": "2000-05-18"
+  },
+  "Damien Anderson": {
+    "height_cm": 173,
+    "weight_lbs": 145,
+    "reach_cm": 175,
+    "stance": "Southpaw",
+    "dob": "1997-01-04"
+  },
+  "RJ Harris": {
+    "height_cm": 190,
+    "weight_lbs": 258,
+    "reach_cm": 198,
+    "stance": "Orthodox",
+    "dob": "1998-10-01"
+  },
+  "Anna Melisano": {
+    "height_cm": 163,
+    "weight_lbs": 125,
+    "reach_cm": 173,
+    "stance": "Orthodox",
+    "dob": "1997-05-20"
   }
 }
