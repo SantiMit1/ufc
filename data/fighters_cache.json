@@ -19010,5 +19010,47 @@
     "reach_cm": 173,
     "stance": "Orthodox",
     "dob": "1997-05-20"
+  },
+  "Magomed Zaynukov": {
+    "height_cm": 178,
+    "weight_lbs": 155,
+    "reach_cm": 173,
+    "stance": "Orthodox",
+    "dob": "1995-01-02"
+  },
+  "Damian Rzepecki": {
+    "height_cm": 178,
+    "weight_lbs": 155,
+    "reach_cm": 180,
+    "stance": "Orthodox",
+    "dob": "2001-11-23"
+  },
+  "Abubakar Vagaev": {
+    "height_cm": 180,
+    "weight_lbs": 170,
+    "reach_cm": 185,
+    "stance": "Orthodox",
+    "dob": "1993-04-14"
+  },
+  "Muhammad Saidov": {
+    "height_cm": 188,
+    "weight_lbs": 205,
+    "reach_cm": 185,
+    "stance": "Orthodox",
+    "dob": "1996-01-10"
+  },
+  "Magomed Tuchalov": {
+    "height_cm": 190,
+    "weight_lbs": 205,
+    "reach_cm": 198,
+    "stance": "Orthodox",
+    "dob": "1999-12-30"
+  },
+  "Abdul Hussein": {
+    "height_cm": 170,
+    "weight_lbs": 135,
+    "reach_cm": 170,
+    "stance": "Orthodox",
+    "dob": "1997-08-02"
   }
 }

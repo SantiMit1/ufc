@@ -4684,5 +4684,11 @@
     "date": "2026-07-18",
     "url": "http://ufcstats.com/event-details/f354c50b8d63d9b3",
     "scrapped": true
+  },
+  {
+    "name": "UFC Fight Night: Ankalaev vs. Guskov",
+    "date": "2026-07-25",
+    "url": "http://ufcstats.com/event-details/681d07e328798ec0",
+    "scrapped": true
   }
 ]
