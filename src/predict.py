@@ -656,49 +656,66 @@ def main():
     print(f"\n  Favorite: {favorite} ({fav_prob * 100:.1f}%, Fair Odds: {1.0 / fav_prob:.2f})")
     print(f"  Underdog: {underdog} ({dog_prob * 100:.1f}%, Fair Odds: {1.0 / dog_prob:.2f})")
 
-    print(f"\n  FIGHTER STATS")
-    print(f"  {'-' * 56}")
-    for name, feat, h, r in [(fighter_a, feat_a, height_a, reach_a), (fighter_b, feat_b, height_b, reach_b)]:
-        print(f"\n  {name}:")
-        if not np.isnan(h):
-            print(f"    Height: {h:.0f} cm")
-        if not np.isnan(r):
-            print(f"    Reach: {r:.0f} cm")
-        if not np.isnan(feat["age"]):
-            print(f"    Age: {feat['age']:.1f} years")
-        print(f"    Stance: {feat['stance']}")
-        print(f"    Record: {feat['wins']}W-{feat['losses']}L ({feat['total_fights']} fights)")
-        print(f"    Elo: {feat['elo']:.0f}")
-        if not np.isnan(feat["win_pct"]):
-            print(f"    Win%: {feat['win_pct'] * 100:.1f}%")
-        if not np.isnan(feat["sig_str_landed_per_min"]):
-            print(f"    Sig. Str. Landed/min: {feat['sig_str_landed_per_min']:.2f}")
-        if not np.isnan(feat["decay_sig_per_min"]):
-            print(f"    Decay Sig. Str./min: {feat['decay_sig_per_min']:.2f}")
-        #print sig absorbed per min
-        if not np.isnan(feat["sig_str_absorbed_per_min"]):
-            print(f"    Sig. Str. Absorbed/min: {feat['sig_str_absorbed_per_min']:.2f}")
-        if not np.isnan(feat["decay_sig_absorbed_per_min"]):
-            print(f"    Decay Sig. Str. Absorbed/min: {feat['decay_sig_absorbed_per_min']:.2f}")
-        if not np.isnan(feat["td_avg_per_15min"]):
-            print(f"    Takedowns/15min: {feat['td_avg_per_15min']:.2f}")
-        if not np.isnan(feat["decay_td_per_15min"]):
-            print(f"    Decay Takedowns/15min: {feat['decay_td_per_15min']:.2f}")
-        #print td defense and accuracy
-        if not np.isnan(feat["td_accuracy"]):
-            print(f"    Takedown Accuracy: {feat['td_accuracy'] * 100:.1f}%")
-        if not np.isnan(feat["td_defense"]):
-            print(f"    Takedown Defense: {feat['td_defense'] * 100:.1f}%")
-        if not np.isnan(feat["recent_5_ko_loss_rate"]):
-            print(f"    KO Loss Rate (last 5): {feat['recent_5_ko_loss_rate'] * 100:.0f}%")
-        print(f"    Last 5: {feat['recent_5_wins']}W-{feat['recent_5_losses']}L")
-        if not np.isnan(feat["avg_opp_elo_wins"]):
-            print(f"    Avg Opp Elo (wins): {feat['avg_opp_elo_wins']:.0f}")
-        if not np.isnan(feat["elo"]):
-            if feat["current_win_streak"] > 0:
-                print(f"    Win Streak: {feat['current_win_streak']}")
-            elif feat["current_losing_streak"] > 0:
-                print(f"    Losing Streak: {feat['current_losing_streak']}")
+    # ─── COMPARATIVE TABLE ──────────────────────────────────────────────────────
+    sw, vw = 24, 20
+    line_fmt = "  {:<" + str(sw) + "} {:<" + str(vw) + "} {:<" + str(vw) + "} {:<" + str(vw) + "}"
+    sep = "  " + "-" * (sw + vw * 3 + 4)
+    eq_sep = "  " + "=" * (sw + vw * 3 + 4)
+    print(f"\n{eq_sep}")
+    print(f"  {'COMPARATIVE TABLE':^{sw + vw * 3 + 4}}")
+    print(eq_sep)
+    print(line_fmt.format("Stat", fighter_a, fighter_b, "Diff"))
+    print(sep)
+
+    def _ff(v, spec=".2f"):
+        if isinstance(v, (int, float)) and not np.isnan(v):
+            return f"{v:{spec}}"
+        return "-"
+
+    def _line(label, va, vb, spec=".2f"):
+        if isinstance(va, str):
+            da, db, diff = va, vb, ""
+        else:
+            da, db = _ff(va, spec), _ff(vb, spec)
+            if isinstance(va, (int, float)) and isinstance(vb, (int, float)) and not np.isnan(va) and not np.isnan(vb):
+                diff = _ff(va - vb, "+.2f" if "." in spec else "+.0f")
+            else:
+                diff = ""
+        print(line_fmt.format(label, da, db, diff))
+
+    _line("Height (cm)", height_a, height_b, ".0f")
+    _line("Reach (cm)", reach_a, reach_b, ".0f")
+    _line("Age (years)", feat_a["age"], feat_b["age"])
+    _line("Stance", feat_a["stance"], feat_b["stance"])
+    _line("Record", f"{feat_a['wins']}W-{feat_a['losses']}L ({feat_a['total_fights']})",
+          f"{feat_b['wins']}W-{feat_b['losses']}L ({feat_b['total_fights']})")
+    _line("Elo", feat_a["elo"], feat_b["elo"], ".0f")
+    _line("Win%", feat_a["win_pct"] * 100 if not np.isnan(feat_a["win_pct"]) else np.nan,
+          feat_b["win_pct"] * 100 if not np.isnan(feat_b["win_pct"]) else np.nan, ".1f")
+    _line("Sig. Str. Landed/min", feat_a["sig_str_landed_per_min"], feat_b["sig_str_landed_per_min"])
+    _line("Decay Sig. Str./min", feat_a["decay_sig_per_min"], feat_b["decay_sig_per_min"])
+    _line("Sig. Str. Absorbed/min", feat_a["sig_str_absorbed_per_min"], feat_b["sig_str_absorbed_per_min"])
+    _line("Decay Sig. Str. Absorbed/min", feat_a["decay_sig_absorbed_per_min"], feat_b["decay_sig_absorbed_per_min"])
+    _line("Takedowns/15min", feat_a["td_avg_per_15min"], feat_b["td_avg_per_15min"])
+    _line("Decay Takedowns/15min", feat_a["decay_td_per_15min"], feat_b["decay_td_per_15min"])
+    _line("TD Accuracy (%)", feat_a["td_accuracy"] * 100 if not np.isnan(feat_a["td_accuracy"]) else np.nan,
+          feat_b["td_accuracy"] * 100 if not np.isnan(feat_b["td_accuracy"]) else np.nan, ".1f")
+    _line("TD Defense (%)", feat_a["td_defense"] * 100 if not np.isnan(feat_a["td_defense"]) else np.nan,
+          feat_b["td_defense"] * 100 if not np.isnan(feat_b["td_defense"]) else np.nan, ".1f")
+    _line("KO Loss Rate (last 5) (%)",
+          feat_a["recent_5_ko_loss_rate"] * 100 if not np.isnan(feat_a["recent_5_ko_loss_rate"]) else np.nan,
+          feat_b["recent_5_ko_loss_rate"] * 100 if not np.isnan(feat_b["recent_5_ko_loss_rate"]) else np.nan, ".0f")
+    _line("Last 5", f"{feat_a['recent_5_wins']}W-{feat_a['recent_5_losses']}L",
+          f"{feat_b['recent_5_wins']}W-{feat_b['recent_5_losses']}L")
+    _line("Avg Opp Elo (wins)", feat_a["avg_opp_elo_wins"], feat_b["avg_opp_elo_wins"], ".0f")
+    streak_a = (f"{feat_a['current_win_streak']}W streak" if feat_a["current_win_streak"] > 0
+                else f"{feat_a['current_losing_streak']}L streak" if feat_a["current_losing_streak"] > 0
+                else "-")
+    streak_b = (f"{feat_b['current_win_streak']}W streak" if feat_b["current_win_streak"] > 0
+                else f"{feat_b['current_losing_streak']}L streak" if feat_b["current_losing_streak"] > 0
+                else "-")
+    _line("Streak", streak_a, streak_b)
+    print(eq_sep)
     print()
 
     # ─── SHAP EXPLANATION ───────────────────────────────────────────────────────
