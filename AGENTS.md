@@ -15,10 +15,10 @@ UFC fight prediction pipeline: build events index → scrape fights → engineer
 2. `python src/scrape_ufc.py` → `data/fights.json`, `data/fighters_cache.json`
 3. `python src/feature_engineering.py` → `data/dataset.csv`
 4. `python src/train_model.py` → `models/ufc_stacking_ensemble.pkl` + `ufc_stacking_ensemble_meta.pkl` + `models/ufc_method_model.pkl` + `models/ufc_round_model.pkl` + `models/stacking_ensemble_feature_importance.png` + `models/eval.txt`
-5. `python src/predict.py` — interactive fighter-vs-fighter CLI (includes SHAP + method + round). Supports `--model`, `--features`, `--method-model`, `--round-model`.
-6. `python src/predict_event.py --event "UFC 328: ..."` — event-level JSON output with `method_probabilities`, `round_probabilities`, `predicted_method`, `predicted_round`, `expected_round`. Supports `--exact`, `--model-path`, `--features-path`, `--method-model-path`, `--round-model-path`.
-7. `python src/predict_batch.py "FighterA,FighterB,Category" "FighterC,FighterD,Category"` — batch predictions table with Method/Round columns. Each arg is `Fighter1,Fighter2[,WeightClass]`.
+5. `python src/predict.py` — interactive fighter-vs-fighter CLI (includes SHAP + method + round). Supports `--model`, `--features`, `--method-model`, `--round-model`. Prompts for rounds (3/5, default 3) and constrains predictions.
+6. `python src/predict_event.py --event "UFC 328: ..."` — event-level JSON output with `method_probabilities` and `predicted_method`. No round prediction. Supports `--exact`, `--model-path`, `--features-path`, `--method-model-path`.
 
+7. `python src/predict_batch.py "FighterA,FighterB,Category,5" "FighterC,FighterD"` — batch predictions table with Method/Round columns (with probabilities). Each arg is `Fighter1,Fighter2[,WeightClass[,Rounds]]` (defaults: WeightClass="Catch Weight", Rounds=3). Round column shows `-` when predicted method is DEC.
 ## Architecture & Gotchas
 
 ### Model: Stacking Ensemble

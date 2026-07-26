@@ -573,6 +573,14 @@ def main():
         category = wc_input
     print(f"  Weight class: {category}")
 
+    # Max rounds selection
+    print("\n  Rounds:")
+    print("    1. 3 rounds (non-title / prelim)")
+    print("    2. 5 rounds (title / main event)")
+    r_input = input("  Select (1/2, Enter=3): ").strip()
+    max_rounds = 5 if r_input == "2" else 3
+    print(f"  Max rounds: {max_rounds}")
+
     # Predict
     print(f"\n  {'=' * 56}")
     print(f"  {fighter_a}  vs  {fighter_b}")
@@ -770,20 +778,28 @@ def main():
             print(f"    {label:<6s}  {p * 100:5.1f}%")
         # Most likely method
         best_method_idx = method_proba.argmax()
-        print(f"  → Predicted finish: {method_labels[best_method_idx]} ({method_proba[best_method_idx] * 100:.1f}%)")
+        print(f"  -> Predicted finish: {method_labels[best_method_idx]} ({method_proba[best_method_idx] * 100:.1f}%)")
         print()
 
     # ─── ROUND PREDICTION ───────────────────────────────────────────────────────
     if round_proba is not None:
-        print(f"  ROUND PREDICTION")
-        print(f"  {'-' * 56}")
-        for r, p in enumerate(round_proba, 1):
-            print(f"    Round {r:<2d}  {p * 100:5.1f}%")
-        expected_round = sum((r + 1) * p for r, p in enumerate(round_proba))
-        best_round_idx = round_proba.argmax()
-        print(f"  → Most likely: Round {best_round_idx + 1} ({round_proba[best_round_idx] * 100:.1f}%)")
-        print(f"  → Expected round: {expected_round:.2f}")
-        print()
+        is_decision = method_proba is not None and method_proba.argmax() == 2
+        if is_decision:
+            print(f"  ROUND PREDICTION (max rounds: {max_rounds})")
+            print(f"  {'-' * 56}")
+            print(f"    -> Goes to decision - always round {max_rounds}")
+            print()
+        else:
+            round_proba = constrain_round_probas(round_proba, max_rounds)
+            print(f"  ROUND PREDICTION (max rounds: {max_rounds})")
+            print(f"  {'-' * 56}")
+            for r, p in enumerate(round_proba, 1):
+                print(f"    Round {r:<2d}  {p * 100:5.1f}%")
+            expected_round = sum((r + 1) * p for r, p in enumerate(round_proba))
+            best_round_idx = round_proba.argmax()
+            print(f"  -> Most likely: Round {best_round_idx + 1} ({round_proba[best_round_idx] * 100:.1f}%)")
+            print(f"  -> Expected round: {expected_round:.2f}")
+            print()
 
     # ─── SHAP EXPLANATION ───────────────────────────────────────────────────────
     if shap_explainer is not None and shap_a_forward is not None:
@@ -793,12 +809,21 @@ def main():
         pairs = list(zip(feat_names, shap_fav))
         pairs.sort(key=lambda x: abs(x[1]), reverse=True)
 
-        print(f"  SHAP — {favorite} (fav) vs {underdog} (dog)")
+        print(f"  SHAP - {favorite} (fav) vs {underdog} (dog)")
         print(f"  {'-' * 56}")
         for feat, val in pairs[:8]:
             favor = favorite if val > 0 else underdog
-            print(f"    {feat:<42s} {val:+7.4f}  → {favor}")
+            print(f"    {feat:<42s} {val:+7.4f}  -> {favor}")
         print()
+
+
+def constrain_round_probas(probas, max_rounds):
+    if probas is None or max_rounds >= 5:
+        return probas
+    probas = probas.copy()
+    probas[max_rounds:] = 0.0
+    total = probas.sum()
+    return probas / total if total > 0 else probas
 
 
 def safe_sub(a, b):
