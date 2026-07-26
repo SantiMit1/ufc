@@ -17,7 +17,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
-from ensemble_utils import ChronologicalStackingEnsemble
+from ensemble_utils import ChronologicalStackingEnsemble, ChronologicalStackingEnsembleMultiClass
 from stats_utils import shrink_rate, shrink_proportion, _prior_accum_init, _prior_accum_add, _get_current_priors
 
 
@@ -27,6 +27,8 @@ FIGHTS_PATH = BASE_DIR / "data" / "fights.json"
 FIGHTERS_CACHE_PATH = BASE_DIR / "data" / "fighters_cache.json"
 MODEL_PATH = BASE_DIR / "models" / "ufc_stacking_ensemble.pkl"
 FEATURE_COLS_PATH = BASE_DIR / "models" / "ufc_stacking_ensemble_meta.pkl"
+METHOD_MODEL_PATH = BASE_DIR / "models" / "ufc_method_model.pkl"
+ROUND_MODEL_PATH = BASE_DIR / "models" / "ufc_round_model.pkl"
 
 CUTOFF_DATE = datetime(2001, 1, 1)
 ELO_K = 96
@@ -430,7 +432,8 @@ def build_fighter_states(fights: list, fighters_cache: dict) -> dict:
 def predict_fight(fighter_a: str, fighter_b: str, category: str,
                   fighter_states: dict, fighters_cache: dict,
                   model, feature_meta: dict, current_date: datetime,
-                  priors: dict | None = None) -> dict:
+                  priors: dict | None = None,
+                  method_model=None, round_model=None) -> dict:
     """Predict a single fight and return probabilities."""
     def get_phys(name, key):
         v = fighters_cache.get(name, {}).get(key)
@@ -499,21 +502,48 @@ def predict_fight(fighter_a: str, fighter_b: str, category: str,
         X_encoded = X_encoded[feature_meta["feature_cols_final"]]
 
         prob = model.predict_proba(X_encoded)[0, 1]
-        return prob
+
+        method_proba = None
+        round_proba = None
+        if method_model is not None:
+            method_proba = method_model.predict_proba(X_encoded)[0]
+        if round_model is not None:
+            round_proba = round_model.predict_proba(X_encoded)[0]
+
+        return prob, method_proba, round_proba
 
     # Predict in both orders and average to remove order-dependent bias
-    prob_a_forward = predict_order(fighter_a, fighter_b)
-    prob_b_forward = predict_order(fighter_b, fighter_a)
+    prob_a_forward, method_a_forward, round_a_forward = predict_order(fighter_a, fighter_b)
+    prob_b_forward, method_b_forward, round_b_forward = predict_order(fighter_b, fighter_a)
     prob_a = (prob_a_forward + (1.0 - prob_b_forward)) / 2.0
     prob_b = 1.0 - prob_a
 
-    return {
+    result = {
         "fighter_a": fighter_a,
         "fighter_b": fighter_b,
         "prob_a": round(float(prob_a), 6),
         "prob_b": round(float(prob_b), 6),
         "category": category,
     }
+
+    if method_a_forward is not None and method_b_forward is not None:
+        method_proba = (method_a_forward + method_b_forward) / 2.0
+        result["method_probabilities"] = {
+            "KO": round(float(method_proba[0]), 6),
+            "SUB": round(float(method_proba[1]), 6),
+            "DEC": round(float(method_proba[2]), 6),
+        }
+        result["predicted_method"] = ["KO", "SUB", "DEC"][int(method_proba.argmax())]
+
+    if round_a_forward is not None and round_b_forward is not None:
+        round_proba = (round_a_forward + round_b_forward) / 2.0
+        result["round_probabilities"] = {
+            str(i + 1): round(float(round_proba[i]), 6) for i in range(5)
+        }
+        result["predicted_round"] = int(round_proba.argmax()) + 1
+        result["expected_round"] = round(float(sum((i + 1) * round_proba[i] for i in range(5))), 4)
+
+    return result
 
 
 def main():
@@ -526,6 +556,8 @@ def main():
                         help="If set, event name must match exactly (otherwise fuzzy)")
     parser.add_argument("--model-path", default=str(MODEL_PATH))
     parser.add_argument("--features-path", default=str(FEATURE_COLS_PATH))
+    parser.add_argument("--method-model-path", default=None)
+    parser.add_argument("--round-model-path", default=None)
     args = parser.parse_args()
 
     # ── Load data ────────────────────────────────────────────────────────────
@@ -560,6 +592,27 @@ def main():
     model = joblib.load(args.model_path)
     feature_meta = joblib.load(args.features_path)
 
+    method_model = None
+    round_model = None
+    try:
+        method_model = joblib.load(args.method_model_path) if hasattr(args, 'method_model_path') else None
+    except Exception:
+        pass
+    if method_model is None and METHOD_MODEL_PATH.exists():
+        try:
+            method_model = joblib.load(METHOD_MODEL_PATH)
+        except Exception:
+            pass
+    try:
+        round_model = joblib.load(args.round_model_path) if hasattr(args, 'round_model_path') else None
+    except Exception:
+        pass
+    if round_model is None and ROUND_MODEL_PATH.exists():
+        try:
+            round_model = joblib.load(ROUND_MODEL_PATH)
+        except Exception:
+            pass
+
     # ── Build fighter states (ONLY with fights up to event date) ─────────────
     # ⚠️ CRITICAL: Filter out fights AFTER the event to prevent look-ahead bias.
     # The model must only use statistics known BEFORE the event, just like in
@@ -590,7 +643,8 @@ def main():
 
         try:
             pred = predict_fight(f1, f2, category, fighter_states,
-                                 fighters_cache, model, feature_meta, current_date, priors=priors)
+                                 fighters_cache, model, feature_meta, current_date,
+                                 priors=priors, method_model=method_model, round_model=round_model)
             pred["winner"] = winner
             predictions.append(pred)
         except Exception as e:

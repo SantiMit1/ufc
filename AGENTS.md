@@ -14,15 +14,22 @@ UFC fight prediction pipeline: build events index → scrape fights → engineer
 1. `python src/build_events_index.py` → `data/events_index.json`
 2. `python src/scrape_ufc.py` → `data/fights.json`, `data/fighters_cache.json`
 3. `python src/feature_engineering.py` → `data/dataset.csv`
-4. `python src/train_model.py` → `models/ufc_stacking_ensemble.pkl` + `ufc_stacking_ensemble_meta.pkl` + `models/stacking_ensemble_feature_importance.png` + `models/eval.txt`
-5. `python src/predict.py` — interactive fighter-vs-fighter CLI (includes SHAP). Supports `--model` and `--features` args.
-6. `python src/predict_event.py --event "UFC 328: ..."` — event-level JSON output (no SHAP). Supports `--exact`, `--model-path`, `--features-path`.
-7. `python src/predict_batch.py "FighterA,FighterB,Category" "FighterC,FighterD,Category"` — batch predictions table. Each arg is `Fighter1,Fighter2[,WeightClass]`.
+4. `python src/train_model.py` → `models/ufc_stacking_ensemble.pkl` + `ufc_stacking_ensemble_meta.pkl` + `models/ufc_method_model.pkl` + `models/ufc_round_model.pkl` + `models/stacking_ensemble_feature_importance.png` + `models/eval.txt`
+5. `python src/predict.py` — interactive fighter-vs-fighter CLI (includes SHAP + method + round). Supports `--model`, `--features`, `--method-model`, `--round-model`.
+6. `python src/predict_event.py --event "UFC 328: ..."` — event-level JSON output with `method_probabilities`, `round_probabilities`, `predicted_method`, `predicted_round`, `expected_round`. Supports `--exact`, `--model-path`, `--features-path`, `--method-model-path`, `--round-model-path`.
+7. `python src/predict_batch.py "FighterA,FighterB,Category" "FighterC,FighterD,Category"` — batch predictions table with Method/Round columns. Each arg is `Fighter1,Fighter2[,WeightClass]`.
 
 ## Architecture & Gotchas
 
 ### Model: Stacking Ensemble
 **LightGBM + XGBoost + LogisticRegression** with a meta-LogisticRegression, wrapped in `ChronologicalStackingEnsemble` (`src/ensemble_utils.py`). Uses `TimeSeriesSplit(n_splits=5)` for out-of-fold stacking. Metadata pickle stores `raw_feature_cols`, `cat_cols`, `numeric_cols`, `feature_cols_final`, and `model_type="stacking"`.
+
+Three models trained sequentially:
+- **Winner** (binary): `ufc_stacking_ensemble.pkl` — fighter A wins or not
+- **Method** (multi-class, 3 classes): `ufc_method_model.pkl` — KO/SUB/DEC
+- **Round** (multi-class, 5 classes): `ufc_round_model.pkl` — rounds 1-5
+
+All three use the same feature pipeline (winner's `feature_cols_final`). The method/round models use `ChronologicalStackingEnsembleMultiClass` which flattens all class probabilities from base estimators as meta-features.
 
 ### Duplicated Computation Logic
 `predict.py` and `predict_event.py` each maintain their own copies of helper functions (Elo, state tracking, feature computation). `predict_batch.py` imports them from `predict.py`. None import from `feature_engineering.py`. If you change feature computation logic, keep `predict.py` and `predict_event.py` in sync.
@@ -45,3 +52,4 @@ Script import quirks:
 ### Data Integrity
 - `data/` and `models/` are generated artifacts. Don't edit by hand.
 - Feature column changes in `train_model.py` must be mirrored in `predict.py` and `predict_event.py`.
+- `dataset.csv` now includes `finish_type` (KO/SUB/DEC/OTHER) and `finish_round` (1-5) target columns.
