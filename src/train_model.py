@@ -10,7 +10,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 import joblib
 import warnings
-from ensemble_utils import ChronologicalStackingEnsemble
+from ensemble_utils import ChronologicalStackingEnsemble, ChronologicalStackingEnsembleMultiClass
 warnings.filterwarnings("ignore")
 
 TEST_SPLIT = 0.15
@@ -315,3 +315,123 @@ joblib.dump({
 }, FEATURE_COLS_PATH)
 print(f"\nModel saved to {MODEL_PATH}")
 print(f"Metadata saved to {FEATURE_COLS_PATH}")
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# METHOD MODEL (Multi-class: KO, SUB, DEC)
+# ═══════════════════════════════════════════════════════════════════════════════
+METHOD_MODEL_PATH = "models/ufc_method_model.pkl"
+ROUND_MODEL_PATH = "models/ufc_round_model.pkl"
+
+def _build_multiclass_lgbm(n_classes):
+    return lgb.LGBMClassifier(
+        n_estimators=best_n_lgb,
+        verbose=-1, random_state=42, missing=float("nan"),
+        class_weight="balanced", max_depth=-1,
+        objective="multiclass", num_class=n_classes,
+        metric="multi_logloss",
+        **best_lgb_params,
+    )
+
+def _build_multiclass_xgb(n_classes):
+    return xgb.XGBClassifier(
+        n_estimators=max(best_n_xgb, 50),
+        objective="multi:softprob", num_class=n_classes,
+        eval_metric="mlogloss",
+        tree_method="hist", random_state=42, n_jobs=-1,
+        missing=np.nan,
+        **best_xgb_params,
+    )
+
+def _build_multiclass_lr(n_classes):
+    return Pipeline([
+        ("imputer", SimpleImputer(strategy="median")),
+        ("scaler", StandardScaler()),
+        ("logreg", LogisticRegression(
+            max_iter=3000, class_weight="balanced", solver="lbfgs",
+        )),
+    ])
+
+# ─── METHOD: finish type → KO=0, SUB=1, DEC=2 ─────────────────────────────
+print(f"\n{'='*50}")
+print("Training method model (KO / SUB / DEC)")
+print(f"{'='*50}")
+
+method_valid = df["finish_type"].isin(["KO", "SUB", "DEC"])
+X_method = X_encoded[method_valid.values].copy()
+y_method = df.loc[method_valid, "finish_type"].map({"KO": 0, "SUB": 1, "DEC": 2}).values
+
+n_method = len(y_method)
+split_idx_method = int(n_method * (1 - TEST_SPLIT))
+X_method_train = X_method.iloc[:split_idx_method]
+y_method_train = y_method[:split_idx_method]
+X_method_test = X_method.iloc[split_idx_method:]
+y_method_test = y_method[split_idx_method:]
+
+print(f"Method samples: {n_method}  (train={len(y_method_train)}, test={len(y_method_test)})")
+print(f"  KO={int((y_method==0).sum())}  SUB={int((y_method==1).sum())}  DEC={int((y_method==2).sum())}")
+
+method_ensemble = ChronologicalStackingEnsembleMultiClass(
+    estimators=[
+        ("lgbm", _build_multiclass_lgbm(3)),
+        ("xgb", _build_multiclass_xgb(3)),
+        ("logreg", _build_multiclass_lr(3)),
+    ],
+    final_estimator=LogisticRegression(
+        max_iter=3000, class_weight="balanced", solver="lbfgs",
+    ),
+    cv=TimeSeriesSplit(n_splits=5),
+    n_classes=3,
+)
+method_ensemble.fit(X_method_train, y_method_train)
+
+y_method_pred = method_ensemble.predict(X_method_test)
+method_acc = accuracy_score(y_method_test, y_method_pred)
+print(f"Method test accuracy: {method_acc:.4f}")
+
+joblib.dump(method_ensemble, METHOD_MODEL_PATH)
+print(f"Method model saved to {METHOD_MODEL_PATH}")
+
+# ─── ROUND MODEL (Multi-class: rounds 1-5) ─────────────────────────────────
+print(f"\n{'='*50}")
+print("Training round model (Rounds 1-5)")
+print(f"{'='*50}")
+
+round_valid = df["finish_round"].between(1, 5)
+X_round = X_encoded[round_valid.values].copy()
+y_round = (df.loc[round_valid, "finish_round"].astype(int) - 1).values
+
+n_round = len(y_round)
+split_idx_round = int(n_round * (1 - TEST_SPLIT))
+X_round_train = X_round.iloc[:split_idx_round]
+y_round_train = y_round[:split_idx_round]
+X_round_test = X_round.iloc[split_idx_round:]
+y_round_test = y_round[split_idx_round:]
+
+print(f"Round samples: {n_round}  (train={len(y_round_train)}, test={len(y_round_test)})")
+for r in range(5):
+    print(f"  Round {r+1}={int((y_round==r).sum())}")
+
+round_ensemble = ChronologicalStackingEnsembleMultiClass(
+    estimators=[
+        ("lgbm", _build_multiclass_lgbm(5)),
+        ("xgb", _build_multiclass_xgb(5)),
+        ("logreg", _build_multiclass_lr(5)),
+    ],
+    final_estimator=LogisticRegression(
+        max_iter=3000, class_weight="balanced", solver="lbfgs",
+    ),
+    cv=TimeSeriesSplit(n_splits=5),
+    n_classes=5,
+)
+round_ensemble.fit(X_round_train, y_round_train)
+
+y_round_pred = round_ensemble.predict(X_round_test)
+round_acc = accuracy_score(y_round_test, y_round_pred)
+print(f"Round test accuracy: {round_acc:.4f}")
+
+joblib.dump(round_ensemble, ROUND_MODEL_PATH)
+print(f"Round model saved to {ROUND_MODEL_PATH}")
+
+print(f"\n{'='*50}")
+print("All models trained successfully!")
+print(f"{'='*50}")

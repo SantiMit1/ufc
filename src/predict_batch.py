@@ -19,9 +19,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from predict import (
     make_initial_state, compute_stats_from_state, build_fighter_states,
-    safe_sub,
+    safe_sub, constrain_round_probas,
 )
-from ensemble_utils import ChronologicalStackingEnsemble
+from ensemble_utils import ChronologicalStackingEnsemble, ChronologicalStackingEnsembleMultiClass
 from stats_utils import _prior_accum_init, _prior_accum_add, _get_current_priors
 
 
@@ -30,6 +30,8 @@ FIGHTS_PATH = BASE_DIR / "data" / "fights.json"
 FIGHTERS_CACHE_PATH = BASE_DIR / "data" / "fighters_cache.json"
 MODEL_PATH = BASE_DIR / "models" / "ufc_stacking_ensemble.pkl"
 FEATURE_COLS_PATH = BASE_DIR / "models" / "ufc_stacking_ensemble_meta.pkl"
+METHOD_MODEL_PATH = BASE_DIR / "models" / "ufc_method_model.pkl"
+ROUND_MODEL_PATH = BASE_DIR / "models" / "ufc_round_model.pkl"
 
 CUTOFF_DATE = datetime(2001, 1, 1)
 
@@ -43,7 +45,7 @@ WEIGHT_CLASSES = [
 
 def main():
     parser = argparse.ArgumentParser(description="Batch predict UFC fights")
-    parser.add_argument("fights", nargs="+", help="Fighter1,Fighter2[,WeightClass]")
+    parser.add_argument("fights", nargs="+", help="Fighter1,Fighter2[,WeightClass[,Rounds]]")
     args = parser.parse_args()
 
     parsed = []
@@ -52,14 +54,24 @@ def main():
         if len(parts) == 2:
             f1, f2 = parts
             cat = "Catch Weight"
+            rounds = 3
         elif len(parts) == 3:
-            f1, f2, cat = parts
-            if cat not in WEIGHT_CLASSES:
-                print(f"Warning: '{cat}' is not a standard weight class, using as-is.")
+            f1, f2, third = parts
+            if third in ("3", "5"):
+                cat = "Catch Weight"
+                rounds = int(third)
+            else:
+                cat = third
+                if cat not in WEIGHT_CLASSES:
+                    print(f"Warning: '{cat}' is not a standard weight class, using as-is.")
+                rounds = 3
+        elif len(parts) == 4:
+            f1, f2, cat, r_str = parts
+            rounds = int(r_str) if r_str in ("3", "5") else 3
         else:
-            print(f"Invalid format: '{arg}'. Use 'Fighter1,Fighter2[,WeightClass]'.")
+            print(f"Invalid format: '{arg}'. Use 'Fighter1,Fighter2[,WeightClass[,Rounds]]'.")
             sys.exit(1)
-        parsed.append((f1, f2, cat))
+        parsed.append((f1, f2, cat, rounds))
 
     with open(FIGHTS_PATH) as f:
         fights = json.load(f)
@@ -77,6 +89,17 @@ def main():
     model = joblib.load(MODEL_PATH)
     feature_meta = joblib.load(FEATURE_COLS_PATH)
 
+    method_model = None
+    round_model = None
+    try:
+        method_model = joblib.load(METHOD_MODEL_PATH)
+    except Exception:
+        pass
+    try:
+        round_model = joblib.load(ROUND_MODEL_PATH)
+    except Exception:
+        pass
+
     fighter_states = build_fighter_states(fights, fighters_cache)
     current_date = datetime.now()
 
@@ -84,7 +107,7 @@ def main():
         v = fighters_cache.get(name, {}).get(key)
         return float(v) if v is not None else np.nan
 
-    def predict_fight(f1, f2, category):
+    def predict_fight(f1, f2, category, max_rounds=3):
         def predict_order(a, b):
             height1, reach1 = get_phys(a, "height_cm"), get_phys(a, "reach_cm")
             height2, reach2 = get_phys(b, "height_cm"), get_phys(b, "reach_cm")
@@ -141,19 +164,37 @@ def main():
                 if col not in X_encoded.columns:
                     X_encoded[col] = 0
             X_encoded = X_encoded[feature_meta["feature_cols_final"]]
-            return model.predict_proba(X_encoded)[0, 1]
+            prob = model.predict_proba(X_encoded)[0, 1]
 
-        prob_a_forward = predict_order(f1, f2)
-        prob_b_forward = predict_order(f2, f1)
+            method_proba = None
+            round_proba = None
+            if method_model is not None:
+                method_proba = method_model.predict_proba(X_encoded)[0]
+            if round_model is not None:
+                round_proba = round_model.predict_proba(X_encoded)[0]
+
+            return prob, method_proba, round_proba
+
+        prob_a_forward, method_a_forward, round_a_forward = predict_order(f1, f2)
+        prob_b_forward, method_b_forward, round_b_forward = predict_order(f2, f1)
         prob_a = (prob_a_forward + (1.0 - prob_b_forward)) / 2.0
         prob_b = 1.0 - prob_a
-        return prob_a, prob_b
+
+        method_proba = None
+        round_proba = None
+        if method_a_forward is not None and method_b_forward is not None:
+            method_proba = (method_a_forward + method_b_forward) / 2.0
+        if round_a_forward is not None and round_b_forward is not None:
+            round_proba = (round_a_forward + round_b_forward) / 2.0
+            round_proba = constrain_round_probas(round_proba, max_rounds)
+
+        return prob_a, prob_b, method_proba, round_proba
 
     results = []
     skipped = []
     warned = []
 
-    for f1, f2, cat in parsed:
+    for f1, f2, cat, rounds in parsed:
         state1 = fighter_states.get(f1, make_initial_state())
         state2 = fighter_states.get(f2, make_initial_state())
         tf1 = state1["total_fights"]
@@ -166,23 +207,39 @@ def main():
         if tf1 < 3 or tf2 < 3:
             warned.append((f1, f2, tf1, tf2))
 
-        prob_a, prob_b = predict_fight(f1, f2, cat)
-        results.append((f1, f2, cat, prob_a, prob_b, tf1, tf2))
+        prob_a, prob_b, method_proba, round_proba = predict_fight(f1, f2, cat, rounds)
+        results.append((f1, f2, cat, prob_a, prob_b, tf1, tf2, method_proba, round_proba, rounds))
 
     # Output
     print()
-    print("=" * 120)
+    print("=" * 130)
     print("  BATCH PREDICTIONS")
-    print("=" * 120)
-    header = f"  {'#':<4s} {'Fighter A':<28s} {'Fighter B':<28s} {'Category':<22s} {'Prob A':<8s} {'Prob B':<8s} {'A fights':<9s} {'B fights':<9s}"
+    print("=" * 130)
+    method_available = any(r[7] is not None for r in results)
+    if method_available:
+        header = f"  {'#':<4s} {'Fighter A':<26s} {'Fighter B':<26s} {'Category':<18s} {'Prob A':<7s} {'Prob B':<7s} {'Method':<14s} {'Round':<13s} {'MaxR':<4s}"
+    else:
+        header = f"  {'#':<4s} {'Fighter A':<28s} {'Fighter B':<28s} {'Category':<22s} {'Prob A':<8s} {'Prob B':<8s} {'A fights':<9s} {'B fights':<9s}"
     print(header)
     print("  " + "-" * (len(header) - 2))
 
     warned_set = {(f1, f2) for f1, f2, _, _ in warned}
 
-    for i, (f1, f2, cat, prob_a, prob_b, tf1, tf2) in enumerate(results, 1):
+    for i, (f1, f2, cat, prob_a, prob_b, tf1, tf2, method_proba, round_proba, rounds) in enumerate(results, 1):
         warn_flag = "  *" if (f1, f2) in warned_set else ""
-        print(f"  {i:<4d} {f1:<28s} {f2:<28s} {cat:<22s} {prob_a*100:<7.1f}% {prob_b*100:<7.1f}% {tf1:<9d} {tf2:<9d}{warn_flag}")
+        if method_available and method_proba is not None and round_proba is not None:
+            method_labels = ["KO", "SUB", "DEC"]
+            best_method_idx = int(method_proba.argmax())
+            best_method = method_labels[best_method_idx]
+            method_str = f"{best_method} ({method_proba[best_method_idx]*100:.1f}%)"
+            if best_method_idx == 2:  # DEC
+                round_str = "-"
+            else:
+                best_round = int(round_proba.argmax()) + 1
+                round_str = f"R{best_round} ({round_proba[best_round-1]*100:.1f}%)"
+            print(f"  {i:<4d} {f1:<26s} {f2:<26s} {cat:<18s} {prob_a*100:<6.1f}% {prob_b*100:<6.1f}% {method_str:<14s} {round_str:<13s} {rounds}{warn_flag}")
+        else:
+            print(f"  {i:<4d} {f1:<28s} {f2:<28s} {cat:<22s} {prob_a*100:<7.1f}% {prob_b*100:<7.1f}% {tf1:<9d} {tf2:<9d}{warn_flag}")
 
     print("=" * 120)
 

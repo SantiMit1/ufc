@@ -566,6 +566,13 @@ def main():
         else:
             winner_label = winner_name  # shouldn't happen, but fallback
 
+        # Determine finish type and round for target labels
+        _, _, finish_type_target = classify_method(
+            fight["method"], fight["winner"], fight["fighter_1"], fight["fighter_2"]
+        )
+        fight_round_raw = fight.get("round")
+        finish_round_val = int(fight_round_raw) if fight_round_raw is not None else 0
+
         row = {
             "fight_id": f"fight_{idx:05d}",
             "event_date": fight["event_date"],
@@ -612,6 +619,8 @@ def main():
             "avg_opp_elo_diff": feat_a["avg_opp_elo"] - feat_b["avg_opp_elo"] if not (np.isnan(feat_a["avg_opp_elo"]) or np.isnan(feat_b["avg_opp_elo"])) else np.nan,
             "avg_opp_elo_wins_diff": feat_a["avg_opp_elo_wins"] - feat_b["avg_opp_elo_wins"] if not (np.isnan(feat_a["avg_opp_elo_wins"]) or np.isnan(feat_b["avg_opp_elo_wins"])) else np.nan,
             "winner": winner_label,
+            "finish_type": finish_type_target if finish_type_target is not None else "OTHER",
+            "finish_round": finish_round_val,
         }
         rows.append(row)
 
