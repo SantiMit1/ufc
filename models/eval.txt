@@ -1,0 +1,8 @@
+==================================================
+Test set evaluation (stacked ensemble)
+==================================================
+Accuracy:     0.6293
+Log Loss:     0.6419
+Brier score:  0.2252
+ROC-AUC:      0.6896
+LGB rounds:   360  |  XGB rounds:  48

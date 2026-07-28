@@ -26,11 +26,17 @@ df.reset_index(drop=True, inplace=True)
 y = (df["winner"] == 1).astype(int)
 
 exclude_cols = {"fight_id", "event_date", "fighter_a_name", "fighter_b_name", "winner"}
-diff_cols = [c for c in df.columns if c.endswith("_diff")]
+
+# Explicit feature selection: composites + standalone
+selected_diff_cols = [
+    "age_diff", "height_diff", "reach_diff", "elo_diff",
+    "striking_strength_diff", "grappling_strength_diff",
+    "durability_diff", "momentum_diff", "experience_diff",
+]
 other_feats = [
     "age_a", "age_b", "stance_a", "stance_b", "category",
 ]
-raw_feature_cols = diff_cols + [c for c in other_feats if c not in diff_cols]
+raw_feature_cols = selected_diff_cols + [c for c in other_feats if c not in selected_diff_cols]
 raw_feature_cols = [c for c in raw_feature_cols if c not in exclude_cols]
 
 X_raw = df[raw_feature_cols].copy()
