@@ -22,7 +22,7 @@ from predict import (
     safe_sub, constrain_round_probas,
 )
 from ensemble_utils import ChronologicalStackingEnsemble, ChronologicalStackingEnsembleMultiClass
-from stats_utils import _prior_accum_init, _prior_accum_add, _get_current_priors
+from stats_utils import _prior_accum_init, _prior_accum_add, _get_current_priors, compute_composite_features
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -119,13 +119,7 @@ def main():
             feat2 = compute_stats_from_state(state2, b, fighters_cache, current_date, category=category, priors=priors)
 
             row = {}
-            diff_fields = [
-                "win_pct", "ko_rate", "sub_rate", "dec_rate",
-                "ko_loss_rate", "sub_loss_rate",
-                "sig_str_landed_per_min", "sig_str_absorbed_per_min", "sig_str_accuracy",
-                "td_avg_per_15min", "td_accuracy", "td_defense",
-                "sub_att_per_15min", "ctrl_time_pct", "days_since_last_fight",
-            ]
+
             row["age_a"] = feat1["age"]
             row["age_b"] = feat2["age"]
             row["stance_a"] = feat1["stance"]
@@ -134,22 +128,13 @@ def main():
             row["age_diff"] = safe_sub(feat1["age"], feat2["age"])
             row["height_diff"] = safe_sub(height1, height2)
             row["reach_diff"] = safe_sub(reach1, reach2)
-            row["win_streak_diff"] = feat1["current_win_streak"] - feat2["current_win_streak"]
-            row["losing_streak_diff"] = feat1["current_losing_streak"] - feat2["current_losing_streak"]
-            row["total_fights_diff"] = feat1["total_fights"] - feat2["total_fights"]
-            row["elo_diff"] = feat1["elo"] - feat2["elo"]
+            row["elo_diff"] = safe_sub(feat1["elo"], feat2["elo"])
 
-            for field in diff_fields:
-                row[f"{field}_diff"] = safe_sub(feat1[field], feat2[field])
-
-            new_fighter_fields = [
-                "recent_3_wins", "recent_3_losses", "recent_5_wins", "recent_5_losses",
-                "recent_3_ko_loss_rate", "recent_5_ko_loss_rate",
-                "decay_sig_per_min", "decay_sig_absorbed_per_min", "decay_td_per_15min",
-                "avg_opp_elo", "avg_opp_elo_wins",
-            ]
-            for field in new_fighter_fields:
-                row[f"{field}_diff"] = safe_sub(feat1[field], feat2[field])
+            row["striking_strength_diff"] = safe_sub(feat1["striking"], feat2["striking"])
+            row["grappling_strength_diff"] = safe_sub(feat1["grappling"], feat2["grappling"])
+            row["durability_diff"] = safe_sub(feat1["durability"], feat2["durability"])
+            row["momentum_diff"] = safe_sub(feat1["momentum"], feat2["momentum"])
+            row["experience_diff"] = safe_sub(feat1["experience"], feat2["experience"])
 
             raw_cols = feature_meta["raw_feature_cols"]
             X_raw = pd.DataFrame([row])[raw_cols]

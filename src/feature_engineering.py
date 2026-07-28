@@ -5,7 +5,7 @@ import pandas as pd
 from datetime import datetime, timedelta
 from typing import Any
 
-from stats_utils import shrink_rate, shrink_proportion, _prior_accum_init, _prior_accum_add, _get_current_priors
+from stats_utils import shrink_rate, shrink_proportion, _prior_accum_init, _prior_accum_add, _get_current_priors, compute_composite_features
 
 
 FIGHTS_PATH = "data/fights.json"
@@ -253,7 +253,7 @@ def compute_stats(
     avg_opp_elo = f["sum_opp_elo"] / count_faced if count_faced > 0 else np.nan
     avg_opp_elo_wins = f["sum_opp_elo_wins"] / count_wins if count_wins > 0 else np.nan
 
-    return {
+    feat_dict = {
         "age": age,
         "stance": stance,
         "win_pct": win_pct,
@@ -288,6 +288,9 @@ def compute_stats(
         "avg_opp_elo": avg_opp_elo,
         "avg_opp_elo_wins": avg_opp_elo_wins,
     }
+    composites = compute_composite_features(feat_dict)
+    feat_dict.update(composites)
+    return feat_dict
 
 
 def update_state(state: dict, fight: dict, is_fighter_1: bool, is_win_loss: bool, win_side: int, finish_type: str | None, opponent_elo: float | None = None) -> None:
@@ -577,7 +580,6 @@ def main():
             "fight_id": f"fight_{idx:05d}",
             "event_date": fight["event_date"],
             "category": fight.get("category", ""),
-            # title_bout intentionally omitted (buggy data)
             "fighter_a_name": a_name,
             "fighter_b_name": b_name,
             "age_a": feat_a["age"],
@@ -587,6 +589,7 @@ def main():
             "stance_b": feat_b["stance"],
             "height_diff": height_a - height_b if not (np.isnan(height_a) or np.isnan(height_b)) else np.nan,
             "reach_diff": reach_a - reach_b if not (np.isnan(reach_a) or np.isnan(reach_b)) else np.nan,
+
             "win_pct_diff": feat_a["win_pct"] - feat_b["win_pct"] if not (np.isnan(feat_a["win_pct"]) or np.isnan(feat_b["win_pct"])) else np.nan,
             "ko_rate_diff": feat_a["ko_rate"] - feat_b["ko_rate"] if not (np.isnan(feat_a["ko_rate"]) or np.isnan(feat_b["ko_rate"])) else np.nan,
             "sub_rate_diff": feat_a["sub_rate"] - feat_b["sub_rate"] if not (np.isnan(feat_a["sub_rate"]) or np.isnan(feat_b["sub_rate"])) else np.nan,
@@ -618,6 +621,13 @@ def main():
             "decay_td_per_15min_diff": feat_a["decay_td_per_15min"] - feat_b["decay_td_per_15min"] if not (np.isnan(feat_a["decay_td_per_15min"]) or np.isnan(feat_b["decay_td_per_15min"])) else np.nan,
             "avg_opp_elo_diff": feat_a["avg_opp_elo"] - feat_b["avg_opp_elo"] if not (np.isnan(feat_a["avg_opp_elo"]) or np.isnan(feat_b["avg_opp_elo"])) else np.nan,
             "avg_opp_elo_wins_diff": feat_a["avg_opp_elo_wins"] - feat_b["avg_opp_elo_wins"] if not (np.isnan(feat_a["avg_opp_elo_wins"]) or np.isnan(feat_b["avg_opp_elo_wins"])) else np.nan,
+
+            "striking_strength_diff": feat_a["striking"] - feat_b["striking"] if not (np.isnan(feat_a["striking"]) or np.isnan(feat_b["striking"])) else np.nan,
+            "grappling_strength_diff": feat_a["grappling"] - feat_b["grappling"] if not (np.isnan(feat_a["grappling"]) or np.isnan(feat_b["grappling"])) else np.nan,
+            "durability_diff": feat_a["durability"] - feat_b["durability"] if not (np.isnan(feat_a["durability"]) or np.isnan(feat_b["durability"])) else np.nan,
+            "momentum_diff": feat_a["momentum"] - feat_b["momentum"] if not (np.isnan(feat_a["momentum"]) or np.isnan(feat_b["momentum"])) else np.nan,
+            "experience_diff": feat_a["experience"] - feat_b["experience"] if not (np.isnan(feat_a["experience"]) or np.isnan(feat_b["experience"])) else np.nan,
+
             "winner": winner_label,
             "finish_type": finish_type_target if finish_type_target is not None else "OTHER",
             "finish_round": finish_round_val,

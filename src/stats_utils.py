@@ -247,3 +247,61 @@ def _get_current_priors() -> dict:
             priors[cat] = dict(priors.get("global", {}))
 
     return priors
+
+
+# ── Composite feature weights (from LightGBM gain importance × domain sign) ──
+COMPOSITE_WEIGHTS = {
+    "striking": {
+        "sig_str_landed_per_min": 0.156,
+        "sig_str_absorbed_per_min": -0.220,
+        "sig_str_accuracy": 0.177,
+        "decay_sig_per_min": 0.099,
+        "decay_sig_absorbed_per_min": -0.220,
+        "ko_rate": 0.050,
+        "dec_rate": 0.078,
+    },
+    "grappling": {
+        "td_avg_per_15min": 0.089,
+        "td_accuracy": 0.194,
+        "td_defense": 0.120,
+        "sub_att_per_15min": 0.126,
+        "ctrl_time_pct": 0.099,
+        "sub_rate": 0.089,
+        "decay_td_per_15min": 0.283,
+    },
+    "durability": {
+        "ko_loss_rate": -0.351,
+        "sub_loss_rate": -0.243,
+        "recent_3_ko_loss_rate": -0.135,
+        "recent_5_ko_loss_rate": -0.270,
+    },
+    "momentum": {
+        "win_pct": 0.064,
+        "recent_3_wins": 0.048,
+        "recent_3_losses": -0.136,
+        "recent_5_wins": 0.072,
+        "recent_5_losses": -0.040,
+        "current_win_streak": 0.128,
+        "current_losing_streak": -0.032,
+        "total_fights": 0.200,
+        "days_since_last_fight": -0.280,
+    },
+    "experience": {
+        "avg_opp_elo": 0.439,
+        "avg_opp_elo_wins": 0.561,
+    },
+}
+
+
+def compute_composite_features(feat: dict) -> dict:
+    composites = {}
+    for name, weights in COMPOSITE_WEIGHTS.items():
+        value = 0.0
+        has_any = False
+        for subfeat, weight in weights.items():
+            v = feat.get(subfeat)
+            if v is not None and not (isinstance(v, float) and np.isnan(v)):
+                value += v * weight
+                has_any = True
+        composites[name] = value if has_any else np.nan
+    return composites
