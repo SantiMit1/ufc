@@ -1,55 +1,53 @@
 # AGENTS.md
 
-## Project
-UFC fight prediction pipeline: build events index → scrape fights → engineer features → train stacking ensemble → predict.
-
-## Setup & Commands
-- `.venv/Scripts/activate` to activate the venv (Windows).
-- All scripts run from repo root (`data/...`, `models/...` resolve relative to CWD).
-- Scraper needs `playwright install chromium` before first run (`build_events_index.py` and `scrape_ufc.py` both use Playwright async headless Chromium).
-- Model artifacts use Git LFS (`*.pkl filter=lfs` in `.gitattributes`).
-- No linting, typechecking, or test harness exists.
-
-## Pipeline Order (sequential)
+## Pipeline (sequential)
 1. `python src/build_events_index.py` → `data/events_index.json`
 2. `python src/scrape_ufc.py` → `data/fights.json`, `data/fighters_cache.json`
 3. `python src/feature_engineering.py` → `data/dataset.csv`
-4. `python src/train_model.py` → `models/ufc_stacking_ensemble.pkl` + `ufc_stacking_ensemble_meta.pkl` + `models/ufc_method_model.pkl` + `models/ufc_round_model.pkl` + `models/stacking_ensemble_feature_importance.png` + `models/eval.txt`
-5. `python src/predict.py` — interactive fighter-vs-fighter CLI (includes SHAP + method + round). Supports `--model`, `--features`, `--method-model`, `--round-model`. Prompts for rounds (3/5, default 3) and constrains predictions.
-6. `python src/predict_event.py --event "UFC 328: ..."` — event-level JSON output with `method_probabilities` and `predicted_method`. No round prediction. Supports `--exact`, `--model-path`, `--features-path`, `--method-model-path`.
+4. `python src/train_model.py` → `models/ufc_stacking_ensemble.pkl` + `_meta.pkl` + `ufc_method_model.pkl` + `ufc_round_model.pkl` + feature importance PNG
+5. `python src/predict.py` — interactive CLI (SHAP + method + round). Args: `--model`, `--features`, `--method-model`, `--round-model`.
+6. `python src/predict_event.py --event "UFC 328: ..."` — event JSON with method probs, no round prediction. Args: `--exact`, `--model-path`, `--features-path`, `--method-model-path`.
+7. `python src/predict_batch.py "FighterA,FighterB,Category,5" "FighterC,FighterD"` — batch table. Each arg: `F1,F2[,WeightClass[,Rounds]]`. Rounds defaults 3, WeightClass defaults "Catch Weight". Round shows `-` when method=DEC. Import helpers from `predict.py`. No model-path CLI flags (hardcoded paths).
 
-7. `python src/predict_batch.py "FighterA,FighterB,Category,5" "FighterC,FighterD"` — batch predictions table with Method/Round columns (with probabilities). Each arg is `Fighter1,Fighter2[,WeightClass[,Rounds]]` (defaults: WeightClass="Catch Weight", Rounds=3). Round column shows `-` when predicted method is DEC.
-## Architecture & Gotchas
+## Setup
+- `.venv/Scripts/activate` (Windows). All scripts from repo root.
+- Scraper needs `playwright install chromium` before first run (both `build_events_index.py` and `scrape_ufc.py` use Playwright async headless Chromium).
+- Model artifacts use Git LFS (`*.pkl filter=lfs` in `.gitattributes`). No linting, typechecking, or test harness.
+
+## Architecture
 
 ### Model: Stacking Ensemble
-**LightGBM + XGBoost + LogisticRegression** with a meta-LogisticRegression, wrapped in `ChronologicalStackingEnsemble` (`src/ensemble_utils.py`). Uses `TimeSeriesSplit(n_splits=5)` for out-of-fold stacking. Metadata pickle stores `raw_feature_cols`, `cat_cols`, `numeric_cols`, `feature_cols_final`, and `model_type="stacking"`.
+`ChronologicalStackingEnsemble` (`src/ensemble_utils.py`) — **LightGBM + XGBoost + LogisticRegression** (Pipeline: imputer→scaler→LR) with a meta-LR, `TimeSeriesSplit(n_splits=5)` OOF. Metadata stores `raw_feature_cols`, `cat_cols`, `numeric_cols`, `feature_cols_final`, `model_type="stacking"`.
 
-Three models trained sequentially:
-- **Winner** (binary): `ufc_stacking_ensemble.pkl` — fighter A wins or not
-- **Method** (multi-class, 3 classes): `ufc_method_model.pkl` — KO/SUB/DEC
-- **Round** (multi-class, 5 classes): `ufc_round_model.pkl` — rounds 1-5
+Three models trained sequentially, all on the same feature pipeline:
+- **Winner** (binary): `ufc_stacking_ensemble.pkl` — prob fighter A wins
+- **Method** (3-class): `ufc_method_model.pkl` — KO/SUB/DEC  
+- **Round** (5-class): `ufc_round_model.pkl` — rounds 1-5
 
-All three use the same feature pipeline (winner's `feature_cols_final`). The method/round models use `ChronologicalStackingEnsembleMultiClass` which flattens all class probabilities from base estimators as meta-features.
+Method/round use `ChronologicalStackingEnsembleMultiClass` which flattens all class probs from base estimators as meta-features.
 
-### Duplicated Computation Logic
-`predict.py` and `predict_event.py` each maintain their own copies of helper functions (Elo, state tracking, feature computation). `predict_batch.py` imports them from `predict.py`. None import from `feature_engineering.py`. If you change feature computation logic, keep `predict.py` and `predict_event.py` in sync.
+### Duplicated Computation
+`predict.py` and `predict_event.py` each maintain **their own copies** of Elo, state tracking, and feature computation. `predict_batch.py` imports from `predict.py`. None import from `feature_engineering.py`. If you change feature logic, sync `predict.py` and `predict_event.py` manually.
 
-Script import quirks:
-- `predict.py` and `predict_batch.py` use `sys.path.insert(0, str(Path(__file__).resolve().parent))` before `from ensemble_utils/stats_utils import ...`
-- `predict_event.py` does **not** need `sys.path.insert` — it runs from `src/` so same-directory imports resolve automatically
+Import quirks:
+- `predict.py` and `predict_batch.py` use `sys.path.insert(0, ...)` before `from ensemble_utils/stats_utils import ...`
+- `predict_event.py` does **not** — it runs from `src/` so same-directory imports resolve automatically
 
 ### Feature Engineering
-- Fights processed **chronologically** — each row uses only stats from fights before that date (no lookahead). Priors accumulated incrementally via `_prior_accum_add()`.
-- Fighter A/B sides are **randomly assigned** per fight (`random.seed(42)` in `feature_engineering.py`). Dataset is non-deterministic if seed changes.
-- Stats use Bayesian shrinkage toward population priors (`shrink_rate`, `shrink_proportion` in `stats_utils.py`). Priors per weight class; categories with <200 fights fall back to `"global"`.
-- Elo uses variable K-factor (96/64/40/24 by experience) and >1 year inactivity decay.
+- Fights processed **chronologically** with no lookahead. Priors accumulate incrementally via `_prior_accum_add()`.
+- Fighter A/B sides **randomly assigned** per fight (`random.seed(42)` in `feature_engineering.py`). Seed change makes dataset non-deterministic.
+- Bayesian shrinkage toward population priors (`shrink_rate`, `shrink_proportion` in `stats_utils.py`). Weight classes with <200 fights fall back to `"global"`.
+- Elo uses variable K-factor (96/64/40/24 by experience bands) and >1 year inactivity decay.
+- `CUTOFF_DATE = 2001-01-01` — fights before this are excluded from feature computation.
 
 ### Prediction
-- `predict_event.py` **filters out fights after the event date** before building fighter states — critical to prevent lookahead bias.
-- All prediction scripts average predictions from both orderings (A→B and B→A) to remove order-dependent bias.
-- SHAP explanations (`shap.TreeExplainer` on LightGBM base estimator) in `predict.py` only. `predict_event.py` outputs JSON and skips SHAP.
+- All scripts average predictions from both orderings (A→B and B→A) to remove order-dependent bias.
+- `predict_event.py` filters out fights **after** event date before building states — critical to prevent lookahead.
+- `predict.py` uses `shap.TreeExplainer` on LightGBM base; others skip SHAP.
+- `constrain_round_probas()` zeroes rounds beyond `max_rounds` and renormalizes.
+- Fighters with 0 prior fights are **skipped**; <3 fights triggers a warning.
 
 ### Data Integrity
-- `data/` and `models/` are generated artifacts. Don't edit by hand.
-- Feature column changes in `train_model.py` must be mirrored in `predict.py` and `predict_event.py`.
-- `dataset.csv` now includes `finish_type` (KO/SUB/DEC/OTHER) and `finish_round` (1-5) target columns.
+- `data/` and `models/` are generated artifacts — don't edit by hand.
+- Feature column changes in `train_model.py` must be mirrored in all prediction scripts.
+- `dataset.csv` includes `finish_type` (KO/SUB/DEC/OTHER) and `finish_round` (1-5) target columns.

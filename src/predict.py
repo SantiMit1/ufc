@@ -752,6 +752,12 @@ def main():
                 else f"{feat_b['current_losing_streak']}L streak" if feat_b["current_losing_streak"] > 0
                 else "-")
     _line("Streak", streak_a, streak_b)
+    print(sep)
+    _line("Striking Strength", feat_a["striking"], feat_b["striking"])
+    _line("Grappling Strength", feat_a["grappling"], feat_b["grappling"])
+    _line("Durability", feat_a["durability"], feat_b["durability"])
+    _line("Momentum", feat_a["momentum"], feat_b["momentum"])
+    _line("Experience (opp quality)", feat_a["experience"], feat_b["experience"])
     print(eq_sep)
     print()
 
