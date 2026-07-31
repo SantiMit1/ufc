@@ -177,7 +177,7 @@ def compute_stats(
     if total_minutes > 0 and not np.isnan(total_minutes):
         pm = p.get("td_avg_per_15min", np.nan)
         if not np.isnan(pm):
-            td_avg_per_15min = shrink_rate(td_landed, total_minutes, pm, total_fights=total_fights) * 15.0
+            td_avg_per_15min = shrink_rate(td_landed, total_minutes, pm / 15.0, total_fights=total_fights) * 15.0
         else:
             td_avg_per_15min = td_landed / total_minutes * 15.0
     else:

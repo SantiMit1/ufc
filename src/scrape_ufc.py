@@ -83,6 +83,22 @@ def split_fighter_values(value):
     return (value, "")
 
 
+def get_cell_values(cell):
+    """Return (fighter_1_value, fighter_2_value) for a stats cell.
+
+    ufcstats.com renders each fighter's value in a separate
+    <p class="b-fight-details__table-text"> element. Splitting the
+    concatenated cell text with split_fighter_values() is fragile because
+    two fighter values can share digits ambiguously (e.g. '1 of 11' + '2 of
+    12' -> '1 of 112 of 12'), so read the <p> elements directly and only
+    fall back to text-splitting if that structure is missing.
+    """
+    ps = cell.find_all("p", class_="b-fight-details__table-text")
+    if len(ps) >= 2:
+        return ps[0].get_text(strip=True), ps[1].get_text(strip=True)
+    return split_fighter_values(cell.get_text(strip=True))
+
+
 def parse_stats_value(raw):
     raw = raw.strip()
     if not raw or raw == "---" or raw == "--":
@@ -204,7 +220,10 @@ def parse_fight_page(html, fight):
         if details_el:
             pass
 
-    tables = soup.find_all("table", class_="b-fight-details__table")
+    all_tables = soup.find_all("table")
+    # ufcstats.com renders per-round tables with the 'js-fight-table' class and
+    # the totals / significant-strike breakdown tables WITHOUT any class.
+    tables = [t for t in all_tables if "js-fight-table" not in (t.get("class") or [])]
     stats = {"fighter_1": {}, "fighter_2": {}}
 
     if len(tables) >= 1:
@@ -223,8 +242,7 @@ def parse_fight_page(html, fight):
 
                 for col_idx, key in col_map.items():
                     if col_idx < len(cells):
-                        raw = cells[col_idx].get_text(strip=True)
-                        f1, f2 = split_fighter_values(raw)
+                        f1, f2 = get_cell_values(cells[col_idx])
                         if key == "control_time":
                             parsed_1 = parse_stats_value(f1) if f1 != "--" else None
                             parsed_2 = parse_stats_value(f2) if f2 != "--" else None
@@ -263,8 +281,7 @@ def parse_fight_page(html, fight):
 
                 for col_idx, key in target_map.items():
                     if col_idx < len(cells):
-                        raw = cells[col_idx].get_text(strip=True)
-                        f1, f2 = split_fighter_values(raw)
+                        f1, f2 = get_cell_values(cells[col_idx])
                         p1 = parse_stats_value(f1)
                         p2 = parse_stats_value(f2)
                         stats["fighter_1"][key] = p1 if isinstance(p1, dict) else None
@@ -272,8 +289,7 @@ def parse_fight_page(html, fight):
 
                 for col_idx, key in position_map.items():
                     if col_idx < len(cells):
-                        raw = cells[col_idx].get_text(strip=True)
-                        f1, f2 = split_fighter_values(raw)
+                        f1, f2 = get_cell_values(cells[col_idx])
                         p1 = parse_stats_value(f1)
                         p2 = parse_stats_value(f2)
                         stats["fighter_1"][key] = p1 if isinstance(p1, dict) else None
