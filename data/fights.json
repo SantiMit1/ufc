@@ -1,0 +1,9180 @@
+[
+  {
+    "event_name": "UFC 2: No Way Out",
+    "event_date": "1994-03-11",
+    "category": "Open Weight",
+    "fighter_1": "Royce Gracie",
+    "fighter_2": "Patrick Smith",
+    "winner": "Royce Gracie",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "1:17",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 4,
+        "attempted": 4
+      },
+      "total_strikes": {
+        "landed": 11,
+        "attempted": 11
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 3,
+        "attempted": 3
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "total_strikes": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 27,
+    "fighter_2_age": 30,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 188,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 2: No Way Out",
+    "event_date": "1994-03-11",
+    "category": "Open Weight",
+    "fighter_1": "Royce Gracie",
+    "fighter_2": "Remco Pardoel",
+    "winner": "Royce Gracie",
+    "method": "SUBGi Choke",
+    "round": 1,
+    "time": "1:31",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "total_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "total_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 27,
+    "fighter_2_age": 24,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 190,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 2: No Way Out",
+    "event_date": "1994-03-11",
+    "category": "Open Weight",
+    "fighter_1": "Patrick Smith",
+    "fighter_2": "Johnny Rhodes",
+    "winner": "Patrick Smith",
+    "method": "SUBGuillotine Choke",
+    "round": 1,
+    "time": "1:07",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 5,
+        "attempted": 12
+      },
+      "total_strikes": {
+        "landed": 5,
+        "attempted": 12
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 1,
+        "attempted": 4
+      },
+      "body": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 6
+      },
+      "distance": {
+        "landed": 3,
+        "attempted": 10
+      },
+      "clinch": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 4,
+        "attempted": 9
+      },
+      "total_strikes": {
+        "landed": 4,
+        "attempted": 9
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 2,
+        "attempted": 5
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 4
+      },
+      "distance": {
+        "landed": 4,
+        "attempted": 9
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 30,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 188,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 183,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 2: No Way Out",
+    "event_date": "1994-03-11",
+    "category": "Open Weight",
+    "fighter_1": "Royce Gracie",
+    "fighter_2": "Jason DeLucia",
+    "winner": "Royce Gracie",
+    "method": "SUBArmbar",
+    "round": 1,
+    "time": "1:07",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "total_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "total_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 27,
+    "fighter_2_age": 24,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 180,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 2: No Way Out",
+    "event_date": "1994-03-11",
+    "category": "Open Weight",
+    "fighter_1": "Remco Pardoel",
+    "fighter_2": "Orlando Wiet",
+    "winner": "Remco Pardoel",
+    "method": "KO/TKOElbows",
+    "round": 1,
+    "time": "1:29",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 7,
+        "attempted": 7
+      },
+      "total_strikes": {
+        "landed": 7,
+        "attempted": 7
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 7,
+        "attempted": 7
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 7,
+        "attempted": 7
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "total_strikes": {
+        "landed": 5,
+        "attempted": 7
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 24,
+    "fighter_2_age": 28,
+    "fighter_1_height_cm": 190,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 178,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 2: No Way Out",
+    "event_date": "1994-03-11",
+    "category": "Open Weight",
+    "fighter_1": "Johnny Rhodes",
+    "fighter_2": "Fred Ettish",
+    "winner": "Johnny Rhodes",
+    "method": "SUBBulldog Choke",
+    "round": 1,
+    "time": "3:07",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 13,
+        "attempted": 29
+      },
+      "total_strikes": {
+        "landed": 21,
+        "attempted": 38
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 12,
+        "attempted": 28
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 3,
+        "attempted": 6
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "ground": {
+        "landed": 9,
+        "attempted": 21
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 4,
+        "attempted": 7
+      },
+      "total_strikes": {
+        "landed": 7,
+        "attempted": 11
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "body": {
+        "landed": 2,
+        "attempted": 4
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 4,
+        "attempted": 7
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": null,
+    "fighter_2_age": 38,
+    "fighter_1_height_cm": 183,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 183,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 2: No Way Out",
+    "event_date": "1994-03-11",
+    "category": "Open Weight",
+    "fighter_1": "Patrick Smith",
+    "fighter_2": "Scott Morris",
+    "winner": "Patrick Smith",
+    "method": "KO/TKOElbows",
+    "round": 1,
+    "time": "0:30",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 13,
+        "attempted": 17
+      },
+      "total_strikes": {
+        "landed": 19,
+        "attempted": 25
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 12,
+        "attempted": 16
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 12,
+        "attempted": 16
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "total_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 30,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 188,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 178,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 2: No Way Out",
+    "event_date": "1994-03-11",
+    "category": "Open Weight",
+    "fighter_1": "Royce Gracie",
+    "fighter_2": "Minoki Ichihara",
+    "winner": "Royce Gracie",
+    "method": "SUBArmbar",
+    "round": 1,
+    "time": "5:08",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 2,
+        "attempted": 4
+      },
+      "total_strikes": {
+        "landed": 110,
+        "attempted": 114
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 2,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 4
+      },
+      "distance": {
+        "landed": 2,
+        "attempted": 4
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 3,
+        "attempted": 7
+      },
+      "total_strikes": {
+        "landed": 12,
+        "attempted": 16
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 3,
+        "attempted": 6
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 3,
+        "attempted": 5
+      }
+    },
+    "fighter_1_age": 27,
+    "fighter_2_age": 25,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 170,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 2: No Way Out",
+    "event_date": "1994-03-11",
+    "category": "Open Weight",
+    "fighter_1": "Jason DeLucia",
+    "fighter_2": "Scott Baker",
+    "winner": "Jason DeLucia",
+    "method": "SUBTriangle Choke",
+    "round": 1,
+    "time": "6:41",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 3,
+        "attempted": 5
+      },
+      "total_strikes": {
+        "landed": 20,
+        "attempted": 25
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 5,
+      "head": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 2,
+        "attempted": 4
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 1
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "total_strikes": {
+        "landed": 14,
+        "attempted": 23
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 24,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 180,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 183,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 2: No Way Out",
+    "event_date": "1994-03-11",
+    "category": "Open Weight",
+    "fighter_1": "Remco Pardoel",
+    "fighter_2": "Alberta Cerra Leon",
+    "winner": "Remco Pardoel",
+    "method": "SUBEzekiel Choke",
+    "round": 1,
+    "time": "9:51",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 4,
+        "attempted": 6
+      },
+      "total_strikes": {
+        "landed": 20,
+        "attempted": 22
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 4,
+        "attempted": 5
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 4,
+        "attempted": 5
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 3
+      },
+      "total_strikes": {
+        "landed": 9,
+        "attempted": 11
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 1,
+        "attempted": 3
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 2
+      }
+    },
+    "fighter_1_age": 24,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 190,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 173,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 2: No Way Out",
+    "event_date": "1994-03-11",
+    "category": "Open Weight",
+    "fighter_1": "Orlando Wiet",
+    "fighter_2": "Robert Lucarelli",
+    "winner": "Orlando Wiet",
+    "method": "KO/TKO",
+    "round": 1,
+    "time": "2:50",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 8,
+        "attempted": 12
+      },
+      "total_strikes": {
+        "landed": 11,
+        "attempted": 15
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 7,
+        "attempted": 11
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 3
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 7,
+        "attempted": 9
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 2,
+        "attempted": 6
+      },
+      "total_strikes": {
+        "landed": 2,
+        "attempted": 6
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 3
+      },
+      "distance": {
+        "landed": 2,
+        "attempted": 6
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 28,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 178,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 188,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 2: No Way Out",
+    "event_date": "1994-03-11",
+    "category": "Open Weight",
+    "fighter_1": "Frank Hamaker",
+    "fighter_2": "Thaddeus Luster",
+    "winner": "Frank Hamaker",
+    "method": "SUBKeylock",
+    "round": 1,
+    "time": "4:52",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "total_strikes": {
+        "landed": 14,
+        "attempted": 15
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 3,
+      "head": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 2
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "total_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": null,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": null,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 190,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 2: No Way Out",
+    "event_date": "1994-03-11",
+    "category": "Open Weight",
+    "fighter_1": "Johnny Rhodes",
+    "fighter_2": "David Levicki",
+    "winner": "Johnny Rhodes",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "12:13",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 11,
+        "attempted": 17
+      },
+      "total_strikes": {
+        "landed": 74,
+        "attempted": 86
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 9,
+        "attempted": 15
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 9,
+        "attempted": 15
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 4,
+        "attempted": 5
+      },
+      "total_strikes": {
+        "landed": 95,
+        "attempted": 102
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 4,
+        "attempted": 5
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "clinch": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 1
+      }
+    },
+    "fighter_1_age": null,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 183,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 196,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 2: No Way Out",
+    "event_date": "1994-03-11",
+    "category": "Open Weight",
+    "fighter_1": "Patrick Smith",
+    "fighter_2": "Ray Wizard",
+    "winner": "Patrick Smith",
+    "method": "SUBGuillotine Choke",
+    "round": 1,
+    "time": "0:58",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "total_strikes": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "total_strikes": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 30,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 188,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": null,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 2: No Way Out",
+    "event_date": "1994-03-11",
+    "category": "Open Weight",
+    "fighter_1": "Scott Morris",
+    "fighter_2": "Sean Daugherty",
+    "winner": "Scott Morris",
+    "method": "SUBGuillotine Choke",
+    "round": 1,
+    "time": "0:20",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "total_strikes": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 4
+      },
+      "total_strikes": {
+        "landed": 1,
+        "attempted": 5
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 3
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": null,
+    "fighter_2_age": 18,
+    "fighter_1_height_cm": 178,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 183,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 3: The American Dream",
+    "event_date": "1994-09-09",
+    "category": "Open Weight",
+    "fighter_1": "Steve Jennum",
+    "fighter_2": "Harold Howard",
+    "winner": "Steve Jennum",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "1:27",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 6,
+        "attempted": 11
+      },
+      "total_strikes": {
+        "landed": 7,
+        "attempted": 13
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 6,
+        "attempted": 11
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 5,
+        "attempted": 9
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 2,
+        "attempted": 6
+      },
+      "total_strikes": {
+        "landed": 3,
+        "attempted": 7
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 2,
+        "attempted": 6
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 4
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 1
+      }
+    },
+    "fighter_1_age": 30,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 178,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 188,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 3: The American Dream",
+    "event_date": "1994-09-09",
+    "category": "Open Weight",
+    "fighter_1": "Ken Shamrock",
+    "fighter_2": "Felix Lee Mitchell",
+    "winner": "Ken Shamrock",
+    "method": "SUBRear Naked Choke",
+    "round": 1,
+    "time": "4:34",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 4,
+        "attempted": 4
+      },
+      "total_strikes": {
+        "landed": 7,
+        "attempted": 7
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "body": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 1
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "total_strikes": {
+        "landed": 21,
+        "attempted": 22
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 30,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": 183,
+    "fighter_2_height_cm": null,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 3: The American Dream",
+    "event_date": "1994-09-09",
+    "category": "Open Weight",
+    "fighter_1": "Royce Gracie",
+    "fighter_2": "Kimo Leopoldo",
+    "winner": "Royce Gracie",
+    "method": "SUBArmbar",
+    "round": 1,
+    "time": "4:40",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 2,
+        "attempted": 6
+      },
+      "total_strikes": {
+        "landed": 17,
+        "attempted": 21
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 3
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 2,
+        "attempted": 6
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 6,
+        "attempted": 9
+      },
+      "total_strikes": {
+        "landed": 6,
+        "attempted": 10
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 3,
+        "attempted": 6
+      },
+      "body": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "ground": {
+        "landed": 3,
+        "attempted": 5
+      }
+    },
+    "fighter_1_age": 27,
+    "fighter_2_age": 26,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 190,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 3: The American Dream",
+    "event_date": "1994-09-09",
+    "category": "Open Weight",
+    "fighter_1": "Harold Howard",
+    "fighter_2": "Roland Payne",
+    "winner": "Harold Howard",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "0:46",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 9,
+        "attempted": 12
+      },
+      "total_strikes": {
+        "landed": 12,
+        "attempted": 15
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 9,
+        "attempted": 12
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 4
+      },
+      "clinch": {
+        "landed": 4,
+        "attempted": 4
+      },
+      "ground": {
+        "landed": 4,
+        "attempted": 4
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 3,
+        "attempted": 4
+      },
+      "total_strikes": {
+        "landed": 3,
+        "attempted": 4
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": null,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 188,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 175,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 3: The American Dream",
+    "event_date": "1994-09-09",
+    "category": "Open Weight",
+    "fighter_1": "Ken Shamrock",
+    "fighter_2": "Christophe Leninger",
+    "winner": "Ken Shamrock",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "4:49",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 8,
+        "attempted": 9
+      },
+      "total_strikes": {
+        "landed": 16,
+        "attempted": 20
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 5,
+        "attempted": 6
+      },
+      "body": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 8,
+        "attempted": 8
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "total_strikes": {
+        "landed": 21,
+        "attempted": 23
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 30,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": 183,
+    "fighter_2_height_cm": 183,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 3: The American Dream",
+    "event_date": "1994-09-09",
+    "category": "Open Weight",
+    "fighter_1": "Keith Hackney",
+    "fighter_2": "Emmanuel Yarborough",
+    "winner": "Keith Hackney",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "1:59",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 34,
+        "attempted": 50
+      },
+      "total_strikes": {
+        "landed": 36,
+        "attempted": 52
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 29,
+        "attempted": 45
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 5,
+        "attempted": 5
+      },
+      "distance": {
+        "landed": 6,
+        "attempted": 8
+      },
+      "clinch": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "ground": {
+        "landed": 26,
+        "attempted": 39
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 5
+      },
+      "total_strikes": {
+        "landed": 4,
+        "attempted": 9
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 1,
+        "attempted": 5
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 3
+      }
+    },
+    "fighter_1_age": 36,
+    "fighter_2_age": 34,
+    "fighter_1_height_cm": 180,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 203,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 4: Revenge of the Warriors",
+    "event_date": "1994-12-16",
+    "category": "Open Weight",
+    "fighter_1": "Royce Gracie",
+    "fighter_2": "Dan Severn",
+    "winner": "Royce Gracie",
+    "method": "SUBTriangle Choke",
+    "round": 1,
+    "time": "15:49",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 4
+      },
+      "total_strikes": {
+        "landed": 80,
+        "attempted": 84
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 3,
+      "head": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 3
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 4
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 4,
+        "attempted": 7
+      },
+      "total_strikes": {
+        "landed": 27,
+        "attempted": 43
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 4,
+        "attempted": 7
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 4,
+        "attempted": 7
+      }
+    },
+    "fighter_1_age": 28,
+    "fighter_2_age": 36,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 188,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 4: Revenge of the Warriors",
+    "event_date": "1994-12-16",
+    "category": "Open Weight",
+    "fighter_1": "Dan Severn",
+    "fighter_2": "Marcus Bossett",
+    "winner": "Dan Severn",
+    "method": "SUBArm Triangle",
+    "round": 1,
+    "time": "0:52",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "total_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "total_strikes": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 36,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 188,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 185,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 4: Revenge of the Warriors",
+    "event_date": "1994-12-16",
+    "category": "Open Weight",
+    "fighter_1": "Royce Gracie",
+    "fighter_2": "Keith Hackney",
+    "winner": "Royce Gracie",
+    "method": "SUBArmbar",
+    "round": 1,
+    "time": "5:32",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 11,
+        "attempted": 23
+      },
+      "total_strikes": {
+        "landed": 45,
+        "attempted": 58
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "sub_attempts": 3,
+      "head": {
+        "landed": 7,
+        "attempted": 15
+      },
+      "body": {
+        "landed": 3,
+        "attempted": 5
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 3
+      },
+      "distance": {
+        "landed": 2,
+        "attempted": 10
+      },
+      "clinch": {
+        "landed": 9,
+        "attempted": 13
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 4,
+        "attempted": 13
+      },
+      "total_strikes": {
+        "landed": 7,
+        "attempted": 16
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 3,
+        "attempted": 12
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 3
+      },
+      "clinch": {
+        "landed": 2,
+        "attempted": 4
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 6
+      }
+    },
+    "fighter_1_age": 28,
+    "fighter_2_age": 36,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 180,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 4: Revenge of the Warriors",
+    "event_date": "1994-12-16",
+    "category": "Open Weight",
+    "fighter_1": "Dan Severn",
+    "fighter_2": "Anthony Macias",
+    "winner": "Dan Severn",
+    "method": "SUBRear Naked Choke",
+    "round": 1,
+    "time": "1:45",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "total_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "takedowns": {
+        "landed": 2,
+        "attempted": 5
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 8,
+        "attempted": 9
+      },
+      "total_strikes": {
+        "landed": 12,
+        "attempted": 14
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 4,
+        "attempted": 4
+      },
+      "body": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "distance": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "clinch": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "ground": {
+        "landed": 3,
+        "attempted": 3
+      }
+    },
+    "fighter_1_age": 36,
+    "fighter_2_age": 25,
+    "fighter_1_height_cm": 188,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 175,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 4: Revenge of the Warriors",
+    "event_date": "1994-12-16",
+    "category": "Open Weight",
+    "fighter_1": "Steve Jennum",
+    "fighter_2": "Melton Bowen",
+    "winner": "Steve Jennum",
+    "method": "SUBArmbar",
+    "round": 1,
+    "time": "4:47",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 13,
+        "attempted": 40
+      },
+      "total_strikes": {
+        "landed": 29,
+        "attempted": 70
+      },
+      "takedowns": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 13,
+        "attempted": 36
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 6
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 13,
+        "attempted": 34
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 4
+      },
+      "total_strikes": {
+        "landed": 48,
+        "attempted": 59
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 1,
+        "attempted": 4
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 3
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 31,
+    "fighter_2_age": 25,
+    "fighter_1_height_cm": 178,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 183,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 4: Revenge of the Warriors",
+    "event_date": "1994-12-16",
+    "category": "Open Weight",
+    "fighter_1": "Keith Hackney",
+    "fighter_2": "Joe Son",
+    "winner": "Keith Hackney",
+    "method": "SUBOther - Choke",
+    "round": 1,
+    "time": "2:44",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 8,
+        "attempted": 14
+      },
+      "total_strikes": {
+        "landed": 10,
+        "attempted": 16
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 1,
+        "attempted": 5
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 7,
+        "attempted": 8
+      },
+      "distance": {
+        "landed": 2,
+        "attempted": 7
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 6,
+        "attempted": 7
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "total_strikes": {
+        "landed": 4,
+        "attempted": 4
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 36,
+    "fighter_2_age": 24,
+    "fighter_1_height_cm": 180,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 163,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 4: Revenge of the Warriors",
+    "event_date": "1994-12-16",
+    "category": "Open Weight",
+    "fighter_1": "Royce Gracie",
+    "fighter_2": "Ron van Clief",
+    "winner": "Royce Gracie",
+    "method": "SUBRear Naked Choke",
+    "round": 1,
+    "time": "3:49",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 7,
+        "attempted": 11
+      },
+      "total_strikes": {
+        "landed": 27,
+        "attempted": 31
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 5,
+        "attempted": 8
+      },
+      "body": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 7,
+        "attempted": 10
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "total_strikes": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 2
+      }
+    },
+    "fighter_1_age": 28,
+    "fighter_2_age": 51,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 178,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 4: Revenge of the Warriors",
+    "event_date": "1994-12-16",
+    "category": "Open Weight",
+    "fighter_1": "Guy Mezger",
+    "fighter_2": "Jason Fairn",
+    "winner": "Guy Mezger",
+    "method": "KO/TKO",
+    "round": 1,
+    "time": "2:13",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 19,
+        "attempted": 30
+      },
+      "total_strikes": {
+        "landed": 23,
+        "attempted": 34
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 17,
+        "attempted": 28
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 4,
+        "attempted": 5
+      },
+      "ground": {
+        "landed": 15,
+        "attempted": 24
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 9,
+        "attempted": 12
+      },
+      "total_strikes": {
+        "landed": 12,
+        "attempted": 15
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 5,
+        "attempted": 8
+      },
+      "body": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 4
+      },
+      "clinch": {
+        "landed": 4,
+        "attempted": 4
+      },
+      "ground": {
+        "landed": 4,
+        "attempted": 4
+      }
+    },
+    "fighter_1_age": 26,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 185,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 4: Revenge of the Warriors",
+    "event_date": "1994-12-16",
+    "category": "Open Weight",
+    "fighter_1": "Marcus Bossett",
+    "fighter_2": "Eldo Xavier Dias",
+    "winner": "Marcus Bossett",
+    "method": "KO/TKO",
+    "round": 1,
+    "time": "4:55",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {},
+    "stats_fighter_2": {},
+    "fighter_1_age": null,
+    "fighter_2_age": 30,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 180,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 4: Revenge of the Warriors",
+    "event_date": "1994-12-16",
+    "category": "Open Weight",
+    "fighter_1": "Joe Charles",
+    "fighter_2": "Kevin Rosier",
+    "winner": "Joe Charles",
+    "method": "SUBArmbar",
+    "round": 1,
+    "time": "0:14",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {},
+    "stats_fighter_2": {},
+    "fighter_1_age": null,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 193,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 5: The Return of the Beast",
+    "event_date": "1995-04-07",
+    "category": "Open Weight",
+    "fighter_1": "Dan Severn",
+    "fighter_2": "Dave Beneteau",
+    "winner": "Dan Severn",
+    "method": "SUBKeylock",
+    "round": 1,
+    "time": "3:01",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "total_strikes": {
+        "landed": 11,
+        "attempted": 13
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 1
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 2,
+        "attempted": 6
+      },
+      "total_strikes": {
+        "landed": 5,
+        "attempted": 10
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 2,
+        "attempted": 6
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 2,
+        "attempted": 5
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 36,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 188,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 188,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 5: The Return of the Beast",
+    "event_date": "1995-04-07",
+    "category": "Open Weight",
+    "fighter_1": "Ken Shamrock",
+    "fighter_2": "Royce Gracie",
+    "winner": "Draw",
+    "method": "Other",
+    "round": 2,
+    "time": "5:00",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 10,
+        "attempted": 22
+      },
+      "total_strikes": {
+        "landed": 98,
+        "attempted": 123
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 5,
+        "attempted": 17
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 5,
+        "attempted": 5
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 3
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 9,
+        "attempted": 19
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 3,
+        "attempted": 12
+      },
+      "total_strikes": {
+        "landed": 355,
+        "attempted": 366
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 2,
+        "attempted": 5
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 5
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 9
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 2,
+        "attempted": 3
+      }
+    },
+    "fighter_1_age": 31,
+    "fighter_2_age": 28,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": 183,
+    "fighter_2_height_cm": 185,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 5: The Return of the Beast",
+    "event_date": "1995-04-07",
+    "category": "Open Weight",
+    "fighter_1": "Dan Severn",
+    "fighter_2": "Oleg Taktarov",
+    "winner": "Dan Severn",
+    "method": "KO/TKO",
+    "round": 1,
+    "time": "4:21",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 9,
+        "attempted": 17
+      },
+      "total_strikes": {
+        "landed": 38,
+        "attempted": 64
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 9,
+        "attempted": 17
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 9,
+        "attempted": 17
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "total_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 36,
+    "fighter_2_age": 27,
+    "fighter_1_height_cm": 188,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 183,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 5: The Return of the Beast",
+    "event_date": "1995-04-07",
+    "category": "Open Weight",
+    "fighter_1": "Dave Beneteau",
+    "fighter_2": "Todd Medina",
+    "winner": "Dave Beneteau",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "2:12",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 8,
+        "attempted": 13
+      },
+      "total_strikes": {
+        "landed": 22,
+        "attempted": 28
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 8,
+        "attempted": 13
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 8,
+        "attempted": 13
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "total_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": null,
+    "fighter_2_age": 24,
+    "fighter_1_height_cm": 188,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 178,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 5: The Return of the Beast",
+    "event_date": "1995-04-07",
+    "category": "Open Weight",
+    "fighter_1": "Dan Severn",
+    "fighter_2": "Joe Charles",
+    "winner": "Dan Severn",
+    "method": "SUBRear Naked Choke",
+    "round": 1,
+    "time": "1:38",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 2,
+        "attempted": 4
+      },
+      "total_strikes": {
+        "landed": 12,
+        "attempted": 19
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 2,
+        "attempted": 4
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 2,
+        "attempted": 4
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "total_strikes": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 36,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 188,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 185,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 5: The Return of the Beast",
+    "event_date": "1995-04-07",
+    "category": "Open Weight",
+    "fighter_1": "Oleg Taktarov",
+    "fighter_2": "Ernie Verdicia",
+    "winner": "Oleg Taktarov",
+    "method": "SUBScarf Hold",
+    "round": 1,
+    "time": "2:23",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "total_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 2,
+        "attempted": 5
+      },
+      "total_strikes": {
+        "landed": 7,
+        "attempted": 11
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 2,
+        "attempted": 5
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 2,
+        "attempted": 3
+      }
+    },
+    "fighter_1_age": 27,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 183,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 180,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 5: The Return of the Beast",
+    "event_date": "1995-04-07",
+    "category": "Open Weight",
+    "fighter_1": "Todd Medina",
+    "fighter_2": "Larry Cureton",
+    "winner": "Todd Medina",
+    "method": "SUBForearm Choke",
+    "round": 1,
+    "time": "2:55",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 4,
+        "attempted": 4
+      },
+      "total_strikes": {
+        "landed": 64,
+        "attempted": 66
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 4,
+        "attempted": 4
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "total_strikes": {
+        "landed": 15,
+        "attempted": 16
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 24,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 178,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 188,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 5: The Return of the Beast",
+    "event_date": "1995-04-07",
+    "category": "Open Weight",
+    "fighter_1": "Jon Hess",
+    "fighter_2": "Andy Anderson",
+    "winner": "Jon Hess",
+    "method": "KO/TKOKnees",
+    "round": 1,
+    "time": "1:23",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 17,
+        "attempted": 28
+      },
+      "total_strikes": {
+        "landed": 30,
+        "attempted": 41
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 7,
+        "attempted": 17
+      },
+      "body": {
+        "landed": 10,
+        "attempted": 11
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 6,
+        "attempted": 14
+      },
+      "clinch": {
+        "landed": 6,
+        "attempted": 9
+      },
+      "ground": {
+        "landed": 5,
+        "attempted": 5
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "total_strikes": {
+        "landed": 6,
+        "attempted": 6
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 2,
+        "attempted": 2
+      }
+    },
+    "fighter_1_age": null,
+    "fighter_2_age": 20,
+    "fighter_1_height_cm": 201,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 168,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 5: The Return of the Beast",
+    "event_date": "1995-04-07",
+    "category": "Open Weight",
+    "fighter_1": "Guy Mezger",
+    "fighter_2": "John Dowdy",
+    "winner": "Guy Mezger",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "2:02",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 12,
+        "attempted": 17
+      },
+      "total_strikes": {
+        "landed": 15,
+        "attempted": 20
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 10,
+        "attempted": 15
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 2,
+        "attempted": 5
+      },
+      "clinch": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "ground": {
+        "landed": 8,
+        "attempted": 10
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 4
+      },
+      "total_strikes": {
+        "landed": 2,
+        "attempted": 7
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 4
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 27,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": null,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 5: The Return of the Beast",
+    "event_date": "1995-04-07",
+    "category": "Open Weight",
+    "fighter_1": "Dave Beneteau",
+    "fighter_2": "Asbel Cancio",
+    "winner": "Dave Beneteau",
+    "method": "KO/TKO",
+    "round": 1,
+    "time": "0:21",
+    "referee": null,
+    "stats_fighter_1": {},
+    "stats_fighter_2": {},
+    "fighter_1_age": null,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 188,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 178,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 6: Clash of the Titans",
+    "event_date": "1995-07-14",
+    "category": "Open Weight",
+    "fighter_1": "Oleg Taktarov",
+    "fighter_2": "David Abbott",
+    "winner": "Oleg Taktarov",
+    "method": "SUBRear Naked Choke",
+    "round": 1,
+    "time": "17:45",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 4,
+        "attempted": 10
+      },
+      "total_strikes": {
+        "landed": 48,
+        "attempted": 59
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 3
+      },
+      "sub_attempts": 4,
+      "head": {
+        "landed": 4,
+        "attempted": 10
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 3,
+        "attempted": 9
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 17,
+        "attempted": 45
+      },
+      "total_strikes": {
+        "landed": 39,
+        "attempted": 71
+      },
+      "takedowns": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 16,
+        "attempted": 44
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 8,
+        "attempted": 27
+      },
+      "clinch": {
+        "landed": 3,
+        "attempted": 7
+      },
+      "ground": {
+        "landed": 6,
+        "attempted": 11
+      }
+    },
+    "fighter_1_age": 27,
+    "fighter_2_age": 30,
+    "fighter_1_height_cm": 183,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 183,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 6: Clash of the Titans",
+    "event_date": "1995-07-14",
+    "category": "Open Weight",
+    "fighter_1": "Ken Shamrock",
+    "fighter_2": "Dan Severn",
+    "winner": "Ken Shamrock",
+    "method": "SUBGuillotine Choke",
+    "round": 1,
+    "time": "2:14",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 2,
+        "attempted": 5
+      },
+      "total_strikes": {
+        "landed": 2,
+        "attempted": 5
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 2,
+      "head": {
+        "landed": 1,
+        "attempted": 4
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 4
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "total_strikes": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 31,
+    "fighter_2_age": 37,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": 183,
+    "fighter_2_height_cm": 188,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 6: Clash of the Titans",
+    "event_date": "1995-07-14",
+    "category": "Open Weight",
+    "fighter_1": "Oleg Taktarov",
+    "fighter_2": "Anthony Macias",
+    "winner": "Oleg Taktarov",
+    "method": "SUBGuillotine Choke",
+    "round": 1,
+    "time": "0:09",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "total_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "total_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 27,
+    "fighter_2_age": 26,
+    "fighter_1_height_cm": 183,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 175,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 6: Clash of the Titans",
+    "event_date": "1995-07-14",
+    "category": "Open Weight",
+    "fighter_1": "David Abbott",
+    "fighter_2": "Paul Varelans",
+    "winner": "David Abbott",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "1:53",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 14,
+        "attempted": 21
+      },
+      "total_strikes": {
+        "landed": 18,
+        "attempted": 25
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 13,
+        "attempted": 20
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 13,
+        "attempted": 20
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "total_strikes": {
+        "landed": 12,
+        "attempted": 14
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 30,
+    "fighter_2_age": 25,
+    "fighter_1_height_cm": 183,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 203,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 6: Clash of the Titans",
+    "event_date": "1995-07-14",
+    "category": "Open Weight",
+    "fighter_1": "Oleg Taktarov",
+    "fighter_2": "Dave Beneteau",
+    "winner": "Oleg Taktarov",
+    "method": "SUBGuillotine Choke",
+    "round": 1,
+    "time": "0:57",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "total_strikes": {
+        "landed": 5,
+        "attempted": 7
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 5,
+        "attempted": 14
+      },
+      "total_strikes": {
+        "landed": 5,
+        "attempted": 14
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 5,
+        "attempted": 14
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 4,
+        "attempted": 11
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 3
+      }
+    },
+    "fighter_1_age": 27,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 183,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 188,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 6: Clash of the Titans",
+    "event_date": "1995-07-14",
+    "category": "Open Weight",
+    "fighter_1": "Patrick Smith",
+    "fighter_2": "Rudyard Moncayo",
+    "winner": "Patrick Smith",
+    "method": "SUBRear Naked Choke",
+    "round": 1,
+    "time": "1:08",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 6,
+        "attempted": 8
+      },
+      "total_strikes": {
+        "landed": 10,
+        "attempted": 13
+      },
+      "takedowns": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 2,
+        "attempted": 4
+      },
+      "body": {
+        "landed": 4,
+        "attempted": 4
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "ground": {
+        "landed": 2,
+        "attempted": 4
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "total_strikes": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 31,
+    "fighter_2_age": 22,
+    "fighter_1_height_cm": 188,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 178,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 6: Clash of the Titans",
+    "event_date": "1995-07-14",
+    "category": "Open Weight",
+    "fighter_1": "Paul Varelans",
+    "fighter_2": "Cal Worsham",
+    "winner": "Paul Varelans",
+    "method": "KO/TKOElbow",
+    "round": 1,
+    "time": "1:02",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 8,
+        "attempted": 22
+      },
+      "total_strikes": {
+        "landed": 12,
+        "attempted": 27
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 7,
+        "attempted": 19
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 3,
+        "attempted": 12
+      },
+      "clinch": {
+        "landed": 5,
+        "attempted": 10
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 9,
+        "attempted": 33
+      },
+      "total_strikes": {
+        "landed": 11,
+        "attempted": 35
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 9,
+        "attempted": 30
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 3
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 5,
+        "attempted": 13
+      },
+      "clinch": {
+        "landed": 4,
+        "attempted": 20
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 25,
+    "fighter_2_age": 32,
+    "fighter_1_height_cm": 203,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 180,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 6: Clash of the Titans",
+    "event_date": "1995-07-14",
+    "category": "Open Weight",
+    "fighter_1": "David Abbott",
+    "fighter_2": "John Matua",
+    "winner": "David Abbott",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "0:20",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 2,
+      "sig_strikes": {
+        "landed": 7,
+        "attempted": 12
+      },
+      "total_strikes": {
+        "landed": 7,
+        "attempted": 12
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 7,
+        "attempted": 12
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 6,
+        "attempted": 6
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 5
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "total_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 30,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 183,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 188,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 6: Clash of the Titans",
+    "event_date": "1995-07-14",
+    "category": "Open Weight",
+    "fighter_1": "Anthony Macias",
+    "fighter_2": "He-Man Gipson",
+    "winner": "Anthony Macias",
+    "method": "KO/TKOHeadbutts",
+    "round": 1,
+    "time": "3:06",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {},
+    "stats_fighter_2": {},
+    "fighter_1_age": 26,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 175,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": null,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 6: Clash of the Titans",
+    "event_date": "1995-07-14",
+    "category": "Open Weight",
+    "fighter_1": "Joel Sutton",
+    "fighter_2": "Jack McGlaughlin",
+    "winner": "Joel Sutton",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "2:01",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {},
+    "stats_fighter_2": {},
+    "fighter_1_age": 26,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 180,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": null,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 7: The Brawl in Buffalo",
+    "event_date": "1995-09-08",
+    "category": "Open Weight",
+    "fighter_1": "Marco Ruas",
+    "fighter_2": "Paul Varelans",
+    "winner": "Marco Ruas",
+    "method": "KO/TKOKicks",
+    "round": 1,
+    "time": "13:17",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 33,
+        "attempted": 59
+      },
+      "total_strikes": {
+        "landed": 54,
+        "attempted": 84
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 9,
+        "attempted": 25
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 24,
+        "attempted": 34
+      },
+      "distance": {
+        "landed": 27,
+        "attempted": 49
+      },
+      "clinch": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "ground": {
+        "landed": 4,
+        "attempted": 7
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 10,
+        "attempted": 30
+      },
+      "total_strikes": {
+        "landed": 36,
+        "attempted": 63
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 3,
+        "attempted": 19
+      },
+      "body": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 5,
+        "attempted": 9
+      },
+      "distance": {
+        "landed": 7,
+        "attempted": 27
+      },
+      "clinch": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 34,
+    "fighter_2_age": 25,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 203,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 7: The Brawl in Buffalo",
+    "event_date": "1995-09-08",
+    "category": "Open Weight",
+    "fighter_1": "Ken Shamrock",
+    "fighter_2": "Oleg Taktarov",
+    "winner": "Draw",
+    "method": "Other",
+    "round": 2,
+    "time": "3:00",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 29,
+        "attempted": 58
+      },
+      "total_strikes": {
+        "landed": 180,
+        "attempted": 222
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 26,
+        "attempted": 53
+      },
+      "body": {
+        "landed": 2,
+        "attempted": 4
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 8,
+        "attempted": 29
+      },
+      "clinch": {
+        "landed": 4,
+        "attempted": 6
+      },
+      "ground": {
+        "landed": 17,
+        "attempted": 23
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 4,
+        "attempted": 22
+      },
+      "total_strikes": {
+        "landed": 110,
+        "attempted": 128
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 3,
+        "attempted": 17
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 4
+      },
+      "distance": {
+        "landed": 3,
+        "attempted": 18
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 4
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 31,
+    "fighter_2_age": 28,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": 183,
+    "fighter_2_height_cm": 183,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 7: The Brawl in Buffalo",
+    "event_date": "1995-09-08",
+    "category": "Open Weight",
+    "fighter_1": "Marco Ruas",
+    "fighter_2": "Remco Pardoel",
+    "winner": "Marco Ruas",
+    "method": "SUBOther",
+    "round": 1,
+    "time": "12:27",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 4,
+        "attempted": 7
+      },
+      "total_strikes": {
+        "landed": 11,
+        "attempted": 18
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 2,
+      "head": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "body": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 3
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 3
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 3,
+        "attempted": 4
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 2,
+        "attempted": 4
+      },
+      "total_strikes": {
+        "landed": 4,
+        "attempted": 7
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 2,
+      "head": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "clinch": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 34,
+    "fighter_2_age": 26,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 190,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 7: The Brawl in Buffalo",
+    "event_date": "1995-09-08",
+    "category": "Open Weight",
+    "fighter_1": "Paul Varelans",
+    "fighter_2": "Mark Hall",
+    "winner": "Paul Varelans",
+    "method": "SUBKeylock",
+    "round": 1,
+    "time": "1:01",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "total_strikes": {
+        "landed": 4,
+        "attempted": 6
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 2,
+      "head": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 2,
+        "attempted": 2
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "total_strikes": {
+        "landed": 4,
+        "attempted": 5
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 25,
+    "fighter_2_age": 34,
+    "fighter_1_height_cm": 203,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 183,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 7: The Brawl in Buffalo",
+    "event_date": "1995-09-08",
+    "category": "Open Weight",
+    "fighter_1": "Marco Ruas",
+    "fighter_2": "Larry Cureton",
+    "winner": "Marco Ruas",
+    "method": "SUBHeel Hook",
+    "round": 1,
+    "time": "3:23",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "total_strikes": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 3,
+      "head": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 6,
+        "attempted": 7
+      },
+      "total_strikes": {
+        "landed": 11,
+        "attempted": 14
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "body": {
+        "landed": 4,
+        "attempted": 4
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 6,
+        "attempted": 7
+      }
+    },
+    "fighter_1_age": 34,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 188,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 7: The Brawl in Buffalo",
+    "event_date": "1995-09-08",
+    "category": "Open Weight",
+    "fighter_1": "Remco Pardoel",
+    "fighter_2": "Ryan Parker",
+    "winner": "Remco Pardoel",
+    "method": "SUBGi Choke",
+    "round": 1,
+    "time": "3:05",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "total_strikes": {
+        "landed": 16,
+        "attempted": 16
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "total_strikes": {
+        "landed": 20,
+        "attempted": 21
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 26,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 190,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 190,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 7: The Brawl in Buffalo",
+    "event_date": "1995-09-08",
+    "category": "Open Weight",
+    "fighter_1": "Mark Hall",
+    "fighter_2": "Harold Howard",
+    "winner": "Mark Hall",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "1:41",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 4
+      },
+      "total_strikes": {
+        "landed": 13,
+        "attempted": 23
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 1,
+        "attempted": 4
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 3
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 4,
+        "attempted": 5
+      },
+      "total_strikes": {
+        "landed": 5,
+        "attempted": 8
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "body": {
+        "landed": 3,
+        "attempted": 4
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "clinch": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 34,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 183,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 188,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 7: The Brawl in Buffalo",
+    "event_date": "1995-09-08",
+    "category": "Open Weight",
+    "fighter_1": "Paul Varelans",
+    "fighter_2": "Gerry Harris",
+    "winner": "Paul Varelans",
+    "method": "KO/TKOElbows",
+    "round": 1,
+    "time": "1:05",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 4,
+        "attempted": 4
+      },
+      "total_strikes": {
+        "landed": 35,
+        "attempted": 38
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 4,
+        "attempted": 4
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 4,
+        "attempted": 4
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "total_strikes": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 25,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 203,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 203,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 7: The Brawl in Buffalo",
+    "event_date": "1995-09-08",
+    "category": "Open Weight",
+    "fighter_1": "Scott Bessac",
+    "fighter_2": "David Hood",
+    "winner": "Scott Bessac",
+    "method": "SUBGuillotine Choke",
+    "round": 1,
+    "time": "0:31",
+    "referee": "Taimak Guarriello",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 5
+      },
+      "total_strikes": {
+        "landed": 1,
+        "attempted": 5
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 2,
+      "head": {
+        "landed": 0,
+        "attempted": 4
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 4
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "total_strikes": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 29,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 193,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 183,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 7: The Brawl in Buffalo",
+    "event_date": "1995-09-08",
+    "category": "Open Weight",
+    "fighter_1": "Onassis Parungao",
+    "fighter_2": "Francesco Maturi",
+    "winner": "Onassis Parungao",
+    "method": "KO/TKO",
+    "round": 1,
+    "time": "5:26",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {},
+    "stats_fighter_2": {},
+    "fighter_1_age": null,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 180,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": null,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 7: The Brawl in Buffalo",
+    "event_date": "1995-09-08",
+    "category": "Open Weight",
+    "fighter_1": "Joel Sutton",
+    "fighter_2": "Geza Kalman",
+    "winner": "Joel Sutton",
+    "method": "KO/TKO",
+    "round": 1,
+    "time": "0:48",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {},
+    "stats_fighter_2": {},
+    "fighter_1_age": 26,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 180,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 185,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC - Ultimate Ultimate '95",
+    "event_date": "1995-12-16",
+    "category": "Open Weight",
+    "fighter_1": "Dan Severn",
+    "fighter_2": "Oleg Taktarov",
+    "winner": "Dan Severn",
+    "method": "U-DEC",
+    "round": 2,
+    "time": "3:00",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 24,
+        "attempted": 79
+      },
+      "total_strikes": {
+        "landed": 198,
+        "attempted": 277
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 18,
+        "attempted": 73
+      },
+      "body": {
+        "landed": 5,
+        "attempted": 5
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 7,
+        "attempted": 60
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 17,
+        "attempted": 19
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 8,
+        "attempted": 29
+      },
+      "total_strikes": {
+        "landed": 26,
+        "attempted": 47
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 4,
+        "attempted": 23
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 3
+      },
+      "leg": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "distance": {
+        "landed": 8,
+        "attempted": 29
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 37,
+    "fighter_2_age": 28,
+    "fighter_1_height_cm": 188,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 183,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC - Ultimate Ultimate '95",
+    "event_date": "1995-12-16",
+    "category": "Open Weight",
+    "fighter_1": "Oleg Taktarov",
+    "fighter_2": "Marco Ruas",
+    "winner": "Oleg Taktarov",
+    "method": "U-DEC",
+    "round": 1,
+    "time": "18:00",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 6,
+        "attempted": 33
+      },
+      "total_strikes": {
+        "landed": 10,
+        "attempted": 37
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 3
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 2,
+        "attempted": 19
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 4,
+        "attempted": 13
+      },
+      "distance": {
+        "landed": 6,
+        "attempted": 33
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 14,
+        "attempted": 53
+      },
+      "total_strikes": {
+        "landed": 29,
+        "attempted": 68
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 3,
+        "attempted": 31
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 11,
+        "attempted": 22
+      },
+      "distance": {
+        "landed": 14,
+        "attempted": 52
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 1
+      }
+    },
+    "fighter_1_age": 28,
+    "fighter_2_age": 34,
+    "fighter_1_height_cm": 183,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 185,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC - Ultimate Ultimate '95",
+    "event_date": "1995-12-16",
+    "category": "Open Weight",
+    "fighter_1": "Dan Severn",
+    "fighter_2": "David Abbott",
+    "winner": "Dan Severn",
+    "method": "U-DEC",
+    "round": 1,
+    "time": "18:00",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 57,
+        "attempted": 65
+      },
+      "total_strikes": {
+        "landed": 233,
+        "attempted": 253
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 36,
+        "attempted": 43
+      },
+      "body": {
+        "landed": 16,
+        "attempted": 17
+      },
+      "leg": {
+        "landed": 5,
+        "attempted": 5
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 5,
+        "attempted": 5
+      },
+      "ground": {
+        "landed": 52,
+        "attempted": 60
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 3,
+        "attempted": 6
+      },
+      "total_strikes": {
+        "landed": 11,
+        "attempted": 16
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 3,
+        "attempted": 6
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "clinch": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 1
+      }
+    },
+    "fighter_1_age": 37,
+    "fighter_2_age": 30,
+    "fighter_1_height_cm": 188,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 183,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC - Ultimate Ultimate '95",
+    "event_date": "1995-12-16",
+    "category": "Open Weight",
+    "fighter_1": "Oleg Taktarov",
+    "fighter_2": "Dave Beneteau",
+    "winner": "Oleg Taktarov",
+    "method": "SUBAnkle Lock",
+    "round": 1,
+    "time": "1:15",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "total_strikes": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 2,
+      "head": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 2,
+        "attempted": 5
+      },
+      "total_strikes": {
+        "landed": 2,
+        "attempted": 5
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 1,
+        "attempted": 4
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 2
+      }
+    },
+    "fighter_1_age": 28,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 183,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 188,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC - Ultimate Ultimate '95",
+    "event_date": "1995-12-16",
+    "category": "Open Weight",
+    "fighter_1": "Marco Ruas",
+    "fighter_2": "Keith Hackney",
+    "winner": "Marco Ruas",
+    "method": "SUBRear Naked Choke",
+    "round": 1,
+    "time": "2:39",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 7,
+        "attempted": 10
+      },
+      "total_strikes": {
+        "landed": 11,
+        "attempted": 15
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 5,
+        "attempted": 8
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 5,
+        "attempted": 7
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 4
+      },
+      "total_strikes": {
+        "landed": 1,
+        "attempted": 4
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 4
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 34,
+    "fighter_2_age": 37,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 180,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC - Ultimate Ultimate '95",
+    "event_date": "1995-12-16",
+    "category": "Open Weight",
+    "fighter_1": "Dan Severn",
+    "fighter_2": "Paul Varelans",
+    "winner": "Dan Severn",
+    "method": "SUBArm Triangle",
+    "round": 1,
+    "time": "1:01",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "total_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 2,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "total_strikes": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 37,
+    "fighter_2_age": 26,
+    "fighter_1_height_cm": 188,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 203,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC - Ultimate Ultimate '95",
+    "event_date": "1995-12-16",
+    "category": "Open Weight",
+    "fighter_1": "David Abbott",
+    "fighter_2": "Steve Jennum",
+    "winner": "David Abbott",
+    "method": "SUBNeck Crank",
+    "round": 1,
+    "time": "1:14",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "total_strikes": {
+        "landed": 3,
+        "attempted": 5
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "total_strikes": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 30,
+    "fighter_2_age": 32,
+    "fighter_1_height_cm": 183,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 178,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC - Ultimate Ultimate '95",
+    "event_date": "1995-12-16",
+    "category": "Open Weight",
+    "fighter_1": "Mark Hall",
+    "fighter_2": "Trent Jenkins",
+    "winner": "Mark Hall",
+    "method": "SUB",
+    "round": 1,
+    "time": "5:29",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {},
+    "stats_fighter_2": {},
+    "fighter_1_age": 34,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 183,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 188,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC - Ultimate Ultimate '95",
+    "event_date": "1995-12-16",
+    "category": "Open Weight",
+    "fighter_1": "Joe Charles",
+    "fighter_2": "Scott Bessac",
+    "winner": "Joe Charles",
+    "method": "SUBArmbar",
+    "round": 1,
+    "time": "4:38",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {},
+    "stats_fighter_2": {},
+    "fighter_1_age": null,
+    "fighter_2_age": 30,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 193,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 8: David vs Goliath",
+    "event_date": "1996-02-16",
+    "category": "Open Weight",
+    "fighter_1": "Don Frye",
+    "fighter_2": "Gary Goodridge",
+    "winner": "Don Frye",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "2:14",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 12,
+        "attempted": 21
+      },
+      "total_strikes": {
+        "landed": 27,
+        "attempted": 37
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 9,
+        "attempted": 18
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "distance": {
+        "landed": 2,
+        "attempted": 6
+      },
+      "clinch": {
+        "landed": 7,
+        "attempted": 11
+      },
+      "ground": {
+        "landed": 3,
+        "attempted": 4
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 2,
+        "attempted": 6
+      },
+      "total_strikes": {
+        "landed": 2,
+        "attempted": 6
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 3
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 1,
+        "attempted": 4
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 3
+      },
+      "clinch": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 30,
+    "fighter_2_age": 30,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 190,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 8: David vs Goliath",
+    "event_date": "1996-02-16",
+    "category": "Open Weight",
+    "fighter_1": "Ken Shamrock",
+    "fighter_2": "Kimo Leopoldo",
+    "winner": "Ken Shamrock",
+    "method": "SUBKneebar",
+    "round": 1,
+    "time": "4:24",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "total_strikes": {
+        "landed": 13,
+        "attempted": 14
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 2,
+      "head": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 4,
+        "attempted": 5
+      },
+      "total_strikes": {
+        "landed": 5,
+        "attempted": 6
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 3,
+        "attempted": 4
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 3,
+        "attempted": 4
+      }
+    },
+    "fighter_1_age": 32,
+    "fighter_2_age": 28,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": 183,
+    "fighter_2_height_cm": 190,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 8: David vs Goliath",
+    "event_date": "1996-02-16",
+    "category": "Open Weight",
+    "fighter_1": "Gary Goodridge",
+    "fighter_2": "Jerry Bohlander",
+    "winner": "Gary Goodridge",
+    "method": "KO/TKOPunch",
+    "round": 1,
+    "time": "5:31",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 3,
+        "attempted": 6
+      },
+      "total_strikes": {
+        "landed": 7,
+        "attempted": 10
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 3,
+        "attempted": 6
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 3,
+        "attempted": 5
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 8
+      },
+      "total_strikes": {
+        "landed": 18,
+        "attempted": 28
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 1,
+        "attempted": 8
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 8
+      }
+    },
+    "fighter_1_age": 30,
+    "fighter_2_age": 22,
+    "fighter_1_height_cm": 190,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 180,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 8: David vs Goliath",
+    "event_date": "1996-02-16",
+    "category": "Open Weight",
+    "fighter_1": "Don Frye",
+    "fighter_2": "Sam Adkins",
+    "winner": "Don Frye",
+    "method": "KO/TKO",
+    "round": 1,
+    "time": "0:48",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 5,
+        "attempted": 9
+      },
+      "total_strikes": {
+        "landed": 19,
+        "attempted": 24
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 5,
+        "attempted": 9
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 3
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 5,
+        "attempted": 6
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 3
+      },
+      "total_strikes": {
+        "landed": 1,
+        "attempted": 4
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 3
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 3
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 30,
+    "fighter_2_age": 30,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 190,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 8: David vs Goliath",
+    "event_date": "1996-02-16",
+    "category": "Open Weight",
+    "fighter_1": "Gary Goodridge",
+    "fighter_2": "Paul Herrera",
+    "winner": "Gary Goodridge",
+    "method": "KO/TKOElbows",
+    "round": 1,
+    "time": "0:13",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 8,
+        "attempted": 8
+      },
+      "total_strikes": {
+        "landed": 8,
+        "attempted": 8
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 8,
+        "attempted": 8
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 8,
+        "attempted": 8
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "total_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 30,
+    "fighter_2_age": 31,
+    "fighter_1_height_cm": 190,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 178,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 8: David vs Goliath",
+    "event_date": "1996-02-16",
+    "category": "Open Weight",
+    "fighter_1": "Jerry Bohlander",
+    "fighter_2": "Scott Ferrozzo",
+    "winner": "Jerry Bohlander",
+    "method": "SUBGuillotine Choke",
+    "round": 1,
+    "time": "9:03",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 7,
+        "attempted": 9
+      },
+      "total_strikes": {
+        "landed": 27,
+        "attempted": 33
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "body": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 4
+      },
+      "distance": {
+        "landed": 4,
+        "attempted": 6
+      },
+      "clinch": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 1
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 9,
+        "attempted": 12
+      },
+      "total_strikes": {
+        "landed": 17,
+        "attempted": 20
+      },
+      "takedowns": {
+        "landed": 2,
+        "attempted": 4
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 6,
+        "attempted": 8
+      },
+      "body": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "clinch": {
+        "landed": 4,
+        "attempted": 6
+      },
+      "ground": {
+        "landed": 4,
+        "attempted": 4
+      }
+    },
+    "fighter_1_age": 22,
+    "fighter_2_age": 30,
+    "fighter_1_height_cm": 180,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 180,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 8: David vs Goliath",
+    "event_date": "1996-02-16",
+    "category": "Open Weight",
+    "fighter_1": "Paul Varelans",
+    "fighter_2": "Joe Moreira",
+    "winner": "Paul Varelans",
+    "method": "U-DEC",
+    "round": 1,
+    "time": "10:00",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 9,
+        "attempted": 38
+      },
+      "total_strikes": {
+        "landed": 20,
+        "attempted": 51
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 5,
+        "attempted": 32
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 4,
+        "attempted": 5
+      },
+      "distance": {
+        "landed": 6,
+        "attempted": 28
+      },
+      "clinch": {
+        "landed": 3,
+        "attempted": 10
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 12,
+        "attempted": 28
+      },
+      "total_strikes": {
+        "landed": 12,
+        "attempted": 28
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 3
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 5,
+        "attempted": 14
+      },
+      "body": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 5,
+        "attempted": 12
+      },
+      "distance": {
+        "landed": 9,
+        "attempted": 17
+      },
+      "clinch": {
+        "landed": 3,
+        "attempted": 11
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 26,
+    "fighter_2_age": 34,
+    "fighter_1_height_cm": 203,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 180,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 8: David vs Goliath",
+    "event_date": "1996-02-16",
+    "category": "Open Weight",
+    "fighter_1": "Don Frye",
+    "fighter_2": "Thomas Ramirez",
+    "winner": "Don Frye",
+    "method": "KO/TKOPunch",
+    "round": 1,
+    "time": "0:08",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 3,
+        "attempted": 4
+      },
+      "total_strikes": {
+        "landed": 3,
+        "attempted": 4
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 3,
+        "attempted": 4
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 1
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "total_strikes": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 30,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 185,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 8: David vs Goliath",
+    "event_date": "1996-02-16",
+    "category": "Open Weight",
+    "fighter_1": "Sam Adkins",
+    "fighter_2": "Keith Mielke",
+    "winner": "Sam Adkins",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "0:50",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {},
+    "stats_fighter_2": {},
+    "fighter_1_age": 30,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 190,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 173,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 9: Motor City Madness",
+    "event_date": "1996-05-17",
+    "category": "Open Weight",
+    "fighter_1": "Dan Severn",
+    "fighter_2": "Ken Shamrock",
+    "winner": "Dan Severn",
+    "method": "S-DEC",
+    "round": 3,
+    "time": "3:00",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 16,
+        "attempted": 75
+      },
+      "total_strikes": {
+        "landed": 32,
+        "attempted": 94
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 13,
+        "attempted": 70
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 3,
+        "attempted": 5
+      },
+      "distance": {
+        "landed": 9,
+        "attempted": 62
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 4
+      },
+      "ground": {
+        "landed": 6,
+        "attempted": 9
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 18,
+        "attempted": 81
+      },
+      "total_strikes": {
+        "landed": 59,
+        "attempted": 122
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 9,
+        "attempted": 71
+      },
+      "body": {
+        "landed": 9,
+        "attempted": 10
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 8,
+        "attempted": 71
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 9,
+        "attempted": 9
+      }
+    },
+    "fighter_1_age": 37,
+    "fighter_2_age": 32,
+    "fighter_1_height_cm": 188,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 185,
+    "fighter_2_reach_cm": 183
+  },
+  {
+    "event_name": "UFC 9: Motor City Madness",
+    "event_date": "1996-05-17",
+    "category": "Open Weight",
+    "fighter_1": "Don Frye",
+    "fighter_2": "Amaury Bitetti",
+    "winner": "Don Frye",
+    "method": "KO/TKOKnees",
+    "round": 1,
+    "time": "9:30",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 46,
+        "attempted": 59
+      },
+      "total_strikes": {
+        "landed": 82,
+        "attempted": 98
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 27,
+        "attempted": 39
+      },
+      "body": {
+        "landed": 19,
+        "attempted": 20
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 5
+      },
+      "clinch": {
+        "landed": 11,
+        "attempted": 16
+      },
+      "ground": {
+        "landed": 34,
+        "attempted": 38
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 2,
+        "attempted": 5
+      },
+      "total_strikes": {
+        "landed": 24,
+        "attempted": 30
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 6
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 1,
+        "attempted": 4
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 3
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 30,
+    "fighter_2_age": 27,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 175,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 9: Motor City Madness",
+    "event_date": "1996-05-17",
+    "category": "Open Weight",
+    "fighter_1": "Mark Hall",
+    "fighter_2": "Koji Kitao",
+    "winner": "Mark Hall",
+    "method": "KO/TKO",
+    "round": 1,
+    "time": "0:47",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "total_strikes": {
+        "landed": 4,
+        "attempted": 4
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 1
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "total_strikes": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 35,
+    "fighter_2_age": 32,
+    "fighter_1_height_cm": 183,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 201,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 9: Motor City Madness",
+    "event_date": "1996-05-17",
+    "category": "Open Weight",
+    "fighter_1": "Mark Schultz",
+    "fighter_2": "Gary Goodridge",
+    "winner": "Mark Schultz",
+    "method": "KO/TKO",
+    "round": 1,
+    "time": "12:00",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 8,
+        "attempted": 29
+      },
+      "total_strikes": {
+        "landed": 74,
+        "attempted": 96
+      },
+      "takedowns": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 7,
+        "attempted": 27
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 7,
+        "attempted": 27
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 4
+      },
+      "total_strikes": {
+        "landed": 3,
+        "attempted": 7
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 3
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 4
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 35,
+    "fighter_2_age": 30,
+    "fighter_1_height_cm": 175,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 190,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 9: Motor City Madness",
+    "event_date": "1996-05-17",
+    "category": "Open Weight",
+    "fighter_1": "Rafael Carino",
+    "fighter_2": "Matt Andersen",
+    "winner": "Rafael Carino",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "5:32",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 8,
+        "attempted": 17
+      },
+      "total_strikes": {
+        "landed": 33,
+        "attempted": 48
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 8,
+        "attempted": 17
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 8,
+        "attempted": 17
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "total_strikes": {
+        "landed": 5,
+        "attempted": 5
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": null,
+    "fighter_2_age": 24,
+    "fighter_1_height_cm": 203,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 188,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 9: Motor City Madness",
+    "event_date": "1996-05-17",
+    "category": "Open Weight",
+    "fighter_1": "Cal Worsham",
+    "fighter_2": "Zane Frazier",
+    "winner": "Cal Worsham",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "3:14",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 9,
+        "attempted": 11
+      },
+      "total_strikes": {
+        "landed": 29,
+        "attempted": 33
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 6,
+        "attempted": 6
+      },
+      "body": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 3
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 3
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 8,
+        "attempted": 8
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "total_strikes": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 32,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 180,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 196,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 9: Motor City Madness",
+    "event_date": "1996-05-17",
+    "category": "Open Weight",
+    "fighter_1": "Steve Nelmark",
+    "fighter_2": "Tai Bowden",
+    "winner": "Steve Nelmark",
+    "method": "KO/TKO",
+    "round": 1,
+    "time": "7:25",
+    "referee": "Joe Hamilton",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 13,
+        "attempted": 16
+      },
+      "total_strikes": {
+        "landed": 39,
+        "attempted": 43
+      },
+      "takedowns": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 12,
+        "attempted": 15
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 11,
+        "attempted": 13
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 4,
+        "attempted": 4
+      },
+      "total_strikes": {
+        "landed": 20,
+        "attempted": 20
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "clinch": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": null,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 183,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 180,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 10: The Tournament",
+    "event_date": "1996-07-12",
+    "category": "Open Weight",
+    "fighter_1": "Mark Coleman",
+    "fighter_2": "Don Frye",
+    "winner": "Mark Coleman",
+    "method": "KO/TKOHeadbutts",
+    "round": 1,
+    "time": "11:34",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 34,
+        "attempted": 60
+      },
+      "total_strikes": {
+        "landed": 71,
+        "attempted": 105
+      },
+      "takedowns": {
+        "landed": 3,
+        "attempted": 5
+      },
+      "sub_attempts": 2,
+      "head": {
+        "landed": 30,
+        "attempted": 56
+      },
+      "body": {
+        "landed": 4,
+        "attempted": 4
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 2,
+        "attempted": 4
+      },
+      "clinch": {
+        "landed": 4,
+        "attempted": 5
+      },
+      "ground": {
+        "landed": 28,
+        "attempted": 51
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 6
+      },
+      "total_strikes": {
+        "landed": 17,
+        "attempted": 22
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 1,
+        "attempted": 6
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 6
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 31,
+    "fighter_2_age": 30,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": 190,
+    "fighter_2_height_cm": 185,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 10: The Tournament",
+    "event_date": "1996-07-12",
+    "category": "Open Weight",
+    "fighter_1": "Mark Coleman",
+    "fighter_2": "Gary Goodridge",
+    "winner": "Mark Coleman",
+    "method": "SUBOther",
+    "round": 1,
+    "time": "7:00",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 33,
+        "attempted": 48
+      },
+      "total_strikes": {
+        "landed": 51,
+        "attempted": 70
+      },
+      "takedowns": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 33,
+        "attempted": 48
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "clinch": {
+        "landed": 19,
+        "attempted": 26
+      },
+      "ground": {
+        "landed": 12,
+        "attempted": 19
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 3,
+        "attempted": 7
+      },
+      "total_strikes": {
+        "landed": 8,
+        "attempted": 13
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 1,
+        "attempted": 4
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 3
+      },
+      "clinch": {
+        "landed": 3,
+        "attempted": 4
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 31,
+    "fighter_2_age": 30,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": 190,
+    "fighter_2_height_cm": 190,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 10: The Tournament",
+    "event_date": "1996-07-12",
+    "category": "Open Weight",
+    "fighter_1": "Don Frye",
+    "fighter_2": "Brian Johnston",
+    "winner": "Don Frye",
+    "method": "KO/TKOElbows",
+    "round": 1,
+    "time": "4:37",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 11,
+        "attempted": 16
+      },
+      "total_strikes": {
+        "landed": 42,
+        "attempted": 48
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 4,
+        "attempted": 9
+      },
+      "body": {
+        "landed": 7,
+        "attempted": 7
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 4
+      },
+      "clinch": {
+        "landed": 5,
+        "attempted": 7
+      },
+      "ground": {
+        "landed": 5,
+        "attempted": 5
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 11,
+        "attempted": 22
+      },
+      "total_strikes": {
+        "landed": 28,
+        "attempted": 39
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 5,
+        "attempted": 13
+      },
+      "body": {
+        "landed": 4,
+        "attempted": 6
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 6
+      },
+      "clinch": {
+        "landed": 11,
+        "attempted": 16
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 30,
+    "fighter_2_age": 27,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 190,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 10: The Tournament",
+    "event_date": "1996-07-12",
+    "category": "Open Weight",
+    "fighter_1": "Gary Goodridge",
+    "fighter_2": "John Campetella",
+    "winner": "Gary Goodridge",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "1:28",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 5,
+        "attempted": 6
+      },
+      "total_strikes": {
+        "landed": 6,
+        "attempted": 7
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 5,
+        "attempted": 6
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 3,
+        "attempted": 3
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 5,
+        "attempted": 7
+      },
+      "total_strikes": {
+        "landed": 8,
+        "attempted": 10
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 3,
+        "attempted": 4
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 5,
+        "attempted": 7
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 30,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 190,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 175,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 10: The Tournament",
+    "event_date": "1996-07-12",
+    "category": "Open Weight",
+    "fighter_1": "Mark Coleman",
+    "fighter_2": "Moti Horenstein",
+    "winner": "Mark Coleman",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "2:43",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 25,
+        "attempted": 30
+      },
+      "total_strikes": {
+        "landed": 33,
+        "attempted": 38
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 20,
+        "attempted": 25
+      },
+      "body": {
+        "landed": 5,
+        "attempted": 5
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 25,
+        "attempted": 30
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "total_strikes": {
+        "landed": 19,
+        "attempted": 21
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 31,
+    "fighter_2_age": 32,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": 190,
+    "fighter_2_height_cm": 193,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 10: The Tournament",
+    "event_date": "1996-07-12",
+    "category": "Open Weight",
+    "fighter_1": "Brian Johnston",
+    "fighter_2": "Scott Fiedler",
+    "winner": "Brian Johnston",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "2:25",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 2,
+        "attempted": 5
+      },
+      "total_strikes": {
+        "landed": 13,
+        "attempted": 17
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 2,
+        "attempted": 5
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 2,
+        "attempted": 5
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 3,
+        "attempted": 4
+      },
+      "total_strikes": {
+        "landed": 5,
+        "attempted": 7
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 2,
+        "attempted": 3
+      }
+    },
+    "fighter_1_age": 27,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 190,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 193,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 10: The Tournament",
+    "event_date": "1996-07-12",
+    "category": "Open Weight",
+    "fighter_1": "Don Frye",
+    "fighter_2": "Mark Hall",
+    "winner": "Don Frye",
+    "method": "KO/TKOHeadbutt",
+    "round": 1,
+    "time": "10:21",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 27,
+        "attempted": 28
+      },
+      "total_strikes": {
+        "landed": 182,
+        "attempted": 191
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 8,
+        "attempted": 8
+      },
+      "body": {
+        "landed": 19,
+        "attempted": 20
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 27,
+        "attempted": 28
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "total_strikes": {
+        "landed": 22,
+        "attempted": 26
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 30,
+    "fighter_2_age": 35,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 183,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 10: The Tournament",
+    "event_date": "1996-07-12",
+    "category": "Open Weight",
+    "fighter_1": "Sam Adkins",
+    "fighter_2": "Felix Lee Mitchell",
+    "winner": "Sam Adkins",
+    "method": "U-DEC",
+    "round": 2,
+    "time": "3:00",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {},
+    "stats_fighter_2": {},
+    "fighter_1_age": 31,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 190,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": null,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 10: The Tournament",
+    "event_date": "1996-07-12",
+    "category": "Open Weight",
+    "fighter_1": "Geza Kalman",
+    "fighter_2": "Dieusel Berto",
+    "winner": "Geza Kalman",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "5:57",
+    "referee": "Joe Hamilton",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 21,
+        "attempted": 36
+      },
+      "total_strikes": {
+        "landed": 48,
+        "attempted": 64
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 9,
+        "attempted": 23
+      },
+      "body": {
+        "landed": 7,
+        "attempted": 8
+      },
+      "leg": {
+        "landed": 5,
+        "attempted": 5
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 11
+      },
+      "clinch": {
+        "landed": 18,
+        "attempted": 22
+      },
+      "ground": {
+        "landed": 3,
+        "attempted": 3
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 3,
+        "attempted": 5
+      },
+      "total_strikes": {
+        "landed": 9,
+        "attempted": 11
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 3,
+        "attempted": 5
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 3,
+        "attempted": 4
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": null,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 175,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 11: The Proving Ground",
+    "event_date": "1996-09-20",
+    "category": "Open Weight",
+    "fighter_1": "Scott Ferrozzo",
+    "fighter_2": "David Abbott",
+    "winner": "Scott Ferrozzo",
+    "method": "U-DEC",
+    "round": 2,
+    "time": "3:00",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 60,
+        "attempted": 94
+      },
+      "total_strikes": {
+        "landed": 180,
+        "attempted": 216
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 17,
+        "attempted": 48
+      },
+      "body": {
+        "landed": 34,
+        "attempted": 37
+      },
+      "leg": {
+        "landed": 9,
+        "attempted": 9
+      },
+      "distance": {
+        "landed": 17,
+        "attempted": 43
+      },
+      "clinch": {
+        "landed": 43,
+        "attempted": 51
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 21,
+        "attempted": 50
+      },
+      "total_strikes": {
+        "landed": 27,
+        "attempted": 56
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 20,
+        "attempted": 49
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 15,
+        "attempted": 39
+      },
+      "clinch": {
+        "landed": 6,
+        "attempted": 11
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 31,
+    "fighter_2_age": 31,
+    "fighter_1_height_cm": 180,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 183,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 11: The Proving Ground",
+    "event_date": "1996-09-20",
+    "category": "Open Weight",
+    "fighter_1": "Mark Coleman",
+    "fighter_2": "Brian Johnston",
+    "winner": "Mark Coleman",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "2:20",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 9,
+        "attempted": 10
+      },
+      "total_strikes": {
+        "landed": 21,
+        "attempted": 22
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 9,
+        "attempted": 10
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 9,
+        "attempted": 10
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 3,
+        "attempted": 5
+      },
+      "total_strikes": {
+        "landed": 3,
+        "attempted": 6
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "distance": {
+        "landed": 3,
+        "attempted": 5
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 31,
+    "fighter_2_age": 28,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": 190,
+    "fighter_2_height_cm": 190,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 11: The Proving Ground",
+    "event_date": "1996-09-20",
+    "category": "Open Weight",
+    "fighter_1": "Jerry Bohlander",
+    "fighter_2": "Fabio Gurgel",
+    "winner": "Jerry Bohlander",
+    "method": "U-DEC",
+    "round": 1,
+    "time": "15:00",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 18,
+        "attempted": 21
+      },
+      "total_strikes": {
+        "landed": 179,
+        "attempted": 189
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 9,
+        "attempted": 11
+      },
+      "body": {
+        "landed": 5,
+        "attempted": 5
+      },
+      "leg": {
+        "landed": 4,
+        "attempted": 5
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "clinch": {
+        "landed": 5,
+        "attempted": 5
+      },
+      "ground": {
+        "landed": 12,
+        "attempted": 14
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "total_strikes": {
+        "landed": 15,
+        "attempted": 16
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 3
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 22,
+    "fighter_2_age": 26,
+    "fighter_1_height_cm": 180,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 183,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 11: The Proving Ground",
+    "event_date": "1996-09-20",
+    "category": "Open Weight",
+    "fighter_1": "David Abbott",
+    "fighter_2": "Sam Adkins",
+    "winner": "David Abbott",
+    "method": "SUBForearm Choke",
+    "round": 1,
+    "time": "2:06",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 8,
+        "attempted": 9
+      },
+      "total_strikes": {
+        "landed": 16,
+        "attempted": 17
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 1,
+      "head": {
+        "landed": 5,
+        "attempted": 6
+      },
+      "body": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 8,
+        "attempted": 9
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "total_strikes": {
+        "landed": 3,
+        "attempted": 5
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 31,
+    "fighter_2_age": 31,
+    "fighter_1_height_cm": 183,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 190,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 11: The Proving Ground",
+    "event_date": "1996-09-20",
+    "category": "Open Weight",
+    "fighter_1": "Brian Johnston",
+    "fighter_2": "Reza Nasri",
+    "winner": "Brian Johnston",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "0:28",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 6,
+        "attempted": 8
+      },
+      "total_strikes": {
+        "landed": 8,
+        "attempted": 10
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 5,
+        "attempted": 7
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "ground": {
+        "landed": 5,
+        "attempted": 6
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "total_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 28,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 190,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": 180,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 11: The Proving Ground",
+    "event_date": "1996-09-20",
+    "category": "Open Weight",
+    "fighter_1": "Mark Coleman",
+    "fighter_2": "Julian Sanchez",
+    "winner": "Mark Coleman",
+    "method": "SUBScarf Hold",
+    "round": 1,
+    "time": "0:45",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 7,
+        "attempted": 7
+      },
+      "total_strikes": {
+        "landed": 8,
+        "attempted": 8
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 2,
+      "head": {
+        "landed": 7,
+        "attempted": 7
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 6,
+        "attempted": 6
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "total_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 31,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": 190,
+    "fighter_2_height_cm": 190,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 11: The Proving Ground",
+    "event_date": "1996-09-20",
+    "category": "Open Weight",
+    "fighter_1": "Roberto Traven",
+    "fighter_2": "Dave Berry",
+    "winner": "Roberto Traven",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "1:33",
+    "referee": "Joe Hamilton",
+    "stats_fighter_1": {},
+    "stats_fighter_2": {},
+    "fighter_1_age": 28,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 190,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": null,
+    "fighter_2_reach_cm": null
+  },
+  {
+    "event_name": "UFC 11: The Proving Ground",
+    "event_date": "1996-09-20",
+    "category": "Open Weight",
+    "fighter_1": "Scott Ferrozzo",
+    "fighter_2": "Sam Fulton",
+    "winner": "Scott Ferrozzo",
+    "method": "SUBInjury",
+    "round": 1,
+    "time": "1:45",
+    "referee": "John McCarthy",
+    "stats_fighter_1": {},
+    "stats_fighter_2": {},
+    "fighter_1_age": 31,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 180,
+    "fighter_1_reach_cm": null,
+    "fighter_2_height_cm": null,
+    "fighter_2_reach_cm": null
+  }
+]
