@@ -3,10 +3,12 @@ import asyncio
 import random
 import re
 import os
+import time
 from datetime import datetime
 
 from playwright.async_api import async_playwright
 from bs4 import BeautifulSoup
+from tqdm import tqdm
 
 EVENTS_PATH = "data/events_index.json"
 FIGHTS_PATH = "data/fights.json"
@@ -37,7 +39,7 @@ async def fetch_page(context, url, label=""):
         content = await page.content()
         return content
     except Exception as e:
-        print(f"    [WARN] fetch_page {label}: {e}")
+        tqdm.write(f"    [WARN] fetch_page {label}: {e}")
         return None
     finally:
         await page.close()
@@ -383,14 +385,23 @@ def calculate_age(dob_str, event_date_str):
         return None
 
 
+def format_duration(seconds):
+    seconds = max(0, int(seconds))
+    h, rem = divmod(seconds, 3600)
+    m, s = divmod(rem, 60)
+    if h:
+        return f"{h}h{m:02d}m"
+    return f"{m}m{s:02d}s"
+
+
 async def get_fighter_info(context, fighter_name, fighter_url, fighters_cache):
     if fighter_name in fighters_cache:
         return fighters_cache[fighter_name]
 
-    print(f"    Fetching fighter: {fighter_name}")
+    tqdm.write(f"    Fetching fighter: {fighter_name}")
     html = await fetch_page(context, fighter_url, fighter_name)
     if not html or len(html) < 500:
-        print(f"    [WARN] Failed to fetch fighter page for {fighter_name}")
+        tqdm.write(f"    [WARN] Failed to fetch fighter page for {fighter_name}")
         fighters_cache[fighter_name] = {}
         save_json(FIGHTERS_CACHE_PATH, fighters_cache)
         return {}
@@ -398,7 +409,7 @@ async def get_fighter_info(context, fighter_name, fighter_url, fighters_cache):
     info = parse_fighter_page(html)
     fighters_cache[fighter_name] = info
     save_json(FIGHTERS_CACHE_PATH, fighters_cache)
-    print(f"    Cached fighter: {fighter_name}")
+    tqdm.write(f"    Cached fighter: {fighter_name}")
     return info
 
 
@@ -422,7 +433,7 @@ async def main():
         fighters_cache = {}
 
     pending = [e for e in events if not e.get("scrapped")]
-    print(f"Loaded {len(events)} events, {len(pending)} pending")
+    tqdm.write(f"Loaded {len(events)} events, {len(pending)} pending")
 
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
@@ -431,29 +442,40 @@ async def main():
         )
 
         try:
-            for event in pending:
+            scraped_count = sum(1 for e in events if e.get("scrapped"))
+            avg_fights_per_event = round(len(fights) / scraped_count) if scraped_count and fights else 11
+            t_start = time.monotonic()
+            fights_done = 0
+
+            outer = tqdm(total=len(pending), position=0, leave=True, unit="event", desc="Events", ncols=100)
+            for ei, event in enumerate(pending):
                 name = event["name"]
                 date = event["date"]
                 url = event["url"]
-                print(f"\n{'='*60}")
-                print(f"Processing event: {name} ({date})")
-                print(f"{'='*60}")
+                outer.set_description(f"Events: {name[:55]}")
+                tqdm.write(f"\nProcessing event: {name} ({date})")
 
                 try:
                     html = await fetch_page(context, url, name)
                     if not html or len(html) < 1000:
-                        print(f"  [ERROR] Failed to fetch event page for {name}")
+                        tqdm.write(f"  [ERROR] Failed to fetch event page for {name}")
+                        outer.update(1)
                         continue
 
                     event_fights = parse_event_page(html, name, date)
                     if not event_fights:
-                        print(f"  [WARN] No fights found for {name}")
+                        tqdm.write(f"  [WARN] No fights found for {name}")
+                        outer.update(1)
                         continue
 
-                    print(f"  Found {len(event_fights)} fights")
+                    tqdm.write(f"  Found {len(event_fights)} fights")
 
-                    for i, fight in enumerate(event_fights):
-                        print(f"  [{i+1}/{len(event_fights)}] {fight['fighter_1']} vs {fight['fighter_2']}")
+                    inner = tqdm(event_fights, position=1, leave=False, unit="fight",
+                                 desc=f"  {name[:30]}", ncols=100)
+                    for i, fight in enumerate(inner):
+                        inner.set_description(
+                            f"  {fight['fighter_1'][:18]} vs {fight['fighter_2'][:18]}"
+                        )
 
                         if fight["fight_url"]:
                             try:
@@ -461,7 +483,7 @@ async def main():
                                 if fight_html and len(fight_html) > 500:
                                     parse_fight_page(fight_html, fight)
                             except Exception as e:
-                                print(f"    [WARN] Could not fetch fight details: {e}")
+                                tqdm.write(f"    [WARN] Could not fetch fight details: {e}")
 
                         for fname, furl in [
                             (fight["fighter_1"], fight["fighter_1_url"]),
@@ -471,33 +493,47 @@ async def main():
                                 try:
                                     await get_fighter_info(context, fname, furl, fighters_cache)
                                 except Exception as e:
-                                    print(f"    [WARN] Could not fetch fighter {fname}: {e}")
+                                    tqdm.write(f"    [WARN] Could not fetch fighter {fname}: {e}")
 
                         enrich_fight_with_fighter_data(fight, fighters_cache)
 
                         clean_fight = {k: v for k, v in fight.items() if not k.endswith("_url") and k != "fight_url"}
                         fights.append(clean_fight)
 
+                        fights_done += 1
+                        elapsed = time.monotonic() - t_start
+                        spf = elapsed / fights_done
+                        remaining_fights = (
+                            (len(pending) - ei - 1) * avg_fights_per_event
+                            + (len(event_fights) - i - 1)
+                        )
+                        outer.set_postfix_str(f"ETA ~{format_duration(spf * remaining_fights)}")
+
                         await asyncio.sleep(random.uniform(1.0, 2.0))
+
+                    inner.close()
 
                     save_json(FIGHTS_PATH, fights)
 
                     event["scrapped"] = True
                     save_json(EVENTS_PATH, events)
-                    print(f"  Marked as scrapped: {name}")
+                    tqdm.write(f"  Marked as scrapped: {name}")
 
                     await asyncio.sleep(random.uniform(1.0, 2.0))
 
                 except Exception as e:
-                    print(f"  [ERROR] Failed to process event {name}: {e}")
-                    continue
+                    tqdm.write(f"  [ERROR] Failed to process event {name}: {e}")
+
+                outer.update(1)
+                outer.set_postfix_str("")
+            outer.close()
 
         finally:
             await context.close()
             await browser.close()
 
-    print(f"\nDone. Fights saved to {FIGHTS_PATH}")
-    print(f"Fighters cached: {len(fighters_cache)}")
+    tqdm.write(f"\nDone. Fights saved to {FIGHTS_PATH}")
+    tqdm.write(f"Fighters cached: {len(fighters_cache)}")
 
 
 if __name__ == "__main__":
