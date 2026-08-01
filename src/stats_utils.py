@@ -17,8 +17,9 @@ def _fight_minutes(fight: dict) -> float:
         return 0.0
     time_str = fight.get("time", "") or ""
     parts = time_str.split(":")
-    seconds = int(parts[0]) if parts else 0
-    minutes_this_round = seconds / 60.0
+    minutes = int(parts[0]) if parts else 0
+    seconds = int(parts[1]) if len(parts) > 1 else 0
+    minutes_this_round = minutes + seconds / 60.0
     completed = (fight["round"] - 1) * 5
     return float(completed + minutes_this_round) if completed + minutes_this_round > 0 else 0.0
 
