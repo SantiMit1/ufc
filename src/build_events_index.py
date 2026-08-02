@@ -1,6 +1,6 @@
 import json
 import asyncio
-from datetime import datetime
+from datetime import datetime, date
 
 from playwright.async_api import async_playwright
 from bs4 import BeautifulSoup
@@ -40,6 +40,10 @@ def parse_events(html: str) -> list[dict]:
         date_str = td0_text.replace(name, "", 1).strip()
 
         dt = datetime.strptime(date_str, "%B %d, %Y")
+
+        if dt.date() > date.today():
+            continue
+
         events.append({
             "name": name,
             "date": dt.strftime("%Y-%m-%d"),
