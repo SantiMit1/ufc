@@ -1,13 +1,21 @@
 # AGENTS.md
 
 ## Pipeline (sequential)
-1. `python src/build_events_index.py` → `data/events_index.json`
+1. `python src/build_events_index.py` → `data/events_index.json` (skips upcoming/unfinished events)
 2. `python src/scrape_ufc.py` → `data/fights.json`, `data/fighters_cache.json`
 3. `python src/feature_engineering.py` → `data/dataset.csv`
-4. `python src/train_model.py` → `models/ufc_stacking_ensemble.pkl` + `_meta.pkl` + `ufc_method_model.pkl` + `ufc_round_model.pkl` + feature importance PNG
+4. `python src/train_model.py` → `models/ufc_stacking_ensemble.pkl` + `_meta.pkl` + `ufc_method_model.pkl` + `ufc_round_model.pkl` + feature importance PNG (run manually)
 5. `python src/predict.py` — interactive CLI (SHAP + method + round). Args: `--model`, `--features`, `--method-model`, `--round-model`.
 6. `python src/predict_event.py --event "UFC 328: ..."` — event JSON with method probs, no round prediction. Args: `--exact`, `--model-path`, `--features-path`, `--method-model-path`.
 7. `python src/predict_batch.py "FighterA,FighterB,Category,5" "FighterC,FighterD"` — batch table. Each arg: `F1,F2[,WeightClass[,Rounds]]`. Rounds defaults 3, WeightClass defaults "Catch Weight". Round shows `-` when method=DEC. Import helpers from `predict.py`. No model-path CLI flags (hardcoded paths).
+
+To run the pipeline (skip step 4, run it by hand):
+```bash
+.venv/Scripts/activate
+python src/build_events_index.py
+python src/scrape_ufc.py
+python src/feature_engineering.py
+```
 
 ## Setup
 - `.venv/Scripts/activate` (Windows). All scripts from repo root.
