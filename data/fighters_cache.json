@@ -19052,5 +19052,68 @@
     "reach_cm": 170,
     "stance": "Orthodox",
     "dob": "1997-08-02"
+  },
+  "Vlasto Cepo": {
+    "height_cm": 183,
+    "weight_lbs": 185,
+    "reach_cm": 185,
+    "stance": "Orthodox",
+    "dob": "1995-01-25"
+  },
+  "Noah Gugnon": {
+    "height_cm": 180,
+    "weight_lbs": 155,
+    "reach_cm": 180,
+    "stance": "Orthodox",
+    "dob": "2000-10-18"
+  },
+  "Milos Janicic": {
+    "height_cm": 180,
+    "weight_lbs": 155,
+    "reach_cm": 180,
+    "stance": "Orthodox",
+    "dob": "1997-05-03"
+  },
+  "Michael Oliveira": {
+    "height_cm": 185,
+    "weight_lbs": 170,
+    "reach_cm": 198,
+    "stance": "Orthodox",
+    "dob": "1998-01-21"
+  },
+  "Borislav Nikolic": {
+    "height_cm": 175,
+    "weight_lbs": 135,
+    "reach_cm": 183,
+    "stance": "Orthodox",
+    "dob": "1993-01-29"
+  },
+  "Nina Milosevic": {
+    "height_cm": 165,
+    "weight_lbs": 135,
+    "reach_cm": 170,
+    "stance": "Orthodox",
+    "dob": "1996-08-08"
+  },
+  "Jovan Leka": {
+    "height_cm": 193,
+    "weight_lbs": 263,
+    "reach_cm": 190,
+    "stance": "Orthodox",
+    "dob": "2002-03-15"
+  },
+  "Alexander Poppeck": {
+    "height_cm": 188,
+    "weight_lbs": 215,
+    "reach_cm": 190,
+    "stance": "Orthodox",
+    "dob": "1992-04-06"
+  },
+  "Marina Spasic": {
+    "height_cm": 163,
+    "weight_lbs": 115,
+    "reach_cm": 163,
+    "stance": "Orthodox",
+    "dob": "1994-07-11"
   }
 }
