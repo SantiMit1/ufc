@@ -4,10 +4,10 @@
 1. `python src/build_events_index.py` → `data/events_index.json` (skips upcoming/unfinished events)
 2. `python src/scrape_ufc.py` → `data/fights.json`, `data/fighters_cache.json`
 3. `python src/feature_engineering.py` → `data/dataset.csv`
-4. `python src/train_model.py` → `models/ufc_stacking_ensemble.pkl` + `_meta.pkl` + `ufc_method_model.pkl` + `ufc_round_model.pkl` + feature importance PNG (run manually)
-5. `python src/predict.py` — interactive CLI (SHAP + method + round). Args: `--model`, `--features`, `--method-model`, `--round-model`.
-6. `python src/predict_event.py --event "UFC 328: ..."` — event JSON with method probs, no round prediction. Args: `--exact`, `--model-path`, `--features-path`, `--method-model-path`.
-7. `python src/predict_batch.py "FighterA,FighterB,Category,5" "FighterC,FighterD"` — batch table. Each arg: `F1,F2[,WeightClass[,Rounds]]`. Rounds defaults 3, WeightClass defaults "Catch Weight". Round shows `-` when method=DEC. Import helpers from `predict.py`. No model-path CLI flags (hardcoded paths).
+4. `python src/train_model.py` → `models/ufc_stacking_ensemble.pkl` + `_meta.pkl` + feature importance PNG (run manually)
+5. `python src/predict.py` — interactive CLI (SHAP). Args: `--model`, `--features`.
+6. `python src/predict_event.py --event "UFC 328: ..."` — event JSON with winner probabilities. Args: `--exact`, `--model-path`, `--features-path`.
+7. `python src/predict_batch.py "FighterA,FighterB,Category,5" "FighterC,FighterD"` — batch table. Each arg: `F1,F2[,WeightClass[,Rounds]]`. Rounds defaults 3, WeightClass defaults "Catch Weight". Import helpers from `predict.py`. No model-path CLI flags (hardcoded paths).
 
 To run the pipeline (skip step 4, run it by hand):
 ```bash
@@ -27,12 +27,8 @@ python src/feature_engineering.py
 ### Model: Stacking Ensemble
 `ChronologicalStackingEnsemble` (`src/ensemble_utils.py`) — **LightGBM + XGBoost + LogisticRegression** (Pipeline: imputer→scaler→LR) with a meta-LR, `TimeSeriesSplit(n_splits=5)` OOF. Metadata stores `raw_feature_cols`, `cat_cols`, `numeric_cols`, `feature_cols_final`, `model_type="stacking"`.
 
-Three models trained sequentially, all on the same feature pipeline:
+Single model, trained on the shared feature pipeline:
 - **Winner** (binary): `ufc_stacking_ensemble.pkl` — prob fighter A wins
-- **Method** (3-class): `ufc_method_model.pkl` — KO/SUB/DEC  
-- **Round** (5-class): `ufc_round_model.pkl` — rounds 1-5
-
-Method/round use `ChronologicalStackingEnsembleMultiClass` which flattens all class probs from base estimators as meta-features.
 
 ### Duplicated Computation
 `predict.py` and `predict_event.py` each maintain **their own copies** of Elo, state tracking, and feature computation. `predict_batch.py` imports from `predict.py`. None import from `feature_engineering.py`. If you change feature logic, sync `predict.py` and `predict_event.py` manually.
@@ -52,7 +48,7 @@ Import quirks:
 - All scripts average predictions from both orderings (A→B and B→A) to remove order-dependent bias.
 - `predict_event.py` filters out fights **after** event date before building states — critical to prevent lookahead.
 - `predict.py` uses `shap.TreeExplainer` on LightGBM base; others skip SHAP.
-- `constrain_round_probas()` zeroes rounds beyond `max_rounds` and renormalizes.
+- `constrain_round_probas()` was removed along with the round model (predictions performed worse than the majority-class baseline).
 - Fighters with 0 prior fights are **skipped**; <3 fights triggers a warning.
 
 ### Data Integrity

@@ -11,7 +11,7 @@ import sys
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import argparse
-from ensemble_utils import ChronologicalStackingEnsemble, ChronologicalStackingEnsembleMultiClass
+from ensemble_utils import ChronologicalStackingEnsemble
 from stats_utils import shrink_rate, shrink_proportion, _prior_accum_init, _prior_accum_add, _get_current_priors, compute_composite_features
 
 
@@ -20,8 +20,6 @@ FIGHTS_PATH = BASE_DIR / "data" / "fights.json"
 FIGHTERS_CACHE_PATH = BASE_DIR / "data" / "fighters_cache.json"
 MODEL_PATH = BASE_DIR / "models" / "ufc_stacking_ensemble.pkl"
 FEATURE_COLS_PATH = BASE_DIR / "models" / "ufc_stacking_ensemble_meta.pkl"
-METHOD_MODEL_PATH = BASE_DIR / "models" / "ufc_method_model.pkl"
-ROUND_MODEL_PATH = BASE_DIR / "models" / "ufc_round_model.pkl"
 
 CUTOFF_DATE = datetime(2001, 1, 1)
 ELO_K = 96
@@ -460,8 +458,6 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", default=MODEL_PATH)
     parser.add_argument("--features", default=FEATURE_COLS_PATH)
-    parser.add_argument("--method-model", default=None)
-    parser.add_argument("--round-model", default=None)
     args = parser.parse_args()
 
     print("=" * 60)
@@ -502,31 +498,6 @@ def main():
     else:
         print(f"  Model type: Logistic Regression")
     print("  Model loaded")
-
-    method_model = None
-    round_model = None
-    try:
-        method_model = joblib.load(args.method_model) if hasattr(args, 'method_model') and args.method_model else None
-    except Exception:
-        pass
-    if method_model is None:
-        try:
-            method_model = joblib.load(METHOD_MODEL_PATH)
-        except Exception:
-            pass
-    try:
-        round_model = joblib.load(args.round_model) if hasattr(args, 'round_model') and args.round_model else None
-    except Exception:
-        pass
-    if round_model is None:
-        try:
-            round_model = joblib.load(ROUND_MODEL_PATH)
-        except Exception:
-            pass
-    if method_model is not None:
-        print("  Method model loaded")
-    if round_model is not None:
-        print("  Round model loaded")
 
     shap_explainer = None
     if model_type in ("lightgbm", "stacking"):
@@ -643,13 +614,6 @@ def main():
 
         prob = model.predict_proba(X_encoded)[0, 1]
 
-        method_proba = None
-        round_proba = None
-        if method_model is not None:
-            method_proba = method_model.predict_proba(X_encoded)[0]
-        if round_model is not None:
-            round_proba = round_model.predict_proba(X_encoded)[0]
-
         shap_vals = None
         if shap_explainer is not None:
             import warnings as _warnings
@@ -663,20 +627,13 @@ def main():
                 shap_vals = sv[1][0]
             else:
                 shap_vals = sv[0]
-        return prob, shap_vals, method_proba, round_proba
+        return prob, shap_vals
 
     # Predict in both orders and average to remove order-dependent bias
-    prob_a_forward, shap_a_forward, method_a_forward, round_a_forward = predict_order(fighter_a, fighter_b)
-    prob_b_forward, shap_b_forward, method_b_forward, round_b_forward = predict_order(fighter_b, fighter_a)
+    prob_a_forward, shap_a_forward = predict_order(fighter_a, fighter_b)
+    prob_b_forward, shap_b_forward = predict_order(fighter_b, fighter_a)
     prob_a = (prob_a_forward + (1.0 - prob_b_forward)) / 2.0
     prob_b = 1.0 - prob_a
-
-    method_proba = None
-    round_proba = None
-    if method_a_forward is not None and method_b_forward is not None:
-        method_proba = (method_a_forward + method_b_forward) / 2.0
-    if round_a_forward is not None and round_b_forward is not None:
-        round_proba = (round_a_forward + round_b_forward) / 2.0
 
     height_a, reach_a = get_phys(fighter_a, "height_cm"), get_phys(fighter_a, "reach_cm")
     height_b, reach_b = get_phys(fighter_b, "height_cm"), get_phys(fighter_b, "reach_cm")
@@ -761,38 +718,6 @@ def main():
     print(eq_sep)
     print()
 
-    # ─── FINISH METHOD PREDICTION ───────────────────────────────────────────────
-    if method_proba is not None:
-        method_labels = ["KO", "SUB", "DEC"]
-        print(f"\n  FINISH METHOD PREDICTION")
-        print(f"  {'-' * 56}")
-        for label, p in zip(method_labels, method_proba):
-            print(f"    {label:<6s}  {p * 100:5.1f}%")
-        # Most likely method
-        best_method_idx = method_proba.argmax()
-        print(f"  -> Predicted finish: {method_labels[best_method_idx]} ({method_proba[best_method_idx] * 100:.1f}%)")
-        print()
-
-    # ─── ROUND PREDICTION ───────────────────────────────────────────────────────
-    if round_proba is not None:
-        is_decision = method_proba is not None and method_proba.argmax() == 2
-        if is_decision:
-            print(f"  ROUND PREDICTION (max rounds: {max_rounds})")
-            print(f"  {'-' * 56}")
-            print(f"    -> Goes to decision - always round {max_rounds}")
-            print()
-        else:
-            round_proba = constrain_round_probas(round_proba, max_rounds)
-            print(f"  ROUND PREDICTION (max rounds: {max_rounds})")
-            print(f"  {'-' * 56}")
-            for r, p in enumerate(round_proba, 1):
-                print(f"    Round {r:<2d}  {p * 100:5.1f}%")
-            expected_round = sum((r + 1) * p for r, p in enumerate(round_proba))
-            best_round_idx = round_proba.argmax()
-            print(f"  -> Most likely: Round {best_round_idx + 1} ({round_proba[best_round_idx] * 100:.1f}%)")
-            print(f"  -> Expected round: {expected_round:.2f}")
-            print()
-
     # ─── SHAP EXPLANATION ───────────────────────────────────────────────────────
     if shap_explainer is not None and shap_a_forward is not None:
         feat_names = feature_meta["feature_cols_final"]
@@ -807,15 +732,6 @@ def main():
             favor = favorite if val > 0 else underdog
             print(f"    {feat:<42s} {val:+7.4f}  -> {favor}")
         print()
-
-
-def constrain_round_probas(probas, max_rounds):
-    if probas is None or max_rounds >= 5:
-        return probas
-    probas = probas.copy()
-    probas[max_rounds:] = 0.0
-    total = probas.sum()
-    return probas / total if total > 0 else probas
 
 
 def safe_sub(a, b):
