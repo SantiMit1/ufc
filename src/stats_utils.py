@@ -287,9 +287,54 @@ COMPOSITE_WEIGHTS = {
         "days_since_last_fight": -0.280,
     },
     "experience": {
-        "avg_opp_elo": 0.439,
-        "avg_opp_elo_wins": 0.561,
-        "total_fights": 0.200,
+        "avg_opp_elo": 0.28,
+        "avg_opp_elo_wins": 0.36,
+        "total_fights": 0.36,
+    },
+}
+
+# Feature scale (std) for fixed-scale normalization so weights are comparable
+# across features of very different magnitudes (e.g. Elo-scale vs fight counts).
+# Factor = 1 / std, so each sub-feature contributes weight * std-units.
+COMPOSITE_SCALES = {
+    "striking": {
+        "sig_str_landed_per_min": 1.0 / 1.07,
+        "sig_str_absorbed_per_min": 1.0 / 1.11,
+        "sig_str_accuracy": 1.0 / 0.078,
+        "decay_sig_per_min": 1.0 / 1.79,
+        "decay_sig_absorbed_per_min": 1.0 / 1.96,
+        "ko_rate": 1.0 / 0.299,
+        "dec_rate": 1.0 / 0.316,
+    },
+    "grappling": {
+        "td_avg_per_15min": 1.0 / 1.11,
+        "td_accuracy": 1.0 / 0.122,
+        "td_defense": 1.0 / 0.124,
+        "sub_att_per_15min": 1.0 / 1.37,
+        "ctrl_time_pct": 1.0 / 0.150,
+        "sub_rate": 1.0 / 0.275,
+        "decay_td_per_15min": 1.0 / 1.75,
+    },
+    "durability": {
+        "ko_loss_rate": 1.0 / 0.338,
+        "sub_loss_rate": 1.0 / 0.302,
+        "recent_3_ko_loss_rate": 1.0 / 0.219,
+        "recent_5_ko_loss_rate": 1.0 / 0.198,
+    },
+    "momentum": {
+        "win_pct": 1.0 / 0.224,
+        "recent_3_wins": 1.0 / 0.769,
+        "recent_3_losses": 1.0 / 0.747,
+        "recent_5_wins": 1.0 / 1.06,
+        "recent_5_losses": 1.0 / 0.994,
+        "current_win_streak": 1.0 / 1.33,
+        "current_losing_streak": 1.0 / 0.699,
+        "days_since_last_fight": 1.0 / 188.0,
+    },
+    "experience": {
+        "avg_opp_elo": 1.0 / 38.0,   # Elo-scale
+        "avg_opp_elo_wins": 1.0 / 38.0,
+        "total_fights": 1.0 / 4.7,   # fight-count scale
     },
 }
 
@@ -297,12 +342,14 @@ COMPOSITE_WEIGHTS = {
 def compute_composite_features(feat: dict) -> dict:
     composites = {}
     for name, weights in COMPOSITE_WEIGHTS.items():
+        scales = COMPOSITE_SCALES.get(name, {})
         value = 0.0
         has_any = False
         for subfeat, weight in weights.items():
             v = feat.get(subfeat)
             if v is not None and not (isinstance(v, float) and np.isnan(v)):
-                value += v * weight
+                factor = scales.get(subfeat, 1.0)
+                value += v * weight * factor
                 has_any = True
         composites[name] = value if has_any else np.nan
     return composites
