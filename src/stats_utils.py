@@ -284,12 +284,12 @@ COMPOSITE_WEIGHTS = {
         "recent_5_losses": -0.040,
         "current_win_streak": 0.128,
         "current_losing_streak": -0.032,
-        "total_fights": 0.200,
         "days_since_last_fight": -0.280,
     },
     "experience": {
         "avg_opp_elo": 0.439,
         "avg_opp_elo_wins": 0.561,
+        "total_fights": 0.200,
     },
 }
 
