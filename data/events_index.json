@@ -4690,5 +4690,11 @@
     "date": "2026-08-01",
     "url": "http://ufcstats.com/event-details/1a50e734bb54861a",
     "scrapped": true
+  },
+  {
+    "name": "UFC Fight Night: Gamrot vs. Salkilld",
+    "date": "2026-08-08",
+    "url": "http://ufcstats.com/event-details/495add4fbede0a44",
+    "scrapped": true
   }
 ]

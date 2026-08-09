@@ -19115,5 +19115,33 @@
     "reach_cm": 163,
     "stance": "Orthodox",
     "dob": "1994-07-11"
+  },
+  "Jose Montanha": {
+    "height_cm": 193,
+    "weight_lbs": 259,
+    "reach_cm": 193,
+    "stance": "Orthodox",
+    "dob": "1996-08-25"
+  },
+  "Richie Miranda": {
+    "height_cm": 173,
+    "weight_lbs": 155,
+    "reach_cm": 190,
+    "stance": "Southpaw",
+    "dob": "1994-08-12"
+  },
+  "Carol Foro": {
+    "height_cm": 157,
+    "weight_lbs": 115,
+    "reach_cm": 155,
+    "stance": "Orthodox",
+    "dob": "1997-03-21"
+  },
+  "Gigi Canuto": {
+    "height_cm": 157,
+    "weight_lbs": 115,
+    "reach_cm": 163,
+    "stance": "Orthodox",
+    "dob": "2002-11-16"
   }
 }
