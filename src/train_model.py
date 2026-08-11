@@ -11,15 +11,15 @@ from sklearn.preprocessing import StandardScaler
 import joblib
 import warnings
 from ensemble_utils import ChronologicalStackingEnsemble
+from config import DATASET_PATH, MODEL_PATH, FEATURE_COLS_PATH, BASE_DIR
 warnings.filterwarnings("ignore")
+
 
 def main():
     np.random.seed(42)
     TEST_SPLIT = 0.15
     VALIDATION_SPLIT = 0.10
-    MODEL_PATH = "models/ufc_stacking_ensemble.pkl"
-    FEATURE_COLS_PATH = "models/ufc_stacking_ensemble_meta.pkl"
-    df = pd.read_csv("data/dataset.csv")
+    df = pd.read_csv(DATASET_PATH)
     df = df[df["winner"].isin(["1", "2", 1, 2])].copy()
     df["winner"] = df["winner"].astype(int)
     df["event_date"] = pd.to_datetime(df["event_date"])
@@ -296,7 +296,7 @@ def main():
             ax.text(v + top["gain"].max() * 0.01, i, f"{v:.0f}", va="center", fontsize=8)
 
         plt.tight_layout()
-        fig.savefig("models/stacking_ensemble_feature_importance.png", dpi=150)
+        fig.savefig(BASE_DIR / "models" / "stacking_ensemble_feature_importance.png", dpi=150)
         print(f"\nPlot saved to models/stacking_ensemble_feature_importance.png")
     except ImportError:
         print("\nmatplotlib not installed, skipping plot")

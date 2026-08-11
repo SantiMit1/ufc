@@ -10,35 +10,15 @@ Each arg: Fighter1,Fighter2[,WeightClass]. WeightClass defaults to "Catch Weight
 import sys
 import json
 import argparse
-import numpy as np
-import pandas as pd
 import joblib
 from datetime import datetime
-from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-
-from predict import (
-    make_initial_state, compute_stats_from_state, build_fighter_states,
-    safe_sub,
+from config import (
+    FIGHTS_PATH, FIGHTERS_CACHE_PATH, MODEL_PATH, FEATURE_COLS_PATH,
+    CUTOFF_DATE, WEIGHT_CLASSES,
 )
+from fighter_engine import make_initial_state, build_fighter_states, predict_fight
 from stats_utils import _prior_accum_init, _prior_accum_add, _get_current_priors
-
-
-BASE_DIR = Path(__file__).resolve().parent.parent
-FIGHTS_PATH = BASE_DIR / "data" / "fights.json"
-FIGHTERS_CACHE_PATH = BASE_DIR / "data" / "fighters_cache.json"
-MODEL_PATH = BASE_DIR / "models" / "ufc_stacking_ensemble.pkl"
-FEATURE_COLS_PATH = BASE_DIR / "models" / "ufc_stacking_ensemble_meta.pkl"
-
-CUTOFF_DATE = datetime(2001, 1, 1)
-
-WEIGHT_CLASSES = [
-    "Flyweight", "Bantamweight", "Featherweight", "Lightweight",
-    "Welterweight", "Middleweight", "Light Heavyweight", "Heavyweight",
-    "Women's Strawweight", "Women's Flyweight", "Women's Bantamweight",
-    "Women's Featherweight", "Catch Weight",
-]
 
 
 def main():
@@ -90,63 +70,6 @@ def main():
     fighter_states = build_fighter_states(fights, fighters_cache)
     current_date = datetime.now()
 
-    def get_phys(name, key):
-        v = fighters_cache.get(name, {}).get(key)
-        return float(v) if v is not None else np.nan
-
-    def predict_fight(f1, f2, category, max_rounds=3):
-        def predict_order(a, b):
-            height1, reach1 = get_phys(a, "height_cm"), get_phys(a, "reach_cm")
-            height2, reach2 = get_phys(b, "height_cm"), get_phys(b, "reach_cm")
-
-            state1 = fighter_states.get(a, make_initial_state())
-            state2 = fighter_states.get(b, make_initial_state())
-
-            feat1 = compute_stats_from_state(state1, a, fighters_cache, current_date, category=category, priors=priors)
-            feat2 = compute_stats_from_state(state2, b, fighters_cache, current_date, category=category, priors=priors)
-
-            row = {}
-
-            row["age_a"] = feat1["age"]
-            row["age_b"] = feat2["age"]
-            row["stance_a"] = feat1["stance"]
-            row["stance_b"] = feat2["stance"]
-            row["category"] = category
-            row["age_diff"] = safe_sub(feat1["age"], feat2["age"])
-            row["height_diff"] = safe_sub(height1, height2)
-            row["reach_diff"] = safe_sub(reach1, reach2)
-            row["elo_diff"] = safe_sub(feat1["elo"], feat2["elo"])
-
-            row["striking_strength_diff"] = safe_sub(feat1["striking"], feat2["striking"])
-            row["grappling_strength_diff"] = safe_sub(feat1["grappling"], feat2["grappling"])
-            row["durability_diff"] = safe_sub(feat1["durability"], feat2["durability"])
-            row["momentum_diff"] = safe_sub(feat1["momentum"], feat2["momentum"])
-            row["experience_diff"] = safe_sub(feat1["experience"], feat2["experience"])
-
-            raw_cols = feature_meta["raw_feature_cols"]
-            X_raw = pd.DataFrame([row])[raw_cols]
-            for c in feature_meta["numeric_cols"]:
-                if c in X_raw.columns:
-                    X_raw[c] = X_raw[c].astype(float)
-            for c in feature_meta["numeric_cols"]:
-                if c in X_raw.columns and c in feature_meta.get("medians", {}):
-                    X_raw[c] = X_raw[c].fillna(feature_meta["medians"][c])
-            X_encoded = pd.get_dummies(X_raw, columns=feature_meta["cat_cols"], drop_first=True)
-            for col in feature_meta["feature_cols_final"]:
-                if col not in X_encoded.columns:
-                    X_encoded[col] = 0
-            X_encoded = X_encoded[feature_meta["feature_cols_final"]]
-            prob = model.predict_proba(X_encoded)[0, 1]
-
-            return prob
-
-        prob_a_forward = predict_order(f1, f2)
-        prob_b_forward = predict_order(f2, f1)
-        prob_a = (prob_a_forward + (1.0 - prob_b_forward)) / 2.0
-        prob_b = 1.0 - prob_a
-
-        return prob_a, prob_b
-
     results = []
     skipped = []
     warned = []
@@ -164,7 +87,9 @@ def main():
         if tf1 < 3 or tf2 < 3:
             warned.append((f1, f2, tf1, tf2))
 
-        prob_a, prob_b = predict_fight(f1, f2, cat, rounds)
+        pred = predict_fight(f1, f2, cat, fighter_states, fighters_cache,
+                             model, feature_meta, current_date, priors=priors)
+        prob_a, prob_b = pred["prob_a"], pred["prob_b"]
         results.append((f1, f2, cat, prob_a, prob_b, tf1, tf2, rounds))
 
     # Output
