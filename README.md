@@ -9,8 +9,8 @@ El proyecto procesa los datos en orden cronológico (sin usar información del f
 ```bash
 python src/scraping/build_events_index.py     # 1. índice de eventos → data/events_index.json
 python src/scraping/scrape_ufc.py             # 2. scrape de combates → data/fights.json, data/fighters_cache.json
-python src/features/feature_engineering.py    # 3. features → data/dataset.csv
-python src/training/train_model.py            # 4. entrena el modelo (correr manualmente)
+python src/feature_engineering.py             # 3. features → data/dataset.csv
+python src/train_model.py                     # 4. entrena el modelo (correr manualmente)
 python src/prediction/predict.py              # 5. predicción interactiva (SHAP)
 python src/prediction/predict_event.py --event "UFC 328: ..."   # 6. predicción de un evento
 python src/prediction/predict_batch.py "FighterA,FighterB,Category,5" "FighterC,FighterD"   # 7. batch

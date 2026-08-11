@@ -1,4 +1,3 @@
-import sys
 import pandas as pd
 import numpy as np
 import lightgbm as lgb
@@ -11,9 +10,6 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 import joblib
 import warnings
-from pathlib import Path
-
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from ensemble_utils import ChronologicalStackingEnsemble
 from config import DATASET_PATH, MODEL_PATH, FEATURE_COLS_PATH, BASE_DIR
