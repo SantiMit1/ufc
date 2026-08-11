@@ -218,10 +218,6 @@ def parse_fight_page(html, fight):
                 if value:
                     fight["time"] = value
 
-        details_el = content_div.find("i", string=re.compile("Details", re.I))
-        if details_el:
-            pass
-
     all_tables = soup.find_all("table")
     # ufcstats.com renders per-round tables with the 'js-fight-table' class and
     # the totals / significant-strike breakdown tables WITHOUT any class.

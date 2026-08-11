@@ -21,8 +21,7 @@ from predict import (
     make_initial_state, compute_stats_from_state, build_fighter_states,
     safe_sub,
 )
-from ensemble_utils import ChronologicalStackingEnsemble
-from stats_utils import _prior_accum_init, _prior_accum_add, _get_current_priors, compute_composite_features
+from stats_utils import _prior_accum_init, _prior_accum_add, _get_current_priors
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent

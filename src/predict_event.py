@@ -17,7 +17,6 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
-from ensemble_utils import ChronologicalStackingEnsemble
 from stats_utils import shrink_rate, shrink_proportion, _prior_accum_init, _prior_accum_add, _get_current_priors, compute_composite_features
 
 
@@ -321,7 +320,6 @@ def compute_stats_from_state(fighter_state: dict, fighter_name: str,
 
     # --- Decay-weighted stats (lambda = 0.5 per year) ---
     LAMBDA = 0.5
-    total_w = 0.0
     w_sig = 0.0
     w_sig_abs = 0.0
     w_td = 0.0
@@ -329,7 +327,6 @@ def compute_stats_from_state(fighter_state: dict, fighter_name: str,
     for r in recent:
         years_ago = (current_date - r["date"]).days / 365.25
         w = np.exp(-LAMBDA * years_ago)
-        total_w += w
         w_sig += r["sig_landed"] * w
         w_sig_abs += r["sig_absorbed"] * w
         w_td += r["td_landed"] * w
