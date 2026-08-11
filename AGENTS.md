@@ -1,20 +1,20 @@
 # AGENTS.md
 
 ## Pipeline (sequential)
-1. `python src/build_events_index.py` → `data/events_index.json` (skips upcoming/unfinished events)
-2. `python src/scrape_ufc.py` → `data/fights.json`, `data/fighters_cache.json`
-3. `python src/feature_engineering.py` → `data/dataset.csv`
-4. `python src/train_model.py` → `models/ufc_stacking_ensemble.pkl` + `_meta.pkl` + feature importance PNG (run manually)
-5. `python src/predict.py` — interactive CLI (SHAP). Args: `--model`, `--features`.
-6. `python src/predict_event.py --event "UFC 328: ..."` — event JSON with winner probabilities. Args: `--exact`, `--model-path`, `--features-path`.
-7. `python src/predict_batch.py "FighterA,FighterB,Category,5" "FighterC,FighterD"` — batch table. Each arg: `F1,F2[,WeightClass[,Rounds]]`. Rounds defaults 3, WeightClass defaults "Catch Weight". No model-path CLI flags (hardcoded paths).
+1. `python src/scraping/build_events_index.py` → `data/events_index.json` (skips upcoming/unfinished events)
+2. `python src/scraping/scrape_ufc.py` → `data/fights.json`, `data/fighters_cache.json`
+3. `python src/features/feature_engineering.py` → `data/dataset.csv`
+4. `python src/training/train_model.py` → `models/ufc_stacking_ensemble.pkl` + `_meta.pkl` + feature importance PNG (run manually)
+5. `python src/prediction/predict.py` — interactive CLI (SHAP). Args: `--model`, `--features`.
+6. `python src/prediction/predict_event.py --event "UFC 328: ..."` — event JSON with winner probabilities. Args: `--exact`, `--model-path`, `--features-path`.
+7. `python src/prediction/predict_batch.py "FighterA,FighterB,Category,5" "FighterC,FighterD"` — batch table. Each arg: `F1,F2[,WeightClass[,Rounds]]`. Rounds defaults 3, WeightClass defaults "Catch Weight". No model-path CLI flags (hardcoded paths).
 
 To run the pipeline (skip step 4, run it by hand):
 ```bash
 .venv/Scripts/activate
-python src/build_events_index.py
-python src/scrape_ufc.py
-python src/feature_engineering.py
+python src/scraping/build_events_index.py
+python src/scraping/scrape_ufc.py
+python src/features/feature_engineering.py
 ```
 
 ## Setup
@@ -37,7 +37,7 @@ Single model, trained on the shared feature pipeline:
 
 `predict.py`, `predict_event.py`, `predict_batch.py`, and `feature_engineering.py` all import from these modules — no duplicated logic. If you change feature logic, do it in `fighter_engine.py`.
 
-Imports: scripts run as `python src/<script>.py`, which puts `src/` on `sys.path`, so same-directory imports resolve automatically (no `sys.path.insert` needed).
+Layout: shared library modules live at `src/` root (`config.py`, `fighter_engine.py`, `stats_utils.py`, `ensemble_utils.py`); pipeline scripts live in `src/scraping/`, `src/features/`, `src/training/`, `src/prediction/`. Entry scripts add `src/` to `sys.path` with a small bootstrap (`sys.path.insert(0, ...parents[1])`) so they can `from config import ...` and so the pickled models (which reference `ensemble_utils`, `fighter_engine`, ...) keep loading.
 
 ### Feature Engineering
 - Fights processed **chronologically** with no lookahead. Priors accumulate incrementally via `_prior_accum_add()`.

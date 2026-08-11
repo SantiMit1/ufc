@@ -12,6 +12,9 @@ import json
 import argparse
 import joblib
 from datetime import datetime
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from config import (
     FIGHTS_PATH, FIGHTERS_CACHE_PATH, MODEL_PATH, FEATURE_COLS_PATH,

@@ -1,8 +1,12 @@
+import sys
 import json
 import random
 import numpy as np
 import pandas as pd
 from datetime import datetime
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from config import FIGHTS_PATH, FIGHTERS_CACHE_PATH, DATASET_PATH, CUTOFF_DATE
 from fighter_engine import (
