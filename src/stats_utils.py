@@ -1,5 +1,4 @@
 import numpy as np
-from datetime import datetime
 from typing import Any
 
 PRIOR_MINUTES = 10.0

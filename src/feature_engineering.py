@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 from datetime import datetime
 
-from config import FIGHTS_PATH, FIGHTERS_CACHE_PATH, DATASET_PATH, CUTOFF_DATE, ELO_INITIAL
+from config import FIGHTS_PATH, FIGHTERS_CACHE_PATH, DATASET_PATH, CUTOFF_DATE
 from fighter_engine import (
     make_initial_state, compute_stats_from_state, classify_method, get_k_factor,
     apply_elo_decay, elo_update, update_state,
