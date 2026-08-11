@@ -399,12 +399,10 @@ async def get_fighter_info(context, fighter_name, fighter_url, fighters_cache):
     if not html or len(html) < 500:
         tqdm.write(f"    [WARN] Failed to fetch fighter page for {fighter_name}")
         fighters_cache[fighter_name] = {}
-        save_json(FIGHTERS_CACHE_PATH, fighters_cache)
         return {}
 
     info = parse_fighter_page(html)
     fighters_cache[fighter_name] = info
-    save_json(FIGHTERS_CACHE_PATH, fighters_cache)
     tqdm.write(f"    Cached fighter: {fighter_name}")
     return info
 
@@ -510,6 +508,7 @@ async def main():
                     inner.close()
 
                     save_json(FIGHTS_PATH, fights)
+                    save_json(FIGHTERS_CACHE_PATH, fighters_cache)
 
                     event["scrapped"] = True
                     save_json(EVENTS_PATH, events)

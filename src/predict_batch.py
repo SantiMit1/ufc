@@ -9,6 +9,7 @@ Each arg: Fighter1,Fighter2[,WeightClass]. WeightClass defaults to "Catch Weight
 """
 import sys
 import json
+import argparse
 import numpy as np
 import pandas as pd
 import joblib
@@ -198,5 +199,4 @@ def main():
 
 
 if __name__ == "__main__":
-    import argparse
     main()
