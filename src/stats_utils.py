@@ -71,15 +71,13 @@ def _prior_accum_init():
     _prior_accum = {}
 
 
-def _prior_accum_add(fight: dict) -> None:
-    """Add a single fight's stats to the prior accumulator."""
-    global _prior_accum
-    
+def _accumulate_fight(accum: dict, fight: dict) -> None:
+    """Add a single fight's stats to a prior accumulator dict."""
     cat = fight.get("category", "").strip()
     if not cat:
         cat = "global"
-    if cat not in _prior_accum:
-        _prior_accum[cat] = {
+    if cat not in accum:
+        accum[cat] = {
             "count": 0,
             "sig_landed": 0,
             "sig_attempted": 0,
@@ -106,21 +104,21 @@ def _prior_accum_add(fight: dict) -> None:
         td_against_landed = _safe_int(opp_stats.get("takedowns", {}).get("landed"))
         td_against_attempted = _safe_int(opp_stats.get("takedowns", {}).get("attempted"))
 
-        _prior_accum[cat]["count"] += 1
-        _prior_accum[cat]["sig_landed"] += sig_landed
-        _prior_accum[cat]["sig_attempted"] += sig_attempted
-        _prior_accum[cat]["sig_absorbed"] += sig_absorbed
-        _prior_accum[cat]["td_landed"] += td_landed
-        _prior_accum[cat]["td_attempted"] += td_attempted
-        _prior_accum[cat]["td_against_landed"] += td_against_landed
-        _prior_accum[cat]["td_against_attempted"] += td_against_attempted
-        _prior_accum[cat]["minutes"] += minutes
+        accum[cat]["count"] += 1
+        accum[cat]["sig_landed"] += sig_landed
+        accum[cat]["sig_attempted"] += sig_attempted
+        accum[cat]["sig_absorbed"] += sig_absorbed
+        accum[cat]["td_landed"] += td_landed
+        accum[cat]["td_attempted"] += td_attempted
+        accum[cat]["td_against_landed"] += td_against_landed
+        accum[cat]["td_against_attempted"] += td_against_attempted
+        accum[cat]["minutes"] += minutes
 
 
-def _get_current_priors() -> dict:
-    """Get priors from current accumulator state (called during chronological processing)."""
+def _build_priors_from_accum(accum: dict) -> dict:
+    """Build per-category priors (with global fallback) from an accumulator dict."""
     priors = {}
-    for cat, a in _prior_accum.items():
+    for cat, a in accum.items():
         if a["count"] < MIN_CATEGORY_FIGHTS and cat != "global":
             continue
         minutes = a["minutes"]
@@ -134,15 +132,15 @@ def _get_current_priors() -> dict:
         }
 
     # Ensure global exists
-    if "global" not in priors and _prior_accum:
-        total_min = sum(a["minutes"] for a in _prior_accum.values())
-        total_sig_l = sum(a["sig_landed"] for a in _prior_accum.values())
-        total_sig_a = sum(a["sig_attempted"] for a in _prior_accum.values())
-        total_sig_ab = sum(a["sig_absorbed"] for a in _prior_accum.values())
-        total_td_l = sum(a["td_landed"] for a in _prior_accum.values())
-        total_td_a = sum(a["td_attempted"] for a in _prior_accum.values())
-        total_td_al = sum(a["td_against_landed"] for a in _prior_accum.values())
-        total_td_aa = sum(a["td_against_attempted"] for a in _prior_accum.values())
+    if "global" not in priors and accum:
+        total_min = sum(a["minutes"] for a in accum.values())
+        total_sig_l = sum(a["sig_landed"] for a in accum.values())
+        total_sig_a = sum(a["sig_attempted"] for a in accum.values())
+        total_sig_ab = sum(a["sig_absorbed"] for a in accum.values())
+        total_td_l = sum(a["td_landed"] for a in accum.values())
+        total_td_a = sum(a["td_attempted"] for a in accum.values())
+        total_td_al = sum(a["td_against_landed"] for a in accum.values())
+        total_td_aa = sum(a["td_against_attempted"] for a in accum.values())
         priors["global"] = {
             "sig_str_landed_per_min": total_sig_l / total_min if total_min > 0 else 0.0,
             "sig_str_absorbed_per_min": total_sig_ab / total_min if total_min > 0 else 0.0,
@@ -153,11 +151,22 @@ def _get_current_priors() -> dict:
         }
 
     # Fill missing categories with global
-    for cat in list(_prior_accum.keys()):
+    for cat in list(accum.keys()):
         if cat not in priors:
             priors[cat] = dict(priors.get("global", {}))
 
     return priors
+
+
+def _prior_accum_add(fight: dict) -> None:
+    """Add a single fight's stats to the prior accumulator."""
+    global _prior_accum
+    _accumulate_fight(_prior_accum, fight)
+
+
+def _get_current_priors() -> dict:
+    """Get priors from current accumulator state (called during chronological processing)."""
+    return _build_priors_from_accum(_prior_accum)
 
 
 # ── Composite feature weights (from LightGBM gain importance × domain sign) ──
