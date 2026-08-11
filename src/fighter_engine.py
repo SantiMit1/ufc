@@ -508,10 +508,11 @@ def build_prediction_row(f1: str, f2: str, fighter_states: dict,
 def predict_fight(fighter_a: str, fighter_b: str, category: str,
                   fighter_states: dict, fighters_cache: dict,
                   model, feature_meta: dict, current_date: datetime,
-                  priors: dict | None = None) -> dict:
-    """Predict a single fight and return a result dict.
+                  priors: dict | None = None) -> tuple:
+    """Predict a single fight and return (prob_a, prob_b) raw probabilities.
 
     Predicts in both orderings and averages to remove order-dependent bias.
+    Callers are responsible for rounding/formatting for display.
     """
     prob_a_forward = model.predict_proba(
         build_prediction_row(fighter_a, fighter_b, fighter_states, fighters_cache,
@@ -522,12 +523,4 @@ def predict_fight(fighter_a: str, fighter_b: str, category: str,
                              current_date, category, priors, feature_meta)
     )[0, 1]
     prob_a = (prob_a_forward + (1.0 - prob_b_forward)) / 2.0
-    prob_b = 1.0 - prob_a
-
-    return {
-        "fighter_a": fighter_a,
-        "fighter_b": fighter_b,
-        "prob_a": round(float(prob_a), 6),
-        "prob_b": round(float(prob_b), 6),
-        "category": category,
-    }
+    return prob_a, 1.0 - prob_a

@@ -91,10 +91,17 @@ def main():
         winner = fight["winner"]
 
         try:
-            pred = predict_fight(f1, f2, category, fighter_states,
-                                 fighters_cache, model, feature_meta, current_date,
-                                 priors=priors)
-            pred["winner"] = winner
+            prob_a, prob_b = predict_fight(f1, f2, category, fighter_states,
+                                           fighters_cache, model, feature_meta,
+                                           current_date, priors=priors)
+            pred = {
+                "fighter_a": f1,
+                "fighter_b": f2,
+                "prob_a": round(float(prob_a), 6),
+                "prob_b": round(float(prob_b), 6),
+                "category": category,
+                "winner": winner,
+            }
             predictions.append(pred)
         except Exception as e:
             predictions.append({

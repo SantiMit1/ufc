@@ -87,9 +87,8 @@ def main():
         if tf1 < 3 or tf2 < 3:
             warned.append((f1, f2, tf1, tf2))
 
-        pred = predict_fight(f1, f2, cat, fighter_states, fighters_cache,
-                             model, feature_meta, current_date, priors=priors)
-        prob_a, prob_b = pred["prob_a"], pred["prob_b"]
+        prob_a, prob_b = predict_fight(f1, f2, cat, fighter_states, fighters_cache,
+                                       model, feature_meta, current_date, priors=priors)
         results.append((f1, f2, cat, prob_a, prob_b, tf1, tf2, rounds))
 
     # Output
