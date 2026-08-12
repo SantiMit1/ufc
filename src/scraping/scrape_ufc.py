@@ -390,7 +390,7 @@ def format_duration(seconds):
     return f"{m}m{s:02d}s"
 
 
-async def get_fighter_info(context, fighter_name, fighter_url, fighters_cache):
+async def get_fighter_info(context, fighter_name, fighter_url, fighters_cache, debut_date=None):
     if fighter_name in fighters_cache:
         return fighters_cache[fighter_name]
 
@@ -398,10 +398,11 @@ async def get_fighter_info(context, fighter_name, fighter_url, fighters_cache):
     html = await fetch_page(context, fighter_url, fighter_name)
     if not html or len(html) < 500:
         tqdm.write(f"    [WARN] Failed to fetch fighter page for {fighter_name}")
-        fighters_cache[fighter_name] = {}
-        return {}
+        fighters_cache[fighter_name] = {"debut_date": debut_date}
+        return fighters_cache[fighter_name]
 
     info = parse_fighter_page(html)
+    info["debut_date"] = debut_date
     fighters_cache[fighter_name] = info
     tqdm.write(f"    Cached fighter: {fighter_name}")
     return info
@@ -485,7 +486,8 @@ async def main():
                         ]:
                             if fname and fname not in fighters_cache:
                                 try:
-                                    await get_fighter_info(context, fname, furl, fighters_cache)
+                                    await get_fighter_info(context, fname, furl, fighters_cache,
+                                                           debut_date=fight["event_date"])
                                 except Exception as e:
                                     tqdm.write(f"    [WARN] Could not fetch fighter {fname}: {e}")
 
