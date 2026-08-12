@@ -7,19 +7,22 @@
 4. `python src/train_model.py` → `models/ufc_stacking_ensemble.pkl` + `_meta.pkl` + feature importance PNG (run manually)
 5. `python src/prediction/predict.py` — interactive CLI (SHAP). Args: `--model`, `--features`.
 6. `python src/prediction/predict_event.py --event "UFC 328: ..."` — event JSON with winner probabilities. Args: `--exact`, `--model-path`, `--features-path`.
-7. `python src/prediction/predict_batch.py "FighterA,FighterB,Category,5" "FighterC,FighterD"` — batch table. Each arg: `F1,F2[,WeightClass[,Rounds]]`. Rounds defaults 3, WeightClass defaults "Catch Weight". No model-path CLI flags (hardcoded paths).
+7. `python src/prediction/predict_batch.py "FighterA,FighterB,Category,5" "FighterC,FighterD"` — batch table. Each arg: `F1,F2[,WeightClass[,Rounds]]`. Rounds defaults 3, WeightClass defaults "Catch Weight". No model-path CLI flags (hardcoded paths). Quirk: in the 3-field form `F1,F2,X`, `X` is parsed as rounds if it's `"3"`/`"5"`, otherwise as weight class.
+8. `python src/prediction/backtest.py --start 2015-01-01 [--end ...]` — no-lookahead backtest (accuracy/AUC/log-loss/calibration per year). Debut fights and draws/NCs are skipped. Args: `--model-path`, `--features-path`.
 
 To run the pipeline (skip step 4, run it by hand):
 ```bash
-.venv/Scripts/activate
+source .venv/bin/activate   # or .venv/Scripts/activate on Windows
 python src/scraping/build_events_index.py
 python src/scraping/scrape_ufc.py
 python src/feature_engineering.py
 ```
 
 ## Setup
-- `.venv/Scripts/activate` (Windows). All scripts from repo root.
+- Activate the venv first — `.venv/bin/activate` on Linux/macOS, `.venv/Scripts/activate` on Windows. All scripts from repo root.
 - Scraper needs `playwright install chromium` before first run (both `build_events_index.py` and `scrape_ufc.py` use Playwright async headless Chromium).
+- Scrapers are resumable: `scrape_ufc.py` only processes events with `"scrapped": false` in `data/events_index.json`, flipping the flag per event; `build_events_index.py` preserves existing entries.
+- Step 4 runs 50 random LightGBM + 20 random XGBoost hyperparameter trials (early stopping) — slow; run it manually and let it finish.
 - Model artifacts use Git LFS (`*.pkl filter=lfs` in `.gitattributes`). No linting, typechecking, or test harness.
 
 ## Architecture
