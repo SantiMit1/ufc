@@ -1,5 +1,4 @@
 import numpy as np
-from datetime import datetime
 from typing import Any
 
 PRIOR_MINUTES = 10.0
@@ -59,96 +58,6 @@ def shrink_proportion(
     return (successes + prior_mean * strength) / (attempts + strength)
 
 
-def compute_priors(fights: list) -> dict:
-    """
-    Compute per-weight-class population priors for shrinkage.
-    Returns dict: {"Lightweight": {stat: value, ...}, "global": {...}}.
-    Categories with < MIN_CATEGORY_FIGHTS total fights fall back to 'global'.
-    """
-    accum: dict[str, dict] = {}
-
-    for fight in fights:
-        cat = fight.get("category", "").strip()
-        if not cat:
-            cat = "global"
-        if cat not in accum:
-            accum[cat] = {
-                "count": 0,
-                "sig_landed": 0,
-                "sig_attempted": 0,
-                "sig_absorbed": 0,
-                "td_landed": 0,
-                "td_attempted": 0,
-                "td_against_landed": 0,
-                "td_against_attempted": 0,
-                "minutes": 0.0,
-            }
-
-        minutes = _fight_minutes(fight)
-
-        for side in ("stats_fighter_1", "stats_fighter_2"):
-            stats = fight.get(side, {})
-            opp_side = "stats_fighter_2" if side == "stats_fighter_1" else "stats_fighter_1"
-            opp_stats = fight.get(opp_side, {})
-
-            sig_landed = _safe_int(stats.get("sig_strikes", {}).get("landed"))
-            sig_attempted = _safe_int(stats.get("sig_strikes", {}).get("attempted"))
-            sig_absorbed = _safe_int(opp_stats.get("sig_strikes", {}).get("landed"))
-            td_landed = _safe_int(stats.get("takedowns", {}).get("landed"))
-            td_attempted = _safe_int(stats.get("takedowns", {}).get("attempted"))
-            td_against_landed = _safe_int(opp_stats.get("takedowns", {}).get("landed"))
-            td_against_attempted = _safe_int(opp_stats.get("takedowns", {}).get("attempted"))
-
-            accum[cat]["count"] += 1
-            accum[cat]["sig_landed"] += sig_landed
-            accum[cat]["sig_attempted"] += sig_attempted
-            accum[cat]["sig_absorbed"] += sig_absorbed
-            accum[cat]["td_landed"] += td_landed
-            accum[cat]["td_attempted"] += td_attempted
-            accum[cat]["td_against_landed"] += td_against_landed
-            accum[cat]["td_against_attempted"] += td_against_attempted
-            accum[cat]["minutes"] += minutes
-
-    # Build priors dict
-    priors: dict[str, dict] = {}
-    for cat, a in accum.items():
-        if a["count"] < MIN_CATEGORY_FIGHTS and cat != "global":
-            continue
-        minutes = a["minutes"]
-        priors[cat] = {
-            "sig_str_landed_per_min": a["sig_landed"] / minutes if minutes > 0 else 0.0,
-            "sig_str_absorbed_per_min": a["sig_absorbed"] / minutes if minutes > 0 else 0.0,
-            "sig_str_accuracy": a["sig_landed"] / a["sig_attempted"] if a["sig_attempted"] > 0 else 0.0,
-            "td_avg_per_15min": a["td_landed"] / minutes * 15.0 if minutes > 0 else 0.0,
-            "td_accuracy": a["td_landed"] / a["td_attempted"] if a["td_attempted"] > 0 else 0.0,
-            "td_defense": 1.0 - a["td_against_landed"] / a["td_against_attempted"] if a["td_against_attempted"] > 0 else 0.0,
-        }
-
-    # Ensure global exists
-    if "global" not in priors:
-        total_min = sum(a["minutes"] for a in accum.values())
-        total_sig_l = sum(a["sig_landed"] for a in accum.values())
-        total_sig_a = sum(a["sig_attempted"] for a in accum.values())
-        total_sig_ab = sum(a["sig_absorbed"] for a in accum.values())
-        total_td_l = sum(a["td_landed"] for a in accum.values())
-        total_td_a = sum(a["td_attempted"] for a in accum.values())
-        total_td_al = sum(a["td_against_landed"] for a in accum.values())
-        total_td_aa = sum(a["td_against_attempted"] for a in accum.values())
-        priors["global"] = {
-            "sig_str_landed_per_min": total_sig_l / total_min if total_min > 0 else 0.0,
-            "sig_str_absorbed_per_min": total_sig_ab / total_min if total_min > 0 else 0.0,
-            "sig_str_accuracy": total_sig_l / total_sig_a if total_sig_a > 0 else 0.0,
-            "td_avg_per_15min": total_td_l / total_min * 15.0 if total_min > 0 else 0.0,
-            "td_accuracy": total_td_l / total_td_a if total_td_a > 0 else 0.0,
-            "td_defense": 1.0 - total_td_al / total_td_aa if total_td_aa > 0 else 0.0,
-        }
-
-    # Fill missing categories with global
-    for cat in list(accum.keys()):
-        if cat not in priors:
-            priors[cat] = dict(priors["global"])
-
-    return priors
 
 
 # Prior accum state for incremental updates
@@ -161,15 +70,13 @@ def _prior_accum_init():
     _prior_accum = {}
 
 
-def _prior_accum_add(fight: dict) -> None:
-    """Add a single fight's stats to the prior accumulator."""
-    global _prior_accum
-    
+def _accumulate_fight(accum: dict, fight: dict) -> None:
+    """Add a single fight's stats to a prior accumulator dict."""
     cat = fight.get("category", "").strip()
     if not cat:
         cat = "global"
-    if cat not in _prior_accum:
-        _prior_accum[cat] = {
+    if cat not in accum:
+        accum[cat] = {
             "count": 0,
             "sig_landed": 0,
             "sig_attempted": 0,
@@ -196,21 +103,21 @@ def _prior_accum_add(fight: dict) -> None:
         td_against_landed = _safe_int(opp_stats.get("takedowns", {}).get("landed"))
         td_against_attempted = _safe_int(opp_stats.get("takedowns", {}).get("attempted"))
 
-        _prior_accum[cat]["count"] += 1
-        _prior_accum[cat]["sig_landed"] += sig_landed
-        _prior_accum[cat]["sig_attempted"] += sig_attempted
-        _prior_accum[cat]["sig_absorbed"] += sig_absorbed
-        _prior_accum[cat]["td_landed"] += td_landed
-        _prior_accum[cat]["td_attempted"] += td_attempted
-        _prior_accum[cat]["td_against_landed"] += td_against_landed
-        _prior_accum[cat]["td_against_attempted"] += td_against_attempted
-        _prior_accum[cat]["minutes"] += minutes
+        accum[cat]["count"] += 1
+        accum[cat]["sig_landed"] += sig_landed
+        accum[cat]["sig_attempted"] += sig_attempted
+        accum[cat]["sig_absorbed"] += sig_absorbed
+        accum[cat]["td_landed"] += td_landed
+        accum[cat]["td_attempted"] += td_attempted
+        accum[cat]["td_against_landed"] += td_against_landed
+        accum[cat]["td_against_attempted"] += td_against_attempted
+        accum[cat]["minutes"] += minutes
 
 
-def _get_current_priors() -> dict:
-    """Get priors from current accumulator state (called during chronological processing)."""
+def _build_priors_from_accum(accum: dict) -> dict:
+    """Build per-category priors (with global fallback) from an accumulator dict."""
     priors = {}
-    for cat, a in _prior_accum.items():
+    for cat, a in accum.items():
         if a["count"] < MIN_CATEGORY_FIGHTS and cat != "global":
             continue
         minutes = a["minutes"]
@@ -224,15 +131,15 @@ def _get_current_priors() -> dict:
         }
 
     # Ensure global exists
-    if "global" not in priors and _prior_accum:
-        total_min = sum(a["minutes"] for a in _prior_accum.values())
-        total_sig_l = sum(a["sig_landed"] for a in _prior_accum.values())
-        total_sig_a = sum(a["sig_attempted"] for a in _prior_accum.values())
-        total_sig_ab = sum(a["sig_absorbed"] for a in _prior_accum.values())
-        total_td_l = sum(a["td_landed"] for a in _prior_accum.values())
-        total_td_a = sum(a["td_attempted"] for a in _prior_accum.values())
-        total_td_al = sum(a["td_against_landed"] for a in _prior_accum.values())
-        total_td_aa = sum(a["td_against_attempted"] for a in _prior_accum.values())
+    if "global" not in priors and accum:
+        total_min = sum(a["minutes"] for a in accum.values())
+        total_sig_l = sum(a["sig_landed"] for a in accum.values())
+        total_sig_a = sum(a["sig_attempted"] for a in accum.values())
+        total_sig_ab = sum(a["sig_absorbed"] for a in accum.values())
+        total_td_l = sum(a["td_landed"] for a in accum.values())
+        total_td_a = sum(a["td_attempted"] for a in accum.values())
+        total_td_al = sum(a["td_against_landed"] for a in accum.values())
+        total_td_aa = sum(a["td_against_attempted"] for a in accum.values())
         priors["global"] = {
             "sig_str_landed_per_min": total_sig_l / total_min if total_min > 0 else 0.0,
             "sig_str_absorbed_per_min": total_sig_ab / total_min if total_min > 0 else 0.0,
@@ -243,11 +150,22 @@ def _get_current_priors() -> dict:
         }
 
     # Fill missing categories with global
-    for cat in list(_prior_accum.keys()):
+    for cat in list(accum.keys()):
         if cat not in priors:
             priors[cat] = dict(priors.get("global", {}))
 
     return priors
+
+
+def _prior_accum_add(fight: dict) -> None:
+    """Add a single fight's stats to the prior accumulator."""
+    global _prior_accum
+    _accumulate_fight(_prior_accum, fight)
+
+
+def _get_current_priors() -> dict:
+    """Get priors from current accumulator state (called during chronological processing)."""
+    return _build_priors_from_accum(_prior_accum)
 
 
 # ── Composite feature weights (from LightGBM gain importance × domain sign) ──

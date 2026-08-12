@@ -1,40 +1,31 @@
-"""
-Predict all fights for a given UFC event.
+"""Shared fighter-state, Elo and feature computation for all prediction scripts.
 
-Usage:
-  .venv/Scripts/python src/predict_event.py --event "UFC 328: Chimaev vs. Strickland"
-  .venv/Scripts/python src/predict_event.py --event "UFC Fight Night: Fiziev vs. Torres"
+This module is the single source of truth for logic that was previously
+copy-pasted across ``predict.py``, ``predict_event.py``, ``predict_batch.py``
+and ``feature_engineering.py``:
 
-Outputs JSON with each fight's prediction probabilities.
+- fight time parsing / total seconds (``parse_time``, ``fight_seconds``)
+- finish classification (``classify_method``)
+- Elo rating helpers (``get_k_factor``, ``apply_elo_decay``, ``elo_expected``, ``elo_update``)
+- cumulative fighter state (``make_initial_state``, ``update_state``)
+- per-fighter feature computation (``compute_stats_from_state``)
+- chronological fighter histories (``build_fighter_states``)
+- prediction rows / encoded feature frames (``build_prediction_row``)
+- order-averaged fight prediction (``predict_fight``)
 """
-import argparse
-import json
-import sys
 import numpy as np
 import pandas as pd
-import joblib
 from datetime import datetime
-from pathlib import Path
 from typing import Any
 
-from ensemble_utils import ChronologicalStackingEnsemble
-from stats_utils import shrink_rate, shrink_proportion, _prior_accum_init, _prior_accum_add, _get_current_priors, compute_composite_features
+from config import CUTOFF_DATE, ELO_K, ELO_INITIAL
+from stats_utils import (
+    shrink_rate,
+    shrink_proportion,
+    compute_composite_features,
+)
 
 
-# ── Paths (same as predict.py) ───────────────────────────────────────────────
-BASE_DIR = Path(__file__).resolve().parent.parent
-FIGHTS_PATH = BASE_DIR / "data" / "fights.json"
-FIGHTERS_CACHE_PATH = BASE_DIR / "data" / "fighters_cache.json"
-MODEL_PATH = BASE_DIR / "models" / "ufc_stacking_ensemble.pkl"
-FEATURE_COLS_PATH = BASE_DIR / "models" / "ufc_stacking_ensemble_meta.pkl"
-
-
-CUTOFF_DATE = datetime(2001, 1, 1)
-ELO_K = 96
-ELO_INITIAL = 1500
-
-
-# ── Helper functions (copied from predict.py) ────────────────────────────────
 def parse_time(time_str: str) -> int:
     if not time_str:
         return 0
@@ -48,7 +39,20 @@ def fight_seconds(round_no: int, time_str: str) -> int:
     return (round_no - 1) * 300 + parse_time(time_str)
 
 
+def get_stance(fighter_name: str, fighters_cache: dict) -> str:
+    entry = fighters_cache.get(fighter_name, {})
+    stance = entry.get("stance")
+    if stance and stance != "null":
+        return stance
+    return "Unknown"
+
+
 def classify_method(method: str, winner: str, fighter_1: str, fighter_2: str) -> tuple:
+    """Return (is_win_loss, win_side, finish_type) for a fight.
+
+    win_side is 1 if fighter_1 wins, 2 if fighter_2 wins, 0 otherwise.
+    finish_type is 'KO', 'SUB', 'DEC' or None when there is no winner.
+    """
     if winner in ("Draw", "No Contest") or "DQ" in method:
         return False, 0, None
     if winner == fighter_1:
@@ -227,21 +231,37 @@ def update_state(state: dict, fight: dict, is_fighter_1: bool, is_win_loss: bool
 
 
 def compute_stats_from_state(fighter_state: dict, fighter_name: str,
-                             fighters_cache: dict, current_date: datetime,
-                             category: str = "", priors: dict | None = None) -> dict:
+                             fighters_cache: dict, as_of_date: datetime,
+                             category: str = "", priors: dict | None = None,
+                             fight: dict | None = None,
+                             is_fighter_1: bool | None = None) -> dict:
+    """Compute per-fighter features from accumulated state (pre-fight).
+
+    ``as_of_date`` is the reference date (event date for historical
+    processing, or "now" for hypothetical fights). When ``fight`` and
+    ``is_fighter_1`` are provided, the fighter's age is taken from the
+    fight's scraped age fields; otherwise it is derived from the DOB in the
+    fighters cache.
+    """
     f = fighter_state
     total_fights = f["total_fights"]
     wins = f["wins"]
     losses = f["losses"]
 
-    entry = fighters_cache.get(fighter_name, {})
-    dob_str = entry.get("dob")
-    if dob_str:
-        age = (current_date - datetime.strptime(dob_str, "%Y-%m-%d")).days / 365.25
+    if fight is not None and is_fighter_1 is not None:
+        age_key = "fighter_1_age" if is_fighter_1 else "fighter_2_age"
+        age = fight.get(age_key)
+        if age is None:
+            age = np.nan
     else:
-        age = np.nan
+        entry = fighters_cache.get(fighter_name, {})
+        dob_str = entry.get("dob")
+        if dob_str:
+            age = (as_of_date - datetime.strptime(dob_str, "%Y-%m-%d")).days / 365.25
+        else:
+            age = np.nan
 
-    stance = entry.get("stance", "Unknown") if entry.get("stance") and entry["stance"] != "null" else "Unknown"
+    stance = get_stance(fighter_name, fighters_cache)
     win_pct = wins / total_fights if total_fights > 0 else np.nan
     ko_rate = f["wins_by_ko"] / wins if wins > 0 else np.nan
     sub_rate = f["wins_by_sub"] / wins if wins > 0 else np.nan
@@ -301,7 +321,7 @@ def compute_stats_from_state(fighter_state: dict, fighter_name: str,
 
     days_since_last_fight = np.nan
     if f["last_fight_date"] is not None:
-        days_since_last_fight = (current_date - f["last_fight_date"]).days
+        days_since_last_fight = (as_of_date - f["last_fight_date"]).days
 
     # --- Recent form ---
     recent = f["recent_fights"]
@@ -321,15 +341,13 @@ def compute_stats_from_state(fighter_state: dict, fighter_name: str,
 
     # --- Decay-weighted stats (lambda = 0.5 per year) ---
     LAMBDA = 0.5
-    total_w = 0.0
     w_sig = 0.0
     w_sig_abs = 0.0
     w_td = 0.0
     w_sec = 0.0
     for r in recent:
-        years_ago = (current_date - r["date"]).days / 365.25
+        years_ago = (as_of_date - r["date"]).days / 365.25
         w = np.exp(-LAMBDA * years_ago)
-        total_w += w
         w_sig += r["sig_landed"] * w
         w_sig_abs += r["sig_absorbed"] * w
         w_td += r["td_landed"] * w
@@ -431,174 +449,78 @@ def build_fighter_states(fights: list, fighters_cache: dict) -> dict:
     return fighter_state
 
 
-def predict_fight(fighter_a: str, fighter_b: str, category: str,
-                  fighter_states: dict, fighters_cache: dict,
-                  model, feature_meta: dict, current_date: datetime,
-                  priors: dict | None = None) -> dict:
-    """Predict a single fight and return probabilities."""
+def build_prediction_row(f1: str, f2: str, fighter_states: dict,
+                         fighters_cache: dict, current_date: datetime,
+                         category: str, priors: dict | None,
+                         feature_meta: dict) -> pd.DataFrame:
+    """Build the encoded feature frame (X) for a fight with order (f1, f2)."""
     def get_phys(name, key):
         v = fighters_cache.get(name, {}).get(key)
         return float(v) if v is not None else np.nan
 
-    def predict_order(f1, f2):
-        height1, reach1 = get_phys(f1, "height_cm"), get_phys(f1, "reach_cm")
-        height2, reach2 = get_phys(f2, "height_cm"), get_phys(f2, "reach_cm")
+    height1, reach1 = get_phys(f1, "height_cm"), get_phys(f1, "reach_cm")
+    height2, reach2 = get_phys(f2, "height_cm"), get_phys(f2, "reach_cm")
 
-        state1 = fighter_states.get(f1, make_initial_state())
-        state2 = fighter_states.get(f2, make_initial_state())
+    state1 = fighter_states.get(f1, make_initial_state())
+    state2 = fighter_states.get(f2, make_initial_state())
 
-        feat1 = compute_stats_from_state(state1, f1, fighters_cache, current_date, category=category, priors=priors)
-        feat2 = compute_stats_from_state(state2, f2, fighters_cache, current_date, category=category, priors=priors)
+    feat1 = compute_stats_from_state(state1, f1, fighters_cache, current_date,
+                                     category=category, priors=priors)
+    feat2 = compute_stats_from_state(state2, f2, fighters_cache, current_date,
+                                     category=category, priors=priors)
 
-        row = {}
+    row = {}
+    row["age_a"] = feat1["age"]
+    row["age_b"] = feat2["age"]
+    row["stance_a"] = feat1["stance"]
+    row["stance_b"] = feat2["stance"]
+    row["category"] = category
+    row["age_diff"] = safe_sub(feat1["age"], feat2["age"])
+    row["height_diff"] = safe_sub(height1, height2)
+    row["reach_diff"] = safe_sub(reach1, reach2)
+    row["elo_diff"] = safe_sub(feat1["elo"], feat2["elo"])
 
-        row["age_a"] = feat1["age"]
-        row["age_b"] = feat2["age"]
-        row["stance_a"] = feat1["stance"]
-        row["stance_b"] = feat2["stance"]
-        row["category"] = category
-        row["age_diff"] = safe_sub(feat1["age"], feat2["age"])
-        row["height_diff"] = safe_sub(height1, height2)
-        row["reach_diff"] = safe_sub(reach1, reach2)
-        row["elo_diff"] = safe_sub(feat1["elo"], feat2["elo"])
+    row["striking_strength_diff"] = safe_sub(feat1["striking"], feat2["striking"])
+    row["grappling_strength_diff"] = safe_sub(feat1["grappling"], feat2["grappling"])
+    row["durability_diff"] = safe_sub(feat1["durability"], feat2["durability"])
+    row["momentum_diff"] = safe_sub(feat1["momentum"], feat2["momentum"])
+    row["experience_diff"] = safe_sub(feat1["experience"], feat2["experience"])
 
-        row["striking_strength_diff"] = safe_sub(feat1["striking"], feat2["striking"])
-        row["grappling_strength_diff"] = safe_sub(feat1["grappling"], feat2["grappling"])
-        row["durability_diff"] = safe_sub(feat1["durability"], feat2["durability"])
-        row["momentum_diff"] = safe_sub(feat1["momentum"], feat2["momentum"])
-        row["experience_diff"] = safe_sub(feat1["experience"], feat2["experience"])
+    raw_cols = feature_meta["raw_feature_cols"]
+    X_raw = pd.DataFrame([row])[raw_cols]
 
-        raw_cols = feature_meta["raw_feature_cols"]
-        X_raw = pd.DataFrame([row])[raw_cols]
+    for c in feature_meta["numeric_cols"]:
+        if c in X_raw.columns:
+            X_raw[c] = X_raw[c].astype(float)
 
-        for c in feature_meta["numeric_cols"]:
-            if c in X_raw.columns:
-                X_raw[c] = X_raw[c].astype(float)
+    for c in feature_meta["numeric_cols"]:
+        if c in X_raw.columns and c in feature_meta.get("medians", {}):
+            X_raw[c] = X_raw[c].fillna(feature_meta["medians"][c])
 
-        for c in feature_meta["numeric_cols"]:
-            if c in X_raw.columns and c in feature_meta.get("medians", {}):
-                X_raw[c] = X_raw[c].fillna(feature_meta["medians"][c])
+    X_encoded = pd.get_dummies(X_raw, columns=feature_meta["cat_cols"], drop_first=True)
+    for col in feature_meta["feature_cols_final"]:
+        if col not in X_encoded.columns:
+            X_encoded[col] = 0
+    X_encoded = X_encoded[feature_meta["feature_cols_final"]]
+    return X_encoded
 
-        X_encoded = pd.get_dummies(X_raw, columns=feature_meta["cat_cols"], drop_first=True)
-        for col in feature_meta["feature_cols_final"]:
-            if col not in X_encoded.columns:
-                X_encoded[col] = 0
-        X_encoded = X_encoded[feature_meta["feature_cols_final"]]
 
-        prob = model.predict_proba(X_encoded)[0, 1]
+def predict_fight(fighter_a: str, fighter_b: str, category: str,
+                  fighter_states: dict, fighters_cache: dict,
+                  model, feature_meta: dict, current_date: datetime,
+                  priors: dict | None = None) -> tuple:
+    """Predict a single fight and return (prob_a, prob_b) raw probabilities.
 
-        return prob
-
-    # Predict in both orders and average to remove order-dependent bias
-    prob_a_forward = predict_order(fighter_a, fighter_b)
-    prob_b_forward = predict_order(fighter_b, fighter_a)
+    Predicts in both orderings and averages to remove order-dependent bias.
+    Callers are responsible for rounding/formatting for display.
+    """
+    prob_a_forward = model.predict_proba(
+        build_prediction_row(fighter_a, fighter_b, fighter_states, fighters_cache,
+                             current_date, category, priors, feature_meta)
+    )[0, 1]
+    prob_b_forward = model.predict_proba(
+        build_prediction_row(fighter_b, fighter_a, fighter_states, fighters_cache,
+                             current_date, category, priors, feature_meta)
+    )[0, 1]
     prob_a = (prob_a_forward + (1.0 - prob_b_forward)) / 2.0
-    prob_b = 1.0 - prob_a
-
-    return {
-        "fighter_a": fighter_a,
-        "fighter_b": fighter_b,
-        "prob_a": round(float(prob_a), 6),
-        "prob_b": round(float(prob_b), 6),
-        "category": category,
-    }
-
-
-def main():
-    parser = argparse.ArgumentParser(
-        description="Predict all fights for a UFC event"
-    )
-    parser.add_argument("--event", required=True,
-                        help="Event name, e.g. 'UFC 328: Chimaev vs. Strickland'")
-    parser.add_argument("--exact", action="store_true",
-                        help="If set, event name must match exactly (otherwise fuzzy)")
-    parser.add_argument("--model-path", default=str(MODEL_PATH))
-    parser.add_argument("--features-path", default=str(FEATURE_COLS_PATH))
-    args = parser.parse_args()
-
-    # ── Load data ────────────────────────────────────────────────────────────
-    with open(FIGHTS_PATH, encoding="utf-8") as f:
-        fights = json.load(f)
-
-    with open(FIGHTERS_CACHE_PATH, encoding="utf-8") as f:
-        fighters_cache = json.load(f)
-
-    # ── Find event fights ────────────────────────────────────────────────────
-    event_name = args.event.strip()
-    if args.exact:
-        event_fights = [f for f in fights if f["event_name"] == event_name]
-    else:
-        # Case-insensitive substring match
-        q = event_name.lower()
-        event_fights = [f for f in fights if q in f["event_name"].lower()]
-
-    if not event_fights:
-        # List matching events for help
-        q = event_name.lower()
-        all_events = sorted(set(f["event_name"] for f in fights))
-        matches = [e for e in all_events if q in e.lower()]
-        result = {"error": f"No fights found for event: {event_name}", "matched_events": matches}
-        print(json.dumps(result, ensure_ascii=False))
-        sys.exit(1)
-
-    actual_event_name = event_fights[0]["event_name"]
-    event_date = event_fights[0]["event_date"]
-
-    # ── Load model ───────────────────────────────────────────────────────────
-    model = joblib.load(args.model_path)
-    feature_meta = joblib.load(args.features_path)
-
-    # ── Build fighter states (ONLY with fights up to event date) ─────────────
-    # ⚠️ CRITICAL: Filter out fights AFTER the event to prevent look-ahead bias.
-    # The model must only use statistics known BEFORE the event, just like in
-    # the football Poisson model — this is an "in-time simulation".
-    event_dt = datetime.strptime(event_date, "%Y-%m-%d")
-    historical_fights = [
-        f for f in fights
-        if datetime.strptime(f["event_date"], "%Y-%m-%d") <= event_dt
-    ]
-    
-    # Compute priors ONLY from historical fights (no lookahead)
-    _prior_accum_init()
-    for f in sorted(historical_fights, key=lambda x: x.get("event_date", "1970-01-01")):
-        _prior_accum_add(f)
-    priors = _get_current_priors()
-
-    fighter_states = build_fighter_states(historical_fights, fighters_cache)
-
-    # ── Predict each fight ───────────────────────────────────────────────────
-    current_date = event_dt
-
-    predictions = []
-    for fight in event_fights:
-        f1 = fight["fighter_1"]
-        f2 = fight["fighter_2"]
-        category = fight["category"]
-        winner = fight["winner"]
-
-        try:
-            pred = predict_fight(f1, f2, category, fighter_states,
-                                 fighters_cache, model, feature_meta, current_date,
-                                 priors=priors)
-            pred["winner"] = winner
-            predictions.append(pred)
-        except Exception as e:
-            predictions.append({
-                "fighter_a": f1,
-                "fighter_b": f2,
-                "error": str(e),
-                "winner": winner,
-            })
-
-    # ── Output ───────────────────────────────────────────────────────────────
-    output = {
-        "event": actual_event_name,
-        "date": event_date,
-        "total_fights": len(predictions),
-        "predictions": predictions,
-    }
-    print(json.dumps(output, ensure_ascii=False, indent=2))
-
-
-if __name__ == "__main__":
-    main()
+    return prob_a, 1.0 - prob_a

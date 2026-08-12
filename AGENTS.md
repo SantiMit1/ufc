@@ -1,19 +1,19 @@
 # AGENTS.md
 
 ## Pipeline (sequential)
-1. `python src/build_events_index.py` → `data/events_index.json` (skips upcoming/unfinished events)
-2. `python src/scrape_ufc.py` → `data/fights.json`, `data/fighters_cache.json`
+1. `python src/scraping/build_events_index.py` → `data/events_index.json` (skips upcoming/unfinished events)
+2. `python src/scraping/scrape_ufc.py` → `data/fights.json`, `data/fighters_cache.json`
 3. `python src/feature_engineering.py` → `data/dataset.csv`
 4. `python src/train_model.py` → `models/ufc_stacking_ensemble.pkl` + `_meta.pkl` + feature importance PNG (run manually)
-5. `python src/predict.py` — interactive CLI (SHAP). Args: `--model`, `--features`.
-6. `python src/predict_event.py --event "UFC 328: ..."` — event JSON with winner probabilities. Args: `--exact`, `--model-path`, `--features-path`.
-7. `python src/predict_batch.py "FighterA,FighterB,Category,5" "FighterC,FighterD"` — batch table. Each arg: `F1,F2[,WeightClass[,Rounds]]`. Rounds defaults 3, WeightClass defaults "Catch Weight". Import helpers from `predict.py`. No model-path CLI flags (hardcoded paths).
+5. `python src/prediction/predict.py` — interactive CLI (SHAP). Args: `--model`, `--features`.
+6. `python src/prediction/predict_event.py --event "UFC 328: ..."` — event JSON with winner probabilities. Args: `--exact`, `--model-path`, `--features-path`.
+7. `python src/prediction/predict_batch.py "FighterA,FighterB,Category,5" "FighterC,FighterD"` — batch table. Each arg: `F1,F2[,WeightClass[,Rounds]]`. Rounds defaults 3, WeightClass defaults "Catch Weight". No model-path CLI flags (hardcoded paths).
 
 To run the pipeline (skip step 4, run it by hand):
 ```bash
 .venv/Scripts/activate
-python src/build_events_index.py
-python src/scrape_ufc.py
+python src/scraping/build_events_index.py
+python src/scraping/scrape_ufc.py
 python src/feature_engineering.py
 ```
 
@@ -30,12 +30,14 @@ python src/feature_engineering.py
 Single model, trained on the shared feature pipeline:
 - **Winner** (binary): `ufc_stacking_ensemble.pkl` — prob fighter A wins
 
-### Duplicated Computation
-`predict.py` and `predict_event.py` each maintain **their own copies** of Elo, state tracking, and feature computation. `predict_batch.py` imports from `predict.py`. None import from `feature_engineering.py`. If you change feature logic, sync `predict.py` and `predict_event.py` manually.
+### Shared Modules
+- `src/config.py` — paths and constants (`CUTOFF_DATE`, `ELO_K`, `ELO_INITIAL`, `WEIGHT_CLASSES`).
+- `src/fighter_engine.py` — **single source of truth** for Elo, state tracking, feature computation, prediction rows, and `predict_fight()`.
+- `src/stats_utils.py` — priors/shrinkage and composite-feature helpers.
 
-Import quirks:
-- `predict.py` and `predict_batch.py` use `sys.path.insert(0, ...)` before `from ensemble_utils/stats_utils import ...`
-- `predict_event.py` does **not** — it runs from `src/` so same-directory imports resolve automatically
+`predict.py`, `predict_event.py`, `predict_batch.py`, and `feature_engineering.py` all import from these modules — no duplicated logic. If you change feature logic, do it in `fighter_engine.py`.
+
+Layout: shared library modules and the `feature_engineering.py`/`train_model.py` pipeline scripts live at `src/` root; scraping scripts live in `src/scraping/` and prediction scripts in `src/prediction/`. The `prediction/` entry scripts add `src/` to `sys.path` with a small bootstrap (`sys.path.insert(0, ...parents[1])`) so they can `from config import ...` and so the pickled models (which reference `ensemble_utils`, `fighter_engine`, ...) keep loading.
 
 ### Feature Engineering
 - Fights processed **chronologically** with no lookahead. Priors accumulate incrementally via `_prior_accum_add()`.
@@ -53,5 +55,5 @@ Import quirks:
 
 ### Data Integrity
 - `data/` and `models/` are generated artifacts — don't edit by hand.
-- Feature column changes in `train_model.py` must be mirrored in all prediction scripts.
+- Feature column changes in `train_model.py` must be mirrored in `fighter_engine.build_prediction_row()`.
 - `dataset.csv` includes `finish_type` (KO/SUB/DEC/OTHER) and `finish_round` (1-5) target columns.
