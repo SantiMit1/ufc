@@ -4,7 +4,7 @@
 1. `python src/scraping/build_events_index.py` → `data/events_index.json` (skips upcoming/unfinished events)
 2. `python src/scraping/scrape_ufc.py` → `data/fights.json`, `data/fighters_cache.json`
 3. `python src/feature_engineering.py` → `data/dataset.csv`
-4. `python src/train_model.py` → `models/ufc_stacking_ensemble.pkl` + `_meta.pkl` + feature importance PNG (run manually)
+4. `python src/train_model.py` → `models/ufc_stacking_ensemble.pkl` + `_meta.pkl` + feature importance PNG (run manually; also fits isotonic/Platt probability calibrators on nested-CV OOF and picks the best by test Brier — slow)
 5. `python src/prediction/predict.py` — interactive CLI (SHAP). Args: `--model`, `--features`.
 6. `python src/prediction/predict_event.py --event "UFC 328: ..."` — event JSON with winner probabilities. Args: `--exact`, `--model-path`, `--features-path`.
 7. `python src/prediction/predict_batch.py "FighterA,FighterB,Category,5" "FighterC,FighterD"` — batch table. Each arg: `F1,F2[,WeightClass[,Rounds]]`. Rounds defaults 3, WeightClass defaults "Catch Weight". No model-path CLI flags (hardcoded paths). Quirk: in the 3-field form `F1,F2,X`, `X` is parsed as rounds if it's `"3"`/`"5"`, otherwise as weight class.
@@ -22,7 +22,7 @@ python src/feature_engineering.py
 - Activate the venv first — `.venv/bin/activate` on Linux/macOS, `.venv/Scripts/activate` on Windows. All scripts from repo root.
 - Scraper needs `playwright install chromium` before first run (both `build_events_index.py` and `scrape_ufc.py` use Playwright async headless Chromium).
 - Scrapers are resumable: `scrape_ufc.py` only processes events with `"scrapped": false` in `data/events_index.json`, flipping the flag per event; `build_events_index.py` preserves existing entries.
-- Step 4 runs 50 random LightGBM + 20 random XGBoost hyperparameter trials (early stopping) — slow; run it manually and let it finish.
+- Step 4 runs 50 random LightGBM + 20 random XGBoost hyperparameter trials (early stopping), then a nested-CV pass to calibrate probabilities — slow; run it manually and let it finish. Calibrators are fitted on out-of-fold stacking probabilities via an outer `TimeSeriesSplit(n_splits=5)` (no lookahead); `isotonic` and `platt` (`PlattCalibrator` in `ensemble_utils.py`) are compared on the test set by Brier score and the winner is stored on the model (`model.calibrator_name`). `predict_proba` returns calibrated probabilities; `predict` still thresholds at 0.5.
 - Model artifacts use Git LFS (`*.pkl filter=lfs` in `.gitattributes`). No linting, typechecking, or test harness.
 
 ## Architecture
@@ -31,7 +31,7 @@ python src/feature_engineering.py
 `ChronologicalStackingEnsemble` (`src/ensemble_utils.py`) — **LightGBM + XGBoost + LogisticRegression** (Pipeline: imputer→scaler→LR) with a meta-LR, `TimeSeriesSplit(n_splits=5)` OOF. Metadata stores `raw_feature_cols`, `cat_cols`, `numeric_cols`, `feature_cols_final`, `model_type="stacking"`.
 
 Single model, trained on the shared feature pipeline:
-- **Winner** (binary): `ufc_stacking_ensemble.pkl` — prob fighter A wins
+- **Winner** (binary): `ufc_stacking_ensemble.pkl` — prob fighter A wins (calibrated: see Setup note)
 
 ### Shared Modules
 - `src/config.py` — paths and constants (`CUTOFF_DATE`, `ELO_K`, `ELO_INITIAL`, `WEIGHT_CLASSES`).

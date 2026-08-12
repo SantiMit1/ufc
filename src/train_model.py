@@ -4,6 +4,7 @@ import lightgbm as lgb
 import xgboost as xgb
 from sklearn.metrics import roc_auc_score, accuracy_score, log_loss, brier_score_loss
 from sklearn.linear_model import LogisticRegression
+from sklearn.isotonic import IsotonicRegression
 from sklearn.impute import SimpleImputer
 from sklearn.model_selection import TimeSeriesSplit
 from sklearn.pipeline import Pipeline
@@ -11,7 +12,7 @@ from sklearn.preprocessing import StandardScaler
 import joblib
 import warnings
 
-from ensemble_utils import ChronologicalStackingEnsemble
+from ensemble_utils import ChronologicalStackingEnsemble, PlattCalibrator
 from config import DATASET_PATH, MODEL_PATH, FEATURE_COLS_PATH, BASE_DIR
 warnings.filterwarnings("ignore")
 
@@ -92,7 +93,7 @@ def main():
         params = {k: np.random.choice(v) for k, v in lgb_param_grid.items()}
         m = lgb.LGBMClassifier(
             n_estimators=2000, verbose=-1, random_state=42, missing=float("nan"),
-            class_weight="balanced", max_depth=-1,
+            max_depth=-1,
             **params,
         )
         m.fit(X_train, y_train, eval_set=[(X_val, y_val)], eval_metric="logloss",
@@ -168,7 +169,6 @@ def main():
             verbose=-1,
             random_state=42,
             missing=float("nan"),
-            class_weight="balanced",
             max_depth=-1,
             **best_lgb_params,
         )
@@ -190,7 +190,7 @@ def main():
     lr_base = Pipeline([
         ("imputer", SimpleImputer(strategy="median")),
         ("scaler", StandardScaler()),
-        ("logreg", LogisticRegression(max_iter=3000, class_weight="balanced", solver="lbfgs")),
+        ("logreg", LogisticRegression(max_iter=3000, solver="lbfgs")),
     ])
 
     stacking_model = ChronologicalStackingEnsemble(
@@ -199,8 +199,12 @@ def main():
             ("xgb", build_xgb_model()),
             ("logreg", lr_base),
         ],
-        final_estimator=LogisticRegression(max_iter=3000, class_weight="balanced", solver="lbfgs"),
+        final_estimator=LogisticRegression(max_iter=3000, solver="lbfgs"),
         cv=TimeSeriesSplit(n_splits=5),
+        calibrators={
+            "isotonic": IsotonicRegression(out_of_bounds="clip"),
+            "platt": PlattCalibrator(),
+        },
     )
 
     print(f"\n{'='*50}")
@@ -209,11 +213,24 @@ def main():
     stacking_model.fit(X_train_all, y_train_all)
 
     final_model = stacking_model
-    y_prob = final_model.predict_proba(X_test)[:, 1]
+
+    raw_prob = final_model.predict_proba(X_test)[:, 1]
+    raw_ll = log_loss(y_test, raw_prob)
+    raw_bs = brier_score_loss(y_test, raw_prob)
+
+    calib_results = {"raw": {"prob": raw_prob, "ll": raw_ll, "bs": raw_bs}}
+    for name in ("isotonic", "platt"):
+        final_model.calibrator_name = name
+        p = final_model.predict_proba(X_test)[:, 1]
+        calib_results[name] = {"prob": p, "ll": log_loss(y_test, p), "bs": brier_score_loss(y_test, p)}
+    best_name = min(("isotonic", "platt"), key=lambda n: calib_results[n]["bs"])
+    final_model.calibrator_name = best_name
+
+    y_prob = calib_results[best_name]["prob"]
     y_pred = final_model.predict(X_test)
     acc = accuracy_score(y_test, y_pred)
-    ll = log_loss(y_test, y_prob)
-    bs = brier_score_loss(y_test, y_prob)
+    ll = calib_results[best_name]["ll"]
+    bs = calib_results[best_name]["bs"]
     roc = roc_auc_score(y_test, y_prob)
 
     print(f"\n{'='*50}")
@@ -224,6 +241,14 @@ def main():
     print(f"Brier score:  {bs:.4f}")
     print(f"ROC-AUC:      {roc:.4f}")
     print(f"LGB rounds:   {best_n_lgb}  |  XGB rounds:  {best_n_xgb}")
+
+    print(f"\n{'Probability calibration (test set)':^50s}")
+    print(f"  {'Method':<10s} {'Log Loss':>9s} {'Brier':>8s} {'best':>5s}")
+    print(f"  {'-'*35}")
+    for name in ("raw", "isotonic", "platt"):
+        tag = "  <-" if name == best_name else ""
+        print(f"  {name:<10s} {calib_results[name]['ll']:9.4f} {calib_results[name]['bs']:8.4f}{tag:>5s}")
+    print(f"  Calibrator OOF points: {len(final_model.oof_calib_probs_)}")
 
     # Probability calibration of the ensemble predictions
     bins = np.linspace(0.0, 1.0, 11)
@@ -318,6 +343,16 @@ def main():
         "best_n_xgb": best_n_xgb,
         "ensemble_estimators": ["lightgbm", "xgboost", "logistic_regression"],
         "ensemble_cv": "TimeSeriesSplit(n_splits=5)",
+        "calibration": {
+            "method": best_name,
+            "n_oof": int(len(final_model.oof_calib_probs_)),
+            "cal_test_log_loss": ll,
+            "cal_test_brier": bs,
+            "candidates": {
+                n: {"test_log_loss": calib_results[n]["ll"], "test_brier": calib_results[n]["bs"]}
+                for n in ("raw", "isotonic", "platt")
+            },
+        },
         "test_roc_auc": roc,
         "test_accuracy": acc,
         "feature_importance": importances.to_dict(orient="records"),

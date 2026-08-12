@@ -1,16 +1,50 @@
+import copy
 import numpy as np
 from sklearn.base import clone
+from sklearn.model_selection import TimeSeriesSplit
+
+
+def _logit(p):
+    p = np.clip(np.asarray(p, dtype=float), 1e-6, 1 - 1e-6)
+    return np.log(p / (1 - p))
+
+
+class PlattCalibrator:
+    """Platt scaling: logistic regression on the log-odds of the raw probability."""
+
+    def __init__(self, C=1.0, max_iter=3000):
+        self.C = C
+        self.max_iter = max_iter
+
+    def fit(self, X, y):
+        from sklearn.linear_model import LogisticRegression
+
+        X = np.asarray(X)
+        logit = _logit(X[:, 0])
+        self.lr_ = LogisticRegression(C=self.C, max_iter=self.max_iter, solver="lbfgs")
+        self.lr_.fit(logit.reshape(-1, 1), np.asarray(y))
+        return self
+
+    def predict(self, X):
+        X = np.asarray(X)
+        logit = _logit(X[:, 0])
+        return self.lr_.predict_proba(logit.reshape(-1, 1))[:, 1]
 
 
 class ChronologicalStackingEnsemble:
-    def __init__(self, estimators, final_estimator, cv):
+    def __init__(self, estimators, final_estimator, cv, calibrators=None):
         self.estimators = estimators
         self.final_estimator = final_estimator
         self.cv = cv
+        self.calibrators = calibrators
+        self.calibrator_name = None
 
     @staticmethod
     def _as_frame(X):
         return X if hasattr(X, "iloc") else np.asarray(X)
+
+    def _select_rows(self, X, idx):
+        return X.iloc[idx] if hasattr(X, "iloc") else X[idx]
 
     def fit(self, X, y):
         X_frame = self._as_frame(X)
@@ -23,12 +57,8 @@ class ChronologicalStackingEnsemble:
             if len(train_idx) == 0 or len(val_idx) == 0:
                 continue
 
-            if hasattr(X_frame, "iloc"):
-                X_train_fold = X_frame.iloc[train_idx]
-                X_val_fold = X_frame.iloc[val_idx]
-            else:
-                X_train_fold = X_frame[train_idx]
-                X_val_fold = X_frame[val_idx]
+            X_train_fold = self._select_rows(X_frame, train_idx)
+            X_val_fold = self._select_rows(X_frame, val_idx)
             y_train_fold = y_array[train_idx]
             fold_predictions = []
 
@@ -56,7 +86,34 @@ class ChronologicalStackingEnsemble:
         final_estimator = clone(self.final_estimator)
         final_estimator.fit(self.oof_features_, self.oof_targets_)
         self.final_estimator_ = final_estimator
+
+        if self.calibrators:
+            self._fit_calibrators(X_frame, y_array)
         return self
+
+    def _fit_calibrators(self, X, y):
+        outer = TimeSeriesSplit(n_splits=5)
+        p_oof = []
+        y_oof = []
+        for train_idx, val_idx in outer.split(X):
+            if len(train_idx) == 0 or len(val_idx) == 0:
+                continue
+            X_tr = self._select_rows(X, train_idx)
+            X_va = self._select_rows(X, val_idx)
+            fold = ChronologicalStackingEnsemble(
+                self.estimators, self.final_estimator, self.cv, calibrators=None)
+            fold.fit(X_tr, y[train_idx])
+            p_oof.append(fold.predict_proba(X_va)[:, 1])
+            y_oof.append(y[val_idx])
+
+        self.oof_calib_probs_ = np.concatenate(p_oof)
+        self.oof_calib_targets_ = np.concatenate(y_oof)
+
+        self.calibrators_ = {}
+        for name, template in self.calibrators.items():
+            calib = copy.deepcopy(template)
+            calib.fit(self.oof_calib_probs_.reshape(-1, 1), self.oof_calib_targets_)
+            self.calibrators_[name] = calib
 
     def _stack_features(self, X):
         X_frame = self._as_frame(X)
@@ -68,7 +125,14 @@ class ChronologicalStackingEnsemble:
 
     def predict_proba(self, X):
         meta_features = self._stack_features(X)
-        return self.final_estimator_.predict_proba(meta_features)
+        full = self.final_estimator_.predict_proba(meta_features)
+        name = getattr(self, "calibrator_name", None)
+        if name and hasattr(self, "calibrators_") and name in self.calibrators_:
+            raw = full[:, 1]
+            calib = self.calibrators_[name].predict(raw.reshape(-1, 1))
+            calib = np.clip(np.asarray(calib, dtype=float).ravel(), 1e-6, 1 - 1e-6)
+            return np.column_stack([1.0 - calib, calib])
+        return full
 
     def predict(self, X):
         return (self.predict_proba(X)[:, 1] >= 0.5).astype(int)
