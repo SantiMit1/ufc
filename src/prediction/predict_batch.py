@@ -21,7 +21,7 @@ from config import (
     CUTOFF_DATE, WEIGHT_CLASSES,
 )
 from fighter_engine import make_initial_state, build_fighter_states, predict_fight
-from stats_utils import _prior_accum_init, _prior_accum_add, _get_current_priors
+from stats_utils import PriorAccumulator
 
 
 def main():
@@ -59,13 +59,13 @@ def main():
     with open(FIGHTERS_CACHE_PATH) as f:
         fighters_cache = json.load(f)
 
-    _prior_accum_init()
+    prior_accum = PriorAccumulator()
     for fight in fights:
         fight["_parsed_date"] = datetime.strptime(fight["event_date"], "%Y-%m-%d")
     for fight in sorted(fights, key=lambda f: f["_parsed_date"]):
         if fight["_parsed_date"] >= CUTOFF_DATE:
-            _prior_accum_add(fight)
-    priors = _get_current_priors()
+            prior_accum.add(fight)
+    priors = prior_accum.priors()
 
     model = joblib.load(MODEL_PATH)
     feature_meta = joblib.load(FEATURE_COLS_PATH)

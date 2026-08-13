@@ -18,7 +18,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from config import FIGHTS_PATH, FIGHTERS_CACHE_PATH, MODEL_PATH, FEATURE_COLS_PATH
 from fighter_engine import build_fighter_states, predict_fight
-from stats_utils import _prior_accum_init, _prior_accum_add, _get_current_priors
+from stats_utils import PriorAccumulator
 
 
 def main():
@@ -76,10 +76,10 @@ def main():
     ]
     
     # Compute priors ONLY from historical fights (no lookahead)
-    _prior_accum_init()
+    prior_accum = PriorAccumulator()
     for f in sorted(historical_fights, key=lambda x: x.get("event_date", "1970-01-01")):
-        _prior_accum_add(f)
-    priors = _get_current_priors()
+        prior_accum.add(f)
+    priors = prior_accum.priors()
 
     fighter_states = build_fighter_states(historical_fights, fighters_cache)
 

@@ -9,7 +9,7 @@ from fighter_engine import (
     make_initial_state, compute_stats_from_state, classify_method, get_k_factor,
     apply_elo_decay, elo_update, update_state,
 )
-from stats_utils import _prior_accum_init, _prior_accum_add, _get_current_priors
+from stats_utils import PriorAccumulator
 
 
 SEED = 42
@@ -49,7 +49,7 @@ def main():
     total_raw = len(fights)
 
     # Initialize prior accumulator for incremental (no-lookahead) priors
-    _prior_accum_init()
+    prior_accum = PriorAccumulator()
 
     # Parse dates
     for fight in fights:
@@ -98,12 +98,12 @@ def main():
             b_is_f1 = True
 
         # Compute pre-fight features using priors from fights BEFORE this one
-        priors = _get_current_priors()
+        priors = prior_accum.priors()
         feat_a = compute_stats_from_state(fighter_state[a_name], a_name, fighters_cache, fight["_parsed_date"], category=fight["category"], priors=priors, fight=fight, is_fighter_1=a_is_f1)
         feat_b = compute_stats_from_state(fighter_state[b_name], b_name, fighters_cache, fight["_parsed_date"], category=fight["category"], priors=priors, fight=fight, is_fighter_1=b_is_f1)
 
         # Add fight stats to prior accumulator AFTER computing features (no lookahead)
-        _prior_accum_add(fight)
+        prior_accum.add(fight)
 
         if feat_a["is_debut"]:
             debut_a_count += 1

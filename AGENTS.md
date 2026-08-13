@@ -43,7 +43,7 @@ Single model, trained on the shared feature pipeline:
 Layout: shared library modules and the `feature_engineering.py`/`train_model.py` pipeline scripts live at `src/` root; scraping scripts live in `src/scraping/` and prediction scripts in `src/prediction/`. The `prediction/` entry scripts add `src/` to `sys.path` with a small bootstrap (`sys.path.insert(0, ...parents[1])`) so they can `from config import ...` and so the pickled models (which reference `ensemble_utils`, `fighter_engine`, ...) keep loading.
 
 ### Feature Engineering
-- Fights processed **chronologically** with no lookahead. Priors accumulate incrementally via `_prior_accum_add()`.
+- Fights processed **chronologically** with no lookahead. Priors accumulate incrementally via `PriorAccumulator.add()`.
 - Fighter A/B sides **randomly assigned** per fight (`random.seed(42)` in `feature_engineering.py`). Seed change makes dataset non-deterministic.
 - Bayesian shrinkage toward population priors (`shrink_rate`, `shrink_proportion` in `stats_utils.py`). Weight classes with <200 fights fall back to `"global"`.
 - Elo uses variable K-factor (96/64/40/24 by experience bands) and >1 year inactivity decay.

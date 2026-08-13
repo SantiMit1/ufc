@@ -31,7 +31,7 @@ from fighter_engine import (
     make_initial_state, predict_fight, classify_method, get_k_factor,
     apply_elo_decay, elo_update, update_state,
 )
-from stats_utils import _prior_accum_init, _prior_accum_add, _get_current_priors
+from stats_utils import PriorAccumulator
 from sklearn.metrics import accuracy_score, roc_auc_score, log_loss, brier_score_loss
 from tqdm import tqdm
 
@@ -68,7 +68,7 @@ def main():
 
     random.seed(42)
 
-    _prior_accum_init()
+    prior_accum = PriorAccumulator()
     fighter_state = {}
 
     for fight in fights:
@@ -100,7 +100,7 @@ def main():
         fighter_state[f2]["elo"] = apply_elo_decay(
             fighter_state[f2]["elo"], fighter_state[f2]["last_fight_date"], fight["_parsed_date"])
 
-        priors = _get_current_priors()
+        priors = prior_accum.priors()
 
         if start <= fight["_parsed_date"] <= end:
             in_period += 1
@@ -130,7 +130,7 @@ def main():
             pbar.update(1)
             pbar.set_postfix_str(f"eval={len(probs)} debut={skipped_debut}")
 
-        _prior_accum_add(fight)
+        prior_accum.add(fight)
 
         is_win_loss, win_side, finish_type = classify_method(
             fight["method"], fight["winner"], f1, f2)

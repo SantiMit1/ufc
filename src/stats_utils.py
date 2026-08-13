@@ -60,16 +60,6 @@ def shrink_proportion(
 
 
 
-# Prior accum state for incremental updates
-_prior_accum: dict = {}
-
-
-def _prior_accum_init():
-    """Initialize prior accumulator state."""
-    global _prior_accum
-    _prior_accum = {}
-
-
 def _accumulate_fight(accum: dict, fight: dict) -> None:
     """Add a single fight's stats to a prior accumulator dict."""
     cat = fight.get("category", "").strip()
@@ -157,15 +147,23 @@ def _build_priors_from_accum(accum: dict) -> dict:
     return priors
 
 
-def _prior_accum_add(fight: dict) -> None:
-    """Add a single fight's stats to the prior accumulator."""
-    global _prior_accum
-    _accumulate_fight(_prior_accum, fight)
+class PriorAccumulator:
+    """Incremental (no-lookahead) population-prior accumulator.
 
+    Add fights in chronological order. To predict a fight, read ``priors()``
+    BEFORE ``add()``-ing that fight so the priors only reflect earlier ones.
+    """
 
-def _get_current_priors() -> dict:
-    """Get priors from current accumulator state (called during chronological processing)."""
-    return _build_priors_from_accum(_prior_accum)
+    def __init__(self):
+        self._accum: dict = {}
+
+    def add(self, fight: dict) -> None:
+        """Add a single fight's stats to the accumulator."""
+        _accumulate_fight(self._accum, fight)
+
+    def priors(self) -> dict:
+        """Build per-category priors (with global fallback) from accumulated fights."""
+        return _build_priors_from_accum(self._accum)
 
 
 # ── Composite feature weights (from LightGBM gain importance × domain sign) ──

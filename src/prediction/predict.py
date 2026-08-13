@@ -17,7 +17,7 @@ from fighter_engine import (
     make_initial_state, compute_stats_from_state, build_fighter_states,
     build_prediction_row,
 )
-from stats_utils import _prior_accum_init, _prior_accum_add, _get_current_priors
+from stats_utils import PriorAccumulator
 
 
 
@@ -110,15 +110,15 @@ def main():
     print(f"  {len(fighters_cache)} fighters in cache")
 
     print("  Computing population priors by weight class (incremental, no lookahead)...")
-    _prior_accum_init()
+    prior_accum = PriorAccumulator()
     # Parse dates first
     for fight in fights:
         fight["_parsed_date"] = datetime.strptime(fight["event_date"], "%Y-%m-%d")
     # Sort and add to accumulator
     for fight in sorted(fights, key=lambda f: f["_parsed_date"]):
         if fight["_parsed_date"] >= CUTOFF_DATE:
-            _prior_accum_add(fight)
-    priors = _get_current_priors()
+            prior_accum.add(fight)
+    priors = prior_accum.priors()
     for cat, vals in priors.items():
         print(f"    {cat}: sig_str/min={vals['sig_str_landed_per_min']:.2f}, td/15min={vals['td_avg_per_15min']:.2f}")
 
