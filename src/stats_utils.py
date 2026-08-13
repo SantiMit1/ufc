@@ -184,16 +184,6 @@ def load_fighter_cache(path: Path = FIGHTERS_CACHE_PATH) -> dict:
         return json.load(f)
 
 
-def prepare_fights(fights: list, cutoff: datetime = CUTOFF_DATE) -> list:
-    """Set ``_parsed_date`` on each fight and return the chronological, cutoff-filtered list."""
-    for fight in fights:
-        fight["_parsed_date"] = datetime.strptime(fight["event_date"], "%Y-%m-%d")
-    return sorted(
-        [f for f in fights if f["_parsed_date"] >= cutoff],
-        key=lambda f: f["_parsed_date"],
-    )
-
-
 def compute_priors(fights: list, cutoff: datetime | None = CUTOFF_DATE) -> dict:
     """Accumulate all fights (chronological, optional cutoff) and build the prior dict.
 
