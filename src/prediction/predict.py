@@ -1,5 +1,4 @@
 import sys
-import json
 import numpy as np
 import joblib
 import shap
@@ -9,15 +8,12 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from config import (
-    FIGHTS_PATH, FIGHTERS_CACHE_PATH, MODEL_PATH, FEATURE_COLS_PATH,
-    CUTOFF_DATE, WEIGHT_CLASSES,
-)
+from config import MODEL_PATH, FEATURE_COLS_PATH, WEIGHT_CLASSES
 from fighter_engine import (
     make_initial_state, compute_stats_from_state, build_fighter_states,
     build_prediction_row,
 )
-from stats_utils import PriorAccumulator
+from stats_utils import load_fights, load_fighter_cache, compute_priors
 
 
 
@@ -101,24 +97,14 @@ def main():
     print("=" * 60)
 
     print("\nLoading data...")
-    with open(FIGHTS_PATH) as f:
-        fights = json.load(f)
+    fights = load_fights()
     print(f"  {len(fights)} fights loaded")
 
-    with open(FIGHTERS_CACHE_PATH) as f:
-        fighters_cache = json.load(f)
+    fighters_cache = load_fighter_cache()
     print(f"  {len(fighters_cache)} fighters in cache")
 
     print("  Computing population priors by weight class (incremental, no lookahead)...")
-    prior_accum = PriorAccumulator()
-    # Parse dates first
-    for fight in fights:
-        fight["_parsed_date"] = datetime.strptime(fight["event_date"], "%Y-%m-%d")
-    # Sort and add to accumulator
-    for fight in sorted(fights, key=lambda f: f["_parsed_date"]):
-        if fight["_parsed_date"] >= CUTOFF_DATE:
-            prior_accum.add(fight)
-    priors = prior_accum.priors()
+    priors = compute_priors(fights)
     for cat, vals in priors.items():
         print(f"    {cat}: sig_str/min={vals['sig_str_landed_per_min']:.2f}, td/15min={vals['td_avg_per_15min']:.2f}")
 

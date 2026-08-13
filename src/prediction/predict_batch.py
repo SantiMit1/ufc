@@ -8,7 +8,6 @@ Usage:
 Each arg: Fighter1,Fighter2[,WeightClass]. WeightClass defaults to "Catch Weight".
 """
 import sys
-import json
 import argparse
 import joblib
 from datetime import datetime
@@ -16,12 +15,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from config import (
-    FIGHTS_PATH, FIGHTERS_CACHE_PATH, MODEL_PATH, FEATURE_COLS_PATH,
-    CUTOFF_DATE, WEIGHT_CLASSES,
-)
+from config import MODEL_PATH, FEATURE_COLS_PATH, WEIGHT_CLASSES
 from fighter_engine import make_initial_state, build_fighter_states, predict_fight
-from stats_utils import PriorAccumulator
+from stats_utils import load_fights, load_fighter_cache, compute_priors
 
 
 def main():
@@ -54,18 +50,10 @@ def main():
             sys.exit(1)
         parsed.append((f1, f2, cat, rounds))
 
-    with open(FIGHTS_PATH) as f:
-        fights = json.load(f)
-    with open(FIGHTERS_CACHE_PATH) as f:
-        fighters_cache = json.load(f)
+    fights = load_fights()
+    fighters_cache = load_fighter_cache()
 
-    prior_accum = PriorAccumulator()
-    for fight in fights:
-        fight["_parsed_date"] = datetime.strptime(fight["event_date"], "%Y-%m-%d")
-    for fight in sorted(fights, key=lambda f: f["_parsed_date"]):
-        if fight["_parsed_date"] >= CUTOFF_DATE:
-            prior_accum.add(fight)
-    priors = prior_accum.priors()
+    priors = compute_priors(fights)
 
     model = joblib.load(MODEL_PATH)
     feature_meta = joblib.load(FEATURE_COLS_PATH)

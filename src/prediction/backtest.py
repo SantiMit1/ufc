@@ -14,7 +14,6 @@ fight for the fight to count in the evaluation. Fights without a winner
 (draw / no contest) are skipped too.
 """
 import argparse
-import json
 import random
 import sys
 import joblib
@@ -24,14 +23,12 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from config import (
-    FIGHTS_PATH, FIGHTERS_CACHE_PATH, MODEL_PATH, FEATURE_COLS_PATH, CUTOFF_DATE,
-)
+from config import MODEL_PATH, FEATURE_COLS_PATH
 from fighter_engine import (
     make_initial_state, predict_fight, classify_method, get_k_factor,
     apply_elo_decay, elo_update, update_state,
 )
-from stats_utils import PriorAccumulator
+from stats_utils import PriorAccumulator, load_fights, load_fighter_cache, prepare_fights
 from sklearn.metrics import accuracy_score, roc_auc_score, log_loss, brier_score_loss
 from tqdm import tqdm
 
@@ -58,10 +55,8 @@ def main():
     if end < start:
         parser.error("--end must be >= --start")
 
-    with open(FIGHTS_PATH, encoding="utf-8") as f:
-        fights = json.load(f)
-    with open(FIGHTERS_CACHE_PATH, encoding="utf-8") as f:
-        fighters_cache = json.load(f)
+    fights = load_fights()
+    fighters_cache = load_fighter_cache()
 
     model = joblib.load(args.model_path)
     feature_meta = joblib.load(args.features_path)
@@ -71,12 +66,7 @@ def main():
     prior_accum = PriorAccumulator()
     fighter_state = {}
 
-    for fight in fights:
-        fight["_parsed_date"] = datetime.strptime(fight["event_date"], "%Y-%m-%d")
-    filtered = sorted(
-        (f for f in fights if f["_parsed_date"] >= CUTOFF_DATE),
-        key=lambda f: f["_parsed_date"],
-    )
+    filtered = prepare_fights(fights)
 
     total = len(filtered)
     in_period = 0

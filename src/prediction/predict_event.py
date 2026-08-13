@@ -16,9 +16,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from config import FIGHTS_PATH, FIGHTERS_CACHE_PATH, MODEL_PATH, FEATURE_COLS_PATH
+from config import MODEL_PATH, FEATURE_COLS_PATH
 from fighter_engine import build_fighter_states, predict_fight
-from stats_utils import PriorAccumulator
+from stats_utils import load_fights, load_fighter_cache, compute_priors
 
 
 def main():
@@ -34,11 +34,8 @@ def main():
     args = parser.parse_args()
 
     # ── Load data ────────────────────────────────────────────────────────────
-    with open(FIGHTS_PATH, encoding="utf-8") as f:
-        fights = json.load(f)
-
-    with open(FIGHTERS_CACHE_PATH, encoding="utf-8") as f:
-        fighters_cache = json.load(f)
+    fights = load_fights()
+    fighters_cache = load_fighter_cache()
 
     # ── Find event fights ────────────────────────────────────────────────────
     event_name = args.event.strip()
@@ -76,10 +73,8 @@ def main():
     ]
     
     # Compute priors ONLY from historical fights (no lookahead)
-    prior_accum = PriorAccumulator()
-    for f in sorted(historical_fights, key=lambda x: x.get("event_date", "1970-01-01")):
-        prior_accum.add(f)
-    priors = prior_accum.priors()
+    # Note: no CUTOFF_DATE filter here (historical behavior kept).
+    priors = compute_priors(historical_fights, cutoff=None)
 
     fighter_states = build_fighter_states(historical_fights, fighters_cache)
 

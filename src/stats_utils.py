@@ -1,5 +1,10 @@
+import json
 import numpy as np
+from datetime import datetime
+from pathlib import Path
 from typing import Any
+
+from config import FIGHTS_PATH, FIGHTERS_CACHE_PATH, CUTOFF_DATE
 
 PRIOR_MINUTES = 10.0
 PRIOR_ATTEMPTS = 10
@@ -164,6 +169,43 @@ class PriorAccumulator:
     def priors(self) -> dict:
         """Build per-category priors (with global fallback) from accumulated fights."""
         return _build_priors_from_accum(self._accum)
+
+
+# ── Shared data loading (all scripts; run from repo root) ──
+def load_fights(path: Path = FIGHTS_PATH) -> list:
+    """Load the fights dataset from JSON."""
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def load_fighter_cache(path: Path = FIGHTERS_CACHE_PATH) -> dict:
+    """Load the fighters info cache from JSON."""
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def prepare_fights(fights: list, cutoff: datetime = CUTOFF_DATE) -> list:
+    """Set ``_parsed_date`` on each fight and return the chronological, cutoff-filtered list."""
+    for fight in fights:
+        fight["_parsed_date"] = datetime.strptime(fight["event_date"], "%Y-%m-%d")
+    return sorted(
+        [f for f in fights if f["_parsed_date"] >= cutoff],
+        key=lambda f: f["_parsed_date"],
+    )
+
+
+def compute_priors(fights: list, cutoff: datetime | None = CUTOFF_DATE) -> dict:
+    """Accumulate all fights (chronological, optional cutoff) and build the prior dict.
+
+    Pass ``cutoff=None`` to include fights before ``CUTOFF_DATE`` (used for
+    in-time event simulation, which historically did not apply the cutoff).
+    """
+    acc = PriorAccumulator()
+    for fight in sorted(fights, key=lambda f: f.get("event_date", "")):
+        d = datetime.strptime(fight["event_date"], "%Y-%m-%d")
+        if cutoff is None or d >= cutoff:
+            acc.add(fight)
+    return acc.priors()
 
 
 # ── Composite feature weights (from LightGBM gain importance × domain sign) ──

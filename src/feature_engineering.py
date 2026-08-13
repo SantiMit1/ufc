@@ -1,15 +1,13 @@
-import json
 import random
 import numpy as np
 import pandas as pd
-from datetime import datetime
 
-from config import FIGHTS_PATH, FIGHTERS_CACHE_PATH, DATASET_PATH, CUTOFF_DATE
+from config import DATASET_PATH, CUTOFF_DATE
 from fighter_engine import (
     make_initial_state, compute_stats_from_state, classify_method, get_k_factor,
     apply_elo_decay, elo_update, update_state,
 )
-from stats_utils import PriorAccumulator
+from stats_utils import PriorAccumulator, load_fights, load_fighter_cache, prepare_fights
 
 
 SEED = 42
@@ -39,29 +37,20 @@ def main():
     random.seed(SEED)
 
     print("Loading fights...")
-    with open(FIGHTS_PATH, "r") as f:
-        fights = json.load(f)
+    fights = load_fights()
 
     print("Loading fighters cache...")
-    with open(FIGHTERS_CACHE_PATH, "r") as f:
-        fighters_cache = json.load(f)
+    fighters_cache = load_fighter_cache()
 
     total_raw = len(fights)
 
     # Initialize prior accumulator for incremental (no-lookahead) priors
     prior_accum = PriorAccumulator()
 
-    # Parse dates
-    for fight in fights:
-        fight["_parsed_date"] = datetime.strptime(fight["event_date"], "%Y-%m-%d")
-
-    # Filter by cutoff date
-    filtered_fights = [f for f in fights if f["_parsed_date"] >= CUTOFF_DATE]
+    # Parse dates, filter by cutoff and sort chronologically
+    filtered_fights = prepare_fights(fights)
     discarded = total_raw - len(filtered_fights)
     print(f"Discarded {discarded} fights before {CUTOFF_DATE.date()}")
-
-    # Sort chronologically
-    filtered_fights.sort(key=lambda f: f["_parsed_date"])
 
     # Initialize state dict
     fighter_state: dict[str, dict] = {}
