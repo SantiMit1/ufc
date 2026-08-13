@@ -24,11 +24,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from config import MODEL_PATH, FEATURE_COLS_PATH
-from fighter_engine import (
-    make_initial_state, predict_fight, classify_method, get_k_factor,
-    apply_elo_decay, elo_update, update_state,
-)
-from stats_utils import PriorAccumulator, load_fights, load_fighter_cache, prepare_fights
+from fighter_engine import FightStateEngine, make_initial_state, predict_fight
+from stats_utils import PriorAccumulator, load_fights, load_fighter_cache
 from sklearn.metrics import accuracy_score, roc_auc_score, log_loss, brier_score_loss
 from tqdm import tqdm
 
@@ -64,9 +61,10 @@ def main():
     random.seed(42)
 
     prior_accum = PriorAccumulator()
-    fighter_state = {}
+    engine = FightStateEngine(fights)
+    fighter_state = engine.state
 
-    filtered = prepare_fights(fights)
+    filtered = engine.filtered
 
     total = len(filtered)
     in_period = 0
@@ -78,17 +76,8 @@ def main():
     period_fights = sum(1 for f in filtered if start <= f["_parsed_date"] <= end)
     pbar = tqdm(total=period_fights, unit="fight", desc="Backtest", ncols=100)
 
-    for fight in filtered:
+    for fight in engine:
         f1, f2 = fight["fighter_1"], fight["fighter_2"]
-        if f1 not in fighter_state:
-            fighter_state[f1] = make_initial_state()
-        if f2 not in fighter_state:
-            fighter_state[f2] = make_initial_state()
-
-        fighter_state[f1]["elo"] = apply_elo_decay(
-            fighter_state[f1]["elo"], fighter_state[f1]["last_fight_date"], fight["_parsed_date"])
-        fighter_state[f2]["elo"] = apply_elo_decay(
-            fighter_state[f2]["elo"], fighter_state[f2]["last_fight_date"], fight["_parsed_date"])
 
         priors = prior_accum.priors()
 
@@ -121,22 +110,6 @@ def main():
             pbar.set_postfix_str(f"eval={len(probs)} debut={skipped_debut}")
 
         prior_accum.add(fight)
-
-        is_win_loss, win_side, finish_type = classify_method(
-            fight["method"], fight["winner"], f1, f2)
-        f1_elo_before = fighter_state[f1]["elo"]
-        f2_elo_before = fighter_state[f2]["elo"]
-        update_state(fighter_state[f1], fight, True, is_win_loss, win_side,
-                     finish_type, opponent_elo=f2_elo_before)
-        update_state(fighter_state[f2], fight, False, is_win_loss, win_side,
-                     finish_type, opponent_elo=f1_elo_before)
-        if is_win_loss:
-            score_a = 1.0 if win_side == 1 else 0.0
-            k_a = get_k_factor(fighter_state[f1]["total_fights"])
-            k_b = get_k_factor(fighter_state[f2]["total_fights"])
-            fighter_state[f1]["elo"], fighter_state[f2]["elo"] = elo_update(
-                fighter_state[f1]["elo"], fighter_state[f2]["elo"], score_a,
-                k_a=k_a, k_b=k_b)
 
     pbar.close()
 

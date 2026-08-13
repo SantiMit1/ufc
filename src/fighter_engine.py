@@ -405,48 +405,74 @@ def compute_stats_from_state(fighter_state: dict, fighter_name: str,
     return feat_dict
 
 
-def build_fighter_states(fights: list, fighters_cache: dict) -> dict:
-    for fight in fights:
-        fight["_parsed_date"] = datetime.strptime(fight["event_date"], "%Y-%m-%d")
-
-    filtered = sorted(
-        [f for f in fights if f["_parsed_date"] >= CUTOFF_DATE],
-        key=lambda f: f["_parsed_date"],
+def _step_fight_state(fighter_state: dict, fight: dict, f1: str, f2: str) -> None:
+    """Apply one fight's outcome to the shared state (update_state + Elo update)."""
+    is_win_loss, win_side, finish_type = classify_method(
+        fight["method"], fight["winner"], f1, f2
     )
-    fighter_state: dict[str, dict] = {}
+    f1_elo_before = fighter_state[f1]["elo"]
+    f2_elo_before = fighter_state[f2]["elo"]
+    update_state(fighter_state[f1], fight, True, is_win_loss, win_side,
+                 finish_type, opponent_elo=f2_elo_before)
+    update_state(fighter_state[f2], fight, False, is_win_loss, win_side,
+                 finish_type, opponent_elo=f1_elo_before)
 
-    for fight in filtered:
-        f1, f2 = fight["fighter_1"], fight["fighter_2"]
-        if f1 not in fighter_state:
-            fighter_state[f1] = make_initial_state()
-        if f2 not in fighter_state:
-            fighter_state[f2] = make_initial_state()
+    if is_win_loss:
+        score_a = 1.0 if win_side == 1 else 0.0
+        k_a = get_k_factor(fighter_state[f1]["total_fights"])
+        k_b = get_k_factor(fighter_state[f2]["total_fights"])
+        f1_new, f2_new = elo_update(fighter_state[f1]["elo"],
+                                    fighter_state[f2]["elo"], score_a,
+                                    k_a=k_a, k_b=k_b)
+        fighter_state[f1]["elo"] = f1_new
+        fighter_state[f2]["elo"] = f2_new
 
-        # Apply Elo decay for inactivity (>1 year)
-        fighter_state[f1]["elo"] = apply_elo_decay(fighter_state[f1]["elo"], fighter_state[f1]["last_fight_date"], fight["_parsed_date"])
-        fighter_state[f2]["elo"] = apply_elo_decay(fighter_state[f2]["elo"], fighter_state[f2]["last_fight_date"], fight["_parsed_date"])
 
-        is_win_loss, win_side, finish_type = classify_method(
-            fight["method"], fight["winner"], f1, f2
+class FightStateEngine:
+    """Chronological fighter-state engine (single source of the Elo/state loop).
+
+    Iterating yields each fight in chronological order. Before each yield the
+    engine initializes both fighters' states and applies Elo decay so that
+    ``.state`` only reflects fights strictly before the current one (no
+    lookahead). When the consumer resumes the generator, the fight's outcome is
+    applied (``update_state`` + Elo update) ready for the next iteration.
+
+    Consumers read ``.state`` for pre-fight features/predictions, and must not
+    mutate it before the engine's own post-fight update.
+    """
+
+    def __init__(self, fights: list, cutoff: datetime = CUTOFF_DATE):
+        for fight in fights:
+            fight["_parsed_date"] = datetime.strptime(fight["event_date"], "%Y-%m-%d")
+        self.filtered = sorted(
+            [f for f in fights if f["_parsed_date"] >= cutoff],
+            key=lambda f: f["_parsed_date"],
         )
-        f1_elo_before = fighter_state[f1]["elo"]
-        f2_elo_before = fighter_state[f2]["elo"]
-        update_state(fighter_state[f1], fight, True, is_win_loss, win_side,
-                     finish_type, opponent_elo=f2_elo_before)
-        update_state(fighter_state[f2], fight, False, is_win_loss, win_side,
-                     finish_type, opponent_elo=f1_elo_before)
+        self.state: dict[str, dict] = {}
 
-        if is_win_loss:
-            score_a = 1.0 if win_side == 1 else 0.0
-            k_a = get_k_factor(fighter_state[f1]["total_fights"])
-            k_b = get_k_factor(fighter_state[f2]["total_fights"])
-            f1_new, f2_new = elo_update(fighter_state[f1]["elo"],
-                                        fighter_state[f2]["elo"], score_a,
-                                        k_a=k_a, k_b=k_b)
-            fighter_state[f1]["elo"] = f1_new
-            fighter_state[f2]["elo"] = f2_new
+    def __iter__(self):
+        for fight in self.filtered:
+            f1, f2 = fight["fighter_1"], fight["fighter_2"]
+            if f1 not in self.state:
+                self.state[f1] = make_initial_state()
+            if f2 not in self.state:
+                self.state[f2] = make_initial_state()
 
-    return fighter_state
+            # Apply Elo decay for inactivity (>1 year)
+            self.state[f1]["elo"] = apply_elo_decay(
+                self.state[f1]["elo"], self.state[f1]["last_fight_date"], fight["_parsed_date"])
+            self.state[f2]["elo"] = apply_elo_decay(
+                self.state[f2]["elo"], self.state[f2]["last_fight_date"], fight["_parsed_date"])
+
+            yield fight
+            _step_fight_state(self.state, fight, f1, f2)
+
+
+def build_fighter_states(fights: list, fighters_cache: dict) -> dict:
+    engine = FightStateEngine(fights)
+    for _ in engine:
+        pass
+    return engine.state
 
 
 def build_prediction_row(f1: str, f2: str, fighter_states: dict,

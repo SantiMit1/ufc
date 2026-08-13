@@ -3,34 +3,11 @@ import numpy as np
 import pandas as pd
 
 from config import DATASET_PATH, CUTOFF_DATE
-from fighter_engine import (
-    make_initial_state, compute_stats_from_state, classify_method, get_k_factor,
-    apply_elo_decay, elo_update, update_state,
-)
-from stats_utils import PriorAccumulator, load_fights, load_fighter_cache, prepare_fights
+from fighter_engine import FightStateEngine, compute_stats_from_state, classify_method
+from stats_utils import PriorAccumulator, load_fights, load_fighter_cache
 
 
 SEED = 42
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 def main():
@@ -48,33 +25,20 @@ def main():
     prior_accum = PriorAccumulator()
 
     # Parse dates, filter by cutoff and sort chronologically
-    filtered_fights = prepare_fights(fights)
-    discarded = total_raw - len(filtered_fights)
+    engine = FightStateEngine(fights)
+    discarded = total_raw - len(engine.filtered)
     print(f"Discarded {discarded} fights before {CUTOFF_DATE.date()}")
-
-    # Initialize state dict
-    fighter_state: dict[str, dict] = {}
 
     rows = []
     debut_a_count = 0
     debut_b_count = 0
     unknown_stance_count = 0
 
-    for idx, fight in enumerate(filtered_fights, 1):
+    for idx, fight in enumerate(engine, 1):
         f1_name = fight["fighter_1"]
         f2_name = fight["fighter_2"]
 
-        # Ensure both fighters have state entries
-        if f1_name not in fighter_state:
-            fighter_state[f1_name] = make_initial_state()
-        if f2_name not in fighter_state:
-            fighter_state[f2_name] = make_initial_state()
-
-        # Apply Elo decay for inactivity (>1 year)
-        f1_state = fighter_state[f1_name]
-        f2_state = fighter_state[f2_name]
-        f1_state["elo"] = apply_elo_decay(f1_state["elo"], f1_state["last_fight_date"], fight["_parsed_date"])
-        f2_state["elo"] = apply_elo_decay(f2_state["elo"], f2_state["last_fight_date"], fight["_parsed_date"])
+        fighter_state = engine.state
 
         # Randomly assign fighter_a/fighter_b
         if random.random() < 0.5:
@@ -219,33 +183,6 @@ def main():
             "finish_round": finish_round_val,
         }
         rows.append(row)
-
-        # --- Post-fight: update state ---
-        # Determine outcome for both original fighters
-        is_win_loss, win_side, finish_type = classify_method(
-            fight["method"], fight["winner"], fight["fighter_1"], fight["fighter_2"]
-        )
-
-        f1_elo_before = fighter_state[fight["fighter_1"]]["elo"]
-        f2_elo_before = fighter_state[fight["fighter_2"]]["elo"]
-
-        update_state(fighter_state[fight["fighter_1"]], fight, True, is_win_loss, win_side, finish_type, opponent_elo=f2_elo_before)
-        update_state(fighter_state[fight["fighter_2"]], fight, False, is_win_loss, win_side, finish_type, opponent_elo=f1_elo_before)
-
-        # Elo update (with variable K-factor)
-        f1_state = fighter_state[fight["fighter_1"]]
-        f2_state = fighter_state[fight["fighter_2"]]
-        if is_win_loss:
-            if win_side == 1:
-                score_a = 1.0
-            else:
-                score_a = 0.0
-            k_a = get_k_factor(f1_state["total_fights"])
-            k_b = get_k_factor(f2_state["total_fights"])
-            f1_new_elo, f2_new_elo = elo_update(f1_state["elo"], f2_state["elo"], score_a, k_a=k_a, k_b=k_b)
-            f1_state["elo"] = f1_new_elo
-            f2_state["elo"] = f2_new_elo
-        # else: no change for draws/no-contests
 
     df = pd.DataFrame(rows)
     df.to_csv(DATASET_PATH, index=False)
