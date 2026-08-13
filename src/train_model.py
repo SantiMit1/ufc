@@ -259,7 +259,8 @@ def main():
     for i in range(10):
         mask = bin_indices == i
         nb = mask.sum()
-        if nb == 0: continue
+        if nb == 0:
+            continue
         print(f"  [{bins[i]:.1f}-{bins[i+1]:.1f})  {nb:5d} {y_prob[mask].mean():9.3f} {y_test.values[mask].mean():9.3f}")
 
     # ─── FEATURE IMPORTANCES ───────────────────────────────────────────────────────

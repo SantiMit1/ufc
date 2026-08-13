@@ -1,12 +1,14 @@
 import sys
-import numpy as np
-import joblib
-import shap
+import warnings
 import argparse
 from datetime import datetime
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+import numpy as np
+import joblib
+import shap
 
 from config import MODEL_PATH, FEATURE_COLS_PATH, WEIGHT_CLASSES
 from fighter_engine import (
@@ -14,33 +16,6 @@ from fighter_engine import (
     build_prediction_row,
 )
 from stats_utils import load_fights, load_fighter_cache, compute_priors
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 def find_fighter(query: str, fighter_states: dict, fighters_cache: dict) -> list:
     q = query.lower().strip()
@@ -192,9 +167,8 @@ def main():
 
         shap_vals = None
         if shap_explainer is not None:
-            import warnings as _warnings
-            with _warnings.catch_warnings():
-                _warnings.filterwarnings(
+            with warnings.catch_warnings():
+                warnings.filterwarnings(
                     "ignore",
                     message="LightGBM binary classifier with TreeExplainer shap values output has changed to a list of ndarray",
                 )
@@ -308,8 +282,6 @@ def main():
             favor = favorite if val > 0 else underdog
             print(f"    {feat:<42s} {val:+7.4f}  -> {favor}")
         print()
-
-
 
 
 if __name__ == "__main__":

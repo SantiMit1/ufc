@@ -9,11 +9,12 @@ Each arg: Fighter1,Fighter2[,WeightClass]. WeightClass defaults to "Catch Weight
 """
 import sys
 import argparse
-import joblib
 from datetime import datetime
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+import joblib
 
 from config import MODEL_PATH, FEATURE_COLS_PATH, WEIGHT_CLASSES
 from fighter_engine import make_initial_state, build_fighter_states, predict_fight

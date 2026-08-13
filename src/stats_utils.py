@@ -63,8 +63,6 @@ def shrink_proportion(
     return (successes + prior_mean * strength) / (attempts + strength)
 
 
-
-
 def _accumulate_fight(accum: dict, fight: dict) -> None:
     """Add a single fight's stats to a prior accumulator dict."""
     cat = fight.get("category", "").strip()

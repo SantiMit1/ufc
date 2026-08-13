@@ -16,7 +16,6 @@ and ``feature_engineering.py``:
 import numpy as np
 import pandas as pd
 from datetime import datetime
-from typing import Any
 
 from config import CUTOFF_DATE, ELO_K, ELO_INITIAL
 from stats_utils import (
@@ -48,7 +47,7 @@ def get_stance(fighter_name: str, fighters_cache: dict) -> str:
     return "Unknown"
 
 
-def classify_method(method: str, winner: str, fighter_1: str, fighter_2: str) -> tuple:
+def classify_method(method: str, winner: str, fighter_1: str, fighter_2: str) -> tuple[bool, int, str | None]:
     """Return (is_win_loss, win_side, finish_type) for a fight.
 
     win_side is 1 if fighter_1 wins, 2 if fighter_2 wins, 0 otherwise.
@@ -97,7 +96,7 @@ def elo_expected(rating_a: float, rating_b: float) -> float:
     return 1.0 / (1.0 + 10.0 ** ((rating_b - rating_a) / 400.0))
 
 
-def elo_update(rating_a: float, rating_b: float, score_a: float, k_a: float = ELO_K, k_b: float = ELO_K) -> tuple:
+def elo_update(rating_a: float, rating_b: float, score_a: float, k_a: float = ELO_K, k_b: float = ELO_K) -> tuple[float, float]:
     exp_a = elo_expected(rating_a, rating_b)
     return rating_a + k_a * (score_a - exp_a), rating_b + k_b * ((1.0 - score_a) - (1.0 - exp_a))
 
@@ -124,11 +123,7 @@ def make_initial_state() -> dict:
     }
 
 
-def safe_int(val: Any) -> int:
-    return int(val) if val is not None else 0
-
-
-def safe_sub(a, b):
+def safe_sub(a: float, b: float) -> float:
     if isinstance(a, (int, float)) and isinstance(b, (int, float)):
         if not (np.isnan(a) or np.isnan(b)):
             return a - b

@@ -13,15 +13,16 @@ debut fight is detected via their ``debut_date`` in the fighters cache
 fight for the fight to count in the evaluation. Fights without a winner
 (draw / no contest) are skipped too.
 """
-import argparse
-import random
 import sys
-import joblib
-import numpy as np
+import random
+import argparse
 from datetime import datetime
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+import numpy as np
+import joblib
 
 from config import MODEL_PATH, FEATURE_COLS_PATH
 from fighter_engine import FightStateEngine, make_initial_state, predict_fight

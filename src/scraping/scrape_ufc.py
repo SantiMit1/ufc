@@ -151,7 +151,6 @@ def parse_event_page(html, event_name, event_date):
         weight_cell = cells[6]
         category = weight_cell.get_text(strip=True)
 
-
         method = cells[7].get_text(strip=True)
         round_num = cells[8].get_text(strip=True)
         time_str = cells[9].get_text(strip=True)

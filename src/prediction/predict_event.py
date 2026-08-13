@@ -7,14 +7,15 @@ Usage:
 
 Outputs JSON with each fight's prediction probabilities.
 """
-import argparse
-import json
 import sys
-import joblib
+import json
+import argparse
 from datetime import datetime
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+import joblib
 
 from config import MODEL_PATH, FEATURE_COLS_PATH
 from fighter_engine import build_fighter_states, predict_fight
@@ -71,7 +72,7 @@ def main():
         f for f in fights
         if datetime.strptime(f["event_date"], "%Y-%m-%d") <= event_dt
     ]
-    
+
     # Compute priors ONLY from historical fights (no lookahead)
     # Note: no CUTOFF_DATE filter here (historical behavior kept).
     priors = compute_priors(historical_fights, cutoff=None)
