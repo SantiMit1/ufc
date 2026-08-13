@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 
 from config import DATASET_PATH, CUTOFF_DATE
-from fighter_engine import FightStateEngine, compute_stats_from_state, classify_method
+from fighter_engine import FightStateEngine, compute_stats_from_state, classify_method, compute_feature_diffs
 from stats_utils import PriorAccumulator, load_fights, load_fighter_cache
 
 
@@ -139,49 +139,13 @@ def main():
             "stance_b": feat_b["stance"],
             "height_diff": height_a - height_b if not (np.isnan(height_a) or np.isnan(height_b)) else np.nan,
             "reach_diff": reach_a - reach_b if not (np.isnan(reach_a) or np.isnan(reach_b)) else np.nan,
-
-            "win_pct_diff": feat_a["win_pct"] - feat_b["win_pct"] if not (np.isnan(feat_a["win_pct"]) or np.isnan(feat_b["win_pct"])) else np.nan,
-            "ko_rate_diff": feat_a["ko_rate"] - feat_b["ko_rate"] if not (np.isnan(feat_a["ko_rate"]) or np.isnan(feat_b["ko_rate"])) else np.nan,
-            "sub_rate_diff": feat_a["sub_rate"] - feat_b["sub_rate"] if not (np.isnan(feat_a["sub_rate"]) or np.isnan(feat_b["sub_rate"])) else np.nan,
-            "dec_rate_diff": feat_a["dec_rate"] - feat_b["dec_rate"] if not (np.isnan(feat_a["dec_rate"]) or np.isnan(feat_b["dec_rate"])) else np.nan,
-            "ko_loss_rate_diff": feat_a["ko_loss_rate"] - feat_b["ko_loss_rate"] if not (np.isnan(feat_a["ko_loss_rate"]) or np.isnan(feat_b["ko_loss_rate"])) else np.nan,
-            "sub_loss_rate_diff": feat_a["sub_loss_rate"] - feat_b["sub_loss_rate"] if not (np.isnan(feat_a["sub_loss_rate"]) or np.isnan(feat_b["sub_loss_rate"])) else np.nan,
-            "sig_str_landed_per_min_diff": feat_a["sig_str_landed_per_min"] - feat_b["sig_str_landed_per_min"] if not (np.isnan(feat_a["sig_str_landed_per_min"]) or np.isnan(feat_b["sig_str_landed_per_min"])) else np.nan,
-            "sig_str_absorbed_per_min_diff": feat_a["sig_str_absorbed_per_min"] - feat_b["sig_str_absorbed_per_min"] if not (np.isnan(feat_a["sig_str_absorbed_per_min"]) or np.isnan(feat_b["sig_str_absorbed_per_min"])) else np.nan,
-            "sig_str_accuracy_diff": feat_a["sig_str_accuracy"] - feat_b["sig_str_accuracy"] if not (np.isnan(feat_a["sig_str_accuracy"]) or np.isnan(feat_b["sig_str_accuracy"])) else np.nan,
-            "td_avg_per_15min_diff": feat_a["td_avg_per_15min"] - feat_b["td_avg_per_15min"] if not (np.isnan(feat_a["td_avg_per_15min"]) or np.isnan(feat_b["td_avg_per_15min"])) else np.nan,
-            "td_accuracy_diff": feat_a["td_accuracy"] - feat_b["td_accuracy"] if not (np.isnan(feat_a["td_accuracy"]) or np.isnan(feat_b["td_accuracy"])) else np.nan,
-            "td_defense_diff": feat_a["td_defense"] - feat_b["td_defense"] if not (np.isnan(feat_a["td_defense"]) or np.isnan(feat_b["td_defense"])) else np.nan,
-            "sub_att_per_15min_diff": feat_a["sub_att_per_15min"] - feat_b["sub_att_per_15min"] if not (np.isnan(feat_a["sub_att_per_15min"]) or np.isnan(feat_b["sub_att_per_15min"])) else np.nan,
-            "ctrl_time_pct_diff": feat_a["ctrl_time_pct"] - feat_b["ctrl_time_pct"] if not (np.isnan(feat_a["ctrl_time_pct"]) or np.isnan(feat_b["ctrl_time_pct"])) else np.nan,
-            "days_since_last_fight_diff": feat_a["days_since_last_fight"] - feat_b["days_since_last_fight"] if not (np.isnan(feat_a["days_since_last_fight"]) or np.isnan(feat_b["days_since_last_fight"])) else np.nan,
-            "win_streak_diff": feat_a["current_win_streak"] - feat_b["current_win_streak"],
-            "losing_streak_diff": feat_a["current_losing_streak"] - feat_b["current_losing_streak"],
-            "total_fights_diff": feat_a["total_fights"] - feat_b["total_fights"],
-            "elo_diff": feat_a["elo"] - feat_b["elo"],
-
-            "recent_3_wins_diff": feat_a["recent_3_wins"] - feat_b["recent_3_wins"],
-            "recent_3_losses_diff": feat_a["recent_3_losses"] - feat_b["recent_3_losses"],
-            "recent_5_wins_diff": feat_a["recent_5_wins"] - feat_b["recent_5_wins"],
-            "recent_5_losses_diff": feat_a["recent_5_losses"] - feat_b["recent_5_losses"],
-            "recent_3_ko_loss_rate_diff": feat_a["recent_3_ko_loss_rate"] - feat_b["recent_3_ko_loss_rate"] if not (np.isnan(feat_a["recent_3_ko_loss_rate"]) or np.isnan(feat_b["recent_3_ko_loss_rate"])) else np.nan,
-            "recent_5_ko_loss_rate_diff": feat_a["recent_5_ko_loss_rate"] - feat_b["recent_5_ko_loss_rate"] if not (np.isnan(feat_a["recent_5_ko_loss_rate"]) or np.isnan(feat_b["recent_5_ko_loss_rate"])) else np.nan,
-            "decay_sig_per_min_diff": feat_a["decay_sig_per_min"] - feat_b["decay_sig_per_min"] if not (np.isnan(feat_a["decay_sig_per_min"]) or np.isnan(feat_b["decay_sig_per_min"])) else np.nan,
-            "decay_sig_absorbed_per_min_diff": feat_a["decay_sig_absorbed_per_min"] - feat_b["decay_sig_absorbed_per_min"] if not (np.isnan(feat_a["decay_sig_absorbed_per_min"]) or np.isnan(feat_b["decay_sig_absorbed_per_min"])) else np.nan,
-            "decay_td_per_15min_diff": feat_a["decay_td_per_15min"] - feat_b["decay_td_per_15min"] if not (np.isnan(feat_a["decay_td_per_15min"]) or np.isnan(feat_b["decay_td_per_15min"])) else np.nan,
-            "avg_opp_elo_diff": feat_a["avg_opp_elo"] - feat_b["avg_opp_elo"] if not (np.isnan(feat_a["avg_opp_elo"]) or np.isnan(feat_b["avg_opp_elo"])) else np.nan,
-            "avg_opp_elo_wins_diff": feat_a["avg_opp_elo_wins"] - feat_b["avg_opp_elo_wins"] if not (np.isnan(feat_a["avg_opp_elo_wins"]) or np.isnan(feat_b["avg_opp_elo_wins"])) else np.nan,
-
-            "striking_strength_diff": feat_a["striking"] - feat_b["striking"] if not (np.isnan(feat_a["striking"]) or np.isnan(feat_b["striking"])) else np.nan,
-            "grappling_strength_diff": feat_a["grappling"] - feat_b["grappling"] if not (np.isnan(feat_a["grappling"]) or np.isnan(feat_b["grappling"])) else np.nan,
-            "durability_diff": feat_a["durability"] - feat_b["durability"] if not (np.isnan(feat_a["durability"]) or np.isnan(feat_b["durability"])) else np.nan,
-            "momentum_diff": feat_a["momentum"] - feat_b["momentum"] if not (np.isnan(feat_a["momentum"]) or np.isnan(feat_b["momentum"])) else np.nan,
-            "experience_diff": feat_a["experience"] - feat_b["experience"] if not (np.isnan(feat_a["experience"]) or np.isnan(feat_b["experience"])) else np.nan,
-
+        }
+        row.update(compute_feature_diffs(feat_a, feat_b))
+        row.update({
             "winner": winner_label,
             "finish_type": finish_type_target if finish_type_target is not None else "OTHER",
             "finish_round": finish_round_val,
-        }
+        })
         rows.append(row)
 
     df = pd.DataFrame(rows)

@@ -12,7 +12,7 @@ MIN_CATEGORY_FIGHTS = 200
 SHRINK_FIGHTS_CUTOFF = 5
 
 
-def _safe_int(val: Any) -> int:
+def safe_int(val: Any) -> int:
     return int(val) if val is not None else 0
 
 
@@ -90,13 +90,13 @@ def _accumulate_fight(accum: dict, fight: dict) -> None:
         opp_side = "stats_fighter_2" if side == "stats_fighter_1" else "stats_fighter_1"
         opp_stats = fight.get(opp_side, {})
 
-        sig_landed = _safe_int(stats.get("sig_strikes", {}).get("landed"))
-        sig_attempted = _safe_int(stats.get("sig_strikes", {}).get("attempted"))
-        sig_absorbed = _safe_int(opp_stats.get("sig_strikes", {}).get("landed"))
-        td_landed = _safe_int(stats.get("takedowns", {}).get("landed"))
-        td_attempted = _safe_int(stats.get("takedowns", {}).get("attempted"))
-        td_against_landed = _safe_int(opp_stats.get("takedowns", {}).get("landed"))
-        td_against_attempted = _safe_int(opp_stats.get("takedowns", {}).get("attempted"))
+        sig_landed = safe_int(stats.get("sig_strikes", {}).get("landed"))
+        sig_attempted = safe_int(stats.get("sig_strikes", {}).get("attempted"))
+        sig_absorbed = safe_int(opp_stats.get("sig_strikes", {}).get("landed"))
+        td_landed = safe_int(stats.get("takedowns", {}).get("landed"))
+        td_attempted = safe_int(stats.get("takedowns", {}).get("attempted"))
+        td_against_landed = safe_int(opp_stats.get("takedowns", {}).get("landed"))
+        td_against_attempted = safe_int(opp_stats.get("takedowns", {}).get("attempted"))
 
         accum[cat]["count"] += 1
         accum[cat]["sig_landed"] += sig_landed

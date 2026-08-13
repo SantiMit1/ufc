@@ -23,6 +23,7 @@ from stats_utils import (
     shrink_rate,
     shrink_proportion,
     compute_composite_features,
+    safe_int,
 )
 
 
@@ -132,6 +133,51 @@ def safe_sub(a, b):
         if not (np.isnan(a) or np.isnan(b)):
             return a - b
     return np.nan
+
+
+FEATURE_DIFF_FIELDS = [
+    ("age", "age_diff"),
+    ("win_pct", "win_pct_diff"),
+    ("ko_rate", "ko_rate_diff"),
+    ("sub_rate", "sub_rate_diff"),
+    ("dec_rate", "dec_rate_diff"),
+    ("ko_loss_rate", "ko_loss_rate_diff"),
+    ("sub_loss_rate", "sub_loss_rate_diff"),
+    ("sig_str_landed_per_min", "sig_str_landed_per_min_diff"),
+    ("sig_str_absorbed_per_min", "sig_str_absorbed_per_min_diff"),
+    ("sig_str_accuracy", "sig_str_accuracy_diff"),
+    ("td_avg_per_15min", "td_avg_per_15min_diff"),
+    ("td_accuracy", "td_accuracy_diff"),
+    ("td_defense", "td_defense_diff"),
+    ("sub_att_per_15min", "sub_att_per_15min_diff"),
+    ("ctrl_time_pct", "ctrl_time_pct_diff"),
+    ("days_since_last_fight", "days_since_last_fight_diff"),
+    ("current_win_streak", "win_streak_diff"),
+    ("current_losing_streak", "losing_streak_diff"),
+    ("total_fights", "total_fights_diff"),
+    ("elo", "elo_diff"),
+    ("recent_3_wins", "recent_3_wins_diff"),
+    ("recent_3_losses", "recent_3_losses_diff"),
+    ("recent_5_wins", "recent_5_wins_diff"),
+    ("recent_5_losses", "recent_5_losses_diff"),
+    ("recent_3_ko_loss_rate", "recent_3_ko_loss_rate_diff"),
+    ("recent_5_ko_loss_rate", "recent_5_ko_loss_rate_diff"),
+    ("decay_sig_per_min", "decay_sig_per_min_diff"),
+    ("decay_sig_absorbed_per_min", "decay_sig_absorbed_per_min_diff"),
+    ("decay_td_per_15min", "decay_td_per_15min_diff"),
+    ("avg_opp_elo", "avg_opp_elo_diff"),
+    ("avg_opp_elo_wins", "avg_opp_elo_wins_diff"),
+    ("striking", "striking_strength_diff"),
+    ("grappling", "grappling_strength_diff"),
+    ("durability", "durability_diff"),
+    ("momentum", "momentum_diff"),
+    ("experience", "experience_diff"),
+]
+
+
+def compute_feature_diffs(feat_a: dict, feat_b: dict) -> dict:
+    """Compute all feature ``*_diff`` columns between two per-fighter feature dicts."""
+    return {col: safe_sub(feat_a[key], feat_b[key]) for key, col in FEATURE_DIFF_FIELDS}
 
 
 def update_state(state: dict, fight: dict, is_fighter_1: bool, is_win_loss: bool,
@@ -501,16 +547,9 @@ def build_prediction_row(f1: str, f2: str, fighter_states: dict,
     row["stance_a"] = feat1["stance"]
     row["stance_b"] = feat2["stance"]
     row["category"] = category
-    row["age_diff"] = safe_sub(feat1["age"], feat2["age"])
     row["height_diff"] = safe_sub(height1, height2)
     row["reach_diff"] = safe_sub(reach1, reach2)
-    row["elo_diff"] = safe_sub(feat1["elo"], feat2["elo"])
-
-    row["striking_strength_diff"] = safe_sub(feat1["striking"], feat2["striking"])
-    row["grappling_strength_diff"] = safe_sub(feat1["grappling"], feat2["grappling"])
-    row["durability_diff"] = safe_sub(feat1["durability"], feat2["durability"])
-    row["momentum_diff"] = safe_sub(feat1["momentum"], feat2["momentum"])
-    row["experience_diff"] = safe_sub(feat1["experience"], feat2["experience"])
+    row.update(compute_feature_diffs(feat1, feat2))
 
     raw_cols = feature_meta["raw_feature_cols"]
     X_raw = pd.DataFrame([row])[raw_cols]
