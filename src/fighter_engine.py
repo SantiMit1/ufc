@@ -72,13 +72,13 @@ def classify_method(method: str, winner: str, fighter_1: str, fighter_2: str) ->
 
 def get_k_factor(total_fights: int) -> float:
     if total_fights <= 5:
-        return 96.0
+        return 144.0
     elif total_fights <= 10:
-        return 64.0
+        return 96.0
     elif total_fights <= 20:
-        return 40.0
+        return 60.0
     else:
-        return 24.0
+        return 36.0
 
 
 def apply_elo_decay(elo: float, last_fight_date: datetime | None, fight_date: datetime) -> float:
