@@ -32,6 +32,32 @@ class PlattCalibrator:
         return self.lr_.predict_proba(logit.reshape(-1, 1))[:, 1]
 
 
+class CappedCalibrator:
+    """Wrap a base calibrator and cap how much it can inflate underdog probabilities.
+
+    For raw probabilities below 0.5 the calibrated output cannot exceed
+    ``raw + cap_increase`` (a monotone cap, so the mapping stays non-decreasing).
+    This prevents overconfidence in underdogs when the base model's low tail is
+    already too generous. ``cap_increase=0`` forbids any upward correction below
+    the 0.5 line.
+    """
+
+    def __init__(self, base, cap_increase=0.0):
+        self.base = base
+        self.cap_increase = cap_increase
+
+    def fit(self, X, y):
+        self.base.fit(X, y)
+        return self
+
+    def predict(self, X):
+        X = np.asarray(X)
+        raw = X[:, 0]
+        p = np.asarray(self.base.predict(X), dtype=float)
+        cap = np.where(raw < 0.5, raw + self.cap_increase, 1.0)
+        return np.minimum(p, cap)
+
+
 class ChronologicalStackingEnsemble:
     def __init__(self, estimators, final_estimator, cv, calibrators=None):
         self.estimators = estimators

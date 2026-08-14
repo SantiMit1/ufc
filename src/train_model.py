@@ -12,7 +12,7 @@ from sklearn.preprocessing import StandardScaler
 import joblib
 import warnings
 
-from ensemble_utils import ChronologicalStackingEnsemble, PlattCalibrator
+from ensemble_utils import ChronologicalStackingEnsemble, PlattCalibrator, CappedCalibrator
 from config import DATASET_PATH, MODEL_PATH, FEATURE_COLS_PATH, BASE_DIR
 from stats_utils import ece, brier_decomposition, favorite_underdog_split
 warnings.filterwarnings("ignore")
@@ -205,6 +205,8 @@ def main():
         calibrators={
             "isotonic": IsotonicRegression(out_of_bounds="clip"),
             "platt": PlattCalibrator(),
+            "isotonic_capped": CappedCalibrator(IsotonicRegression(out_of_bounds="clip")),
+            "platt_capped": CappedCalibrator(PlattCalibrator()),
         },
     )
 
