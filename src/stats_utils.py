@@ -299,3 +299,69 @@ def compute_composite_features(feat: dict) -> dict:
                 has_any = True
         composites[name] = value if has_any else np.nan
     return composites
+
+
+# ── Calibration / sharpness diagnostics (shared by train_model and backtest) ──
+def ece(y_true, y_prob, n_bins: int = 10) -> float:
+    """Expected Calibration Error (lower is better)."""
+    y_true = np.asarray(y_true, dtype=float)
+    y_prob = np.asarray(y_prob, dtype=float)
+    bins = np.linspace(0.0, 1.0, n_bins + 1)
+    idx = np.clip(np.digitize(y_prob, bins) - 1, 0, n_bins - 1)
+    n = len(y_true)
+    err = 0.0
+    for i in range(n_bins):
+        mask = idx == i
+        if mask.sum() == 0:
+            continue
+        err += (mask.sum() / n) * abs(y_prob[mask].mean() - y_true[mask].mean())
+    return float(err)
+
+
+def brier_decomposition(y_true, y_prob, n_bins: int = 10) -> tuple:
+    """Return (brier, uncertainty, reliability, resolution).
+
+    Brier = Uncertainty - Resolution + Reliability. Higher resolution and lower
+    reliability mean a sharper, better-calibrated model.
+    """
+    y_true = np.asarray(y_true, dtype=float)
+    y_prob = np.asarray(y_prob, dtype=float)
+    brier = float(np.mean((y_prob - y_true) ** 2))
+    pbar = float(y_true.mean())
+    uncertainty = pbar * (1.0 - pbar)
+    bins = np.linspace(0.0, 1.0, n_bins + 1)
+    idx = np.clip(np.digitize(y_prob, bins) - 1, 0, n_bins - 1)
+    n = len(y_true)
+    reliability = 0.0
+    resolution = 0.0
+    for i in range(n_bins):
+        mask = idx == i
+        if mask.sum() == 0:
+            continue
+        w = mask.sum() / n
+        obs = y_true[mask].mean()
+        pred = y_prob[mask].mean()
+        reliability += w * (pred - obs) ** 2
+        resolution += w * (obs - pbar) ** 2
+    return brier, uncertainty, reliability, resolution
+
+
+def favorite_underdog_split(y_true, y_prob) -> dict:
+    """Mean predicted vs observed win rate for favorites (p>=0.5) and underdogs (p<0.5).
+
+    Underdogs with mean_pred clearly above obs_freq reveal overconfidence in
+    underdogs (the low-probability tail is inflated).
+    """
+    y_true = np.asarray(y_true, dtype=float)
+    y_prob = np.asarray(y_prob, dtype=float)
+    ud = y_prob < 0.5
+    fav = ~ud
+    out = {}
+    for key, mask in (("underdogs", ud), ("favorites", fav)):
+        n = int(mask.sum())
+        out[key] = {
+            "n": n,
+            "mean_pred": float(y_prob[mask].mean()) if n else None,
+            "obs_freq": float(y_true[mask].mean()) if n else None,
+        }
+    return out
