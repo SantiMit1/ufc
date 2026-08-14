@@ -219,11 +219,19 @@ def main():
     raw_bs = brier_score_loss(y_test, raw_prob)
 
     calib_results = {"raw": {"prob": raw_prob, "ll": raw_ll, "bs": raw_bs}}
-    for name in ("isotonic", "platt"):
+    calib_names = list(final_model.calibrators_)
+    for name in calib_names:
         final_model.calibrator_name = name
         p = final_model.predict_proba(X_test)[:, 1]
         calib_results[name] = {"prob": p, "ll": log_loss(y_test, p), "bs": brier_score_loss(y_test, p)}
-    best_name = min(("isotonic", "platt"), key=lambda n: calib_results[n]["bs"])
+    # Select the calibrator on the OOF holdout (no-lookahead, never the test set).
+    if final_model.calibrator_scores_:
+        best_name = min(
+            final_model.calibrator_scores_,
+            key=lambda n: final_model.calibrator_scores_[n]["oof_log_loss"],
+        )
+    else:
+        best_name = "platt" if "platt" in calib_names else calib_names[0]
     final_model.calibrator_name = best_name
 
     y_prob = calib_results[best_name]["prob"]
@@ -242,12 +250,15 @@ def main():
     print(f"ROC-AUC:      {roc:.4f}")
     print(f"LGB rounds:   {best_n_lgb}  |  XGB rounds:  {best_n_xgb}")
 
-    print(f"\n{'Probability calibration (test set)':^50s}")
-    print(f"  {'Method':<10s} {'Log Loss':>9s} {'Brier':>8s} {'best':>5s}")
-    print(f"  {'-'*35}")
-    for name in ("raw", "isotonic", "platt"):
+    print(f"\n{'Probability calibration (selected on OOF holdout)':^50s}")
+    print(f"  {'Method':<12s} {'OOF LL':>8s} {'OOF Brier':>9s} {'test LL':>8s} {'test Brier':>10s} {'best':>5s}")
+    print(f"  {'-'*58}")
+    for name in ("raw", *calib_names):
         tag = "  <-" if name == best_name else ""
-        print(f"  {name:<10s} {calib_results[name]['ll']:9.4f} {calib_results[name]['bs']:8.4f}{tag:>5s}")
+        oof = {} if name == "raw" else final_model.calibrator_scores_.get(name, {})
+        oof_ll = f"{oof['oof_log_loss']:8.4f}" if "oof_log_loss" in oof else "      -"
+        oof_bs = f"{oof['oof_brier']:9.4f}" if "oof_brier" in oof else "        -"
+        print(f"  {name:<12s} {oof_ll} {oof_bs} {calib_results[name]['ll']:8.4f} {calib_results[name]['bs']:10.4f}{tag:>5s}")
     print(f"  Calibrator OOF points: {len(final_model.oof_calib_probs_)}")
 
     # Probability calibration of the ensemble predictions
@@ -346,12 +357,20 @@ def main():
         "ensemble_cv": "TimeSeriesSplit(n_splits=5)",
         "calibration": {
             "method": best_name,
+            "selection": "oof_holdout_log_loss",
             "n_oof": int(len(final_model.oof_calib_probs_)),
             "cal_test_log_loss": ll,
             "cal_test_brier": bs,
+            "oof_scores": {
+                n: {
+                    "oof_log_loss": final_model.calibrator_scores_[n]["oof_log_loss"],
+                    "oof_brier": final_model.calibrator_scores_[n]["oof_brier"],
+                }
+                for n in final_model.calibrator_scores_
+            },
             "candidates": {
                 n: {"test_log_loss": calib_results[n]["ll"], "test_brier": calib_results[n]["bs"]}
-                for n in ("raw", "isotonic", "platt")
+                for n in ("raw", *calib_names)
             },
         },
         "test_roc_auc": roc,
