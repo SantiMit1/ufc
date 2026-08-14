@@ -81,7 +81,7 @@ def main():
         "colsample_bytree": [0.7, 0.8, 1.0],
     }
 
-    best_lgb_score = 0
+    best_lgb_ll = float("inf")
     best_lgb_params = {}
     best_n_lgb = 0
     n_lgb_trials = 50
@@ -101,14 +101,14 @@ def main():
         yv_pred = m.predict_proba(X_val)[:, 1]
         va = roc_auc_score(y_val, yv_pred)
         vl = log_loss(y_val, yv_pred)
-        if va > best_lgb_score:
-            best_lgb_score = va
+        if vl < best_lgb_ll:
+            best_lgb_ll = vl
             best_lgb_params = params.copy()
             best_n_lgb = m.best_iteration_
         if trial < 20:
             print(f"{trial:5d} {va:8.4f} {vl:8.4f}  {params['learning_rate']:5.2f} {params['num_leaves']:5d} {params['min_child_samples']:9d} {params['reg_alpha']:6.2f} {params['reg_lambda']:6.2f} {params['subsample']:5.2f} {params['colsample_bytree']:5.2f}")
 
-    print(f"\nBest LightGBM hyperparams (val_auc={best_lgb_score:.4f}, iters={best_n_lgb}):")
+    print(f"\nBest LightGBM hyperparams (val_ll={best_lgb_ll:.4f}, iters={best_n_lgb}):")
     for k, v in best_lgb_params.items():
         print(f"  {k}: {v}")
 
@@ -124,7 +124,7 @@ def main():
         "reg_lambda": [0.0, 0.5, 1.0],
     }
 
-    best_xgb_score = 0
+    best_xgb_ll = float("inf")
     best_xgb_params = {}
     best_n_xgb = 0
     n_xgb_trials = 20
@@ -150,14 +150,14 @@ def main():
         va = roc_auc_score(y_val, yv_pred)
         vl = log_loss(y_val, yv_pred)
         n_est = m.best_iteration
-        if va > best_xgb_score:
-            best_xgb_score = va
+        if vl < best_xgb_ll:
+            best_xgb_ll = vl
             best_xgb_params = params.copy()
             best_n_xgb = n_est
         if trial < 10:
             print(f"{trial:5d} {va:8.4f} {vl:8.4f}  {params['learning_rate']:5.2f} {params['max_depth']:5d} {params['min_child_weight']:9d} {params['subsample']:5.2f} {params['colsample_bytree']:5.2f} {params['reg_alpha']:6.2f} {params['reg_lambda']:6.2f}")
 
-    print(f"\nBest XGBoost hyperparams (val_auc={best_xgb_score:.4f}, iters={best_n_xgb}):")
+    print(f"\nBest XGBoost hyperparams (val_ll={best_xgb_ll:.4f}, iters={best_n_xgb}):")
     for k, v in best_xgb_params.items():
         print(f"  {k}: {v}")
 
