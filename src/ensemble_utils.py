@@ -59,12 +59,14 @@ class CappedCalibrator:
 
 
 class ChronologicalStackingEnsemble:
-    def __init__(self, estimators, final_estimator, cv, calibrators=None):
+    def __init__(self, estimators, final_estimator, cv, calibrators=None,
+                 calib_recent_fraction=0.5):
         self.estimators = estimators
         self.final_estimator = final_estimator
         self.cv = cv
         self.calibrators = calibrators
         self.calibrator_name = None
+        self.calib_recent_fraction = calib_recent_fraction
 
     @staticmethod
     def _as_frame(X):
@@ -136,35 +138,43 @@ class ChronologicalStackingEnsemble:
         self.oof_calib_probs_ = np.concatenate(p_oof)
         self.oof_calib_targets_ = np.concatenate(y_oof)
 
-        # Score calibrators on a chronological holdout of the OOF points so the
-        # choice is made with no lookahead and never touches the test set.
-        # OOF probs are concatenated fold-by-fold (each val block is later than
-        # the previous one), so the last portion is the most recent training-era
-        # fights.
+        # Calibration should match the era the model will be used on (the most
+        # recent fights). OOF probs span the whole training era; fitting
+        # calibrators on all of it bakes in stale relationships (e.g. underdogs
+        # were far less extreme pre-2020), which inflates underdog probabilities
+        # on recent fights. So calibrators are fitted AND selected on only the
+        # most recent ``calib_recent_fraction`` of the OOF points. OOF probs are
+        # concatenated fold-by-fold, so later indices are later fights.
         n_oof = len(self.oof_calib_probs_)
-        cal_split = int(n_oof * 0.8)
+        win = int(n_oof * self.calib_recent_fraction)
+        win_start = n_oof - win
         self.calibrator_scores_ = {}
-        if n_oof >= 40 and cal_split >= 10 and n_oof - cal_split >= 10:
-            cal_fit_p = self.oof_calib_probs_[:cal_split]
-            cal_fit_y = self.oof_calib_targets_[:cal_split]
-            cal_eval_p = self.oof_calib_probs_[cal_split:]
-            cal_eval_y = self.oof_calib_targets_[cal_split:]
-            for name, template in self.calibrators.items():
-                calib = copy.deepcopy(template)
-                calib.fit(cal_fit_p.reshape(-1, 1), cal_fit_y)
-                p_pred = np.clip(
-                    np.asarray(calib.predict(cal_eval_p.reshape(-1, 1)), dtype=float).ravel(),
-                    1e-6, 1 - 1e-6,
-                )
-                self.calibrator_scores_[name] = {
-                    "oof_log_loss": float(log_loss(cal_eval_y, p_pred)),
-                    "oof_brier": float(brier_score_loss(cal_eval_y, p_pred)),
-                }
+        if win >= 40:
+            # Selection holdout: fit on the first 80% of the window, score on the
+            # last 20% (most recent) — no lookahead, never the test set.
+            sel_end = win_start + int(0.8 * win)
+            if sel_end - win_start >= 10 and n_oof - sel_end >= 10:
+                cal_fit_p = self.oof_calib_probs_[win_start:sel_end]
+                cal_fit_y = self.oof_calib_targets_[win_start:sel_end]
+                cal_eval_p = self.oof_calib_probs_[sel_end:]
+                cal_eval_y = self.oof_calib_targets_[sel_end:]
+                for name, template in self.calibrators.items():
+                    calib = copy.deepcopy(template)
+                    calib.fit(cal_fit_p.reshape(-1, 1), cal_fit_y)
+                    p_pred = np.clip(
+                        np.asarray(calib.predict(cal_eval_p.reshape(-1, 1)), dtype=float).ravel(),
+                        1e-6, 1 - 1e-6,
+                    )
+                    self.calibrator_scores_[name] = {
+                        "oof_log_loss": float(log_loss(cal_eval_y, p_pred)),
+                        "oof_brier": float(brier_score_loss(cal_eval_y, p_pred)),
+                    }
 
         self.calibrators_ = {}
         for name, template in self.calibrators.items():
             calib = copy.deepcopy(template)
-            calib.fit(self.oof_calib_probs_.reshape(-1, 1), self.oof_calib_targets_)
+            calib.fit(self.oof_calib_probs_[win_start:].reshape(-1, 1),
+                      self.oof_calib_targets_[win_start:])
             self.calibrators_[name] = calib
 
     def _stack_features(self, X):

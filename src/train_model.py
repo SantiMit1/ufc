@@ -377,6 +377,7 @@ def main():
         "calibration": {
             "method": best_name,
             "selection": "oof_holdout_log_loss",
+            "calib_window_fraction": final_model.calib_recent_fraction,
             "n_oof": int(len(final_model.oof_calib_probs_)),
             "cal_test_log_loss": ll,
             "cal_test_brier": bs,
