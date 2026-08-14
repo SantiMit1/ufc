@@ -304,11 +304,11 @@ def compute_stats_from_state(fighter_state: dict, fighter_name: str,
 
     stance = get_stance(fighter_name, fighters_cache)
     win_pct = wins / total_fights if total_fights > 0 else np.nan
-    ko_rate = f["wins_by_ko"] / wins if wins > 0 else np.nan
-    sub_rate = f["wins_by_sub"] / wins if wins > 0 else np.nan
-    dec_rate = f["wins_by_dec"] / wins if wins > 0 else np.nan
-    ko_loss_rate = f["losses_by_ko"] / losses if losses > 0 else np.nan
-    sub_loss_rate = f["losses_by_sub"] / losses if losses > 0 else np.nan
+    ko_rate = f["wins_by_ko"] / wins if wins > 0 else 0.0
+    sub_rate = f["wins_by_sub"] / wins if wins > 0 else 0.0
+    dec_rate = f["wins_by_dec"] / wins if wins > 0 else 0.0
+    ko_loss_rate = f["losses_by_ko"] / losses if losses > 0 else 0.0
+    sub_loss_rate = f["losses_by_sub"] / losses if losses > 0 else 0.0
 
     total_seconds = f["total_seconds_fought"]
     total_minutes = total_seconds / 60.0 if total_seconds > 0 else np.nan
