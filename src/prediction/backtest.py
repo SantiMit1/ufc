@@ -26,7 +26,7 @@ import joblib
 
 from config import MODEL_PATH, FEATURE_COLS_PATH
 from fighter_engine import FightStateEngine, make_initial_state, predict_fight
-from stats_utils import PriorAccumulator, load_fights, load_fighter_cache
+from stats_utils import PriorAccumulator, load_fights, load_fighter_cache, ece, brier_decomposition, favorite_underdog_split
 from sklearn.metrics import accuracy_score, roc_auc_score, log_loss, brier_score_loss
 from tqdm import tqdm
 
@@ -159,6 +159,21 @@ def main():
         if nb == 0:
             continue
         print(f"  [{bins[i]:.1f}-{bins[i+1]:.1f})  {nb:5d} {y_prob[mask].mean():9.3f} {y_true[mask].mean():9.3f}")
+
+    brier, uncertainty, reliability, resolution = brier_decomposition(y_true, y_prob)
+    print(f"\n  {'Diagnostics':^48s}")
+    print(f"  ECE (10 bins):              {ece(y_true, y_prob):.4f}")
+    print(f"  Brier decomposition:")
+    print(f"    Uncertainty:              {uncertainty:.4f}")
+    print(f"    Resolution (sharpness):   {resolution:.4f}")
+    print(f"    Reliability (calib err):  {reliability:.4f}")
+    print(f"  Sharpness (mean |p-0.5|):   {np.mean(np.abs(y_prob - 0.5)):.4f}")
+    print(f"  {'Group':<12s} {'n':>5s} {'mean_pred':>10s} {'obs_freq':>9s}")
+    print("  " + "-" * 38)
+    for group, d in favorite_underdog_split(y_true, y_prob).items():
+        if d["n"] == 0:
+            continue
+        print(f"  {group:<12s} {d['n']:5d} {d['mean_pred']:10.3f} {d['obs_freq']:9.3f}")
 
     years = sorted(set(r[2][:4] for r in probs))
     if len(years) > 1:

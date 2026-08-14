@@ -14,6 +14,7 @@ import warnings
 
 from ensemble_utils import ChronologicalStackingEnsemble, PlattCalibrator
 from config import DATASET_PATH, MODEL_PATH, FEATURE_COLS_PATH, BASE_DIR
+from stats_utils import ece, brier_decomposition, favorite_underdog_split
 warnings.filterwarnings("ignore")
 
 
@@ -274,6 +275,22 @@ def main():
             continue
         print(f"  [{bins[i]:.1f}-{bins[i+1]:.1f})  {nb:5d} {y_prob[mask].mean():9.3f} {y_test.values[mask].mean():9.3f}")
 
+    # Calibration/sharpness diagnostics (ECE, Brier decomposition, fav/underdog)
+    brier, uncertainty, reliability, resolution = brier_decomposition(y_test, y_prob)
+    print(f"\n{'Diagnostics':^50s}")
+    print(f"  ECE (10 bins):              {ece(y_test, y_prob):.4f}")
+    print(f"  Brier decomposition:")
+    print(f"    Uncertainty:              {uncertainty:.4f}")
+    print(f"    Resolution (sharpness):   {resolution:.4f}")
+    print(f"    Reliability (calib err):  {reliability:.4f}")
+    print(f"  Sharpness (mean |p-0.5|):   {np.mean(np.abs(y_prob - 0.5)):.4f}")
+    print(f"  {'Group':<12s} {'n':>5s} {'mean_pred':>10s} {'obs_freq':>9s}")
+    print(f"  {'-'*38}")
+    for group, d in favorite_underdog_split(y_test, y_prob).items():
+        if d["n"] == 0:
+            continue
+        print(f"  {group:<12s} {d['n']:5d} {d['mean_pred']:10.3f} {d['obs_freq']:9.3f}")
+
     # ─── FEATURE IMPORTANCES ───────────────────────────────────────────────────────
     model_all = final_model.named_estimators_["lgbm"]
     importances = pd.DataFrame({
@@ -375,6 +392,14 @@ def main():
         },
         "test_roc_auc": roc,
         "test_accuracy": acc,
+        "diagnostics": {
+            "ece": ece(y_test, y_prob),
+            "brier_uncertainty": uncertainty,
+            "brier_resolution": resolution,
+            "brier_reliability": reliability,
+            "sharpness_mean_abs_dev": float(np.mean(np.abs(y_prob - 0.5))),
+            "favorite_underdog": favorite_underdog_split(y_test, y_prob),
+        },
         "feature_importance": importances.to_dict(orient="records"),
     }, FEATURE_COLS_PATH)
     print(f"\nModel saved to {MODEL_PATH}")
