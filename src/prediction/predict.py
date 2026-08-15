@@ -1,3 +1,4 @@
+import os
 import sys
 import warnings
 import argparse
@@ -16,6 +17,10 @@ from fighter_engine import (
     build_prediction_row,
 )
 from stats_utils import load_fights, load_fighter_cache, compute_priors
+
+def clear_screen():
+    os.system("cls" if os.name == "nt" else "clear")
+
 
 def find_fighter(query: str, fighter_states: dict, fighters_cache: dict) -> list:
     q = query.lower().strip()
@@ -144,7 +149,7 @@ def main():
     print("    2. 5 rounds (title / main event)")
     r_input = input("  Select (1/2, Enter=3): ").strip()
     max_rounds = 5 if r_input == "2" else 3
-    print(f"  Max rounds: {max_rounds}")
+    clear_screen()
 
     # Predict
     print(f"\n  {'=' * 56}")
