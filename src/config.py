@@ -10,7 +10,7 @@ DATASET_PATH = BASE_DIR / "data" / "dataset.csv"
 MODEL_PATH = BASE_DIR / "models" / "ufc_stacking_ensemble.pkl"
 FEATURE_COLS_PATH = BASE_DIR / "models" / "ufc_stacking_ensemble_meta.pkl"
 
-CUTOFF_DATE = datetime(2001, 1, 1)
+CUTOFF_DATE = datetime(2012, 1, 1)
 ELO_K = 96
 ELO_INITIAL = 1500
 

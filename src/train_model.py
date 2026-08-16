@@ -223,7 +223,7 @@ def main():
         final_model.calibrator_name = name
         p = final_model.predict_proba(X_test)[:, 1]
         calib_results[name] = {"prob": p, "ll": log_loss(y_test, p), "bs": brier_score_loss(y_test, p)}
-    best_name = min(("isotonic", "platt"), key=lambda n: calib_results[n]["bs"])
+    best_name = min(("isotonic", "platt"), key=lambda n: calib_results[n]["ll"])
     final_model.calibrator_name = best_name
 
     y_prob = calib_results[best_name]["prob"]
