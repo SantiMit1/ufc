@@ -9,6 +9,7 @@
 6. `python src/prediction/predict_event.py --event "UFC 328: ..."` — event JSON with winner probabilities. Args: `--exact`, `--model-path`, `--features-path`.
 7. `python src/prediction/predict_batch.py "FighterA,FighterB,Category,5" "FighterC,FighterD"` — batch table. Each arg: `F1,F2[,WeightClass[,Rounds]]`. Rounds defaults 3, WeightClass defaults "Catch Weight". No model-path CLI flags (hardcoded paths). Quirk: in the 3-field form `F1,F2,X`, `X` is parsed as rounds if it's `"3"`/`"5"`, otherwise as weight class.
 8. `python src/prediction/backtest.py --start 2015-01-01 [--end ...]` — no-lookahead backtest (accuracy/AUC/log-loss/calibration per year). Debut fights and draws/NCs are skipped. Args: `--model-path`, `--features-path`.
+9. `python src/prediction/predict_url.py <ufcstats event URL>` — scrapes an event page (Playwright sync) and predicts all fights; table with probs + per-fighter fight counts. Skips fights whose fighters aren't in `fighters_cache.json` (or have 0 prior fights); marks fighters with <3 fights with `*`; rounds = 5 for title fights (belt icon) and the first page fight, else 3. Args: `--model-path`, `--features-path`.
 
 To run the pipeline (skip step 4, run it by hand):
 ```bash
