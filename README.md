@@ -13,7 +13,7 @@ python src/feature_engineering.py             # 3. features → data/dataset.csv
 python src/train_model.py                     # 4. entrena el modelo (correr manualmente)
 python src/prediction/predict.py              # 5. predicción interactiva (SHAP)
 python src/prediction/predict_event.py --event "UFC 328: ..."   # 6. predicción de un evento
-python src/prediction/predict_batch.py "FighterA,FighterB,Category,5" "FighterC,FighterD"   # 7. batch
+python src/prediction/predict_url.py "URL de evento de ufcstats" # 7. scrape + predicción de un evento
 ```
 
 ## Instalación
@@ -52,17 +52,18 @@ python src/prediction/predict_event.py --event "UFC 328: ..."
 
 Se filtran los combates posteriores a la fecha del evento antes de construir los estados — clave para evitar *lookahead*.
 
-### Batch (`predict_batch.py`)
+### Desde URL (`predict_url.py`)
 
-Predice tablas enteras de combates. Cada argumento tiene el formato `F1,F2[,WeightClass[,Rounds]]`:
+Scrapea una página de evento de ufcstats (Playwright) y predice todos sus combates:
 
 ```bash
-python src/prediction/predict_batch.py "FighterA,FighterB,Category,5" "FighterC,FighterD"
+python src/prediction/predict_url.py "http://ufcstats.com/event-details/..."
 ```
 
-- `Rounds` por defecto `3`, `WeightClass` por defecto `"Catch Weight"`.
-- Usa helpers de `fighter_engine.py`. Usa rutas hardcodeadas (sin flags de CLI).
-- Combos con 0 peleas previas se omiten; con <3 peleas se emite una advertencia.
+- Muestra una tabla con probabilidades, rounds programados y el récord en UFC (W-L-D) de cada luchador.
+- Se omiten combates cuyos luchadores no estén en `data/fighters_cache.json` o con 0 peleas previas.
+- Luchadores con menos de 3 peleas previas se marcan con `*`.
+- Rounds: 5 para peleas titular (ícono de cinturón) y la primera pelea de la página; 3 en el resto.
 
 ## Arquitectura del modelo
 

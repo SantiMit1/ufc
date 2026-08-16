@@ -1,7 +1,7 @@
 """Shared fighter-state, Elo and feature computation for all prediction scripts.
 
 This module is the single source of truth for logic that was previously
-copy-pasted across ``predict.py``, ``predict_event.py``, ``predict_batch.py``
+copy-pasted across ``predict.py``, ``predict_event.py``, ``predict_url.py``
 and ``feature_engineering.py``:
 
 - fight time parsing / total seconds (``parse_time``, ``fight_seconds``)

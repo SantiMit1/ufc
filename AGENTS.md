@@ -7,9 +7,8 @@
 4. `python src/train_model.py` → `models/ufc_stacking_ensemble.pkl` + `_meta.pkl` + feature importance PNG (run manually; also fits isotonic/Platt probability calibrators on nested-CV OOF and picks the best by test Brier — slow)
 5. `python src/prediction/predict.py` — interactive CLI (SHAP). Args: `--model`, `--features`.
 6. `python src/prediction/predict_event.py --event "UFC 328: ..."` — event JSON with winner probabilities. Args: `--exact`, `--model-path`, `--features-path`.
-7. `python src/prediction/predict_batch.py "FighterA,FighterB,Category,5" "FighterC,FighterD"` — batch table. Each arg: `F1,F2[,WeightClass[,Rounds]]`. Rounds defaults 3, WeightClass defaults "Catch Weight". No model-path CLI flags (hardcoded paths). Quirk: in the 3-field form `F1,F2,X`, `X` is parsed as rounds if it's `"3"`/`"5"`, otherwise as weight class.
-8. `python src/prediction/backtest.py --start 2015-01-01 [--end ...]` — no-lookahead backtest (accuracy/AUC/log-loss/calibration per year). Debut fights and draws/NCs are skipped. Args: `--model-path`, `--features-path`.
-9. `python src/prediction/predict_url.py <ufcstats event URL>` — scrapes an event page (Playwright sync) and predicts all fights; table with probs + per-fighter fight counts. Skips fights whose fighters aren't in `fighters_cache.json` (or have 0 prior fights); marks fighters with <3 fights with `*`; rounds = 5 for title fights (belt icon) and the first page fight, else 3. Args: `--model-path`, `--features-path`.
+7. `python src/prediction/backtest.py --start 2015-01-01 [--end ...]` — no-lookahead backtest (accuracy/AUC/log-loss/calibration per year). Debut fights and draws/NCs are skipped. Args: `--model-path`, `--features-path`.
+8. `python src/prediction/predict_url.py <ufcstats event URL>` — scrapes an event page (Playwright sync) and predicts all fights; table with probs + per-fighter UFC records. Skips fights whose fighters aren't in `fighters_cache.json` (or have 0 prior fights); marks fighters with <3 fights with `*`; rounds = 5 for title fights (belt icon) and the first page fight, else 3. Args: `--model-path`, `--features-path`.
 
 To run the pipeline (skip step 4, run it by hand):
 ```bash
@@ -39,7 +38,7 @@ Single model, trained on the shared feature pipeline:
 - `src/fighter_engine.py` — **single source of truth** for Elo, state tracking, feature computation, prediction rows, and `predict_fight()`.
 - `src/stats_utils.py` — priors/shrinkage and composite-feature helpers.
 
-`predict.py`, `predict_event.py`, `predict_batch.py`, and `feature_engineering.py` all import from these modules — no duplicated logic. If you change feature logic, do it in `fighter_engine.py`.
+`predict.py`, `predict_event.py`, `predict_url.py`, and `feature_engineering.py` all import from these modules — no duplicated logic. If you change feature logic, do it in `fighter_engine.py`.
 
 Layout: shared library modules and the `feature_engineering.py`/`train_model.py` pipeline scripts live at `src/` root; scraping scripts live in `src/scraping/` and prediction scripts in `src/prediction/`. The `prediction/` entry scripts add `src/` to `sys.path` with a small bootstrap (`sys.path.insert(0, ...parents[1])`) so they can `from config import ...` and so the pickled models (which reference `ensemble_utils`, `fighter_engine`, ...) keep loading.
 
