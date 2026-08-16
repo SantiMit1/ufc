@@ -21877,5 +21877,21 @@
     "stance": "Orthodox",
     "dob": "2002-11-16",
     "debut_date": "2026-08-08"
+  },
+  "Eduardo Chapolin": {
+    "height_cm": 170,
+    "weight_lbs": 125,
+    "reach_cm": 170,
+    "stance": "Orthodox",
+    "dob": "1995-11-23",
+    "debut_date": "2026-08-15"
+  },
+  "Lucas Fernando": {
+    "height_cm": 190,
+    "weight_lbs": 205,
+    "reach_cm": 203,
+    "stance": "Orthodox",
+    "dob": "1997-01-10",
+    "debut_date": "2026-08-15"
   }
 }

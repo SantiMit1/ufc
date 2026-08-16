@@ -4696,5 +4696,11 @@
     "date": "2026-08-08",
     "url": "http://ufcstats.com/event-details/495add4fbede0a44",
     "scrapped": true
+  },
+  {
+    "name": "UFC 330: Makhachev vs. Machado Garry",
+    "date": "2026-08-15",
+    "url": "http://ufcstats.com/event-details/b96619b3acd7d9da",
+    "scrapped": true
   }
 ]
