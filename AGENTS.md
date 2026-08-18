@@ -4,7 +4,7 @@
 1. `python src/scraping/build_events_index.py` → `data/events_index.json` (skips upcoming/unfinished events)
 2. `python src/scraping/scrape_ufc.py` → `data/fights.json`, `data/fighters_cache.json`
 3. `python src/feature_engineering.py` → `data/dataset.csv`
-4. `python src/train_model.py` → `models/ufc_stacking_ensemble.pkl` + `_meta.pkl` + feature importance PNG (run manually; also fits isotonic/Platt probability calibrators on nested-CV OOF and picks the best by test Brier — slow)
+4. `python src/train_model.py` → `models/ufc_stacking_ensemble.pkl` + `_meta.pkl` + feature importance PNG (run manually; also fits isotonic/Platt probability calibrators on nested-CV OOF and picks the best by test log loss — slow)
 5. `python src/prediction/predict.py` — interactive CLI (SHAP). Args: `--model`, `--features`.
 6. `python src/prediction/predict_event.py --event "UFC 328: ..."` — event JSON with winner probabilities. Args: `--exact`, `--model-path`, `--features-path`.
 7. `python src/prediction/backtest.py --start 2015-01-01 [--end ...]` — no-lookahead backtest (accuracy/AUC/log-loss/calibration per year). Debut fights and draws/NCs are skipped. Args: `--model-path`, `--features-path`.
@@ -22,7 +22,7 @@ python src/feature_engineering.py
 - Activate the venv first — `.venv/bin/activate` on Linux/macOS, `.venv/Scripts/activate` on Windows. All scripts from repo root.
 - Scraper needs `playwright install chromium` before first run (both `build_events_index.py` and `scrape_ufc.py` use Playwright async headless Chromium).
 - Scrapers are resumable: `scrape_ufc.py` only processes events with `"scrapped": false` in `data/events_index.json`, flipping the flag per event; `build_events_index.py` preserves existing entries.
-- Step 4 runs 50 random LightGBM + 20 random XGBoost hyperparameter trials (early stopping), then a nested-CV pass to calibrate probabilities — slow; run it manually and let it finish. Calibrators are fitted on out-of-fold stacking probabilities via an outer `TimeSeriesSplit(n_splits=5)` (no lookahead); `isotonic` and `platt` (`PlattCalibrator` in `ensemble_utils.py`) are compared on the test set by Brier score and the winner is stored on the model (`model.calibrator_name`). `predict_proba` returns calibrated probabilities; `predict` still thresholds at 0.5.
+- Step 4 runs 50 random LightGBM + 20 random XGBoost hyperparameter trials (early stopping), then a nested-CV pass to calibrate probabilities — slow; run it manually and let it finish. Calibrators are fitted on out-of-fold stacking probabilities via an outer `TimeSeriesSplit(n_splits=5)` (no lookahead); `isotonic` and `platt` (`PlattCalibrator` in `ensemble_utils.py`) are compared on the test set by log loss and the winner is stored on the model (`model.calibrator_name`). `predict_proba` returns calibrated probabilities; `predict` still thresholds at 0.5.
 - Model artifacts use Git LFS (`*.pkl filter=lfs` in `.gitattributes`). No linting, typechecking, or test harness.
 
 ## Architecture
@@ -47,7 +47,7 @@ Layout: shared library modules and the `feature_engineering.py`/`train_model.py`
 - Fighter A/B sides **randomly assigned** per fight (`random.seed(42)` in `feature_engineering.py`). Seed change makes dataset non-deterministic.
 - Bayesian shrinkage toward population priors (`shrink_rate`, `shrink_proportion` in `stats_utils.py`). Weight classes with <200 fights fall back to `"global"`.
 - Elo uses variable K-factor (96/64/40/24 by experience bands) and >1 year inactivity decay.
-- `CUTOFF_DATE = 2001-01-01` — fights before this are excluded from feature computation.
+- `CUTOFF_DATE = 2012-01-01` — fights before this are excluded from feature computation (post style-clash era).
 
 ### Prediction
 - All scripts average predictions from both orderings (A→B and B→A) to remove order-dependent bias.

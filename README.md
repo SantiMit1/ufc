@@ -4,25 +4,27 @@ Pipeline de machine learning que predice el ganador de combates de UFC usando un
 
 ## Pipeline
 
-El proyecto procesa los datos en orden cronológico (sin usar información del futuro), desde combates el `2001-01-01`.
+El proyecto procesa los datos en orden cronológico (sin usar información del futuro), desde combates el `2012-01-01`.
 
 ```bash
-python src/scraping/build_events_index.py     # 1. índice de eventos → data/events_index.json
+python src/scraping/build_events_index.py     # 1. índice de eventos → data/events_index.json (omite eventos no finalizados)
 python src/scraping/scrape_ufc.py             # 2. scrape de combates → data/fights.json, data/fighters_cache.json
 python src/feature_engineering.py             # 3. features → data/dataset.csv
-python src/train_model.py                     # 4. entrena el modelo (correr manualmente)
+python src/train_model.py                     # 4. entrena el modelo
 python src/prediction/predict.py              # 5. predicción interactiva (SHAP)
 python src/prediction/predict_event.py --event "UFC 328: ..."   # 6. predicción de un evento
-python src/prediction/predict_url.py "URL de evento de ufcstats" # 7. scrape + predicción de un evento
+python src/prediction/backtest.py --start 2015-01-01            # 7. backtest sin lookahead
+python src/prediction/predict_url.py "URL de evento de ufcstats" # 8. scrape + predicción de un evento
 ```
 
 ## Instalación
 
 ```bash
 python -m venv .venv
-.venv/Scripts/activate               # Windows
+.venv/bin/activate               # Linux/macOS
+.venv/Scripts/activate           # Windows
 pip install -r requirements.txt
-playwright install chromium          # requerido por el scraper (pasos 1 y 2)
+playwright install chromium      # requerido por el scraper (pasos 1 y 2)
 ```
 
 Todos los scripts se ejecutan desde la raíz del repositorio.
@@ -52,6 +54,18 @@ python src/prediction/predict_event.py --event "UFC 328: ..."
 
 Se filtran los combates posteriores a la fecha del evento antes de construir los estados — clave para evitar *lookahead*.
 
+### Backtest (`backtest.py`)
+
+Evalúa el modelo sobre un período histórico sin *lookahead*: por cada combate el modelo solo ve estados y priors construidos con combates anteriores.
+
+```bash
+python src/prediction/backtest.py --start 2015-01-01 [--end 2019-12-31]
+```
+
+- Omite peleas debut (detectadas por `debut_date` en el cache, con fallback a 0 peleas previas) y empates/sin resultado.
+- Reporta accuracy, AUC, log-loss y calibración por año.
+- `--model-path` / `--features-path`: rutas personalizadas a artefactos.
+
 ### Desde URL (`predict_url.py`)
 
 Scrapea una página de evento de ufcstats (Playwright) y predice todos sus combates:
@@ -64,6 +78,7 @@ python src/prediction/predict_url.py "http://ufcstats.com/event-details/..."
 - Se omiten combates cuyos luchadores no estén en `data/fighters_cache.json` o con 0 peleas previas.
 - Luchadores con menos de 3 peleas previas se marcan con `*`.
 - Rounds: 5 para peleas titular (ícono de cinturón) y la primera pelea de la página; 3 en el resto.
+- El URL se puede pasar posicional o con `--url`; `--model-path` / `--features-path` para rutas personalizadas.
 
 ## Arquitectura del modelo
 
@@ -73,6 +88,7 @@ python src/prediction/predict_url.py "http://ufcstats.com/event-details/..."
 - **Validación**: `TimeSeriesSplit(n_splits=5)` OOF.
 - **Metadata**: guarda `raw_feature_cols`, `cat_cols`, `numeric_cols`, `feature_cols_final`, `model_type="stacking"`.
 - **Target**: binario — probabilidad de que el luchador A gane.
+- **Calibración**: los calibradores (`isotonic` y `platt`) se ajustan sobre las probabilidades *out-of-fold* del stacking vía un `TimeSeriesSplit` anidado (sin *lookahead*); el mejor por log-loss en test se guarda en `model.calibrator_name`. `predict_proba` devuelve probabilidades calibradas; `predict` sigue umbralizando en 0.5.
 
 ### Features e ingeniería
 
