@@ -24,10 +24,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from config import FIGHTS_PATH, ELO_INITIAL
 from fighter_engine import (
-    make_initial_state,
+    FightStateEngine,
     classify_method,
     get_k_factor,
-    apply_elo_decay,
     elo_expected,
     elo_update,
 )
@@ -39,39 +38,33 @@ def load_fights(path: Path) -> list:
 
 
 def build_history(target: str, fights: list):
-    """Recorre peleas cronologicamente y extrae el historial de `target`."""
-    for idx, fight in enumerate(fights):
-        fight["_orig_idx"] = idx
-        fight["_parsed_date"] = datetime.strptime(fight["event_date"], "%Y-%m-%d")
+    """Recorre peleas cronologicamente y extrae el historial de `target`.
 
-    filtered = list(fights)
-    filtered.sort(key=lambda f: (f["_parsed_date"], f["_orig_idx"]))
-
-    state: dict[str, dict] = {}
-    history = []
+    Delega el loop cronológico, Elo decay y post-fight updates a
+    ``FightStateEngine`` (``cutoff=None`` para mostrar historial completo
+    pre-2012 también). El cálculo de ELO pre/post/expected replica
+    exactamente la lógica de ``fighter_engine`` (K variable, decay, Elo).
+    """
     target_lower = target.lower()
+    # cutoff=None -> incluye toda la historia, igual que el comportamiento previo
+    engine = FightStateEngine(fights, cutoff=None)
+    history = []
 
-    for fight in filtered:
+    for fight in engine:
         f1, f2 = fight["fighter_1"], fight["fighter_2"]
         date = fight["_parsed_date"]
 
-        for name in (f1, f2):
-            if name not in state:
-                state[name] = make_initial_state()
-
-        state[f1]["elo"] = apply_elo_decay(state[f1]["elo"], state[f1]["last_fight_date"], date)
-        state[f2]["elo"] = apply_elo_decay(state[f2]["elo"], state[f2]["last_fight_date"], date)
-
-        f1_elo_before = state[f1]["elo"]
-        f2_elo_before = state[f2]["elo"]
+        # Pre-fight Elo (con decay ya aplicado por el engine)
+        f1_elo_before = engine.state[f1]["elo"]
+        f2_elo_before = engine.state[f2]["elo"]
 
         is_win_loss, win_side, finish_type = classify_method(
             fight["method"], fight["winner"], f1, f2
         )
 
         if is_win_loss:
-            f1_fights_after = state[f1]["total_fights"] + 1
-            f2_fights_after = state[f2]["total_fights"] + 1
+            f1_fights_after = engine.state[f1]["total_fights"] + 1
+            f2_fights_after = engine.state[f2]["total_fights"] + 1
             k_a = get_k_factor(f1_fights_after)
             k_b = get_k_factor(f2_fights_after)
             score_a = 1.0 if win_side == 1 else 0.0
@@ -129,23 +122,10 @@ def build_history(target: str, fights: list):
                 "expected_win_prob": round(expected, 4),
             })
 
-        state[f1]["total_fights"] += 1
-        state[f2]["total_fights"] += 1
-        state[f1]["last_fight_date"] = date
-        state[f2]["last_fight_date"] = date
+        # El engine aplica update_state + Elo update al reanudar el generador
+        # (estado completo: stats, recent_fights, opp_elo, etc.)
 
-        if is_win_loss:
-            if win_side == 1:
-                state[f1]["wins"] += 1
-                state[f2]["losses"] += 1
-            else:
-                state[f2]["wins"] += 1
-                state[f1]["losses"] += 1
-
-        state[f1]["elo"] = f1_elo_after
-        state[f2]["elo"] = f2_elo_after
-
-    return history, state
+    return history, engine.state
 
 
 # --- autocomplete interactivo (igual que predict.py) ---

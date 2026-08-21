@@ -25,19 +25,13 @@ import numpy as np
 import joblib
 
 from config import MODEL_PATH, FEATURE_COLS_PATH
-from fighter_engine import FightStateEngine, make_initial_state, predict_fight
+from fighter_engine import FightStateEngine, is_debut, predict_fight
 from stats_utils import PriorAccumulator, load_fights, load_fighter_cache
 from sklearn.metrics import accuracy_score, roc_auc_score, log_loss, brier_score_loss
 from tqdm import tqdm
 
 
-def is_debut_fighter(fighter_name, event_date, fighters_cache, fighter_state):
-    """True if this fight is the fighter's debut (0 prior fights)."""
-    entry = fighters_cache.get(fighter_name, {})
-    debut = entry.get("debut_date")
-    if debut:
-        return debut == event_date
-    return fighter_state.get(fighter_name, make_initial_state())["total_fights"] == 0
+
 
 
 def main():
@@ -84,8 +78,8 @@ def main():
 
         if start <= fight["_parsed_date"] <= end:
             in_period += 1
-            if is_debut_fighter(f1, fight["event_date"], fighters_cache, fighter_state) or \
-               is_debut_fighter(f2, fight["event_date"], fighters_cache, fighter_state):
+            if is_debut(f1, fighter_state, fighters_cache, fight["event_date"]) or \
+               is_debut(f2, fighter_state, fighters_cache, fight["event_date"]):
                 skipped_debut += 1
             elif fight["winner"] not in (f1, f2):
                 skipped_no_winner += 1
