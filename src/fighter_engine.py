@@ -446,7 +446,7 @@ def compute_stats_from_state(fighter_state: dict, fighter_name: str,
     return feat_dict
 
 
-def _step_fight_state(fighter_state: dict, fight: dict, f1: str, f2: str) -> None:
+def step_fight_state(fighter_state: dict, fight: dict, f1: str, f2: str) -> None:
     """Apply one fight's outcome to the shared state (update_state + Elo update)."""
     is_win_loss, win_side, finish_type = classify_method(
         fight["method"], fight["winner"], f1, f2
@@ -467,10 +467,6 @@ def _step_fight_state(fighter_state: dict, fight: dict, f1: str, f2: str) -> Non
                                      k_a=k_a, k_b=k_b)
         fighter_state[f1]["elo"] = f1_new
         fighter_state[f2]["elo"] = f2_new
-
-
-# Public alias — use this from external modules instead of the private helper.
-step_fight_state = _step_fight_state
 
 
 class FightStateEngine:
@@ -513,7 +509,7 @@ class FightStateEngine:
                 self.state[f2]["elo"], self.state[f2]["last_fight_date"], fight["_parsed_date"])
 
             yield fight
-            _step_fight_state(self.state, fight, f1, f2)
+            step_fight_state(self.state, fight, f1, f2)
 
 
 def build_fighter_states(fights: list, fighters_cache: dict | None = None, cutoff: datetime | None = CUTOFF_DATE) -> dict:
@@ -563,7 +559,7 @@ def filter_historical(fights: list, before: datetime, cutoff: datetime | None = 
 def is_debut(fighter_name: str, fighter_states: dict, fighters_cache: dict, event_date: str | None = None) -> bool:
     """True if this fight is the fighter's debut (no prior UFC fights).
 
-    Mirrors ``backtest.is_debut_fighter``: if ``fighters_cache`` has a
+    If ``fighters_cache`` has a
     ``debut_date``, compare it to ``event_date``; otherwise fall back to
     ``total_fights == 0`` in ``fighter_states``. If ``event_date`` is None
     only the ``total_fights`` check is used.

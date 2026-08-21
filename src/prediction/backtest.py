@@ -31,9 +31,7 @@ from sklearn.metrics import accuracy_score, roc_auc_score, log_loss, brier_score
 from tqdm import tqdm
 
 
-# Backward-compatible alias (now centralised in fighter_engine.is_debut)
-def is_debut_fighter(fighter_name, event_date, fighters_cache, fighter_state):
-    return is_debut(fighter_name, fighter_state, fighters_cache, event_date)
+
 
 
 def main():
@@ -80,8 +78,8 @@ def main():
 
         if start <= fight["_parsed_date"] <= end:
             in_period += 1
-            if is_debut_fighter(f1, fight["event_date"], fighters_cache, fighter_state) or \
-               is_debut_fighter(f2, fight["event_date"], fighters_cache, fighter_state):
+            if is_debut(f1, fighter_state, fighters_cache, fight["event_date"]) or \
+               is_debut(f2, fighter_state, fighters_cache, fight["event_date"]):
                 skipped_debut += 1
             elif fight["winner"] not in (f1, f2):
                 skipped_no_winner += 1
