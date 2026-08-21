@@ -25,19 +25,15 @@ import numpy as np
 import joblib
 
 from config import MODEL_PATH, FEATURE_COLS_PATH
-from fighter_engine import FightStateEngine, make_initial_state, predict_fight
+from fighter_engine import FightStateEngine, is_debut, predict_fight
 from stats_utils import PriorAccumulator, load_fights, load_fighter_cache
 from sklearn.metrics import accuracy_score, roc_auc_score, log_loss, brier_score_loss
 from tqdm import tqdm
 
 
+# Backward-compatible alias (now centralised in fighter_engine.is_debut)
 def is_debut_fighter(fighter_name, event_date, fighters_cache, fighter_state):
-    """True if this fight is the fighter's debut (0 prior fights)."""
-    entry = fighters_cache.get(fighter_name, {})
-    debut = entry.get("debut_date")
-    if debut:
-        return debut == event_date
-    return fighter_state.get(fighter_name, make_initial_state())["total_fights"] == 0
+    return is_debut(fighter_name, fighter_state, fighters_cache, event_date)
 
 
 def main():

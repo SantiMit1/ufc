@@ -18,8 +18,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import joblib
 
 from config import MODEL_PATH, FEATURE_COLS_PATH
-from fighter_engine import build_fighter_states, make_initial_state, predict_fight
-from stats_utils import load_fights, load_fighter_cache, compute_priors
+from fighter_engine import build_historical_context, is_debut, predict_fight
+from stats_utils import load_fights, load_fighter_cache
 
 
 def main():
@@ -69,16 +69,7 @@ def main():
     # event — fights from the event itself are excluded so that predicting one
     # fight never uses the outcome of any other fight on the same card.
     event_dt = datetime.strptime(event_date, "%Y-%m-%d")
-    historical_fights = [
-        f for f in fights
-        if datetime.strptime(f["event_date"], "%Y-%m-%d") < event_dt
-    ]
-
-    # Compute priors ONLY from historical fights (no lookahead)
-    # Note: no CUTOFF_DATE filter here (historical behavior kept).
-    priors = compute_priors(historical_fights, cutoff=None)
-
-    fighter_states = build_fighter_states(historical_fights, fighters_cache)
+    fighter_states, priors = build_historical_context(fights, fighters_cache, event_dt)
 
     # ── Predict each fight ───────────────────────────────────────────────────
     current_date = event_dt
@@ -91,9 +82,7 @@ def main():
         category = fight["category"]
         winner = fight["winner"]
 
-        state1 = fighter_states.get(f1, make_initial_state())
-        state2 = fighter_states.get(f2, make_initial_state())
-        if state1["total_fights"] == 0 or state2["total_fights"] == 0:
+        if is_debut(f1, fighter_states, fighters_cache, event_date) or is_debut(f2, fighter_states, fighters_cache, event_date):
             skipped.append({
                 "fighter_a": f1,
                 "fighter_b": f2,

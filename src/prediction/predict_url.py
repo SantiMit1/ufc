@@ -26,8 +26,8 @@ from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
 
 from config import MODEL_PATH, FEATURE_COLS_PATH
-from fighter_engine import make_initial_state, build_fighter_states, predict_fight
-from stats_utils import load_fights, load_fighter_cache, compute_priors
+from fighter_engine import build_historical_context, is_debut, make_initial_state, predict_fight
+from stats_utils import load_fights, load_fighter_cache
 
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -122,12 +122,7 @@ def main():
     model = joblib.load(args.model_path)
     feature_meta = joblib.load(args.features_path)
 
-    historical = [
-        f for f in fights
-        if datetime.strptime(f["event_date"], "%Y-%m-%d") < event_date
-    ]
-    priors = compute_priors(historical, cutoff=None)
-    fighter_states = build_fighter_states(historical, fighters_cache)
+    fighter_states, priors = build_historical_context(fights, fighters_cache, event_date)
 
     results = []
     skipped = []
@@ -143,8 +138,9 @@ def main():
         state1 = fighter_states.get(f1, make_initial_state())
         state2 = fighter_states.get(f2, make_initial_state())
         tf1, tf2 = state1["total_fights"], state2["total_fights"]
+        event_date_str = event_date.strftime("%Y-%m-%d")
 
-        if tf1 == 0 or tf2 == 0:
+        if is_debut(f1, fighter_states, fighters_cache, event_date_str) or is_debut(f2, fighter_states, fighters_cache, event_date_str):
             skipped.append((f1, f2, category, "0 UFC fights before the event"))
             continue
 
