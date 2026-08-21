@@ -463,10 +463,14 @@ def _step_fight_state(fighter_state: dict, fight: dict, f1: str, f2: str) -> Non
         k_a = get_k_factor(fighter_state[f1]["total_fights"])
         k_b = get_k_factor(fighter_state[f2]["total_fights"])
         f1_new, f2_new = elo_update(fighter_state[f1]["elo"],
-                                    fighter_state[f2]["elo"], score_a,
-                                    k_a=k_a, k_b=k_b)
+                                     fighter_state[f2]["elo"], score_a,
+                                     k_a=k_a, k_b=k_b)
         fighter_state[f1]["elo"] = f1_new
         fighter_state[f2]["elo"] = f2_new
+
+
+# Public alias — use this from external modules instead of the private helper.
+step_fight_state = _step_fight_state
 
 
 class FightStateEngine:
@@ -482,13 +486,16 @@ class FightStateEngine:
     mutate it before the engine's own post-fight update.
     """
 
-    def __init__(self, fights: list, cutoff: datetime = CUTOFF_DATE):
+    def __init__(self, fights: list, cutoff: datetime | None = CUTOFF_DATE):
         for fight in fights:
             fight["_parsed_date"] = datetime.strptime(fight["event_date"], "%Y-%m-%d")
-        self.filtered = sorted(
-            [f for f in fights if f["_parsed_date"] >= cutoff],
-            key=lambda f: f["_parsed_date"],
-        )
+        if cutoff is None:
+            self.filtered = sorted(fights, key=lambda f: f["_parsed_date"])
+        else:
+            self.filtered = sorted(
+                [f for f in fights if f["_parsed_date"] >= cutoff],
+                key=lambda f: f["_parsed_date"],
+            )
         self.state: dict[str, dict] = {}
 
     def __iter__(self):
@@ -509,11 +516,90 @@ class FightStateEngine:
             _step_fight_state(self.state, fight, f1, f2)
 
 
-def build_fighter_states(fights: list, fighters_cache: dict) -> dict:
-    engine = FightStateEngine(fights)
+def build_fighter_states(fights: list, fighters_cache: dict | None = None, cutoff: datetime | None = CUTOFF_DATE) -> dict:
+    """Build final fighter states for all fights (chronological).
+
+    ``fighters_cache`` is kept for backwards compatibility and is not used.
+    ``cutoff`` mirrors ``FightStateEngine`` — pass ``None`` to include all history.
+    """
+    engine = FightStateEngine(fights, cutoff=cutoff)
     for _ in engine:
         pass
     return engine.state
+
+
+def filter_before(fights: list, before: datetime) -> list:
+    """Return fights with ``event_date`` strictly before ``before`` (no cutoff)."""
+    out = []
+    for f in fights:
+        try:
+            d = f.get("_parsed_date") or datetime.strptime(f["event_date"], "%Y-%m-%d")
+        except Exception:
+            continue
+        if d < before:
+            out.append(f)
+    return out
+
+
+def filter_historical(fights: list, before: datetime, cutoff: datetime | None = CUTOFF_DATE) -> list:
+    """Return fights with ``event_date`` in ``[cutoff, before)``.
+
+    Pass ``cutoff=None`` to include all history before ``before``.
+    """
+    out = []
+    for f in fights:
+        try:
+            d = f.get("_parsed_date") or datetime.strptime(f["event_date"], "%Y-%m-%d")
+        except Exception:
+            continue
+        if d >= before:
+            continue
+        if cutoff is not None and d < cutoff:
+            continue
+        out.append(f)
+    return out
+
+
+def is_debut(fighter_name: str, fighter_states: dict, fighters_cache: dict, event_date: str | None = None) -> bool:
+    """True if this fight is the fighter's debut (no prior UFC fights).
+
+    Mirrors ``backtest.is_debut_fighter``: if ``fighters_cache`` has a
+    ``debut_date``, compare it to ``event_date``; otherwise fall back to
+    ``total_fights == 0`` in ``fighter_states``. If ``event_date`` is None
+    only the ``total_fights`` check is used.
+    """
+    if event_date is not None:
+        entry = fighters_cache.get(fighter_name, {})
+        debut = entry.get("debut_date")
+        if debut:
+            return debut == event_date
+    state = fighter_states.get(fighter_name)
+    if state is not None:
+        return state.get("total_fights", 0) == 0
+    # Fighter never seen before — treat as debut (also covers not-in-cache)
+    return True
+
+
+def build_historical_context(fights: list, fighters_cache: dict, before: datetime,
+                             cutoff: datetime | None = CUTOFF_DATE,
+                             priors_cutoff: datetime | None = None) -> tuple[dict, dict]:
+    """Build ``(fighter_states, priors)`` strictly before ``before`` (no lookahead).
+
+    ``cutoff`` controls ``fighter_states`` filtering (default ``CUTOFF_DATE``);
+    ``priors_cutoff`` controls priors filtering (default ``None`` = include all
+    history before ``before``, matching historical ``predict_event``/``predict_url``
+    behavior). Both use ``filter_historical`` internally.
+    """
+    # Use late import to avoid circular import (stats_utils imports config only)
+    from stats_utils import compute_priors as _compute_priors
+
+    historical_for_priors = filter_historical(fights, before, cutoff=priors_cutoff)
+    priors = _compute_priors(historical_for_priors, cutoff=priors_cutoff)
+
+    # For states we let FightStateEngine apply cutoff; just pass fights before «before»
+    historical_raw = filter_before(fights, before)
+    states = build_fighter_states(historical_raw, fighters_cache, cutoff=cutoff)
+    return states, priors
 
 
 def build_prediction_row(f1: str, f2: str, fighter_states: dict,
