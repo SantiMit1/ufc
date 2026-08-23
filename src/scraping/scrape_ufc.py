@@ -510,6 +510,8 @@ async def main():
                     f.get("event_name"), f.get("fighter_1"), f.get("fighter_2"),
                     f.get("round"), f.get("time"), f.get("winner"), f.get("method"),
                 ))
+                if f.get("fight_url"):
+                    existing_keys.add((f.get("event_name"), f.get("fight_url")))
                 # also store with fighters swapped? not needed – event order is canonical
             pending_urls = {e["url"] for e in pending}
             # fights from pending events that are already stored but event not marked scrapped
@@ -566,7 +568,7 @@ async def main():
 
                         enrich_fight_with_fighter_data(fight, fighters_cache)
 
-                        clean_fight = {k: v for k, v in fight.items() if not k.endswith("_url") and k != "fight_url"}
+                        clean_fight = {k: v for k, v in fight.items() if k == "fight_url" or not k.endswith("_url")}
                         key = (
                             clean_fight.get("event_name"), clean_fight.get("fighter_1"),
                             clean_fight.get("fighter_2"), clean_fight.get("round"),
@@ -574,7 +576,7 @@ async def main():
                             clean_fight.get("method"),
                         )
                         # Use fight_url as stronger key when available
-                        url_key = (clean_fight.get("event_name"), fight.get("fight_url"))
+                        url_key = (clean_fight.get("event_name"), clean_fight.get("fight_url"))
                         if key in existing_keys or url_key in existing_keys:
                             tqdm.write(f"    [SKIP] duplicate {clean_fight['fighter_1']} vs {clean_fight['fighter_2']} @ {clean_fight['event_name']}")
                         else:
