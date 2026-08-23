@@ -223,6 +223,33 @@ def parse_fight_page(html, fight):
     tables = [t for t in all_tables if "js-fight-table" not in (t.get("class") or [])]
     stats = {"fighter_1": {}, "fighter_2": {}}
 
+    # Determine fight-page fighter order for name-based mapping.
+    # Event page and fight page can list fighters in opposite order (e.g.
+    # de Ridder vs Meerschaert: event has Ridder first, fight page has Meerschaert
+    # first). Map by name instead of position to avoid swapped stats.
+    page_order: list[str] = []
+    if tables:
+        try:
+            first_row = tables[0].select_one("tbody tr")
+            if first_row:
+                tds = first_row.find_all("td")
+                if tds:
+                    ps = tds[0].find_all("p", class_="b-fight-details__table-text")
+                    if len(ps) >= 2:
+                        page_order = [ps[0].get_text(strip=True), ps[1].get_text(strip=True)]
+        except Exception:
+            page_order = []
+
+    def _key_for_page_idx(idx: int) -> str:
+        if idx < len(page_order):
+            name = page_order[idx]
+            if name == fight.get("fighter_1"):
+                return "fighter_1"
+            if name == fight.get("fighter_2"):
+                return "fighter_2"
+        # Fallback to positional if name not matched (e.g. encoding mismatch)
+        return "fighter_1" if idx == 0 else "fighter_2"
+
     if len(tables) >= 1:
         rows = tables[0].select("tbody tr")
         if rows:
@@ -240,25 +267,23 @@ def parse_fight_page(html, fight):
                 for col_idx, key in col_map.items():
                     if col_idx < len(cells):
                         f1, f2 = get_cell_values(cells[col_idx])
+                        raws = [f1, f2]
                         if key == "control_time":
-                            parsed_1 = parse_stats_value(f1) if f1 != "--" else None
-                            parsed_2 = parse_stats_value(f2) if f2 != "--" else None
-                            if isinstance(parsed_1, int):
-                                stats["fighter_1"]["control_time_seconds"] = parsed_1
-                            if isinstance(parsed_2, int):
-                                stats["fighter_2"]["control_time_seconds"] = parsed_2
+                            for page_idx, raw in enumerate(raws):
+                                k = _key_for_page_idx(page_idx)
+                                parsed = parse_stats_value(raw) if raw != "--" else None
+                                if isinstance(parsed, int):
+                                    stats[k]["control_time_seconds"] = parsed
                         elif key in ("knockdowns", "sub_attempts"):
-                            f1v = int(f1) if f1.isdigit() else None
-                            f2v = int(f2) if f2.isdigit() else None
-                            stats["fighter_1"][key] = f1v
-                            stats["fighter_2"][key] = f2v
+                            for page_idx, raw in enumerate(raws):
+                                k = _key_for_page_idx(page_idx)
+                                stats[k][key] = int(raw) if raw.isdigit() else None
                         elif key in ("sig_strikes", "total_strikes", "takedowns"):
-                            parsed_1 = parse_stats_value(f1)
-                            parsed_2 = parse_stats_value(f2)
-                            if isinstance(parsed_1, dict):
-                                stats["fighter_1"][key] = parsed_1
-                            if isinstance(parsed_2, dict):
-                                stats["fighter_2"][key] = parsed_2
+                            for page_idx, raw in enumerate(raws):
+                                k = _key_for_page_idx(page_idx)
+                                parsed = parse_stats_value(raw)
+                                if isinstance(parsed, dict):
+                                    stats[k][key] = parsed
 
     if len(tables) >= 2:
         rows = tables[1].select("tbody tr")
@@ -279,18 +304,18 @@ def parse_fight_page(html, fight):
                 for col_idx, key in target_map.items():
                     if col_idx < len(cells):
                         f1, f2 = get_cell_values(cells[col_idx])
-                        p1 = parse_stats_value(f1)
-                        p2 = parse_stats_value(f2)
-                        stats["fighter_1"][key] = p1 if isinstance(p1, dict) else None
-                        stats["fighter_2"][key] = p2 if isinstance(p2, dict) else None
+                        for page_idx, raw in enumerate([f1, f2]):
+                            k = _key_for_page_idx(page_idx)
+                            p = parse_stats_value(raw)
+                            stats[k][key] = p if isinstance(p, dict) else None
 
                 for col_idx, key in position_map.items():
                     if col_idx < len(cells):
                         f1, f2 = get_cell_values(cells[col_idx])
-                        p1 = parse_stats_value(f1)
-                        p2 = parse_stats_value(f2)
-                        stats["fighter_1"][key] = p1 if isinstance(p1, dict) else None
-                        stats["fighter_2"][key] = p2 if isinstance(p2, dict) else None
+                        for page_idx, raw in enumerate([f1, f2]):
+                            k = _key_for_page_idx(page_idx)
+                            p = parse_stats_value(raw)
+                            stats[k][key] = p if isinstance(p, dict) else None
 
     fight["stats_fighter_1"] = stats["fighter_1"]
     fight["stats_fighter_2"] = stats["fighter_2"]
