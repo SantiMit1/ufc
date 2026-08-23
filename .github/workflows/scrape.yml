@@ -27,7 +27,7 @@ jobs:
           playwright install chromium --with-deps
 
       - name: Run scraper
-        run: python src/scraping/scrape_ufc.py
+        run: timeout 330m python src/scraping/scrape_ufc.py || true
 
       - name: Upload data artifacts
         if: always()
@@ -50,5 +50,5 @@ jobs:
             echo "No changes to commit"
             exit 0
           fi
-          git commit -m "data: update scrape [skip ci]"
+          git commit -m "data: update scraped data"
           git push
