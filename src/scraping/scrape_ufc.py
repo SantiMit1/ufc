@@ -465,6 +465,20 @@ async def main():
             avg_fights_per_event = round(len(fights) / scraped_count) if scraped_count and fights else 11
             t_start = time.monotonic()
             fights_done = 0
+            # Deduplicate on resume: event partially scraped before crash would
+            # otherwise re-append the same fights. Use (event, fighters, url) when
+            # available, else (event, fighters, round, time, winner) to keep
+            # legitimate same-card rematches distinct (e.g. Sakuraba/Silveira x2).
+            existing_keys: set[tuple] = set()
+            for f in fights:
+                existing_keys.add((
+                    f.get("event_name"), f.get("fighter_1"), f.get("fighter_2"),
+                    f.get("round"), f.get("time"), f.get("winner"), f.get("method"),
+                ))
+                # also store with fighters swapped? not needed – event order is canonical
+            pending_urls = {e["url"] for e in pending}
+            # fights from pending events that are already stored but event not marked scrapped
+            # should be considered pending duplicates and skipped on re-add
 
             outer = tqdm(total=len(pending), position=0, leave=True, unit="event", desc="Events", ncols=100)
             for ei, event in enumerate(pending):
@@ -518,7 +532,21 @@ async def main():
                         enrich_fight_with_fighter_data(fight, fighters_cache)
 
                         clean_fight = {k: v for k, v in fight.items() if not k.endswith("_url") and k != "fight_url"}
-                        fights.append(clean_fight)
+                        key = (
+                            clean_fight.get("event_name"), clean_fight.get("fighter_1"),
+                            clean_fight.get("fighter_2"), clean_fight.get("round"),
+                            clean_fight.get("time"), clean_fight.get("winner"),
+                            clean_fight.get("method"),
+                        )
+                        # Use fight_url as stronger key when available
+                        url_key = (clean_fight.get("event_name"), fight.get("fight_url"))
+                        if key in existing_keys or url_key in existing_keys:
+                            tqdm.write(f"    [SKIP] duplicate {clean_fight['fighter_1']} vs {clean_fight['fighter_2']} @ {clean_fight['event_name']}")
+                        else:
+                            fights.append(clean_fight)
+                            existing_keys.add(key)
+                            if fight.get("fight_url"):
+                                existing_keys.add(url_key)
 
                         fights_done += 1
                         elapsed = time.monotonic() - t_start
