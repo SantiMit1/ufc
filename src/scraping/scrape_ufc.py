@@ -49,21 +49,35 @@ def split_fighter_values(value):
     if not value:
         return ("", "")
 
+    # Fallback for cells without <p> delimiters (rare; primary path is get_cell_values
+    # reading <p class="b-fight-details__table-text">). Keep heuristic but make it
+    # robust for concatenated stats like "1 of 112 of 12" (1/11 + 2/12).
     if " of " in value:
         parts = value.split(" of ")
         if len(parts) == 3:
             a, bcd, d = parts
             bcd = bcd.strip()
+            # Collect all splits where landed <= attempted for both fighters,
+            # then pick the most balanced (minimal len diff) to avoid bias to small b.
+            candidates: list[tuple[str, str]] = []
             for split_pos in range(1, len(bcd)):
                 b, c = bcd[:split_pos], bcd[split_pos:]
                 if b.isdigit() and c.isdigit():
                     if int(a) <= int(b) and int(c) <= int(d):
-                        return (f"{a} of {b}", f"{c} of {d}")
+                        candidates.append((b, c))
+            if candidates:
+                # Prefer minimal |len(b)-len(c)|, tie-break larger b (more balanced)
+                candidates.sort(key=lambda bc: (abs(len(bc[0]) - len(bc[1])), -len(bc[0])))
+                b, c = candidates[0]
+                return (f"{a} of {b}", f"{c} of {d}")
             mid = len(bcd) // 2
             b, c = bcd[:mid], bcd[mid:]
             return (f"{a} of {b}", f"{c} of {d}")
 
     if "%" in value:
+        hits = re.findall(r"\d+%", value)
+        if len(hits) >= 2:
+            return (hits[0], hits[1])
         parts = value.split("%")
         if len(parts) >= 3:
             return (parts[0] + "%", parts[1] + "%")
@@ -71,7 +85,27 @@ def split_fighter_values(value):
             return (parts[0] + "%", parts[1])
 
     if ":" in value:
+        # Times like "12:300:34" -> "12:30" + "0:34" (no delimiter between).
+        # Use regex anchored to possible splits: try to find two valid times.
+        hits = re.findall(r"\d+:\d+", value)
+        # Greedy \d+:\d+ can over-consume "12:300" instead of "12:30"; handle via heuristic
+        if len(hits) == 2 and hits[0] + hits[1] == value:
+            return (hits[0], hits[1])
+        # Fallback: split near middle and adjust to nearest colon boundary
+        # Seconds are always 2 digits (M:SS), so require \d+:\d{2}.
         mid = len(value) // 2
+        best = None
+        for delta in range(0, 3):
+            for pos in (mid + delta, mid - delta):
+                if 0 < pos < len(value):
+                    left, right = value[:pos], value[pos:]
+                    if re.match(r"\d+:\d{2}$", left) and re.match(r"\d+:\d{2}$", right):
+                        best = (left, right)
+                        break
+            if best:
+                break
+        if best:
+            return best
         return (value[:mid], value[mid:])
 
     if value and set(value) <= {"-"}:
