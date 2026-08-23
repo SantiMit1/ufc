@@ -261,6 +261,7 @@ def parse_fight_page(html, fight):
                     4: "total_strikes",
                     5: "takedowns",
                     7: "sub_attempts",
+                    8: "reversals",
                     9: "control_time",
                 }
 
@@ -274,7 +275,7 @@ def parse_fight_page(html, fight):
                                 parsed = parse_stats_value(raw) if raw != "--" else None
                                 if isinstance(parsed, int):
                                     stats[k]["control_time_seconds"] = parsed
-                        elif key in ("knockdowns", "sub_attempts"):
+                        elif key in ("knockdowns", "sub_attempts", "reversals"):
                             for page_idx, raw in enumerate(raws):
                                 k = _key_for_page_idx(page_idx)
                                 stats[k][key] = int(raw) if raw.isdigit() else None
