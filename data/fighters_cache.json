@@ -21893,5 +21893,45 @@
     "stance": "Orthodox",
     "dob": "1997-01-10",
     "debut_date": "2026-08-15"
+  },
+  "Treston Vines": {
+    "height_cm": 185,
+    "weight_lbs": 185,
+    "reach_cm": 201,
+    "stance": "Orthodox",
+    "dob": "1996-06-18",
+    "debut_date": "2025-10-04"
+  },
+  "Anthony Wint": {
+    "height_cm": 180,
+    "weight_lbs": 231,
+    "reach_cm": 198,
+    "stance": "Orthodox",
+    "dob": "1995-09-14",
+    "debut_date": "2026-08-22"
+  },
+  "Terrance Chatman": {
+    "height_cm": 183,
+    "weight_lbs": 265,
+    "reach_cm": 193,
+    "stance": "Orthodox",
+    "dob": "1997-05-05",
+    "debut_date": "2026-08-22"
+  },
+  "Ryan Kuse": {
+    "height_cm": 173,
+    "weight_lbs": 145,
+    "reach_cm": 180,
+    "stance": "Orthodox",
+    "dob": "1994-06-24",
+    "debut_date": "2026-08-22"
+  },
+  "Stan Dorsainvil": {
+    "height_cm": 175,
+    "weight_lbs": 155,
+    "reach_cm": 193,
+    "stance": "Orthodox",
+    "dob": "2000-05-12",
+    "debut_date": "2026-08-22"
   }
 }
