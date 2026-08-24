@@ -14,6 +14,7 @@ import warnings
 
 from ensemble_utils import ChronologicalStackingEnsemble, PlattCalibrator
 from config import DATASET_PATH, MODEL_PATH, FEATURE_COLS_PATH, BASE_DIR
+from stats_utils import COMPOSITE_GROUPS, fit_composite_params, recompute_composite_diffs
 warnings.filterwarnings("ignore")
 
 
@@ -28,6 +29,28 @@ def main():
     df.sort_values("event_date", inplace=True)
     df.reset_index(drop=True, inplace=True)
     y = (df["winner"] == 1).astype(int)
+
+    # ── DYNAMIC COMPOSITE FIT ───────────────────────────────────────────────
+    # Fit composites on TRAIN portion only (no lookahead into test)
+    n_total = len(df)
+    split_idx_tmp = int(n_total * (1 - TEST_SPLIT))
+    raw_diff_cols_for_fit = [f + "_diff" for feats in COMPOSITE_GROUPS.values() for f in feats]
+    raw_diff_cols_for_fit = [c for c in raw_diff_cols_for_fit if c in df.columns]
+    if not raw_diff_cols_for_fit:
+        raise ValueError("No raw diff columns found for composite fitting — check dataset.csv")
+    df_train_for_composite = df.iloc[:split_idx_tmp]
+    y_train_for_composite = y.iloc[:split_idx_tmp]
+    print(f"Fitting composites method='gain' on {len(df_train_for_composite)} train rows...")
+    composite_params = fit_composite_params(
+        df_train_for_composite[raw_diff_cols_for_fit].copy() if len(raw_diff_cols_for_fit) > 1 else df_train_for_composite,
+        y_train_for_composite, method="gain")
+    # Recompute composite diffs in full df using fitted params
+    df = recompute_composite_diffs(df, composite_params)
+    print("  Composites fitted: gain")
+    for g in COMPOSITE_GROUPS:
+        wdict = composite_params["weights"][g]
+        top = sorted(wdict.items(), key=lambda x: abs(x[1]), reverse=True)[:3]
+        print(f"    {g}: " + ", ".join(f"{k}={v:+.3f}" for k, v in top))
 
     exclude_cols = {"fight_id", "event_date", "fighter_a_name", "fighter_b_name", "winner"}
 
@@ -344,6 +367,8 @@ def main():
         "best_n_xgb": best_n_xgb,
         "ensemble_estimators": ["lightgbm", "xgboost", "logistic_regression"],
         "ensemble_cv": "TimeSeriesSplit(n_splits=5)",
+        "composite_params": composite_params,
+        "composite_method": composite_params.get("method", "unknown"),
         "calibration": {
             "method": best_name,
             "n_oof": int(len(final_model.oof_calib_probs_)),

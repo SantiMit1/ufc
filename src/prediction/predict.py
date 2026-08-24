@@ -194,8 +194,9 @@ def main():
     height_b, reach_b = get_phys(fighter_b, "height_cm"), get_phys(fighter_b, "reach_cm")
     state_a = fighter_states.get(fighter_a, make_initial_state())
     state_b = fighter_states.get(fighter_b, make_initial_state())
-    feat_a = compute_stats_from_state(state_a, fighter_a, fighters_cache, current_date, category=category, priors=priors)
-    feat_b = compute_stats_from_state(state_b, fighter_b, fighters_cache, current_date, category=category, priors=priors)
+    composite_params = feature_meta.get("composite_params")
+    feat_a = compute_stats_from_state(state_a, fighter_a, fighters_cache, current_date, category=category, priors=priors, composite_params=composite_params)
+    feat_b = compute_stats_from_state(state_b, fighter_b, fighters_cache, current_date, category=category, priors=priors, composite_params=composite_params)
 
     favorite, underdog = (fighter_a, fighter_b) if prob_a >= prob_b else (fighter_b, fighter_a)
     fav_prob, dog_prob = (prob_a, prob_b) if prob_a >= prob_b else (prob_b, prob_a)

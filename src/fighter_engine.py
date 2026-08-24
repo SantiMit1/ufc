@@ -275,7 +275,9 @@ def compute_stats_from_state(fighter_state: dict, fighter_name: str,
                              fighters_cache: dict, as_of_date: datetime,
                              category: str = "", priors: dict | None = None,
                              fight: dict | None = None,
-                             is_fighter_1: bool | None = None) -> dict:
+                             is_fighter_1: bool | None = None,
+                             composite_params: dict | None = None) -> dict:
+
     """Compute per-fighter features from accumulated state (pre-fight).
 
     ``as_of_date`` is the reference date (event date for historical
@@ -441,7 +443,9 @@ def compute_stats_from_state(fighter_state: dict, fighter_name: str,
         "avg_opp_elo": avg_opp_elo,
         "avg_opp_elo_wins": avg_opp_elo_wins,
     }
-    composites = compute_composite_features(feat_dict)
+    if composite_params is None:
+        raise ValueError("composite_params is required — train a model first (fit_composite_params)")
+    composites = compute_composite_features(feat_dict, composite_params=composite_params)
     feat_dict.update(composites)
     return feat_dict
 
@@ -610,13 +614,16 @@ def build_prediction_row(f1: str, f2: str, fighter_states: dict,
     height1, reach1 = get_phys(f1, "height_cm"), get_phys(f1, "reach_cm")
     height2, reach2 = get_phys(f2, "height_cm"), get_phys(f2, "reach_cm")
 
+    composite_params = feature_meta.get("composite_params")
     state1 = fighter_states.get(f1, make_initial_state())
     state2 = fighter_states.get(f2, make_initial_state())
 
     feat1 = compute_stats_from_state(state1, f1, fighters_cache, current_date,
-                                     category=category, priors=priors)
+                                     category=category, priors=priors,
+                                     composite_params=composite_params)
     feat2 = compute_stats_from_state(state2, f2, fighters_cache, current_date,
-                                     category=category, priors=priors)
+                                     category=category, priors=priors,
+                                     composite_params=composite_params)
 
     row = {}
     row["age_a"] = feat1["age"]

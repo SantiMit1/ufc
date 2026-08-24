@@ -4,10 +4,28 @@ import pandas as pd
 
 from config import DATASET_PATH, CUTOFF_DATE
 from fighter_engine import FightStateEngine, compute_stats_from_state, classify_method, compute_feature_diffs
-from stats_utils import PriorAccumulator, load_fights, load_fighter_cache
+from stats_utils import (
+    PriorAccumulator,
+    load_fights,
+    load_fighter_cache,
+    COMPOSITE_GROUPS,
+    COMPOSITE_SIGNS,
+)
 
 
 SEED = 42
+
+
+def _build_stub_composite_params() -> dict:
+    """Equal-weight stub used only for dataset generation. Train recomputes real params."""
+    means = {g: {f: 0.0 for f in feats} for g, feats in COMPOSITE_GROUPS.items()}
+    stds = {g: {f: 1.0 for f in feats} for g, feats in COMPOSITE_GROUPS.items()}
+    weights = {}
+    for g, feats in COMPOSITE_GROUPS.items():
+        signs = COMPOSITE_SIGNS.get(g, {})
+        mag = 1.0 / max(len(feats), 1)
+        weights[g] = {f: float(signs.get(f, 1) * mag) for f in feats}
+    return {"means": means, "stds": stds, "weights": weights, "method": "stub-equal", "version": 1}
 
 
 def main():
@@ -28,6 +46,9 @@ def main():
     engine = FightStateEngine(fights)
     discarded = total_raw - len(engine.filtered)
     print(f"Discarded {discarded} fights before {CUTOFF_DATE.date()}")
+
+    # Stub composites for dataset generation (train will refit gain-weighted params)
+    stub_params = _build_stub_composite_params()
 
     rows = []
     debut_a_count = 0
@@ -52,8 +73,8 @@ def main():
 
         # Compute pre-fight features using priors from fights BEFORE this one
         priors = prior_accum.priors()
-        feat_a = compute_stats_from_state(fighter_state[a_name], a_name, fighters_cache, fight["_parsed_date"], category=fight["category"], priors=priors, fight=fight, is_fighter_1=a_is_f1)
-        feat_b = compute_stats_from_state(fighter_state[b_name], b_name, fighters_cache, fight["_parsed_date"], category=fight["category"], priors=priors, fight=fight, is_fighter_1=b_is_f1)
+        feat_a = compute_stats_from_state(fighter_state[a_name], a_name, fighters_cache, fight["_parsed_date"], category=fight["category"], priors=priors, fight=fight, is_fighter_1=a_is_f1, composite_params=stub_params)
+        feat_b = compute_stats_from_state(fighter_state[b_name], b_name, fighters_cache, fight["_parsed_date"], category=fight["category"], priors=priors, fight=fight, is_fighter_1=b_is_f1, composite_params=stub_params)
 
         # Add fight stats to prior accumulator AFTER computing features (no lookahead)
         prior_accum.add(fight)
