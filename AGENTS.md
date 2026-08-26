@@ -1,6 +1,27 @@
 # AGENTS.md
 
-## Pipeline (sequential)
+## Unified CLI (`ufc`) — preferred
+
+```bash
+pip install -e .                   # creates `ufc` in .venv/bin/ (requires Python >=3.10, see pyproject.toml)
+playwright install chromium
+ufc --help
+ufc data build-index               # 1. data/events_index.json
+ufc data scrape [--limit N] [--force]  # 2. data/fights.json, data/fighters_cache.json
+ufc data features [--seed 42]      # 3. data/dataset.csv
+ufc train [--quick] [--no-plot]    # 4. models/*.pkl + PNG (50 LGB + 20 XGB trials, slow)
+ufc predict fight [--fighter-a X --fighter-b Y --weight-class Lightweight --rounds 3 --json --explain]  # 5. interactive if no args
+ufc predict event --event "UFC 328: ..." [--exact] [--json]  # 6. table default
+ufc backtest --start 2015-01-01 [--end ...] [--json]          # 7. backtest
+ufc predict url <ufcstats URL> [--json]                       # 8. scrape + predict
+ufc history [fighter] [--json]     # 9. Elo history (interactive if no arg)
+ufc pipeline [--skip-train] [--seed 42]  # 1-3
+ufc info [--json]                  # data/model status
+```
+
+Global flags: `--model`, `--features`, `--data-dir`, `-v`/`-q`, `--version`. Legacy `python src/...` scripts remain functional (see below).
+
+## Pipeline (sequential) — legacy
 1. `python src/scraping/build_events_index.py` → `data/events_index.json` (skips upcoming/unfinished events)
 2. `python src/scraping/scrape_ufc.py` → `data/fights.json`, `data/fighters_cache.json`
 3. `python src/feature_engineering.py` → `data/dataset.csv`
@@ -9,10 +30,14 @@
 6. `python src/prediction/predict_event.py --event "UFC 328: ..."` — event JSON with winner probabilities. Args: `--exact`, `--model-path`, `--features-path`.
 7. `python src/prediction/backtest.py --start 2015-01-01 [--end ...]` — no-lookahead backtest (accuracy/AUC/log-loss/calibration per year). Debut fights and draws/NCs are skipped. Args: `--model-path`, `--features-path`.
 8. `python src/prediction/predict_url.py <ufcstats event URL>` — scrapes an event page (Playwright sync) and predicts all fights; table with probs + per-fighter UFC records. Skips fights whose fighters aren't in `fighters_cache.json` (or have 0 prior fights); marks fighters with <3 fights with `*`; rounds = 5 for title fights (belt icon) and the first page fight, else 3. Args: `--model-path`, `--features-path`.
+9. `python src/fighter_history.py` — interactive Elo history.
 
 To run the pipeline (skip step 4, run it by hand):
 ```bash
 source .venv/bin/activate   # or .venv/Scripts/activate on Windows
+# via ufc:
+ufc pipeline --skip-train
+# or legacy:
 python src/scraping/build_events_index.py
 python src/scraping/scrape_ufc.py
 python src/feature_engineering.py
