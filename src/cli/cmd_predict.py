@@ -11,6 +11,42 @@ import joblib
 from cli._common import resolve_paths, get_events_path
 from config import WEIGHT_CLASSES
 
+# --- case-insensitive helpers ---
+def _canonical_weight_class(cat: str | None) -> str | None:
+    if cat is None:
+        return None
+    s = cat.strip()
+    if not s:
+        return cat
+    low = s.lower()
+    # map case-insensitively to canonical WEIGHT_CLASSES
+    mapping = {c.lower(): c for c in WEIGHT_CLASSES}
+    # also handle common variants: "light weight" -> "lightweight", remove spaces/hyphens
+    norm = low.replace(" ", "").replace("-", "").replace("_", "")
+    for k, v in mapping.items():
+        if k.replace(" ", "").replace("-", "") == norm:
+            return v
+    return mapping.get(low, s)  # fallback to original if not found (will warn)
+
+def _canonical_fighter(name: str, cache: dict, states: dict | None = None) -> str:
+    s = name.strip()
+    if not s:
+        return name
+    # exact match first
+    if s in cache or (states is not None and s in states):
+        return s
+    # build lower map
+    all_names = set(cache.keys())
+    if states is not None:
+        all_names.update(states.keys())
+    lower_map = {n.lower(): n for n in all_names}
+    low = s.lower()
+    if low in lower_map:
+        return lower_map[low]
+    # also try substring? For predict we want exact case-insensitive, not fuzzy,
+    # but we can keep exact lower match only. Return original if not found.
+    return lower_map.get(low, s)
+
 # ---------- helpers ----------
 
 def _load_data(args):
@@ -115,20 +151,26 @@ def handle_fight(args):
 
     # Non-interactive mode
     if args.fighter_a and args.fighter_b:
-        fighter_a = args.fighter_a.strip()
-        fighter_b = args.fighter_b.strip()
-        category = args.weight_class or "Lightweight"
+        raw_a = args.fighter_a.strip()
+        raw_b = args.fighter_b.strip()
+        raw_cat = args.weight_class
+        category = _canonical_weight_class(raw_cat) if raw_cat else "Lightweight"
         if not args.weight_class:
             print(f"warning: --weight-class not provided, defaulting to {category}", file=sys.stderr)
         max_rounds = args.rounds if args.rounds else 3
 
-        # Validate weight class
-        if category not in WEIGHT_CLASSES:
-            print(f"warning: weight class '{category}' not in known {WEIGHT_CLASSES}", file=sys.stderr)
-
-        # Build states/priors
+        # Build states/priors first to allow fighter canonicalization
         priors = compute_priors(fights)
         fighter_states = build_fighter_states(fights, cache)
+
+        # Canonicalize fighter names case-insensitively
+        fighter_a = _canonical_fighter(raw_a, cache, fighter_states)
+        fighter_b = _canonical_fighter(raw_b, cache, fighter_states)
+
+        # Validate weight class (case-insensitive)
+        if category not in WEIGHT_CLASSES:
+            # try canonical mapping already done; if still not found warn
+            print(f"warning: weight class '{args.weight_class}' not in known {WEIGHT_CLASSES} (using '{category}')", file=sys.stderr)
 
         # Check debut
         from fighter_engine import is_debut, make_initial_state, compute_stats_from_state
@@ -349,7 +391,7 @@ def handle_fight(args):
     try:
         category = WEIGHT_CLASSES[int(wc_input) - 1]
     except (ValueError, IndexError):
-        category = wc_input
+        category = _canonical_weight_class(wc_input) or wc_input
     print(f"  Weight class: {category}")
     print("\n  Rounds:")
     print("    1. 3 rounds (non-title / prelim)")
@@ -502,9 +544,10 @@ def handle_event(args):
     exact = args.exact
     as_json = args.json
 
-    # Find event fights
+    # Find event fights (case-insensitive for both modes)
     if exact:
-        event_fights = [f for f in fights if f["event_name"] == event_name]
+        q = event_name.strip().lower()
+        event_fights = [f for f in fights if f["event_name"].lower() == q]
     else:
         q = event_name.lower()
         event_fights = [f for f in fights if q in f["event_name"].lower()]
