@@ -203,7 +203,6 @@ def handle_fight(args):
 
         # Comparative table (reuse predict.py logic simplified)
         from fighter_engine import make_initial_state, compute_stats_from_state
-        import numpy as np
 
         def get_phys(name, key):
             v = cache.get(name, {}).get(key)
