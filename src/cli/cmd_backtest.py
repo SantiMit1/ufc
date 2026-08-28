@@ -1,17 +1,22 @@
 """Backtest command."""
 
-import sys
 import json
+import json as _json
 import random
+import sys
 from datetime import datetime
 
+import joblib
 import numpy as np
+from sklearn.metrics import accuracy_score, brier_score_loss, log_loss, roc_auc_score
 from tqdm import tqdm
-from sklearn.metrics import accuracy_score, roc_auc_score, log_loss, brier_score_loss
+
+from cli._common import resolve_paths
+from fighter_engine import FightStateEngine, is_debut, predict_fight
+from stats_utils import PriorAccumulator, load_fighter_cache, load_fights
 
 
 def handle_backtest(args):
-    from cli._common import resolve_paths
     fights_path, cache_path, _, model_path, features_path = resolve_paths(args)
 
     start = datetime.strptime(args.start, "%Y-%m-%d")
@@ -22,13 +27,9 @@ def handle_backtest(args):
 
     as_json = args.json
 
-    from stats_utils import PriorAccumulator, load_fights, load_fighter_cache
-    from fighter_engine import FightStateEngine, is_debut, predict_fight
-    import joblib
 
     # Load with custom paths if --data-dir supplied
     if str(fights_path) != str(__import__("config").FIGHTS_PATH) or str(cache_path) != str(__import__("config").FIGHTERS_CACHE_PATH):
-        import json as _json
         with open(fights_path, "r", encoding="utf-8") as f:
             fights = _json.load(f)
         with open(cache_path, "r", encoding="utf-8") as f:

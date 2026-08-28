@@ -1,21 +1,28 @@
-import pandas as pd
-import numpy as np
-import lightgbm as lgb
-import xgboost as xgb
-from sklearn.metrics import roc_auc_score, accuracy_score, log_loss, brier_score_loss
-from sklearn.linear_model import LogisticRegression
-from sklearn.isotonic import IsotonicRegression
-from sklearn.impute import SimpleImputer
-from sklearn.model_selection import TimeSeriesSplit
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler
-import joblib
 import warnings
 from pathlib import Path
 
+import joblib
+import lightgbm as lgb
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import xgboost as xgb
+from sklearn.impute import SimpleImputer
+from sklearn.isotonic import IsotonicRegression
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, brier_score_loss, log_loss, roc_auc_score
+from sklearn.model_selection import TimeSeriesSplit
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+
+from config import BASE_DIR, DATASET_PATH, FEATURE_COLS_PATH, MODEL_PATH
 from ensemble_utils import ChronologicalStackingEnsemble, PlattCalibrator
-from config import DATASET_PATH, MODEL_PATH, FEATURE_COLS_PATH, BASE_DIR
-from stats_utils import COMPOSITE_GROUPS, fit_composite_params, recompute_composite_diffs
+from stats_utils import (
+    COMPOSITE_GROUPS,
+    fit_composite_params,
+    recompute_composite_diffs,
+)
+
 warnings.filterwarnings("ignore")
 
 
@@ -311,7 +318,6 @@ def main(n_lgb_trials=50, n_xgb_trials=20, no_plot=False, dataset_path=None, mod
         print("\nSkipping plot (--no-plot)")
     else:
         try:
-            import matplotlib.pyplot as plt
             plt.rcParams.update({"font.size": 9})
             top_n = 20
             top = importances.head(top_n).copy()

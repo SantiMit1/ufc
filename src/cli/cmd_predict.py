@@ -1,15 +1,36 @@
 """Predict commands: fight, event, url."""
-import sys
 import json
+import os
+import sys
 import warnings
 from datetime import datetime
-from pathlib import Path
 
-import numpy as np
 import joblib
+import numpy as np
+from bs4 import BeautifulSoup
 
-from cli._common import resolve_paths, get_events_path
+try:
+    from playwright.sync_api import sync_playwright
+except ImportError:
+    sync_playwright = None
+
+from cli._common import resolve_paths
 from config import WEIGHT_CLASSES
+from fighter_engine import (
+    build_fighter_states,
+    build_historical_context,
+    build_prediction_row,
+    compute_stats_from_state,
+    is_debut,
+    make_initial_state,
+    predict_fight,
+)
+from stats_utils import compute_priors, load_fighter_cache, load_fights
+
+try:
+    import shap
+except ImportError:
+    shap = None
 
 # --- case-insensitive helpers ---
 def _canonical_weight_class(cat: str | None) -> str | None:
@@ -51,7 +72,6 @@ def _canonical_fighter(name: str, cache: dict, states: dict | None = None) -> st
 
 def _load_data(args):
     fights_path, cache_path, _, model_path, features_path = resolve_paths(args)
-    from stats_utils import load_fights, load_fighter_cache
     # load_fights/load_fighter_cache accept path param
     try:
         fights = load_fights(fights_path)
@@ -134,15 +154,6 @@ def _print_url_table(event_name, event_date, url, results, skipped):
 def handle_fight(args):
     fights, cache, model_path, features_path = _load_data(args)
 
-    from fighter_engine import (
-        build_fighter_states, make_initial_state, compute_stats_from_state,
-        build_prediction_row,
-    )
-    from stats_utils import compute_priors
-    import joblib
-    import warnings
-    import os
-    from datetime import datetime
 
     # Load model/meta
     model = joblib.load(model_path)
@@ -173,7 +184,6 @@ def handle_fight(args):
             print(f"warning: weight class '{args.weight_class}' not in known {WEIGHT_CLASSES} (using '{category}')", file=sys.stderr)
 
         # Check debut
-        from fighter_engine import is_debut, make_initial_state, compute_stats_from_state
         # For table we need current date
         current_date = datetime.now()
 
@@ -182,7 +192,6 @@ def handle_fight(args):
         shap_vals = None
         if args.explain and model_type in ("lightgbm", "stacking"):
             try:
-                import shap
                 lgb_base = None
                 if model_type == "stacking":
                     lgb_base = model.named_estimators_.get("lgbm")
@@ -244,7 +253,6 @@ def handle_fight(args):
         print(f"  Underdog: {underdog} ({dog_prob*100:.1f}%)")
 
         # Comparative table (reuse predict.py logic simplified)
-        from fighter_engine import make_initial_state, compute_stats_from_state
 
         def get_phys(name, key):
             v = cache.get(name, {}).get(key)
@@ -321,11 +329,6 @@ def handle_fight(args):
 
     # ---------- interactive mode ----------
     # Reuse logic from predict.py but with our loaded data
-    import os
-    import warnings
-    from datetime import datetime
-    from fighter_engine import build_fighter_states, make_initial_state, compute_stats_from_state, build_prediction_row
-    from stats_utils import compute_priors
 
     def clear_screen():
         os.system("cls" if os.name == "nt" else "clear")
@@ -419,7 +422,6 @@ def handle_fight(args):
             lgb_base = lgb_base.named_steps.get("logreg", lgb_base)
         if lgb_base is not None:
             try:
-                import shap
                 shap_explainer = shap.TreeExplainer(lgb_base)
             except Exception:
                 shap_explainer = None
@@ -573,7 +575,6 @@ def handle_event(args):
     model = joblib.load(model_path)
     feature_meta = joblib.load(features_path)
 
-    from fighter_engine import build_historical_context, is_debut, predict_fight
 
     event_dt = datetime.strptime(event_date, "%Y-%m-%d")
     fighter_states, priors = build_historical_context(fights, cache, event_dt)
@@ -616,13 +617,10 @@ def handle_url(args):
     as_json = args.json
 
     # Scrape event page
-    try:
-        from playwright.sync_api import sync_playwright
-    except ImportError:
+    if sync_playwright is None:
         print("error: playwright not installed. Run 'pip install playwright && playwright install chromium'", file=sys.stderr)
         return 1
 
-    from bs4 import BeautifulSoup
 
     USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
@@ -684,7 +682,6 @@ def handle_url(args):
 
     model = joblib.load(model_path)
     feature_meta = joblib.load(features_path)
-    from fighter_engine import build_historical_context, is_debut, make_initial_state, predict_fight
 
     fighter_states, priors = build_historical_context(fights, cache, event_date)
 

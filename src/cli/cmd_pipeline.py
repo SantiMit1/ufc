@@ -1,7 +1,8 @@
 """Pipeline command."""
+from cli.cmd_data import handle_build_index, handle_features, handle_scrape
+
 
 def handle_pipeline(args):
-    from cli.cmd_data import handle_build_index, handle_scrape, handle_features
 
     print("=" * 60)
     print("  PIPELINE: build-index -> scrape -> features")

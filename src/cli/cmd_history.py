@@ -1,9 +1,15 @@
 """History command — fighter Elo history."""
 
-import sys
 import json
-from pathlib import Path
+import json as _json
+import sys
 from datetime import datetime
+from pathlib import Path
+
+from cli._common import resolve_paths
+from config import FIGHTS_PATH as _default_fights
+from fighter_history import build_history, print_table, select_fighter
+from fighter_history import load_fights as _load
 
 
 def handle_history(args):
@@ -11,18 +17,14 @@ def handle_history(args):
     fighter_arg = args.fighter
 
     # Load fights respecting --data-dir
-    from cli._common import resolve_paths
     fights_path, cache_path, _, _, _ = resolve_paths(args)
 
     # Use same load as fighter_history.py but with custom path
-    from config import FIGHTS_PATH as _default_fights
 
     if str(fights_path) != str(_default_fights):
-        import json as _json
         with open(fights_path, "r", encoding="utf-8") as f:
             fights = _json.load(f)
     else:
-        from fighter_history import load_fights as _load
         fights = _load(Path(fights_path))
 
     # All names for interactive
@@ -55,7 +57,6 @@ def handle_history(args):
                         print(f"  - {m}", file=sys.stderr)
                     return 1
 
-        from fighter_history import build_history, print_table
 
         history, _ = build_history(fighter, fights)
         if not history:
@@ -78,7 +79,6 @@ def handle_history(args):
         return 0
 
     # Interactive mode (no arg)
-    from fighter_history import build_history, print_table, select_fighter
 
     print("=" * 60)
     print("  HISTORIAL ELO DE PELEADOR")

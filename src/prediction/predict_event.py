@@ -7,9 +7,9 @@ Usage:
 
 Outputs JSON with each fight's prediction probabilities.
 """
-import sys
-import json
 import argparse
+import json
+import sys
 from datetime import datetime
 from pathlib import Path
 
@@ -17,9 +17,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 import joblib
 
-from config import MODEL_PATH, FEATURE_COLS_PATH
+from config import FEATURE_COLS_PATH, MODEL_PATH
 from fighter_engine import build_historical_context, is_debut, predict_fight
-from stats_utils import load_fights, load_fighter_cache
+from stats_utils import load_fighter_cache, load_fights
 
 
 def main():

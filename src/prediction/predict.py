@@ -1,22 +1,25 @@
+import argparse
 import os
 import sys
 import warnings
-import argparse
 from datetime import datetime
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-import numpy as np
 import joblib
+import numpy as np
 import shap
 
-from config import MODEL_PATH, FEATURE_COLS_PATH, WEIGHT_CLASSES
+from config import FEATURE_COLS_PATH, MODEL_PATH, WEIGHT_CLASSES
 from fighter_engine import (
-    make_initial_state, compute_stats_from_state, build_fighter_states,
+    build_fighter_states,
     build_prediction_row,
+    compute_stats_from_state,
+    make_initial_state,
 )
-from stats_utils import load_fights, load_fighter_cache, compute_priors
+from stats_utils import compute_priors, load_fighter_cache, load_fights
+
 
 def clear_screen():
     os.system("cls" if os.name == "nt" else "clear")

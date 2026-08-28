@@ -1,6 +1,8 @@
 import copy
+
 import numpy as np
 from sklearn.base import clone
+from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import TimeSeriesSplit
 
 
@@ -17,7 +19,6 @@ class PlattCalibrator:
         self.max_iter = max_iter
 
     def fit(self, X, y):
-        from sklearn.linear_model import LogisticRegression
 
         X = np.asarray(X)
         logit = _logit(X[:, 0])

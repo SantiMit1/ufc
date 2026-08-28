@@ -1,22 +1,37 @@
 """Data commands: build-index, scrape, features."""
-import json
 import asyncio
+import asyncio as aio
+import json
+import json as _json
 import random
+import random as rnd
 import sys
-from pathlib import Path
+import time
 
 import numpy as np
 import pandas as pd
+from playwright.async_api import async_playwright
+from tqdm import tqdm
 
-from cli._common import get_events_path
-from config import CUTOFF_DATE, BASE_DIR
+import scraping.scrape_ufc as scrape_mod
+from cli._common import get_events_path, resolve_paths
+from config import BASE_DIR, CUTOFF_DATE
+from fighter_engine import (
+    FightStateEngine,
+    classify_method,
+    compute_feature_diffs,
+    compute_stats_from_state,
+)
+from scraping.build_events_index import EVENTS_URL, fetch_page, parse_events
+from stats_utils import COMPOSITE_GROUPS, COMPOSITE_SIGNS, PriorAccumulator
+from stats_utils import load_fighter_cache as _load_cache
+from stats_utils import load_fights as _load_fights
 
 
 def handle_build_index(args):
     events_path = get_events_path(args)
     events_path.parent.mkdir(parents=True, exist_ok=True)
 
-    from scraping.build_events_index import fetch_page, parse_events, EVENTS_URL
 
     print(f"Building events index from {EVENTS_URL} ...")
     print(f"Output: {events_path}")
@@ -49,13 +64,11 @@ def handle_build_index(args):
 
 
 def handle_scrape(args):
-    from cli._common import resolve_paths
 
     fights_path, cache_path, _, _, _ = resolve_paths(args)
     events_path = get_events_path(args)
 
     # Use scraping.scrape_ufc helpers but with custom paths
-    import scraping.scrape_ufc as scrape_mod
 
     # Patch paths in module so its save/load respect --data-dir
     orig_events = scrape_mod.EVENTS_PATH
@@ -107,9 +120,6 @@ def handle_scrape(args):
 
 def _run_limited_scrape(events_path, fights_path, cache_path, limit, force):
     """Run scrape for a limited subset, reusing scrape_ufc helpers."""
-    import scraping.scrape_ufc as scrape_mod
-    from tqdm import tqdm
-    import asyncio as aio
 
     # Load data
     events = scrape_mod.load_json(str(events_path))
@@ -131,9 +141,6 @@ def _run_limited_scrape(events_path, fights_path, cache_path, limit, force):
     print(f"Processing {len(pending)} events (limited)")
 
     async def _limited_main():
-        from playwright.async_api import async_playwright
-        import random as rnd
-        import time
 
         p = await async_playwright().__aenter__() if False else None  # placeholder
         # Use same pattern as original main but with our pending
@@ -243,21 +250,16 @@ def _run_limited_scrape(events_path, fights_path, cache_path, limit, force):
 
 
 def handle_features(args):
-    from cli._common import resolve_paths
     fights_path, cache_path, dataset_path, _, _ = resolve_paths(args)
 
     seed = args.seed
     random.seed(seed)
 
     print(f"Loading fights from {fights_path} ...")
-    from stats_utils import load_fights as _load_fights, load_fighter_cache as _load_cache, PriorAccumulator, COMPOSITE_GROUPS, COMPOSITE_SIGNS
-    from fighter_engine import FightStateEngine, compute_stats_from_state, classify_method, compute_feature_diffs
 
     # Override load to use custom paths if --data-dir supplied
     if str(fights_path) != str(BASE_DIR / "data" / "fights.json") or str(cache_path) != str(BASE_DIR / "data" / "fighters_cache.json"):
         # monkey-patch paths via direct load
-        import json as _json
-        from pathlib import Path as _Path
 
         def _load_custom(p):
             with open(p, "r", encoding="utf-8") as f:

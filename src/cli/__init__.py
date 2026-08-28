@@ -2,8 +2,9 @@
 
 import argparse
 import sys
+from importlib.metadata import PackageNotFoundError
+from importlib.metadata import version as pkg_version
 from pathlib import Path
-from importlib.metadata import version as pkg_version, PackageNotFoundError
 
 # Ensure src is on sys.path when run as `python src/cli.py` without install
 try:
@@ -11,6 +12,14 @@ try:
 except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent))
     import cli._common  # noqa: F401
+
+from cli.cmd_backtest import handle_backtest
+from cli.cmd_data import handle_build_index, handle_features, handle_scrape
+from cli.cmd_history import handle_history
+from cli.cmd_info import handle_info
+from cli.cmd_pipeline import handle_pipeline
+from cli.cmd_predict import handle_event, handle_fight, handle_url
+from cli.cmd_train import handle_train
 
 
 def _get_version():
@@ -113,60 +122,47 @@ def build_parser():
     return parser
 
 
-# --- handlers (lazy imports to keep startup fast) ---
-
 def _handle_data_build_index(args):
-    from cli.cmd_data import handle_build_index
     return handle_build_index(args)
 
 
 def _handle_data_scrape(args):
-    from cli.cmd_data import handle_scrape
     return handle_scrape(args)
 
 
 def _handle_data_features(args):
-    from cli.cmd_data import handle_features
     return handle_features(args)
 
 
 def _handle_train(args):
-    from cli.cmd_train import handle_train
     return handle_train(args)
 
 
 def _handle_predict_fight(args):
-    from cli.cmd_predict import handle_fight
     return handle_fight(args)
 
 
 def _handle_predict_event(args):
-    from cli.cmd_predict import handle_event
     return handle_event(args)
 
 
 def _handle_predict_url(args):
-    from cli.cmd_predict import handle_url
     return handle_url(args)
 
 
 def _handle_backtest(args):
-    from cli.cmd_backtest import handle_backtest
     return handle_backtest(args)
 
 
 def _handle_history(args):
-    from cli.cmd_history import handle_history
     return handle_history(args)
 
 
 def _handle_pipeline(args):
-    from cli.cmd_pipeline import handle_pipeline
     return handle_pipeline(args)
 
 
 def _handle_info(args):
-    from cli.cmd_info import handle_info
     return handle_info(args)
 
 

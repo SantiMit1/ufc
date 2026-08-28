@@ -1,14 +1,17 @@
 """Info command — show data/model status."""
 
 import json
-import sys
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
+
+import joblib
+import pandas as pd
+
+from cli._common import get_events_path, resolve_paths
+from config import BASE_DIR, CUTOFF_DATE
 
 
 def handle_info(args):
-    from cli._common import resolve_paths, get_events_path
-    from config import CUTOFF_DATE, BASE_DIR
 
     fights_path, cache_path, dataset_path, model_path, features_path = resolve_paths(args)
     events_path = get_events_path(args)
@@ -86,7 +89,6 @@ def handle_info(args):
     # Dataset
     if dataset_path.exists():
         try:
-            import pandas as pd
             df = pd.read_csv(dataset_path, nrows=0)  # just header
             # get row count quickly
             with open(dataset_path, "r", encoding="utf-8") as f:
@@ -118,7 +120,6 @@ def handle_info(args):
         info["model"]["features_size_bytes"] = features_path.stat().st_size
         info["model"]["features_mtime"] = datetime.fromtimestamp(features_path.stat().st_mtime).strftime("%Y-%m-%d %H:%M:%S")
         try:
-            import joblib
             meta = joblib.load(features_path)
             info["model"]["meta"] = {
                 "model_type": meta.get("model_type"),

@@ -1,17 +1,22 @@
 import random
+
 import numpy as np
 import pandas as pd
 
-from config import DATASET_PATH, CUTOFF_DATE
-from fighter_engine import FightStateEngine, compute_stats_from_state, classify_method, compute_feature_diffs
+from config import CUTOFF_DATE, DATASET_PATH
+from fighter_engine import (
+    FightStateEngine,
+    classify_method,
+    compute_feature_diffs,
+    compute_stats_from_state,
+)
 from stats_utils import (
-    PriorAccumulator,
-    load_fights,
-    load_fighter_cache,
     COMPOSITE_GROUPS,
     COMPOSITE_SIGNS,
+    PriorAccumulator,
+    load_fighter_cache,
+    load_fights,
 )
-
 
 SEED = 42
 

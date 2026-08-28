@@ -1,10 +1,15 @@
 import json
-import numpy as np
 from datetime import datetime
 from pathlib import Path
 from typing import Any
 
-from config import FIGHTS_PATH, FIGHTERS_CACHE_PATH, CUTOFF_DATE
+import lightgbm as lgb
+import numpy as np
+import pandas as pd
+from sklearn.impute import SimpleImputer
+from sklearn.linear_model import RidgeCV
+
+from config import CUTOFF_DATE, FIGHTERS_CACHE_PATH, FIGHTS_PATH
 
 PRIOR_MINUTES = 10.0
 PRIOR_ATTEMPTS = 10
@@ -299,7 +304,6 @@ def fit_composite_params(df_diffs: "pd.DataFrame", y: "np.ndarray | pd.Series", 
         - stds[g][f]: std of diff col f in train (for scaling, floored at 1e-9)
         - weights[g][f]: signed weight magnitude normalized per group (L1 sum = 1 per group)
     """
-    import pandas as pd
 
     y_arr = np.asarray(y).ravel()
     # For per-fighter composites we only need std (scale); means are 0 so
@@ -332,8 +336,6 @@ def fit_composite_params(df_diffs: "pd.DataFrame", y: "np.ndarray | pd.Series", 
             weights[g] = {f: float(signs.get(f, 1) * mag) for f in feats}
 
     elif method == "ridge":
-        from sklearn.linear_model import RidgeCV
-        from sklearn.impute import SimpleImputer
         for g, feats in COMPOSITE_GROUPS.items():
             cols = [f + "_diff" for f in feats if f + "_diff" in df_diffs.columns]
             if not cols:
@@ -376,7 +378,6 @@ def fit_composite_params(df_diffs: "pd.DataFrame", y: "np.ndarray | pd.Series", 
             weights[g] = w_dict
 
     elif method == "gain":
-        import lightgbm as lgb
         # Build probe dataset with available raw diffs
         all_feats = [f for feats in COMPOSITE_GROUPS.values() for f in feats]
         cols = [f + "_diff" for f in all_feats if f + "_diff" in df_diffs.columns]
@@ -465,7 +466,6 @@ def recompute_composite_diffs(df: "pd.DataFrame", composite_params: dict) -> "pd
     Useful in train_model to replace stub csv values with fitted composites.
     Operates on a copy and returns it.
     """
-    import pandas as pd
 
     out = df.copy()
     # For each composite, recompute diff as weighted sum of standardized raw diffs: sum(raw_diff/std * w)

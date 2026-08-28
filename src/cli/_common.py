@@ -1,9 +1,8 @@
 """Shared helpers for the ufc CLI."""
 
-import sys
 import json
+import sys
 from pathlib import Path
-from datetime import datetime
 
 import joblib
 
@@ -11,22 +10,22 @@ import joblib
 try:
     from config import (
         BASE_DIR,
-        FIGHTS_PATH,
-        FIGHTERS_CACHE_PATH,
         DATASET_PATH,
-        MODEL_PATH,
         FEATURE_COLS_PATH,
+        FIGHTERS_CACHE_PATH,
+        FIGHTS_PATH,
+        MODEL_PATH,
     )
 except ImportError:
     # fallback when running as `python -m src.cli` without install
     sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
     from config import (
         BASE_DIR,
-        FIGHTS_PATH,
-        FIGHTERS_CACHE_PATH,
         DATASET_PATH,
-        MODEL_PATH,
         FEATURE_COLS_PATH,
+        FIGHTERS_CACHE_PATH,
+        FIGHTS_PATH,
+        MODEL_PATH,
     )
 
 

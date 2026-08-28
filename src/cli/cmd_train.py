@@ -1,7 +1,9 @@
 """Train command."""
+from cli._common import resolve_paths
+from train_model import main as train_main
+
 
 def handle_train(args):
-    from cli._common import resolve_paths
 
     _, _, dataset_path, model_path, features_path = resolve_paths(args)
 
@@ -22,7 +24,6 @@ def handle_train(args):
     print(f"Trials: LGBM={n_lgb} XGB={n_xgb} quick={quick} no_plot={no_plot}")
 
     # Import here (heavy deps)
-    from train_model import main as train_main
 
     train_main(
         n_lgb_trials=n_lgb,
