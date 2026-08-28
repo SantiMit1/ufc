@@ -13,17 +13,19 @@ and ``feature_engineering.py``:
 - prediction rows / encoded feature frames (``build_prediction_row``)
 - order-averaged fight prediction (``predict_fight``)
 """
-import numpy as np
-import pandas as pd
 from datetime import datetime
 
-from config import CUTOFF_DATE, ELO_K, ELO_INITIAL
+import numpy as np
+import pandas as pd
+
+from config import CUTOFF_DATE, ELO_INITIAL, ELO_K
 from stats_utils import (
-    shrink_rate,
-    shrink_proportion,
     compute_composite_features,
     safe_int,
+    shrink_proportion,
+    shrink_rate,
 )
+from stats_utils import compute_priors as _compute_priors
 
 
 def parse_time(time_str: str) -> int:
@@ -591,7 +593,6 @@ def build_historical_context(fights: list, fighters_cache: dict, before: datetim
     behavior). Both use ``filter_historical`` internally.
     """
     # Use late import to avoid circular import (stats_utils imports config only)
-    from stats_utils import compute_priors as _compute_priors
 
     historical_for_priors = filter_historical(fights, before, cutoff=priors_cutoff)
     priors = _compute_priors(historical_for_priors, cutoff=priors_cutoff)

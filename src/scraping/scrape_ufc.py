@@ -1,13 +1,13 @@
-import json
 import asyncio
+import json
+import os
 import random
 import re
-import os
 import time
 from datetime import datetime
 
-from playwright.async_api import async_playwright
 from bs4 import BeautifulSoup
+from playwright.async_api import async_playwright
 from tqdm import tqdm
 
 EVENTS_PATH = "data/events_index.json"

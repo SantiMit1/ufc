@@ -1,28 +1,39 @@
-import pandas as pd
-import numpy as np
+import warnings
+from pathlib import Path
+
+import joblib
 import lightgbm as lgb
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
 import xgboost as xgb
-from sklearn.metrics import roc_auc_score, accuracy_score, log_loss, brier_score_loss
-from sklearn.linear_model import LogisticRegression
-from sklearn.isotonic import IsotonicRegression
 from sklearn.impute import SimpleImputer
+from sklearn.isotonic import IsotonicRegression
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, brier_score_loss, log_loss, roc_auc_score
 from sklearn.model_selection import TimeSeriesSplit
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
-import joblib
-import warnings
 
+from config import BASE_DIR, DATASET_PATH, FEATURE_COLS_PATH, MODEL_PATH
 from ensemble_utils import ChronologicalStackingEnsemble, PlattCalibrator
-from config import DATASET_PATH, MODEL_PATH, FEATURE_COLS_PATH, BASE_DIR
-from stats_utils import COMPOSITE_GROUPS, fit_composite_params, recompute_composite_diffs
+from stats_utils import (
+    COMPOSITE_GROUPS,
+    fit_composite_params,
+    recompute_composite_diffs,
+)
+
 warnings.filterwarnings("ignore")
 
 
-def main():
+def main(n_lgb_trials=50, n_xgb_trials=20, no_plot=False, dataset_path=None, model_path=None, features_path=None):
     np.random.seed(42)
     TEST_SPLIT = 0.15
     VALIDATION_SPLIT = 0.10
-    df = pd.read_csv(DATASET_PATH)
+    _dataset = Path(dataset_path) if dataset_path else DATASET_PATH
+    _model = Path(model_path) if model_path else MODEL_PATH
+    _features = Path(features_path) if features_path else FEATURE_COLS_PATH
+    df = pd.read_csv(_dataset)
     df = df[df["winner"].isin(["1", "2", 1, 2])].copy()
     df["winner"] = df["winner"].astype(int)
     df["event_date"] = pd.to_datetime(df["event_date"])
@@ -107,7 +118,6 @@ def main():
     best_lgb_score = 0
     best_lgb_params = {}
     best_n_lgb = 0
-    n_lgb_trials = 50
     print(f"\nLightGBM hyperparameter search ({n_lgb_trials} random trials)...")
     print(f"{'trial':>5s} {'val_auc':>8s} {'val_ll':>8s} {'lr':>5s} {'leaves':>5s} {'min_child':>9s} {'reg_a':>6s} {'reg_l':>6s} {'sub':>5s} {'col':>5s}")
     print(f"{'-'*75}")
@@ -150,7 +160,6 @@ def main():
     best_xgb_score = 0
     best_xgb_params = {}
     best_n_xgb = 0
-    n_xgb_trials = 20
     print(f"\nXGBoost hyperparameter search ({n_xgb_trials} random trials)...")
     print(f"{'trial':>5s} {'val_auc':>8s} {'val_ll':>8s} {'lr':>5s} {'max_d':>5s} {'min_child':>9s} {'sub':>5s} {'col':>5s} {'reg_a':>6s} {'reg_l':>6s}")
     print(f"{'-'*80}")
@@ -305,56 +314,60 @@ def main():
     print(f"  {'Top-25 cumulative':>42s} {cum:>14.1f}%")
 
     # ─── PLOT ──────────────────────────────────────────────────────────────────────
-    try:
-        import matplotlib.pyplot as plt
-        plt.rcParams.update({"font.size": 9})
-        top_n = 20
-        top = importances.head(top_n).copy()
-        rename_map = {
-            "decay_sig_absorbed_per_min": "decay_sig_abs/min",
-            "decay_sig_per_min": "decay_sig/min",
-            "decay_td_per_15min": "decay_td/15min",
-            "sig_str_landed_per_min": "sig_str_land/min",
-            "sig_str_absorbed_per_min": "sig_str_abs/min",
-            "sig_str_accuracy": "sig_acc",
-            "td_avg_per_15min": "td/15min",
-            "td_accuracy": "td_acc",
-            "td_defense": "td_def",
-            "sub_att_per_15min": "sub_att/15min",
-            "ctrl_time_pct": "ctrl_time%",
-            "days_since_last_fight": "days_since_fight",
-            "avg_opp_elo_wins": "avg_opp_elo_W",
-            "avg_opp_elo": "avg_opp_elo",
-            "recent_3_ko_loss_rate": "r3_ko_loss_rate",
-            "recent_5_ko_loss_rate": "r5_ko_loss_rate",
-        }
-        short = top["feature"].str.replace("_diff$", "_Δ", regex=True)
-        short = short.str.replace(r"^(.*)_a$", r"\1_A", regex=True)
-        short = short.str.replace(r"^(.*)_b$", r"\1_B", regex=True)
-        for long, s in rename_map.items():
-            short = short.str.replace(long, s, regex=False)
+    if no_plot:
+        print("\nSkipping plot (--no-plot)")
+    else:
+        try:
+            plt.rcParams.update({"font.size": 9})
+            top_n = 20
+            top = importances.head(top_n).copy()
+            rename_map = {
+                "decay_sig_absorbed_per_min": "decay_sig_abs/min",
+                "decay_sig_per_min": "decay_sig/min",
+                "decay_td_per_15min": "decay_td/15min",
+                "sig_str_landed_per_min": "sig_str_land/min",
+                "sig_str_absorbed_per_min": "sig_str_abs/min",
+                "sig_str_accuracy": "sig_acc",
+                "td_avg_per_15min": "td/15min",
+                "td_accuracy": "td_acc",
+                "td_defense": "td_def",
+                "sub_att_per_15min": "sub_att/15min",
+                "ctrl_time_pct": "ctrl_time%",
+                "days_since_last_fight": "days_since_fight",
+                "avg_opp_elo_wins": "avg_opp_elo_W",
+                "avg_opp_elo": "avg_opp_elo",
+                "recent_3_ko_loss_rate": "r3_ko_loss_rate",
+                "recent_5_ko_loss_rate": "r5_ko_loss_rate",
+            }
+            short = top["feature"].str.replace("_diff$", "_Δ", regex=True)
+            short = short.str.replace(r"^(.*)_a$", r"\1_A", regex=True)
+            short = short.str.replace(r"^(.*)_b$", r"\1_B", regex=True)
+            for long, s in rename_map.items():
+                short = short.str.replace(long, s, regex=False)
 
-        fig, ax = plt.subplots(figsize=(10, 7))
-        ax.barh(range(top_n), top["gain"].values[::-1], color="#2b83ba", edgecolor="white")
-        ax.set_yticks(range(top_n))
-        ax.set_yticklabels(short.values[::-1])
-        ax.invert_yaxis()
-        ax.set_xlabel("Gain (total improvement from splits)")
-        ax.set_title(f"Stacked Ensemble Feature Importance  |  Test ROC-AUC = {roc:.3f}")
+            fig, ax = plt.subplots(figsize=(10, 7))
+            ax.barh(range(top_n), top["gain"].values[::-1], color="#2b83ba", edgecolor="white")
+            ax.set_yticks(range(top_n))
+            ax.set_yticklabels(short.values[::-1])
+            ax.invert_yaxis()
+            ax.set_xlabel("Gain (total improvement from splits)")
+            ax.set_title(f"Stacked Ensemble Feature Importance  |  Test ROC-AUC = {roc:.3f}")
 
-        for i, v in enumerate(top["gain"].values[::-1]):
-            ax.text(v + top["gain"].max() * 0.01, i, f"{v:.0f}", va="center", fontsize=8)
+            for i, v in enumerate(top["gain"].values[::-1]):
+                ax.text(v + top["gain"].max() * 0.01, i, f"{v:.0f}", va="center", fontsize=8)
 
-        plt.tight_layout()
-        fig.savefig(BASE_DIR / "models" / "stacking_ensemble_feature_importance.png", dpi=150)
-        print(f"\nPlot saved to models/stacking_ensemble_feature_importance.png")
-    except ImportError:
-        print("\nmatplotlib not installed, skipping plot")
-    except Exception as e:
-        print(f"\nPlot failed: {e}")
+            plt.tight_layout()
+            fig.savefig(BASE_DIR / "models" / "stacking_ensemble_feature_importance.png", dpi=150)
+            print(f"\nPlot saved to models/stacking_ensemble_feature_importance.png")
+        except ImportError:
+            print("\nmatplotlib not installed, skipping plot")
+        except Exception as e:
+            print(f"\nPlot failed: {e}")
 
     # ─── SAVE ──────────────────────────────────────────────────────────────────────
-    joblib.dump(final_model, MODEL_PATH)
+    _model.parent.mkdir(parents=True, exist_ok=True)
+    _features.parent.mkdir(parents=True, exist_ok=True)
+    joblib.dump(final_model, _model)
     joblib.dump({
         "raw_feature_cols": raw_feature_cols,
         "cat_cols": cat_cols,
@@ -382,9 +395,9 @@ def main():
         "test_roc_auc": roc,
         "test_accuracy": acc,
         "feature_importance": importances.to_dict(orient="records"),
-    }, FEATURE_COLS_PATH)
-    print(f"\nModel saved to {MODEL_PATH}")
-    print(f"Metadata saved to {FEATURE_COLS_PATH}")
+    }, _features)
+    print(f"\nModel saved to {_model}")
+    print(f"Metadata saved to {_features}")
 
 
 if __name__ == "__main__":

@@ -14,8 +14,8 @@ Results:
 - Scheduled rounds: 5 for title fights (belt icon) and for the first fight on
   the page; 3 otherwise.
 """
-import sys
 import argparse
+import sys
 from datetime import datetime
 from pathlib import Path
 
@@ -25,9 +25,14 @@ import joblib
 from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
 
-from config import MODEL_PATH, FEATURE_COLS_PATH
-from fighter_engine import build_historical_context, is_debut, make_initial_state, predict_fight
-from stats_utils import load_fights, load_fighter_cache
+from config import FEATURE_COLS_PATH, MODEL_PATH
+from fighter_engine import (
+    build_historical_context,
+    is_debut,
+    make_initial_state,
+    predict_fight,
+)
+from stats_utils import load_fighter_cache, load_fights
 
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "

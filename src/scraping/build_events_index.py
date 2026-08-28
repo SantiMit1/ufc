@@ -1,10 +1,9 @@
-import json
 import asyncio
-from datetime import datetime, date
+import json
+from datetime import date, datetime
 
-from playwright.async_api import async_playwright
 from bs4 import BeautifulSoup
-
+from playwright.async_api import async_playwright
 
 EVENTS_URL = "http://ufcstats.com/statistics/events/completed?page=all"
 OUTPUT_PATH = "data/events_index.json"

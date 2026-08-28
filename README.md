@@ -2,9 +2,40 @@
 
 Pipeline de machine learning que predice el ganador de combates de UFC usando un **stacking ensemble** (LightGBM + XGBoost + Regresión Logística) entrenado sobre datos scrapeados de la web oficial de la UFC.
 
-## Pipeline
+## Unified CLI (`ufc`)
 
-El proyecto procesa los datos en orden cronológico (sin usar información del futuro), desde combates el `2012-01-01`.
+CLI unificado con `argparse` (english, salida tabla por defecto, `--json` opt-in). Requiere instalación editable:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate          # Linux/macOS — .venv\Scripts\activate en Windows
+pip install -e .                   # crea el binario `ufc` en .venv/bin/
+playwright install chromium        # requerido para `ufc data scrape` y `ufc predict url`
+ufc --help
+```
+
+Comandos:
+
+```bash
+ufc data build-index               # índice de eventos → data/events_index.json
+ufc data scrape [--limit N] [--force]  # scrape combates → data/fights.json, fighters_cache.json
+ufc data features [--seed 42]      # features → data/dataset.csv
+ufc train [--quick] [--no-plot]    # entrena stacking ensemble
+ufc predict fight --fighter-a "Topuria" --fighter-b "Oliveira" --weight-class Lightweight [--json] [--explain]
+ufc predict fight                  # modo interactivo (autocomplete + SHAP)
+ufc predict event --event "UFC 328: ..." [--exact] [--json]   # tabla por defecto
+ufc predict url "http://ufcstats.com/event-details/..." [--json]
+ufc backtest --start 2015-01-01 [--end 2019-12-31] [--json]
+ufc history "Jon Jones" [--json]   # sin arg -> interactivo
+ufc pipeline [--skip-train] [--seed 42]  # build-index -> scrape -> features
+ufc info [--json]                  # estado data/models
+```
+
+Flags globales: `--model`, `--features`, `--data-dir`, `-v`/`-q`, `--version`. Ver `ufc <command> --help`.
+
+## Pipeline (legacy scripts)
+
+El proyecto procesa los datos en orden cronológico (sin usar información del futuro), desde combates el `2012-01-01`. Los scripts legacy siguen funcionando:
 
 ```bash
 python src/scraping/build_events_index.py     # 1. índice de eventos → data/events_index.json (omite eventos no finalizados)
@@ -15,9 +46,10 @@ python src/prediction/predict.py              # 5. predicción interactiva (SHAP
 python src/prediction/predict_event.py --event "UFC 328: ..."   # 6. predicción de un evento
 python src/prediction/backtest.py --start 2015-01-01            # 7. backtest sin lookahead
 python src/prediction/predict_url.py "URL de evento de ufcstats" # 8. scrape + predicción de un evento
+python src/fighter_history.py                 # 9. historial Elo
 ```
 
-## Instalación
+## Instalación (legacy sin `pip install -e .`)
 
 ```bash
 python -m venv .venv
@@ -27,7 +59,7 @@ pip install -r requirements.txt
 playwright install chromium      # requerido por el scraper (pasos 1 y 2)
 ```
 
-Todos los scripts se ejecutan desde la raíz del repositorio.
+Con instalación editable (`pip install -e .`) se recomienda usar `ufc` en lugar de `python src/...`. Todos los scripts se ejecutan desde la raíz del repositorio.
 
 ## Predicción
 

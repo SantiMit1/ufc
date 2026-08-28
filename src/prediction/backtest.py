@@ -13,25 +13,22 @@ debut fight is detected via their ``debut_date`` in the fighters cache
 fight for the fight to count in the evaluation. Fights without a winner
 (draw / no contest) are skipped too.
 """
-import sys
-import random
 import argparse
+import random
+import sys
 from datetime import datetime
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-import numpy as np
 import joblib
-
-from config import MODEL_PATH, FEATURE_COLS_PATH
-from fighter_engine import FightStateEngine, is_debut, predict_fight
-from stats_utils import PriorAccumulator, load_fights, load_fighter_cache
-from sklearn.metrics import accuracy_score, roc_auc_score, log_loss, brier_score_loss
+import numpy as np
+from sklearn.metrics import accuracy_score, brier_score_loss, log_loss, roc_auc_score
 from tqdm import tqdm
 
-
-
+from config import FEATURE_COLS_PATH, MODEL_PATH
+from fighter_engine import FightStateEngine, is_debut, predict_fight
+from stats_utils import PriorAccumulator, load_fighter_cache, load_fights
 
 
 def main():

@@ -17,18 +17,17 @@ Input interactivo por terminal con autocompletado (como predict.py):
 """
 import json
 import sys
-from datetime import datetime
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from config import FIGHTS_PATH, ELO_INITIAL
+from config import ELO_INITIAL, FIGHTS_PATH
 from fighter_engine import (
     FightStateEngine,
     classify_method,
-    get_k_factor,
     elo_expected,
     elo_update,
+    get_k_factor,
 )
 
 
