@@ -54,17 +54,6 @@ def handle_pipeline(args):
     if not getattr(args, "skip_train", False):
         print("\n[4/4] train")
         print("  Note: training is slow (50 LGB + 20 XGB trials). Use --skip-train to skip, or run `ufc train --quick` separately.")
-        # Don't auto-run train by default? Plan says pipeline [--skip-train] meaning pipeline runs train unless skipped?
-        # But original pipeline in AGENTS.md says skip step 4, run manually. So we will skip train if --skip-train is set,
-        # otherwise we also skip but inform user. Let's only run train if not skipped and user explicitly wants it?
-        # Spec: pipeline --skip-train do not run train. We'll interpret: without flag, run train is NOT automatic to stay safe.
-        # So we will NOT run train unless --skip-train is False? Actually original pipeline says skip step 4 manually.
-        # Safer: pipeline does NOT run train by default; --skip-train is redundant but we support it.
-        # Let's just inform and skip.
-        # If we want to run train, user should pass --no-skip? But spec says pipeline [--skip-train] -> do not run train after pipeline.
-        # We'll implement: if skip_train is False, we still skip train and tell user to run manually (to avoid accidental long run).
-        # Only if we decide to run train, we do it when explicitly not skipping? For now, we will NOT run train automatically.
-        # To actually run train via pipeline, we could check an env? Simpler: do not run train at all in pipeline, just data steps.
         print("  Skipping train (run `ufc train` manually). Use `ufc train` to train the model.")
     else:
         print("\nSkipping train (--skip-train)")

@@ -65,10 +65,6 @@ def handle_scrape(args):
     scrape_mod.FIGHTS_PATH = str(fights_path)
     scrape_mod.FIGHTERS_CACHE_PATH = str(cache_path)
 
-    # If --force, we need to reset scrapped flags before pending selection.
-    # Instead of hacking main(), we handle by temporarily patching the pending logic:
-    # we will run a wrapper that respects limit/force.
-
     # Load events to compute limited pending
     try:
         with open(events_path, "r", encoding="utf-8") as f:
@@ -84,12 +80,7 @@ def handle_scrape(args):
         if args.limit is not None:
             pending_count = min(pending_count, args.limit)
         print(f"Force mode: will re-process {pending_count} events (limit={args.limit})")
-        # Reset scrapped flags for limited subset
-        # We will slice and reset those
-        # For simplicity, run original main but with events truncated
-        # Save a backup and patch file
-        # Instead, we directly run loop with our pending list below (custom main)
-        pass  # will use custom loop
+        pass
     else:
         pending = [e for e in events if not e.get("scrapped")]
         if args.limit is not None:
