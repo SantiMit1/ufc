@@ -21933,5 +21933,61 @@
     "stance": "Orthodox",
     "dob": "2000-05-12",
     "debut_date": "2026-08-22"
+  },
+  "Liu Ce": {
+    "height_cm": 190,
+    "weight_lbs": 205,
+    "reach_cm": 196,
+    "stance": "Orthodox",
+    "dob": "1996-09-04",
+    "debut_date": "2026-08-29"
+  },
+  "Bilal Hasan": {
+    "height_cm": 170,
+    "weight_lbs": 125,
+    "reach_cm": 178,
+    "stance": "Switch",
+    "dob": "2001-07-16",
+    "debut_date": "2026-08-29"
+  },
+  "Nilson Rojas": {
+    "height_cm": 168,
+    "weight_lbs": 125,
+    "reach_cm": 160,
+    "stance": "Orthodox",
+    "dob": "1999-04-21",
+    "debut_date": "2026-08-29"
+  },
+  "Namsrai Batbayar": {
+    "height_cm": 163,
+    "weight_lbs": 125,
+    "reach_cm": 173,
+    "stance": "Orthodox",
+    "dob": "2000-12-29",
+    "debut_date": "2026-08-29"
+  },
+  "Francesco Nuzzi": {
+    "height_cm": 168,
+    "weight_lbs": 135,
+    "reach_cm": 180,
+    "stance": "Southpaw",
+    "dob": "1996-08-28",
+    "debut_date": "2026-08-29"
+  },
+  "Hector Santiago": {
+    "height_cm": 165,
+    "weight_lbs": 135,
+    "reach_cm": 173,
+    "stance": "Orthodox",
+    "dob": "1993-03-21",
+    "debut_date": "2026-08-29"
+  },
+  "Cam Nelson": {
+    "height_cm": 180,
+    "weight_lbs": 170,
+    "reach_cm": 183,
+    "stance": "Orthodox",
+    "dob": "1998-07-28",
+    "debut_date": "2026-08-29"
   }
 }

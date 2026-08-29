@@ -4708,5 +4708,11 @@
     "date": "2026-08-22",
     "url": "http://ufcstats.com/event-details/a0a69dc9914ef6e1",
     "scrapped": true
+  },
+  {
+    "name": "UFC Fight Night: Nurmagomedov vs. Song",
+    "date": "2026-08-29",
+    "url": "http://ufcstats.com/event-details/9d61d8cb1c354867",
+    "scrapped": true
   }
 ]

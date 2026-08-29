@@ -907941,5 +907941,1344 @@
     "fighter_1_reach_cm": 165,
     "fighter_2_height_cm": 160,
     "fighter_2_reach_cm": 160
+  },
+  {
+    "event_name": "UFC Fight Night: Nurmagomedov vs. Song",
+    "event_date": "2026-08-29",
+    "category": "Bantamweight",
+    "fighter_1": "Song Yadong",
+    "fighter_2": "Umar Nurmagomedov",
+    "winner": "Song Yadong",
+    "method": "KO/TKOPunch",
+    "round": 2,
+    "time": "1:48",
+    "referee": "Marc Goddard",
+    "fight_url": "http://ufcstats.com/fight-details/228fefc6923c40a5",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 11,
+        "attempted": 23
+      },
+      "total_strikes": {
+        "landed": 24,
+        "attempted": 36
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 1,
+      "reversals": 0,
+      "control_time_seconds": 2,
+      "head": {
+        "landed": 5,
+        "attempted": 15
+      },
+      "body": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "leg": {
+        "landed": 3,
+        "attempted": 5
+      },
+      "distance": {
+        "landed": 9,
+        "attempted": 20
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 2,
+        "attempted": 3
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 13,
+        "attempted": 21
+      },
+      "total_strikes": {
+        "landed": 23,
+        "attempted": 32
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 3
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 118,
+      "head": {
+        "landed": 7,
+        "attempted": 14
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 6,
+        "attempted": 7
+      },
+      "distance": {
+        "landed": 13,
+        "attempted": 21
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 28,
+    "fighter_2_age": 30,
+    "fighter_1_height_cm": 173,
+    "fighter_1_reach_cm": 170,
+    "fighter_2_height_cm": 173,
+    "fighter_2_reach_cm": 175
+  },
+  {
+    "event_name": "UFC Fight Night: Nurmagomedov vs. Song",
+    "event_date": "2026-08-29",
+    "category": "Women's Strawweight",
+    "fighter_1": "Denise Gomes",
+    "fighter_2": "Yan Xiaonan",
+    "winner": "Denise Gomes",
+    "method": "KO/TKOElbow",
+    "round": 1,
+    "time": "4:49",
+    "referee": "Herb Dean",
+    "fight_url": "http://ufcstats.com/fight-details/73cb6c4e060c4ee9",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 18,
+        "attempted": 48
+      },
+      "total_strikes": {
+        "landed": 20,
+        "attempted": 50
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 12,
+        "attempted": 35
+      },
+      "body": {
+        "landed": 3,
+        "attempted": 5
+      },
+      "leg": {
+        "landed": 3,
+        "attempted": 8
+      },
+      "distance": {
+        "landed": 16,
+        "attempted": 45
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 2,
+        "attempted": 3
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 19,
+        "attempted": 59
+      },
+      "total_strikes": {
+        "landed": 19,
+        "attempted": 59
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 11,
+        "attempted": 41
+      },
+      "body": {
+        "landed": 3,
+        "attempted": 6
+      },
+      "leg": {
+        "landed": 5,
+        "attempted": 12
+      },
+      "distance": {
+        "landed": 18,
+        "attempted": 56
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 3
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 26,
+    "fighter_2_age": 37,
+    "fighter_1_height_cm": 157,
+    "fighter_1_reach_cm": 160,
+    "fighter_2_height_cm": 165,
+    "fighter_2_reach_cm": 160
+  },
+  {
+    "event_name": "UFC Fight Night: Nurmagomedov vs. Song",
+    "event_date": "2026-08-29",
+    "category": "Bantamweight",
+    "fighter_1": "Kai Asakura",
+    "fighter_2": "Aoriqileng",
+    "winner": "Kai Asakura",
+    "method": "KO/TKOPunches",
+    "round": 2,
+    "time": "0:34",
+    "referee": "Vitor Ribeiro",
+    "fight_url": "http://ufcstats.com/fight-details/4af8cb715ac0d459",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 27,
+        "attempted": 50
+      },
+      "total_strikes": {
+        "landed": 29,
+        "attempted": 52
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 39,
+      "head": {
+        "landed": 19,
+        "attempted": 38
+      },
+      "body": {
+        "landed": 5,
+        "attempted": 6
+      },
+      "leg": {
+        "landed": 3,
+        "attempted": 6
+      },
+      "distance": {
+        "landed": 21,
+        "attempted": 43
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 5,
+        "attempted": 6
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 14,
+        "attempted": 28
+      },
+      "total_strikes": {
+        "landed": 18,
+        "attempted": 32
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 5,
+        "attempted": 13
+      },
+      "body": {
+        "landed": 5,
+        "attempted": 9
+      },
+      "leg": {
+        "landed": 4,
+        "attempted": 6
+      },
+      "distance": {
+        "landed": 14,
+        "attempted": 28
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 32,
+    "fighter_2_age": 33,
+    "fighter_1_height_cm": 173,
+    "fighter_1_reach_cm": 175,
+    "fighter_2_height_cm": 170,
+    "fighter_2_reach_cm": 175
+  },
+  {
+    "event_name": "UFC Fight Night: Nurmagomedov vs. Song",
+    "event_date": "2026-08-29",
+    "category": "Flyweight",
+    "fighter_1": "Sumudaerji",
+    "fighter_2": "Alex Perez",
+    "winner": "Sumudaerji",
+    "method": "U-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Marc Goddard",
+    "fight_url": "http://ufcstats.com/fight-details/48a5d9c4592d2f2a",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 41,
+        "attempted": 80
+      },
+      "total_strikes": {
+        "landed": 85,
+        "attempted": 126
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 14,
+      "head": {
+        "landed": 18,
+        "attempted": 50
+      },
+      "body": {
+        "landed": 5,
+        "attempted": 9
+      },
+      "leg": {
+        "landed": 18,
+        "attempted": 21
+      },
+      "distance": {
+        "landed": 39,
+        "attempted": 78
+      },
+      "clinch": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 10,
+        "attempted": 43
+      },
+      "total_strikes": {
+        "landed": 52,
+        "attempted": 88
+      },
+      "takedowns": {
+        "landed": 4,
+        "attempted": 8
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 440,
+      "head": {
+        "landed": 6,
+        "attempted": 31
+      },
+      "body": {
+        "landed": 2,
+        "attempted": 7
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 5
+      },
+      "distance": {
+        "landed": 10,
+        "attempted": 41
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 2
+      }
+    },
+    "fighter_1_age": 30,
+    "fighter_2_age": 34,
+    "fighter_1_height_cm": 173,
+    "fighter_1_reach_cm": 183,
+    "fighter_2_height_cm": 168,
+    "fighter_2_reach_cm": 165
+  },
+  {
+    "event_name": "UFC Fight Night: Nurmagomedov vs. Song",
+    "event_date": "2026-08-29",
+    "category": "Light Heavyweight",
+    "fighter_1": "Liu Ce",
+    "fighter_2": "Levi Rodrigues Jr.",
+    "winner": "Liu Ce",
+    "method": "KO/TKOPunch",
+    "round": 1,
+    "time": "4:26",
+    "referee": "Herb Dean",
+    "fight_url": "http://ufcstats.com/fight-details/f894989058f2bb05",
+    "stats_fighter_1": {
+      "knockdowns": 2,
+      "sig_strikes": {
+        "landed": 59,
+        "attempted": 82
+      },
+      "total_strikes": {
+        "landed": 60,
+        "attempted": 83
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 4,
+      "head": {
+        "landed": 42,
+        "attempted": 62
+      },
+      "body": {
+        "landed": 9,
+        "attempted": 12
+      },
+      "leg": {
+        "landed": 8,
+        "attempted": 8
+      },
+      "distance": {
+        "landed": 54,
+        "attempted": 75
+      },
+      "clinch": {
+        "landed": 5,
+        "attempted": 7
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 28,
+        "attempted": 57
+      },
+      "total_strikes": {
+        "landed": 28,
+        "attempted": 57
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 44,
+      "head": {
+        "landed": 23,
+        "attempted": 51
+      },
+      "body": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 3,
+        "attempted": 4
+      },
+      "distance": {
+        "landed": 27,
+        "attempted": 56
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 29,
+    "fighter_2_age": 29,
+    "fighter_1_height_cm": 190,
+    "fighter_1_reach_cm": 196,
+    "fighter_2_height_cm": 183,
+    "fighter_2_reach_cm": 193
+  },
+  {
+    "event_name": "UFC Fight Night: Nurmagomedov vs. Song",
+    "event_date": "2026-08-29",
+    "category": "Flyweight",
+    "fighter_1": "Bilal Hasan",
+    "fighter_2": "Nilson Rojas",
+    "winner": "Bilal Hasan",
+    "method": "KO/TKOPunch",
+    "round": 2,
+    "time": "2:28",
+    "referee": "Vitor Ribeiro",
+    "fight_url": "http://ufcstats.com/fight-details/1fe768d599c159dc",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 53,
+        "attempted": 129
+      },
+      "total_strikes": {
+        "landed": 56,
+        "attempted": 137
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 63,
+      "head": {
+        "landed": 28,
+        "attempted": 81
+      },
+      "body": {
+        "landed": 20,
+        "attempted": 37
+      },
+      "leg": {
+        "landed": 5,
+        "attempted": 11
+      },
+      "distance": {
+        "landed": 38,
+        "attempted": 111
+      },
+      "clinch": {
+        "landed": 8,
+        "attempted": 10
+      },
+      "ground": {
+        "landed": 7,
+        "attempted": 8
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 33,
+        "attempted": 66
+      },
+      "total_strikes": {
+        "landed": 37,
+        "attempted": 70
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 3,
+      "head": {
+        "landed": 17,
+        "attempted": 46
+      },
+      "body": {
+        "landed": 13,
+        "attempted": 17
+      },
+      "leg": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "distance": {
+        "landed": 28,
+        "attempted": 59
+      },
+      "clinch": {
+        "landed": 5,
+        "attempted": 7
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 25,
+    "fighter_2_age": 27,
+    "fighter_1_height_cm": 170,
+    "fighter_1_reach_cm": 178,
+    "fighter_2_height_cm": 168,
+    "fighter_2_reach_cm": 160
+  },
+  {
+    "event_name": "UFC Fight Night: Nurmagomedov vs. Song",
+    "event_date": "2026-08-29",
+    "category": "Flyweight",
+    "fighter_1": "Andre Lima",
+    "fighter_2": "Namsrai Batbayar",
+    "winner": "Andre Lima",
+    "method": "SUBGuillotine Choke",
+    "round": 3,
+    "time": "3:03",
+    "referee": "Steve Perceval",
+    "fight_url": "http://ufcstats.com/fight-details/80f7f5405d5ffca0",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 47,
+        "attempted": 77
+      },
+      "total_strikes": {
+        "landed": 47,
+        "attempted": 77
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 1,
+      "reversals": 1,
+      "control_time_seconds": 13,
+      "head": {
+        "landed": 23,
+        "attempted": 49
+      },
+      "body": {
+        "landed": 9,
+        "attempted": 10
+      },
+      "leg": {
+        "landed": 15,
+        "attempted": 18
+      },
+      "distance": {
+        "landed": 47,
+        "attempted": 77
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 51,
+        "attempted": 141
+      },
+      "total_strikes": {
+        "landed": 51,
+        "attempted": 141
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 8,
+      "head": {
+        "landed": 24,
+        "attempted": 101
+      },
+      "body": {
+        "landed": 9,
+        "attempted": 12
+      },
+      "leg": {
+        "landed": 18,
+        "attempted": 28
+      },
+      "distance": {
+        "landed": 49,
+        "attempted": 139
+      },
+      "clinch": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 27,
+    "fighter_2_age": 25,
+    "fighter_1_height_cm": 170,
+    "fighter_1_reach_cm": 170,
+    "fighter_2_height_cm": 163,
+    "fighter_2_reach_cm": 173
+  },
+  {
+    "event_name": "UFC Fight Night: Nurmagomedov vs. Song",
+    "event_date": "2026-08-29",
+    "category": "Flyweight",
+    "fighter_1": "Rei Tsuruya",
+    "fighter_2": "Kevin Borjas",
+    "winner": "Rei Tsuruya",
+    "method": "SUBRear Naked Choke",
+    "round": 1,
+    "time": "4:14",
+    "referee": "Matt Wynne",
+    "fight_url": "http://ufcstats.com/fight-details/ec5281a72f09d8ac",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 39,
+        "attempted": 67
+      },
+      "total_strikes": {
+        "landed": 71,
+        "attempted": 101
+      },
+      "takedowns": {
+        "landed": 2,
+        "attempted": 4
+      },
+      "sub_attempts": 1,
+      "reversals": 0,
+      "control_time_seconds": 238,
+      "head": {
+        "landed": 39,
+        "attempted": 67
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 39,
+        "attempted": 67
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "total_strikes": {
+        "landed": 1,
+        "attempted": 3
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 24,
+    "fighter_2_age": 28,
+    "fighter_1_height_cm": 168,
+    "fighter_1_reach_cm": 173,
+    "fighter_2_height_cm": 165,
+    "fighter_2_reach_cm": 173
+  },
+  {
+    "event_name": "UFC Fight Night: Nurmagomedov vs. Song",
+    "event_date": "2026-08-29",
+    "category": "Featherweight",
+    "fighter_1": "Sean Woodson",
+    "fighter_2": "Jack Jenkins",
+    "winner": "Sean Woodson",
+    "method": "S-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Marc Goddard",
+    "fight_url": "http://ufcstats.com/fight-details/8a980234dab7ae43",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 58,
+        "attempted": 129
+      },
+      "total_strikes": {
+        "landed": 130,
+        "attempted": 204
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 71,
+      "head": {
+        "landed": 33,
+        "attempted": 88
+      },
+      "body": {
+        "landed": 10,
+        "attempted": 21
+      },
+      "leg": {
+        "landed": 15,
+        "attempted": 20
+      },
+      "distance": {
+        "landed": 52,
+        "attempted": 121
+      },
+      "clinch": {
+        "landed": 6,
+        "attempted": 8
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 43,
+        "attempted": 95
+      },
+      "total_strikes": {
+        "landed": 72,
+        "attempted": 130
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 5
+      },
+      "sub_attempts": 1,
+      "reversals": 1,
+      "control_time_seconds": 287,
+      "head": {
+        "landed": 18,
+        "attempted": 62
+      },
+      "body": {
+        "landed": 9,
+        "attempted": 9
+      },
+      "leg": {
+        "landed": 16,
+        "attempted": 24
+      },
+      "distance": {
+        "landed": 32,
+        "attempted": 80
+      },
+      "clinch": {
+        "landed": 9,
+        "attempted": 13
+      },
+      "ground": {
+        "landed": 2,
+        "attempted": 2
+      }
+    },
+    "fighter_1_age": 34,
+    "fighter_2_age": 32,
+    "fighter_1_height_cm": 188,
+    "fighter_1_reach_cm": 198,
+    "fighter_2_height_cm": 170,
+    "fighter_2_reach_cm": 173
+  },
+  {
+    "event_name": "UFC Fight Night: Nurmagomedov vs. Song",
+    "event_date": "2026-08-29",
+    "category": "Bantamweight",
+    "fighter_1": "Francesco Nuzzi",
+    "fighter_2": "Xiao Long",
+    "winner": "Francesco Nuzzi",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "1:00",
+    "referee": "Herb Dean",
+    "fight_url": "http://ufcstats.com/fight-details/636867bbc9f96739",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 11,
+        "attempted": 20
+      },
+      "total_strikes": {
+        "landed": 12,
+        "attempted": 21
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 2,
+      "head": {
+        "landed": 9,
+        "attempted": 17
+      },
+      "body": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 6,
+        "attempted": 13
+      },
+      "clinch": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "ground": {
+        "landed": 2,
+        "attempted": 4
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 4,
+        "attempted": 7
+      },
+      "total_strikes": {
+        "landed": 4,
+        "attempted": 7
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "body": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 4
+      },
+      "distance": {
+        "landed": 4,
+        "attempted": 7
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 30,
+    "fighter_2_age": 28,
+    "fighter_1_height_cm": 168,
+    "fighter_1_reach_cm": 180,
+    "fighter_2_height_cm": 173,
+    "fighter_2_reach_cm": 178
+  },
+  {
+    "event_name": "UFC Fight Night: Nurmagomedov vs. Song",
+    "event_date": "2026-08-29",
+    "category": "Bantamweight",
+    "fighter_1": "Hector Santiago",
+    "fighter_2": "Lawrence Lui",
+    "winner": "Hector Santiago",
+    "method": "KO/TKOPunch",
+    "round": 2,
+    "time": "0:53",
+    "referee": "Vitor Ribeiro",
+    "fight_url": "http://ufcstats.com/fight-details/ab5922e10699e869",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 30,
+        "attempted": 111
+      },
+      "total_strikes": {
+        "landed": 32,
+        "attempted": 113
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 7,
+      "head": {
+        "landed": 24,
+        "attempted": 99
+      },
+      "body": {
+        "landed": 6,
+        "attempted": 12
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 26,
+        "attempted": 105
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 4,
+        "attempted": 6
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 32,
+        "attempted": 59
+      },
+      "total_strikes": {
+        "landed": 32,
+        "attempted": 59
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 1,
+      "head": {
+        "landed": 20,
+        "attempted": 42
+      },
+      "body": {
+        "landed": 3,
+        "attempted": 7
+      },
+      "leg": {
+        "landed": 9,
+        "attempted": 10
+      },
+      "distance": {
+        "landed": 31,
+        "attempted": 57
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 33,
+    "fighter_2_age": 30,
+    "fighter_1_height_cm": 165,
+    "fighter_1_reach_cm": 173,
+    "fighter_2_height_cm": 170,
+    "fighter_2_reach_cm": 183
+  },
+  {
+    "event_name": "UFC Fight Night: Nurmagomedov vs. Song",
+    "event_date": "2026-08-29",
+    "category": "Women's Strawweight",
+    "fighter_1": "Julia Polastri",
+    "fighter_2": "Xiong Jingnan",
+    "winner": "Julia Polastri",
+    "method": "KO/TKOKick",
+    "round": 1,
+    "time": "3:06",
+    "referee": "Steve Perceval",
+    "fight_url": "http://ufcstats.com/fight-details/6206c62fc8f0b71b",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 16,
+        "attempted": 25
+      },
+      "total_strikes": {
+        "landed": 16,
+        "attempted": 25
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 9,
+        "attempted": 17
+      },
+      "body": {
+        "landed": 6,
+        "attempted": 6
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 13,
+        "attempted": 21
+      },
+      "clinch": {
+        "landed": 3,
+        "attempted": 4
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 16,
+        "attempted": 42
+      },
+      "total_strikes": {
+        "landed": 16,
+        "attempted": 44
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 7,
+        "attempted": 28
+      },
+      "body": {
+        "landed": 5,
+        "attempted": 10
+      },
+      "leg": {
+        "landed": 4,
+        "attempted": 4
+      },
+      "distance": {
+        "landed": 12,
+        "attempted": 37
+      },
+      "clinch": {
+        "landed": 4,
+        "attempted": 5
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 28,
+    "fighter_2_age": 38,
+    "fighter_1_height_cm": 157,
+    "fighter_1_reach_cm": 160,
+    "fighter_2_height_cm": 163,
+    "fighter_2_reach_cm": 160
+  },
+  {
+    "event_name": "UFC Fight Night: Nurmagomedov vs. Song",
+    "event_date": "2026-08-29",
+    "category": "Welterweight",
+    "fighter_1": "Cam Nelson",
+    "fighter_2": "Ding Meng",
+    "winner": "Cam Nelson",
+    "method": "U-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Matt Wynne",
+    "fight_url": "http://ufcstats.com/fight-details/6cd4457edf4089f9",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 41,
+        "attempted": 70
+      },
+      "total_strikes": {
+        "landed": 47,
+        "attempted": 80
+      },
+      "takedowns": {
+        "landed": 4,
+        "attempted": 11
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 394,
+      "head": {
+        "landed": 32,
+        "attempted": 57
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 8,
+        "attempted": 11
+      },
+      "distance": {
+        "landed": 15,
+        "attempted": 30
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "ground": {
+        "landed": 25,
+        "attempted": 38
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 39,
+        "attempted": 79
+      },
+      "total_strikes": {
+        "landed": 72,
+        "attempted": 116
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 70,
+      "head": {
+        "landed": 12,
+        "attempted": 41
+      },
+      "body": {
+        "landed": 13,
+        "attempted": 21
+      },
+      "leg": {
+        "landed": 14,
+        "attempted": 17
+      },
+      "distance": {
+        "landed": 34,
+        "attempted": 74
+      },
+      "clinch": {
+        "landed": 5,
+        "attempted": 5
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 28,
+    "fighter_2_age": 31,
+    "fighter_1_height_cm": 180,
+    "fighter_1_reach_cm": 183,
+    "fighter_2_height_cm": 188,
+    "fighter_2_reach_cm": 185
   }
 ]
