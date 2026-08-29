@@ -109,6 +109,7 @@ def build_history(target: str, fights: list):
                 "opponent": opp_name,
                 "result": result,
                 "method": fight.get("method", ""),
+                "finish_type": finish_type,
                 "round": fight.get("round", 0),
                 "time": fight.get("time", ""),
                 "winner": fight.get("winner", ""),
@@ -217,6 +218,8 @@ def print_table(history: list, target: str):
     print("-" * 140)
 
     wins = losses = draws = ncs = 0
+    wins_by_ko = wins_by_sub = wins_by_dec = 0
+    losses_by_ko = losses_by_sub = losses_by_dec = 0
     for i, h in enumerate(history, 1):
         event = h["event_name"][:30]
         rival = h["opponent"][:22]
@@ -224,10 +227,23 @@ def print_table(history: list, target: str):
         delta_str = f"{h['delta']:+.1f}"
         opp_delta_str = f"{h['opp_delta']:+.1f}"
         res = h["result"]
+        ft = h.get("finish_type")
         if res == "W":
             wins += 1
+            if ft == "KO":
+                wins_by_ko += 1
+            elif ft == "SUB":
+                wins_by_sub += 1
+            elif ft == "DEC":
+                wins_by_dec += 1
         elif res == "L":
             losses += 1
+            if ft == "KO":
+                losses_by_ko += 1
+            elif ft == "SUB":
+                losses_by_sub += 1
+            elif ft == "DEC":
+                losses_by_dec += 1
         elif res == "Draw":
             draws += 1
         elif res == "No Contest":
@@ -243,6 +259,8 @@ def print_table(history: list, target: str):
     print("-" * 140)
     last = history[-1]
     print(f"Peleas: {len(history)}  |  W-L-D/NC: {wins}-{losses}-{draws+ ncs} (D={draws} NC={ncs})")
+    print(f"Victorias por metodo:  KO/TKO: {wins_by_ko}  |  SUB: {wins_by_sub}  |  DEC: {wins_by_dec}  (total W: {wins})")
+    print(f"Derrotas por metodo:   KO/TKO: {losses_by_ko}  |  SUB: {losses_by_sub}  |  DEC: {losses_by_dec}  (total L: {losses})")
     print(f"ELO actual: {last['elo_after']:.1f}  |  Pico: {max(h['elo_after'] for h in history):.1f}  |  Valle: {min(h['elo_after'] for h in history):.1f}")
     streak = 0
     for h in reversed(history):
