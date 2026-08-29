@@ -2,3 +2,4 @@
 __pycache__
 src/ufc_predictor.egg-info/
 *.egg-info/
+models/
