@@ -81,6 +81,7 @@ def build_parser():
     p_fight.add_argument("--rounds", type=int, choices=[3, 5], default=None, help="scheduled rounds (3 or 5)")
     p_fight.add_argument("--json", action="store_true", help="output JSON instead of table")
     p_fight.add_argument("--explain", action="store_true", help="include SHAP explanation (if available)")
+    p_fight.add_argument("--ignore-age", action="store_true", help="ignore fighter age (age_a=age_b=30.0, age_diff=0)")
     p_fight.set_defaults(func=_handle_predict_fight)
 
     p_event = pred_sub.add_parser("event", help="predict all fights for an event by name")
