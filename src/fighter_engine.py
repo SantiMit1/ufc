@@ -603,11 +603,17 @@ def build_historical_context(fights: list, fighters_cache: dict, before: datetim
     return states, priors
 
 
+NEUTRAL_AGE = 30.0
+
+
 def build_prediction_row(f1: str, f2: str, fighter_states: dict,
-                         fighters_cache: dict, current_date: datetime,
-                         category: str, priors: dict | None,
-                         feature_meta: dict) -> pd.DataFrame:
-    """Build the encoded feature frame (X) for a fight with order (f1, f2)."""
+                          fighters_cache: dict, current_date: datetime,
+                          category: str, priors: dict | None,
+                          feature_meta: dict, ignore_age: bool = False) -> pd.DataFrame:
+    """Build the encoded feature frame (X) for a fight with order (f1, f2).
+
+    When ``ignore_age`` is True, age features are neutralized (age_a=age_b=NEUTRAL_AGE, age_diff=0).
+    """
     def get_phys(name, key):
         v = fighters_cache.get(name, {}).get(key)
         return float(v) if v is not None else np.nan
@@ -627,14 +633,20 @@ def build_prediction_row(f1: str, f2: str, fighter_states: dict,
                                      composite_params=composite_params)
 
     row = {}
-    row["age_a"] = feat1["age"]
-    row["age_b"] = feat2["age"]
+    if ignore_age:
+        row["age_a"] = NEUTRAL_AGE
+        row["age_b"] = NEUTRAL_AGE
+    else:
+        row["age_a"] = feat1["age"]
+        row["age_b"] = feat2["age"]
     row["stance_a"] = feat1["stance"]
     row["stance_b"] = feat2["stance"]
     row["category"] = category
     row["height_diff"] = safe_sub(height1, height2)
     row["reach_diff"] = safe_sub(reach1, reach2)
     row.update(compute_feature_diffs(feat1, feat2))
+    if ignore_age:
+        row["age_diff"] = 0.0
 
     raw_cols = feature_meta["raw_feature_cols"]
     X_raw = pd.DataFrame([row])[raw_cols]
@@ -656,21 +668,22 @@ def build_prediction_row(f1: str, f2: str, fighter_states: dict,
 
 
 def predict_fight(fighter_a: str, fighter_b: str, category: str,
-                  fighter_states: dict, fighters_cache: dict,
-                  model, feature_meta: dict, current_date: datetime,
-                  priors: dict | None = None) -> tuple:
+                   fighter_states: dict, fighters_cache: dict,
+                   model, feature_meta: dict, current_date: datetime,
+                   priors: dict | None = None, ignore_age: bool = False) -> tuple:
     """Predict a single fight and return (prob_a, prob_b) raw probabilities.
 
     Predicts in both orderings and averages to remove order-dependent bias.
     Callers are responsible for rounding/formatting for display.
+    When ``ignore_age`` is True, age features are neutralized.
     """
     prob_a_forward = model.predict_proba(
         build_prediction_row(fighter_a, fighter_b, fighter_states, fighters_cache,
-                             current_date, category, priors, feature_meta)
+                             current_date, category, priors, feature_meta, ignore_age=ignore_age)
     )[0, 1]
     prob_b_forward = model.predict_proba(
         build_prediction_row(fighter_b, fighter_a, fighter_states, fighters_cache,
-                             current_date, category, priors, feature_meta)
+                             current_date, category, priors, feature_meta, ignore_age=ignore_age)
     )[0, 1]
     prob_a = (prob_a_forward + (1.0 - prob_b_forward)) / 2.0
     return prob_a, 1.0 - prob_a

@@ -186,6 +186,7 @@ def handle_fight(args):
         # Check debut
         # For table we need current date
         current_date = datetime.now()
+        ignore_age = getattr(args, "ignore_age", False)
 
         # SHAP setup if requested
         shap_explainer = None
@@ -203,7 +204,7 @@ def handle_fight(args):
                 print(f"warning: SHAP not available: {e}", file=sys.stderr)
 
         def predict_order(f1, f2):
-            X_enc = build_prediction_row(f1, f2, fighter_states, cache, current_date, category, priors, feature_meta)
+            X_enc = build_prediction_row(f1, f2, fighter_states, cache, current_date, category, priors, feature_meta, ignore_age=ignore_age)
             prob = model.predict_proba(X_enc)[0, 1]
             sv = None
             if shap_explainer is not None:
@@ -230,6 +231,7 @@ def handle_fight(args):
                 "prob_a": round(float(prob_a), 6),
                 "prob_b": round(float(prob_b), 6),
                 "favorite": fighter_a if prob_a >= prob_b else fighter_b,
+                "ignore_age": bool(ignore_age),
             }
             if args.explain and shap_a is not None:
                 feat_names = feature_meta["feature_cols_final"]
@@ -245,6 +247,8 @@ def handle_fight(args):
         print(f"  {fighter_a}  vs  {fighter_b}")
         print(f"  {'='*56}")
         print(f"  Weight class: {category}  Rounds: {max_rounds}")
+        if ignore_age:
+            print(f"  Age: ignored (--ignore-age)")
         favorite, underdog = (fighter_a, fighter_b) if prob_a >= prob_b else (fighter_b, fighter_a)
         fav_prob, dog_prob = (prob_a, prob_b) if prob_a >= prob_b else (prob_b, prob_a)
         print(f"\n  PREDICTION")
@@ -407,6 +411,9 @@ def handle_fight(args):
     print(f"  {fighter_a}  vs  {fighter_b}")
     print(f"  {'='*56}")
     print(f"  Weight class: {category}")
+    _ignore_age_interactive = getattr(args, "ignore_age", False)
+    if _ignore_age_interactive:
+        print(f"  Age: ignored (--ignore-age)")
 
     current_date = datetime.now()
 
@@ -431,7 +438,7 @@ def handle_fight(args):
         return float(v) if v is not None else np.nan
 
     def predict_order(f1, f2):
-        X_enc = build_prediction_row(f1, f2, fighter_states, cache, current_date, category, priors, feature_meta)
+        X_enc = build_prediction_row(f1, f2, fighter_states, cache, current_date, category, priors, feature_meta, ignore_age=_ignore_age_interactive)
         prob = model.predict_proba(X_enc)[0, 1]
         shap_vals = None
         if shap_explainer is not None:
