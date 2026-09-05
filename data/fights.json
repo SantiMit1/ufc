@@ -909280,5 +909280,1447 @@
     "fighter_1_reach_cm": 183,
     "fighter_2_height_cm": 188,
     "fighter_2_reach_cm": 185
+  },
+  {
+    "event_name": "UFC Fight Night: Hooker vs. Parnasse",
+    "event_date": "2026-09-05",
+    "category": "Lightweight",
+    "fighter_1": "Salahdine Parnasse",
+    "fighter_2": "Dan Hooker",
+    "winner": "Salahdine Parnasse",
+    "method": "KO/TKOPunch",
+    "round": 1,
+    "time": "2:35",
+    "referee": "Marc Goddard",
+    "fight_url": "http://ufcstats.com/fight-details/bba8c0ab999b9e6f",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 12,
+        "attempted": 17
+      },
+      "total_strikes": {
+        "landed": 12,
+        "attempted": 17
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 2,
+      "head": {
+        "landed": 7,
+        "attempted": 12
+      },
+      "body": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "distance": {
+        "landed": 9,
+        "attempted": 14
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 3,
+        "attempted": 3
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 14,
+        "attempted": 31
+      },
+      "total_strikes": {
+        "landed": 14,
+        "attempted": 31
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 9
+      },
+      "body": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "leg": {
+        "landed": 12,
+        "attempted": 19
+      },
+      "distance": {
+        "landed": 14,
+        "attempted": 31
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 28,
+    "fighter_2_age": 36,
+    "fighter_1_height_cm": 178,
+    "fighter_1_reach_cm": 180,
+    "fighter_2_height_cm": 183,
+    "fighter_2_reach_cm": 190
+  },
+  {
+    "event_name": "UFC Fight Night: Hooker vs. Parnasse",
+    "event_date": "2026-09-05",
+    "category": "Lightweight",
+    "fighter_1": "Axel Sola",
+    "fighter_2": "Fares Ziam",
+    "winner": "Axel Sola",
+    "method": "KO/TKOPunch",
+    "round": 1,
+    "time": "1:40",
+    "referee": "Herb Dean",
+    "fight_url": "http://ufcstats.com/fight-details/55f698e5c4ed2c47",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 9,
+        "attempted": 13
+      },
+      "total_strikes": {
+        "landed": 9,
+        "attempted": 13
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 2,
+      "head": {
+        "landed": 7,
+        "attempted": 10
+      },
+      "body": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 6,
+        "attempted": 10
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 3,
+        "attempted": 3
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 7,
+        "attempted": 13
+      },
+      "total_strikes": {
+        "landed": 7,
+        "attempted": 13
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 5
+      },
+      "body": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 5,
+        "attempted": 6
+      },
+      "distance": {
+        "landed": 7,
+        "attempted": 13
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 28,
+    "fighter_2_age": 29,
+    "fighter_1_height_cm": 183,
+    "fighter_1_reach_cm": 188,
+    "fighter_2_height_cm": 185,
+    "fighter_2_reach_cm": 190
+  },
+  {
+    "event_name": "UFC Fight Night: Hooker vs. Parnasse",
+    "event_date": "2026-09-05",
+    "category": "Middleweight",
+    "fighter_1": "Michael Page",
+    "fighter_2": "Nursulton Ruziboev",
+    "winner": "Michael Page",
+    "method": "U-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Jason Herzog",
+    "fight_url": "http://ufcstats.com/fight-details/c23197c7e4f2fd9d",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 12,
+        "attempted": 28
+      },
+      "total_strikes": {
+        "landed": 49,
+        "attempted": 66
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "sub_attempts": 1,
+      "reversals": 0,
+      "control_time_seconds": 66,
+      "head": {
+        "landed": 7,
+        "attempted": 19
+      },
+      "body": {
+        "landed": 2,
+        "attempted": 5
+      },
+      "leg": {
+        "landed": 3,
+        "attempted": 4
+      },
+      "distance": {
+        "landed": 11,
+        "attempted": 27
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 8,
+        "attempted": 29
+      },
+      "total_strikes": {
+        "landed": 21,
+        "attempted": 42
+      },
+      "takedowns": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 328,
+      "head": {
+        "landed": 5,
+        "attempted": 26
+      },
+      "body": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 3,
+        "attempted": 23
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "ground": {
+        "landed": 4,
+        "attempted": 4
+      }
+    },
+    "fighter_1_age": 39,
+    "fighter_2_age": 32,
+    "fighter_1_height_cm": 190,
+    "fighter_1_reach_cm": 201,
+    "fighter_2_height_cm": 196,
+    "fighter_2_reach_cm": 193
+  },
+  {
+    "event_name": "UFC Fight Night: Hooker vs. Parnasse",
+    "event_date": "2026-09-05",
+    "category": "Welterweight",
+    "fighter_1": "Daniil Donchenko",
+    "fighter_2": "Punahele Soriano",
+    "winner": "Daniil Donchenko",
+    "method": "U-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Marc Goddard",
+    "fight_url": "http://ufcstats.com/fight-details/8300a095a4908ab1",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 83,
+        "attempted": 137
+      },
+      "total_strikes": {
+        "landed": 120,
+        "attempted": 180
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 41,
+      "head": {
+        "landed": 46,
+        "attempted": 94
+      },
+      "body": {
+        "landed": 21,
+        "attempted": 27
+      },
+      "leg": {
+        "landed": 16,
+        "attempted": 16
+      },
+      "distance": {
+        "landed": 64,
+        "attempted": 116
+      },
+      "clinch": {
+        "landed": 11,
+        "attempted": 13
+      },
+      "ground": {
+        "landed": 8,
+        "attempted": 8
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 15,
+        "attempted": 84
+      },
+      "total_strikes": {
+        "landed": 43,
+        "attempted": 115
+      },
+      "takedowns": {
+        "landed": 4,
+        "attempted": 11
+      },
+      "sub_attempts": 1,
+      "reversals": 0,
+      "control_time_seconds": 212,
+      "head": {
+        "landed": 12,
+        "attempted": 68
+      },
+      "body": {
+        "landed": 3,
+        "attempted": 16
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 11,
+        "attempted": 78
+      },
+      "clinch": {
+        "landed": 4,
+        "attempted": 6
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 25,
+    "fighter_2_age": 33,
+    "fighter_1_height_cm": 180,
+    "fighter_1_reach_cm": 180,
+    "fighter_2_height_cm": 180,
+    "fighter_2_reach_cm": 183
+  },
+  {
+    "event_name": "UFC Fight Night: Hooker vs. Parnasse",
+    "event_date": "2026-09-05",
+    "category": "Featherweight",
+    "fighter_1": "Kurtis Campbell",
+    "fighter_2": "Trevor Peek",
+    "winner": "Kurtis Campbell",
+    "method": "SUBRear Naked Choke",
+    "round": 3,
+    "time": "3:07",
+    "referee": "Herb Dean",
+    "fight_url": "http://ufcstats.com/fight-details/cbf9063d23513661",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 44,
+        "attempted": 61
+      },
+      "total_strikes": {
+        "landed": 79,
+        "attempted": 108
+      },
+      "takedowns": {
+        "landed": 13,
+        "attempted": 24
+      },
+      "sub_attempts": 1,
+      "reversals": 0,
+      "control_time_seconds": 620,
+      "head": {
+        "landed": 36,
+        "attempted": 48
+      },
+      "body": {
+        "landed": 7,
+        "attempted": 11
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 17,
+        "attempted": 28
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 3
+      },
+      "ground": {
+        "landed": 26,
+        "attempted": 30
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 12,
+        "attempted": 35
+      },
+      "total_strikes": {
+        "landed": 17,
+        "attempted": 40
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 5,
+        "attempted": 25
+      },
+      "body": {
+        "landed": 4,
+        "attempted": 4
+      },
+      "leg": {
+        "landed": 3,
+        "attempted": 6
+      },
+      "distance": {
+        "landed": 10,
+        "attempted": 32
+      },
+      "clinch": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 24,
+    "fighter_2_age": 31,
+    "fighter_1_height_cm": 175,
+    "fighter_1_reach_cm": 183,
+    "fighter_2_height_cm": 175,
+    "fighter_2_reach_cm": 178
+  },
+  {
+    "event_name": "UFC Fight Night: Hooker vs. Parnasse",
+    "event_date": "2026-09-05",
+    "category": "Featherweight",
+    "fighter_1": "Losene Keita",
+    "fighter_2": "Muhammad Naimov",
+    "winner": "Losene Keita",
+    "method": "KO/TKOPunch",
+    "round": 1,
+    "time": "2:54",
+    "referee": "Jason Herzog",
+    "fight_url": "http://ufcstats.com/fight-details/b90b099c1f47bb93",
+    "stats_fighter_1": {
+      "knockdowns": 2,
+      "sig_strikes": {
+        "landed": 18,
+        "attempted": 30
+      },
+      "total_strikes": {
+        "landed": 19,
+        "attempted": 31
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 20,
+      "head": {
+        "landed": 16,
+        "attempted": 27
+      },
+      "body": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 10,
+        "attempted": 21
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 8,
+        "attempted": 9
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 4,
+        "attempted": 24
+      },
+      "total_strikes": {
+        "landed": 4,
+        "attempted": 24
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 2,
+        "attempted": 21
+      },
+      "body": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 4,
+        "attempted": 24
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 28,
+    "fighter_2_age": 32,
+    "fighter_1_height_cm": 170,
+    "fighter_1_reach_cm": 183,
+    "fighter_2_height_cm": 175,
+    "fighter_2_reach_cm": 178
+  },
+  {
+    "event_name": "UFC Fight Night: Hooker vs. Parnasse",
+    "event_date": "2026-09-05",
+    "category": "Featherweight",
+    "fighter_1": "Felipe Lima",
+    "fighter_2": "Morgan Charriere",
+    "winner": "Felipe Lima",
+    "method": "U-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Herb Dean",
+    "fight_url": "http://ufcstats.com/fight-details/ad17c34e0cc7d702",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 112,
+        "attempted": 218
+      },
+      "total_strikes": {
+        "landed": 115,
+        "attempted": 221
+      },
+      "takedowns": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 13,
+      "head": {
+        "landed": 82,
+        "attempted": 174
+      },
+      "body": {
+        "landed": 18,
+        "attempted": 25
+      },
+      "leg": {
+        "landed": 12,
+        "attempted": 19
+      },
+      "distance": {
+        "landed": 107,
+        "attempted": 212
+      },
+      "clinch": {
+        "landed": 5,
+        "attempted": 6
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 36,
+        "attempted": 146
+      },
+      "total_strikes": {
+        "landed": 38,
+        "attempted": 148
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 3
+      },
+      "sub_attempts": 1,
+      "reversals": 0,
+      "control_time_seconds": 31,
+      "head": {
+        "landed": 24,
+        "attempted": 122
+      },
+      "body": {
+        "landed": 11,
+        "attempted": 22
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 36,
+        "attempted": 144
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 28,
+    "fighter_2_age": 30,
+    "fighter_1_height_cm": 168,
+    "fighter_1_reach_cm": 173,
+    "fighter_2_height_cm": 173,
+    "fighter_2_reach_cm": 175
+  },
+  {
+    "event_name": "UFC Fight Night: Hooker vs. Parnasse",
+    "event_date": "2026-09-05",
+    "category": "Heavyweight",
+    "fighter_1": "Mario Pinto",
+    "fighter_2": "Ryan Spann",
+    "winner": "Mario Pinto",
+    "method": "KO/TKOPunches",
+    "round": 2,
+    "time": "0:55",
+    "referee": "Marc Goddard",
+    "fight_url": "http://ufcstats.com/fight-details/b1c6ea7d7d413bd5",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 48,
+        "attempted": 67
+      },
+      "total_strikes": {
+        "landed": 114,
+        "attempted": 137
+      },
+      "takedowns": {
+        "landed": 6,
+        "attempted": 7
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 213,
+      "head": {
+        "landed": 47,
+        "attempted": 66
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 10,
+        "attempted": 24
+      },
+      "clinch": {
+        "landed": 6,
+        "attempted": 9
+      },
+      "ground": {
+        "landed": 32,
+        "attempted": 34
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 13,
+        "attempted": 34
+      },
+      "total_strikes": {
+        "landed": 16,
+        "attempted": 37
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 1,
+      "reversals": 0,
+      "control_time_seconds": 20,
+      "head": {
+        "landed": 10,
+        "attempted": 31
+      },
+      "body": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 6,
+        "attempted": 24
+      },
+      "clinch": {
+        "landed": 7,
+        "attempted": 10
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 28,
+    "fighter_2_age": 35,
+    "fighter_1_height_cm": 196,
+    "fighter_1_reach_cm": 201,
+    "fighter_2_height_cm": 196,
+    "fighter_2_reach_cm": 201
+  },
+  {
+    "event_name": "UFC Fight Night: Hooker vs. Parnasse",
+    "event_date": "2026-09-05",
+    "category": "Light Heavyweight",
+    "fighter_1": "Modestas Bukauskas",
+    "fighter_2": "Oumar Sy",
+    "winner": "Modestas Bukauskas",
+    "method": "KO/TKOKnee",
+    "round": 2,
+    "time": "3:57",
+    "referee": "Jason Herzog",
+    "fight_url": "http://ufcstats.com/fight-details/94d411112ebe8fad",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 22,
+        "attempted": 46
+      },
+      "total_strikes": {
+        "landed": 29,
+        "attempted": 56
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 95,
+      "head": {
+        "landed": 22,
+        "attempted": 46
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 19
+      },
+      "clinch": {
+        "landed": 6,
+        "attempted": 8
+      },
+      "ground": {
+        "landed": 15,
+        "attempted": 19
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 39,
+        "attempted": 59
+      },
+      "total_strikes": {
+        "landed": 48,
+        "attempted": 71
+      },
+      "takedowns": {
+        "landed": 3,
+        "attempted": 8
+      },
+      "sub_attempts": 1,
+      "reversals": 0,
+      "control_time_seconds": 308,
+      "head": {
+        "landed": 27,
+        "attempted": 45
+      },
+      "body": {
+        "landed": 5,
+        "attempted": 7
+      },
+      "leg": {
+        "landed": 7,
+        "attempted": 7
+      },
+      "distance": {
+        "landed": 11,
+        "attempted": 23
+      },
+      "clinch": {
+        "landed": 3,
+        "attempted": 4
+      },
+      "ground": {
+        "landed": 25,
+        "attempted": 32
+      }
+    },
+    "fighter_1_age": 32,
+    "fighter_2_age": 30,
+    "fighter_1_height_cm": 190,
+    "fighter_1_reach_cm": 193,
+    "fighter_2_height_cm": 193,
+    "fighter_2_reach_cm": 211
+  },
+  {
+    "event_name": "UFC Fight Night: Hooker vs. Parnasse",
+    "event_date": "2026-09-05",
+    "category": "Featherweight",
+    "fighter_1": "Pavel Andrusca",
+    "fighter_2": "Nathaniel Wood",
+    "winner": "Pavel Andrusca",
+    "method": "U-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Herb Dean",
+    "fight_url": "http://ufcstats.com/fight-details/ac3af13ffe39b1d8",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 50,
+        "attempted": 105
+      },
+      "total_strikes": {
+        "landed": 69,
+        "attempted": 131
+      },
+      "takedowns": {
+        "landed": 4,
+        "attempted": 19
+      },
+      "sub_attempts": 1,
+      "reversals": 0,
+      "control_time_seconds": 366,
+      "head": {
+        "landed": 44,
+        "attempted": 92
+      },
+      "body": {
+        "landed": 4,
+        "attempted": 11
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 33,
+        "attempted": 82
+      },
+      "clinch": {
+        "landed": 9,
+        "attempted": 13
+      },
+      "ground": {
+        "landed": 8,
+        "attempted": 10
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 28,
+        "attempted": 86
+      },
+      "total_strikes": {
+        "landed": 57,
+        "attempted": 118
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 9,
+      "head": {
+        "landed": 17,
+        "attempted": 63
+      },
+      "body": {
+        "landed": 7,
+        "attempted": 13
+      },
+      "leg": {
+        "landed": 4,
+        "attempted": 10
+      },
+      "distance": {
+        "landed": 26,
+        "attempted": 79
+      },
+      "clinch": {
+        "landed": 2,
+        "attempted": 6
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 1
+      }
+    },
+    "fighter_1_age": 24,
+    "fighter_2_age": 33,
+    "fighter_1_height_cm": 170,
+    "fighter_1_reach_cm": 168,
+    "fighter_2_height_cm": 168,
+    "fighter_2_reach_cm": 175
+  },
+  {
+    "event_name": "UFC Fight Night: Hooker vs. Parnasse",
+    "event_date": "2026-09-05",
+    "category": "Flyweight",
+    "fighter_1": "Fabia Sintes",
+    "fighter_2": "Michael Aljarouj",
+    "winner": "Fabia Sintes",
+    "method": "U-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Marc Goddard",
+    "fight_url": "http://ufcstats.com/fight-details/1f973e21581b082a",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 28,
+        "attempted": 49
+      },
+      "total_strikes": {
+        "landed": 61,
+        "attempted": 88
+      },
+      "takedowns": {
+        "landed": 3,
+        "attempted": 8
+      },
+      "sub_attempts": 3,
+      "reversals": 0,
+      "control_time_seconds": 379,
+      "head": {
+        "landed": 15,
+        "attempted": 32
+      },
+      "body": {
+        "landed": 11,
+        "attempted": 12
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 5
+      },
+      "distance": {
+        "landed": 10,
+        "attempted": 26
+      },
+      "clinch": {
+        "landed": 6,
+        "attempted": 6
+      },
+      "ground": {
+        "landed": 12,
+        "attempted": 17
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 10,
+        "attempted": 32
+      },
+      "total_strikes": {
+        "landed": 70,
+        "attempted": 99
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 3
+      },
+      "sub_attempts": 1,
+      "reversals": 1,
+      "control_time_seconds": 264,
+      "head": {
+        "landed": 5,
+        "attempted": 23
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 4,
+        "attempted": 7
+      },
+      "distance": {
+        "landed": 5,
+        "attempted": 24
+      },
+      "clinch": {
+        "landed": 2,
+        "attempted": 4
+      },
+      "ground": {
+        "landed": 3,
+        "attempted": 4
+      }
+    },
+    "fighter_1_age": 32,
+    "fighter_2_age": 29,
+    "fighter_1_height_cm": 170,
+    "fighter_1_reach_cm": 165,
+    "fighter_2_height_cm": 165,
+    "fighter_2_reach_cm": 168
+  },
+  {
+    "event_name": "UFC Fight Night: Hooker vs. Parnasse",
+    "event_date": "2026-09-05",
+    "category": "Women's Bantamweight",
+    "fighter_1": "Nora Cornolle",
+    "fighter_2": "Klaudia Sygula",
+    "winner": "Nora Cornolle",
+    "method": "U-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Christophe Chapuis",
+    "fight_url": "http://ufcstats.com/fight-details/809ebb0cfdd01ce2",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 34,
+        "attempted": 63
+      },
+      "total_strikes": {
+        "landed": 60,
+        "attempted": 93
+      },
+      "takedowns": {
+        "landed": 4,
+        "attempted": 7
+      },
+      "sub_attempts": 1,
+      "reversals": 0,
+      "control_time_seconds": 539,
+      "head": {
+        "landed": 16,
+        "attempted": 38
+      },
+      "body": {
+        "landed": 16,
+        "attempted": 20
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 5
+      },
+      "distance": {
+        "landed": 13,
+        "attempted": 30
+      },
+      "clinch": {
+        "landed": 19,
+        "attempted": 29
+      },
+      "ground": {
+        "landed": 2,
+        "attempted": 4
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 23,
+        "attempted": 64
+      },
+      "total_strikes": {
+        "landed": 103,
+        "attempted": 151
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "reversals": 1,
+      "control_time_seconds": 195,
+      "head": {
+        "landed": 16,
+        "attempted": 55
+      },
+      "body": {
+        "landed": 7,
+        "attempted": 9
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 13,
+        "attempted": 50
+      },
+      "clinch": {
+        "landed": 9,
+        "attempted": 11
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 3
+      }
+    },
+    "fighter_1_age": 36,
+    "fighter_2_age": 27,
+    "fighter_1_height_cm": 170,
+    "fighter_1_reach_cm": 170,
+    "fighter_2_height_cm": 173,
+    "fighter_2_reach_cm": 175
+  },
+  {
+    "event_name": "UFC Fight Night: Hooker vs. Parnasse",
+    "event_date": "2026-09-05",
+    "category": "Middleweight",
+    "fighter_1": "Matthieu Duclos",
+    "fighter_2": "Luis Felipe Dias",
+    "winner": "Matthieu Duclos",
+    "method": "KO/TKOPunch",
+    "round": 1,
+    "time": "4:35",
+    "referee": "Mohamed Khamallah",
+    "fight_url": "http://ufcstats.com/fight-details/e5fd7ef7ccf955b8",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 18,
+        "attempted": 43
+      },
+      "total_strikes": {
+        "landed": 20,
+        "attempted": 47
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 5,
+      "head": {
+        "landed": 13,
+        "attempted": 38
+      },
+      "body": {
+        "landed": 4,
+        "attempted": 4
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 16,
+        "attempted": 41
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 1
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 22,
+        "attempted": 50
+      },
+      "total_strikes": {
+        "landed": 23,
+        "attempted": 51
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 33,
+      "head": {
+        "landed": 15,
+        "attempted": 38
+      },
+      "body": {
+        "landed": 4,
+        "attempted": 6
+      },
+      "leg": {
+        "landed": 3,
+        "attempted": 6
+      },
+      "distance": {
+        "landed": 19,
+        "attempted": 45
+      },
+      "clinch": {
+        "landed": 3,
+        "attempted": 5
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 31,
+    "fighter_2_age": 31,
+    "fighter_1_height_cm": 190,
+    "fighter_1_reach_cm": 193,
+    "fighter_2_height_cm": 178,
+    "fighter_2_reach_cm": 188
+  },
+  {
+    "event_name": "UFC Fight Night: Hooker vs. Parnasse",
+    "event_date": "2026-09-05",
+    "category": "Women's Strawweight",
+    "fighter_1": "Delphine Benouaich",
+    "fighter_2": "Sofia Montenegro",
+    "winner": "Delphine Benouaich",
+    "method": "SUBRear Naked Choke",
+    "round": 2,
+    "time": "4:22",
+    "referee": "Mourad Benseghir",
+    "fight_url": "http://ufcstats.com/fight-details/9226a13d001b49ec",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 146,
+        "attempted": 249
+      },
+      "total_strikes": {
+        "landed": 154,
+        "attempted": 262
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 1,
+      "reversals": 0,
+      "control_time_seconds": 101,
+      "head": {
+        "landed": 104,
+        "attempted": 200
+      },
+      "body": {
+        "landed": 29,
+        "attempted": 36
+      },
+      "leg": {
+        "landed": 13,
+        "attempted": 13
+      },
+      "distance": {
+        "landed": 106,
+        "attempted": 199
+      },
+      "clinch": {
+        "landed": 10,
+        "attempted": 12
+      },
+      "ground": {
+        "landed": 30,
+        "attempted": 38
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 72,
+        "attempted": 197
+      },
+      "total_strikes": {
+        "landed": 72,
+        "attempted": 199
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 52,
+        "attempted": 170
+      },
+      "body": {
+        "landed": 11,
+        "attempted": 16
+      },
+      "leg": {
+        "landed": 9,
+        "attempted": 11
+      },
+      "distance": {
+        "landed": 68,
+        "attempted": 190
+      },
+      "clinch": {
+        "landed": 4,
+        "attempted": 7
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 31,
+    "fighter_2_age": 27,
+    "fighter_1_height_cm": 160,
+    "fighter_1_reach_cm": 160,
+    "fighter_2_height_cm": 168,
+    "fighter_2_reach_cm": 170
   }
 ]

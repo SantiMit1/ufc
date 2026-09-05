@@ -4714,5 +4714,11 @@
     "date": "2026-08-29",
     "url": "http://ufcstats.com/event-details/9d61d8cb1c354867",
     "scrapped": true
+  },
+  {
+    "name": "UFC Fight Night: Hooker vs. Parnasse",
+    "date": "2026-09-05",
+    "url": "http://ufcstats.com/event-details/2144954270be834d",
+    "scrapped": true
   }
 ]

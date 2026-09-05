@@ -21989,5 +21989,61 @@
     "stance": "Orthodox",
     "dob": "1998-07-28",
     "debut_date": "2026-08-29"
+  },
+  "Salahdine Parnasse": {
+    "height_cm": 178,
+    "weight_lbs": 155,
+    "reach_cm": 180,
+    "stance": "Southpaw",
+    "dob": "1997-12-04",
+    "debut_date": "2026-09-05"
+  },
+  "Pavel Andrusca": {
+    "height_cm": 170,
+    "weight_lbs": 145,
+    "reach_cm": 168,
+    "stance": "Orthodox",
+    "dob": "2002-05-08",
+    "debut_date": "2026-09-05"
+  },
+  "Fabia Sintes": {
+    "height_cm": 170,
+    "weight_lbs": 125,
+    "reach_cm": 165,
+    "stance": "Orthodox",
+    "dob": "1994-07-27",
+    "debut_date": "2026-09-05"
+  },
+  "Michael Aljarouj": {
+    "height_cm": 165,
+    "weight_lbs": 125,
+    "reach_cm": 168,
+    "stance": "Orthodox",
+    "dob": "1997-08-21",
+    "debut_date": "2026-09-05"
+  },
+  "Matthieu Duclos": {
+    "height_cm": 190,
+    "weight_lbs": 185,
+    "reach_cm": 193,
+    "stance": "Orthodox",
+    "dob": "1995-04-04",
+    "debut_date": "2026-09-05"
+  },
+  "Delphine Benouaich": {
+    "height_cm": 160,
+    "weight_lbs": 115,
+    "reach_cm": 160,
+    "stance": "Orthodox",
+    "dob": "1995-03-21",
+    "debut_date": "2026-09-05"
+  },
+  "Sofia Montenegro": {
+    "height_cm": 168,
+    "weight_lbs": 115,
+    "reach_cm": 170,
+    "stance": "Orthodox",
+    "dob": "1999-06-18",
+    "debut_date": "2026-09-05"
   }
 }
