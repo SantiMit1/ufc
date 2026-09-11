@@ -240,6 +240,8 @@ COMPOSITE_GROUPS = {
     "experience": [
         "avg_opp_elo",
         "avg_opp_elo_wins",
+        "decay_avg_opp_elo",
+        "decay_avg_opp_elo_wins",
         "total_fights",
     ],
 }
@@ -283,6 +285,8 @@ COMPOSITE_SIGNS = {
     "experience": {
         "avg_opp_elo": 1,
         "avg_opp_elo_wins": 1,
+        "decay_avg_opp_elo": 1,
+        "decay_avg_opp_elo_wins": 1,
         "total_fights": 1,
     },
 }

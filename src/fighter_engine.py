@@ -164,6 +164,8 @@ FEATURE_DIFF_FIELDS = [
     ("decay_td_per_15min", "decay_td_per_15min_diff"),
     ("avg_opp_elo", "avg_opp_elo_diff"),
     ("avg_opp_elo_wins", "avg_opp_elo_wins_diff"),
+    ("decay_avg_opp_elo", "decay_avg_opp_elo_diff"),
+    ("decay_avg_opp_elo_wins", "decay_avg_opp_elo_wins_diff"),
     ("striking", "striking_strength_diff"),
     ("grappling", "grappling_strength_diff"),
     ("durability", "durability_diff"),
@@ -259,6 +261,7 @@ def update_state(state: dict, fight: dict, is_fighter_1: bool, is_win_loss: bool
         "won": won,
         "ko_loss": ko_loss,
         "sub_loss": sub_loss,
+        "opp_elo": opponent_elo,
     }
     state["recent_fights"].append(fight_record)
     if len(state["recent_fights"]) > 5:
@@ -390,6 +393,10 @@ def compute_stats_from_state(fighter_state: dict, fighter_name: str,
     w_sig_abs = 0.0
     w_td = 0.0
     w_sec = 0.0
+    w_opp = 0.0
+    w_opp_elo = 0.0
+    w_opp_w = 0.0
+    w_opp_elo_w = 0.0
     for r in recent:
         years_ago = (as_of_date - r["date"]).days / 365.25
         w = np.exp(-LAMBDA * years_ago)
@@ -397,10 +404,19 @@ def compute_stats_from_state(fighter_state: dict, fighter_name: str,
         w_sig_abs += r["sig_absorbed"] * w
         w_td += r["td_landed"] * w
         w_sec += r["total_seconds"] * w
+        opp_elo = r.get("opp_elo")
+        if opp_elo is not None and not (isinstance(opp_elo, float) and np.isnan(opp_elo)):
+            w_opp += w
+            w_opp_elo += opp_elo * w
+            if r.get("won") is True:
+                w_opp_w += w
+                w_opp_elo_w += opp_elo * w
 
     decay_sig_per_min = w_sig / (w_sec / 60.0) if w_sec > 0 else np.nan
     decay_sig_absorbed_per_min = w_sig_abs / (w_sec / 60.0) if w_sec > 0 else np.nan
     decay_td_per_15min = w_td / (w_sec / 60.0) * 15.0 if w_sec > 0 else np.nan
+    decay_avg_opp_elo = w_opp_elo / w_opp if w_opp > 0 else np.nan
+    decay_avg_opp_elo_wins = w_opp_elo_w / w_opp_w if w_opp_w > 0 else np.nan
 
     # --- Opponent quality ---
     count_faced = f["count_opp_faced"]
@@ -444,6 +460,8 @@ def compute_stats_from_state(fighter_state: dict, fighter_name: str,
         "decay_td_per_15min": decay_td_per_15min,
         "avg_opp_elo": avg_opp_elo,
         "avg_opp_elo_wins": avg_opp_elo_wins,
+        "decay_avg_opp_elo": decay_avg_opp_elo,
+        "decay_avg_opp_elo_wins": decay_avg_opp_elo_wins,
     }
     if composite_params is None:
         raise ValueError("composite_params is required — train a model first (fit_composite_params)")
