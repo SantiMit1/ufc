@@ -22045,5 +22045,21 @@
     "stance": "Orthodox",
     "dob": "1999-06-18",
     "debut_date": "2026-09-05"
+  },
+  "Sean King III": {
+    "height_cm": 180,
+    "weight_lbs": 145,
+    "reach_cm": 183,
+    "stance": "Orthodox",
+    "dob": "2003-10-17",
+    "debut_date": "2026-09-12"
+  },
+  "Jessie Rosas": {
+    "height_cm": 170,
+    "weight_lbs": 145,
+    "reach_cm": 173,
+    "stance": "Southpaw",
+    "dob": "2002-12-04",
+    "debut_date": "2026-09-12"
   }
 }

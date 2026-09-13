@@ -910722,5 +910722,1344 @@
     "fighter_1_reach_cm": 160,
     "fighter_2_height_cm": 168,
     "fighter_2_reach_cm": 170
+  },
+  {
+    "event_name": "Noche UFC: Silva vs. Delgado",
+    "event_date": "2026-09-12",
+    "category": "Featherweight",
+    "fighter_1": "Jean Silva",
+    "fighter_2": "Jose Delgado",
+    "winner": "Jean Silva",
+    "method": "SUBRear Naked Choke",
+    "round": 3,
+    "time": "2:57",
+    "referee": "Dan Miragliotta",
+    "fight_url": "http://ufcstats.com/fight-details/034c04e480d87b8f",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 39,
+        "attempted": 77
+      },
+      "total_strikes": {
+        "landed": 40,
+        "attempted": 78
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "sub_attempts": 1,
+      "reversals": 0,
+      "control_time_seconds": 97,
+      "head": {
+        "landed": 27,
+        "attempted": 60
+      },
+      "body": {
+        "landed": 10,
+        "attempted": 15
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 32,
+        "attempted": 66
+      },
+      "clinch": {
+        "landed": 3,
+        "attempted": 5
+      },
+      "ground": {
+        "landed": 4,
+        "attempted": 6
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 40,
+        "attempted": 108
+      },
+      "total_strikes": {
+        "landed": 41,
+        "attempted": 109
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 21,
+      "head": {
+        "landed": 17,
+        "attempted": 79
+      },
+      "body": {
+        "landed": 5,
+        "attempted": 7
+      },
+      "leg": {
+        "landed": 18,
+        "attempted": 22
+      },
+      "distance": {
+        "landed": 35,
+        "attempted": 98
+      },
+      "clinch": {
+        "landed": 5,
+        "attempted": 9
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 1
+      }
+    },
+    "fighter_1_age": 29,
+    "fighter_2_age": 28,
+    "fighter_1_height_cm": 170,
+    "fighter_1_reach_cm": 175,
+    "fighter_2_height_cm": 180,
+    "fighter_2_reach_cm": 188
+  },
+  {
+    "event_name": "Noche UFC: Silva vs. Delgado",
+    "event_date": "2026-09-12",
+    "category": "Flyweight",
+    "fighter_1": "Brandon Moreno",
+    "fighter_2": "Joseph Morales",
+    "winner": "Brandon Moreno",
+    "method": "S-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Jason Herzog",
+    "fight_url": "http://ufcstats.com/fight-details/1aa008d8597a73b8",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 67,
+        "attempted": 180
+      },
+      "total_strikes": {
+        "landed": 71,
+        "attempted": 184
+      },
+      "takedowns": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 154,
+      "head": {
+        "landed": 35,
+        "attempted": 144
+      },
+      "body": {
+        "landed": 22,
+        "attempted": 26
+      },
+      "leg": {
+        "landed": 10,
+        "attempted": 10
+      },
+      "distance": {
+        "landed": 61,
+        "attempted": 171
+      },
+      "clinch": {
+        "landed": 4,
+        "attempted": 4
+      },
+      "ground": {
+        "landed": 2,
+        "attempted": 5
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 71,
+        "attempted": 183
+      },
+      "total_strikes": {
+        "landed": 77,
+        "attempted": 189
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 8
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 35,
+      "head": {
+        "landed": 58,
+        "attempted": 163
+      },
+      "body": {
+        "landed": 9,
+        "attempted": 14
+      },
+      "leg": {
+        "landed": 4,
+        "attempted": 6
+      },
+      "distance": {
+        "landed": 61,
+        "attempted": 170
+      },
+      "clinch": {
+        "landed": 7,
+        "attempted": 10
+      },
+      "ground": {
+        "landed": 3,
+        "attempted": 3
+      }
+    },
+    "fighter_1_age": 32,
+    "fighter_2_age": 32,
+    "fighter_1_height_cm": 170,
+    "fighter_1_reach_cm": 178,
+    "fighter_2_height_cm": 168,
+    "fighter_2_reach_cm": 175
+  },
+  {
+    "event_name": "Noche UFC: Silva vs. Delgado",
+    "event_date": "2026-09-12",
+    "category": "Featherweight",
+    "fighter_1": "Tommy McMillen",
+    "fighter_2": "Marwan Rahiki",
+    "winner": "Tommy McMillen",
+    "method": "U-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Marc Goddard",
+    "fight_url": "http://ufcstats.com/fight-details/1fca7dfa9e1e15cb",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 89,
+        "attempted": 237
+      },
+      "total_strikes": {
+        "landed": 128,
+        "attempted": 280
+      },
+      "takedowns": {
+        "landed": 5,
+        "attempted": 5
+      },
+      "sub_attempts": 3,
+      "reversals": 0,
+      "control_time_seconds": 293,
+      "head": {
+        "landed": 56,
+        "attempted": 192
+      },
+      "body": {
+        "landed": 21,
+        "attempted": 30
+      },
+      "leg": {
+        "landed": 12,
+        "attempted": 15
+      },
+      "distance": {
+        "landed": 78,
+        "attempted": 220
+      },
+      "clinch": {
+        "landed": 9,
+        "attempted": 14
+      },
+      "ground": {
+        "landed": 2,
+        "attempted": 3
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 79,
+        "attempted": 178
+      },
+      "total_strikes": {
+        "landed": 80,
+        "attempted": 179
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 7,
+      "head": {
+        "landed": 46,
+        "attempted": 135
+      },
+      "body": {
+        "landed": 24,
+        "attempted": 32
+      },
+      "leg": {
+        "landed": 9,
+        "attempted": 11
+      },
+      "distance": {
+        "landed": 69,
+        "attempted": 168
+      },
+      "clinch": {
+        "landed": 10,
+        "attempted": 10
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 28,
+    "fighter_2_age": 24,
+    "fighter_1_height_cm": 183,
+    "fighter_1_reach_cm": 188,
+    "fighter_2_height_cm": 173,
+    "fighter_2_reach_cm": 183
+  },
+  {
+    "event_name": "Noche UFC: Silva vs. Delgado",
+    "event_date": "2026-09-12",
+    "category": "Women's Flyweight",
+    "fighter_1": "Alexa Grasso",
+    "fighter_2": "Manon Fiorot",
+    "winner": "Alexa Grasso",
+    "method": "U-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Blake Grice",
+    "fight_url": "http://ufcstats.com/fight-details/d9712b45c094730e",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 80,
+        "attempted": 196
+      },
+      "total_strikes": {
+        "landed": 96,
+        "attempted": 213
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 57,
+      "head": {
+        "landed": 63,
+        "attempted": 170
+      },
+      "body": {
+        "landed": 5,
+        "attempted": 8
+      },
+      "leg": {
+        "landed": 12,
+        "attempted": 18
+      },
+      "distance": {
+        "landed": 69,
+        "attempted": 181
+      },
+      "clinch": {
+        "landed": 8,
+        "attempted": 11
+      },
+      "ground": {
+        "landed": 3,
+        "attempted": 4
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 72,
+        "attempted": 226
+      },
+      "total_strikes": {
+        "landed": 73,
+        "attempted": 227
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 2,
+      "head": {
+        "landed": 51,
+        "attempted": 196
+      },
+      "body": {
+        "landed": 19,
+        "attempted": 26
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 4
+      },
+      "distance": {
+        "landed": 70,
+        "attempted": 223
+      },
+      "clinch": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 33,
+    "fighter_2_age": 36,
+    "fighter_1_height_cm": 165,
+    "fighter_1_reach_cm": 168,
+    "fighter_2_height_cm": 170,
+    "fighter_2_reach_cm": 165
+  },
+  {
+    "event_name": "Noche UFC: Silva vs. Delgado",
+    "event_date": "2026-09-12",
+    "category": "Heavyweight",
+    "fighter_1": "Curtis Blaydes",
+    "fighter_2": "Waldo Cortes Acosta",
+    "winner": "Curtis Blaydes",
+    "method": "U-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Dan Miragliotta",
+    "fight_url": "http://ufcstats.com/fight-details/606639bf387f60e2",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 24,
+        "attempted": 74
+      },
+      "total_strikes": {
+        "landed": 32,
+        "attempted": 82
+      },
+      "takedowns": {
+        "landed": 4,
+        "attempted": 10
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 218,
+      "head": {
+        "landed": 5,
+        "attempted": 50
+      },
+      "body": {
+        "landed": 4,
+        "attempted": 5
+      },
+      "leg": {
+        "landed": 15,
+        "attempted": 19
+      },
+      "distance": {
+        "landed": 23,
+        "attempted": 73
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 1
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 28,
+        "attempted": 95
+      },
+      "total_strikes": {
+        "landed": 30,
+        "attempted": 97
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 21,
+        "attempted": 87
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 7,
+        "attempted": 8
+      },
+      "distance": {
+        "landed": 28,
+        "attempted": 95
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 35,
+    "fighter_2_age": 34,
+    "fighter_1_height_cm": 193,
+    "fighter_1_reach_cm": 203,
+    "fighter_2_height_cm": 193,
+    "fighter_2_reach_cm": 198
+  },
+  {
+    "event_name": "Noche UFC: Silva vs. Delgado",
+    "event_date": "2026-09-12",
+    "category": "Bantamweight",
+    "fighter_1": "David Martinez",
+    "fighter_2": "Dan Ige",
+    "winner": "David Martinez",
+    "method": "U-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Blake Grice",
+    "fight_url": "http://ufcstats.com/fight-details/51caa91f68873cf5",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 52,
+        "attempted": 139
+      },
+      "total_strikes": {
+        "landed": 58,
+        "attempted": 146
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 19,
+      "head": {
+        "landed": 25,
+        "attempted": 100
+      },
+      "body": {
+        "landed": 10,
+        "attempted": 19
+      },
+      "leg": {
+        "landed": 17,
+        "attempted": 20
+      },
+      "distance": {
+        "landed": 52,
+        "attempted": 138
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 27,
+        "attempted": 124
+      },
+      "total_strikes": {
+        "landed": 27,
+        "attempted": 124
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 5,
+      "head": {
+        "landed": 19,
+        "attempted": 101
+      },
+      "body": {
+        "landed": 4,
+        "attempted": 15
+      },
+      "leg": {
+        "landed": 4,
+        "attempted": 8
+      },
+      "distance": {
+        "landed": 26,
+        "attempted": 123
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 28,
+    "fighter_2_age": 35,
+    "fighter_1_height_cm": 165,
+    "fighter_1_reach_cm": 170,
+    "fighter_2_height_cm": 170,
+    "fighter_2_reach_cm": 180
+  },
+  {
+    "event_name": "Noche UFC: Silva vs. Delgado",
+    "event_date": "2026-09-12",
+    "category": "Catch Weight",
+    "fighter_1": "Tim Elliott",
+    "fighter_2": "Edgar Chairez",
+    "winner": "Tim Elliott",
+    "method": "U-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Jason Herzog",
+    "fight_url": "http://ufcstats.com/fight-details/f154037892b9fb94",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 64,
+        "attempted": 204
+      },
+      "total_strikes": {
+        "landed": 142,
+        "attempted": 309
+      },
+      "takedowns": {
+        "landed": 5,
+        "attempted": 11
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 354,
+      "head": {
+        "landed": 52,
+        "attempted": 176
+      },
+      "body": {
+        "landed": 6,
+        "attempted": 19
+      },
+      "leg": {
+        "landed": 6,
+        "attempted": 9
+      },
+      "distance": {
+        "landed": 43,
+        "attempted": 161
+      },
+      "clinch": {
+        "landed": 5,
+        "attempted": 8
+      },
+      "ground": {
+        "landed": 16,
+        "attempted": 35
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 58,
+        "attempted": 124
+      },
+      "total_strikes": {
+        "landed": 70,
+        "attempted": 136
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 1,
+      "reversals": 0,
+      "control_time_seconds": 4,
+      "head": {
+        "landed": 41,
+        "attempted": 106
+      },
+      "body": {
+        "landed": 11,
+        "attempted": 12
+      },
+      "leg": {
+        "landed": 6,
+        "attempted": 6
+      },
+      "distance": {
+        "landed": 56,
+        "attempted": 121
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 2
+      }
+    },
+    "fighter_1_age": 39,
+    "fighter_2_age": 30,
+    "fighter_1_height_cm": 170,
+    "fighter_1_reach_cm": 168,
+    "fighter_2_height_cm": 170,
+    "fighter_2_reach_cm": 180
+  },
+  {
+    "event_name": "Noche UFC: Silva vs. Delgado",
+    "event_date": "2026-09-12",
+    "category": "Welterweight",
+    "fighter_1": "Ignacio Bahamondes",
+    "fighter_2": "Muslim Salikhov",
+    "winner": "Ignacio Bahamondes",
+    "method": "U-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Blake Grice",
+    "fight_url": "http://ufcstats.com/fight-details/046c22f769fd8300",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 78,
+        "attempted": 160
+      },
+      "total_strikes": {
+        "landed": 91,
+        "attempted": 175
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 39,
+        "attempted": 104
+      },
+      "body": {
+        "landed": 17,
+        "attempted": 26
+      },
+      "leg": {
+        "landed": 22,
+        "attempted": 30
+      },
+      "distance": {
+        "landed": 66,
+        "attempted": 143
+      },
+      "clinch": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "ground": {
+        "landed": 10,
+        "attempted": 15
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 42,
+        "attempted": 97
+      },
+      "total_strikes": {
+        "landed": 44,
+        "attempted": 102
+      },
+      "takedowns": {
+        "landed": 3,
+        "attempted": 8
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 76,
+      "head": {
+        "landed": 12,
+        "attempted": 57
+      },
+      "body": {
+        "landed": 10,
+        "attempted": 17
+      },
+      "leg": {
+        "landed": 20,
+        "attempted": 23
+      },
+      "distance": {
+        "landed": 38,
+        "attempted": 87
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 4,
+        "attempted": 10
+      }
+    },
+    "fighter_1_age": 29,
+    "fighter_2_age": 42,
+    "fighter_1_height_cm": 190,
+    "fighter_1_reach_cm": 190,
+    "fighter_2_height_cm": 180,
+    "fighter_2_reach_cm": 178
+  },
+  {
+    "event_name": "Noche UFC: Silva vs. Delgado",
+    "event_date": "2026-09-12",
+    "category": "Middleweight",
+    "fighter_1": "Yousri Belgaroui",
+    "fighter_2": "Djorden Santos",
+    "winner": "Yousri Belgaroui",
+    "method": "KO/TKOPunch",
+    "round": 1,
+    "time": "4:25",
+    "referee": "Brad Frank",
+    "fight_url": "http://ufcstats.com/fight-details/9a0e77ecd1b7f04e",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 46,
+        "attempted": 81
+      },
+      "total_strikes": {
+        "landed": 46,
+        "attempted": 81
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 16,
+        "attempted": 43
+      },
+      "body": {
+        "landed": 18,
+        "attempted": 26
+      },
+      "leg": {
+        "landed": 12,
+        "attempted": 12
+      },
+      "distance": {
+        "landed": 45,
+        "attempted": 80
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 16,
+        "attempted": 48
+      },
+      "total_strikes": {
+        "landed": 16,
+        "attempted": 48
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 13,
+        "attempted": 44
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "distance": {
+        "landed": 16,
+        "attempted": 48
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 34,
+    "fighter_2_age": 29,
+    "fighter_1_height_cm": 198,
+    "fighter_1_reach_cm": 201,
+    "fighter_2_height_cm": 183,
+    "fighter_2_reach_cm": 190
+  },
+  {
+    "event_name": "Noche UFC: Silva vs. Delgado",
+    "event_date": "2026-09-12",
+    "category": "Lightweight",
+    "fighter_1": "Tommy Gantt",
+    "fighter_2": "Drakkar Klose",
+    "winner": "Tommy Gantt",
+    "method": "SUBTriangle Choke",
+    "round": 3,
+    "time": "2:46",
+    "referee": "Marc Goddard",
+    "fight_url": "http://ufcstats.com/fight-details/0aa849ca85e4355a",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 56,
+        "attempted": 82
+      },
+      "total_strikes": {
+        "landed": 95,
+        "attempted": 126
+      },
+      "takedowns": {
+        "landed": 2,
+        "attempted": 8
+      },
+      "sub_attempts": 1,
+      "reversals": 0,
+      "control_time_seconds": 595,
+      "head": {
+        "landed": 24,
+        "attempted": 45
+      },
+      "body": {
+        "landed": 28,
+        "attempted": 32
+      },
+      "leg": {
+        "landed": 4,
+        "attempted": 5
+      },
+      "distance": {
+        "landed": 7,
+        "attempted": 27
+      },
+      "clinch": {
+        "landed": 35,
+        "attempted": 39
+      },
+      "ground": {
+        "landed": 14,
+        "attempted": 16
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 15,
+        "attempted": 30
+      },
+      "total_strikes": {
+        "landed": 87,
+        "attempted": 108
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 1,
+      "control_time_seconds": 21,
+      "head": {
+        "landed": 6,
+        "attempted": 17
+      },
+      "body": {
+        "landed": 7,
+        "attempted": 10
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "distance": {
+        "landed": 5,
+        "attempted": 12
+      },
+      "clinch": {
+        "landed": 10,
+        "attempted": 18
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 33,
+    "fighter_2_age": 38,
+    "fighter_1_height_cm": 180,
+    "fighter_1_reach_cm": 193,
+    "fighter_2_height_cm": 175,
+    "fighter_2_reach_cm": 178
+  },
+  {
+    "event_name": "Noche UFC: Silva vs. Delgado",
+    "event_date": "2026-09-12",
+    "category": "Lightweight",
+    "fighter_1": "Rongzhu",
+    "fighter_2": "Rafa Garcia",
+    "winner": "Rongzhu",
+    "method": "U-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Gustav Gibson",
+    "fight_url": "http://ufcstats.com/fight-details/d0d48877bf3724d1",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 109,
+        "attempted": 247
+      },
+      "total_strikes": {
+        "landed": 110,
+        "attempted": 248
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 78,
+        "attempted": 210
+      },
+      "body": {
+        "landed": 9,
+        "attempted": 13
+      },
+      "leg": {
+        "landed": 22,
+        "attempted": 24
+      },
+      "distance": {
+        "landed": 108,
+        "attempted": 245
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 73,
+        "attempted": 189
+      },
+      "total_strikes": {
+        "landed": 77,
+        "attempted": 193
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 9
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 75,
+      "head": {
+        "landed": 64,
+        "attempted": 178
+      },
+      "body": {
+        "landed": 4,
+        "attempted": 6
+      },
+      "leg": {
+        "landed": 5,
+        "attempted": 5
+      },
+      "distance": {
+        "landed": 60,
+        "attempted": 171
+      },
+      "clinch": {
+        "landed": 12,
+        "attempted": 17
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 1
+      }
+    },
+    "fighter_1_age": 26,
+    "fighter_2_age": 32,
+    "fighter_1_height_cm": 175,
+    "fighter_1_reach_cm": 178,
+    "fighter_2_height_cm": 170,
+    "fighter_2_reach_cm": 178
+  },
+  {
+    "event_name": "Noche UFC: Silva vs. Delgado",
+    "event_date": "2026-09-12",
+    "category": "Featherweight",
+    "fighter_1": "Sean King III",
+    "fighter_2": "Jessie Rosas",
+    "winner": "Sean King III",
+    "method": "KO/TKOSlam",
+    "round": 1,
+    "time": "0:36",
+    "referee": "Brad Frank",
+    "fight_url": "http://ufcstats.com/fight-details/5a91827fe8c1dc26",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 7,
+        "attempted": 13
+      },
+      "total_strikes": {
+        "landed": 7,
+        "attempted": 13
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 4,
+      "head": {
+        "landed": 4,
+        "attempted": 8
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "distance": {
+        "landed": 4,
+        "attempted": 10
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 3,
+        "attempted": 3
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 3,
+        "attempted": 6
+      },
+      "total_strikes": {
+        "landed": 3,
+        "attempted": 6
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 3,
+        "attempted": 6
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 22,
+    "fighter_2_age": 23,
+    "fighter_1_height_cm": 180,
+    "fighter_1_reach_cm": 183,
+    "fighter_2_height_cm": 170,
+    "fighter_2_reach_cm": 173
+  },
+  {
+    "event_name": "Noche UFC: Silva vs. Delgado",
+    "event_date": "2026-09-12",
+    "category": "Women's Flyweight",
+    "fighter_1": "Regina Tarin",
+    "fighter_2": "JJ Aldrich",
+    "winner": "Regina Tarin",
+    "method": "U-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Gustav Gibson",
+    "fight_url": "http://ufcstats.com/fight-details/64da2e60f1b472fa",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 77,
+        "attempted": 190
+      },
+      "total_strikes": {
+        "landed": 87,
+        "attempted": 200
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 9,
+      "head": {
+        "landed": 45,
+        "attempted": 146
+      },
+      "body": {
+        "landed": 20,
+        "attempted": 29
+      },
+      "leg": {
+        "landed": 12,
+        "attempted": 15
+      },
+      "distance": {
+        "landed": 57,
+        "attempted": 164
+      },
+      "clinch": {
+        "landed": 20,
+        "attempted": 26
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 63,
+        "attempted": 118
+      },
+      "total_strikes": {
+        "landed": 74,
+        "attempted": 129
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 4
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 41,
+      "head": {
+        "landed": 39,
+        "attempted": 91
+      },
+      "body": {
+        "landed": 14,
+        "attempted": 17
+      },
+      "leg": {
+        "landed": 10,
+        "attempted": 10
+      },
+      "distance": {
+        "landed": 46,
+        "attempted": 98
+      },
+      "clinch": {
+        "landed": 17,
+        "attempted": 20
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 21,
+    "fighter_2_age": 33,
+    "fighter_1_height_cm": 170,
+    "fighter_1_reach_cm": 168,
+    "fighter_2_height_cm": 165,
+    "fighter_2_reach_cm": 170
   }
 ]
