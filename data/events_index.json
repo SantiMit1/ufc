@@ -4726,5 +4726,11 @@
     "date": "2026-09-12",
     "url": "http://ufcstats.com/event-details/638cfec7ec559d6e",
     "scrapped": true
+  },
+  {
+    "name": "UFC 331: Van vs. Pantoja 2",
+    "date": "2026-09-19",
+    "url": "http://ufcstats.com/event-details/8a0a35e7c74bebcc",
+    "scrapped": true
   }
 ]

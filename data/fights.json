@@ -912061,5 +912061,1241 @@
     "fighter_1_reach_cm": 168,
     "fighter_2_height_cm": 165,
     "fighter_2_reach_cm": 170
+  },
+  {
+    "event_name": "UFC 331: Van vs. Pantoja 2",
+    "event_date": "2026-09-19",
+    "category": "Flyweight",
+    "fighter_1": "Joshua Van",
+    "fighter_2": "Alexandre Pantoja",
+    "winner": "Joshua Van",
+    "method": "U-DEC",
+    "round": 5,
+    "time": "5:00",
+    "referee": "Herb Dean",
+    "fight_url": "http://ufcstats.com/fight-details/568ec6af4008355a",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 181,
+        "attempted": 305
+      },
+      "total_strikes": {
+        "landed": 259,
+        "attempted": 392
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 1,
+      "reversals": 1,
+      "control_time_seconds": 133,
+      "head": {
+        "landed": 158,
+        "attempted": 278
+      },
+      "body": {
+        "landed": 17,
+        "attempted": 20
+      },
+      "leg": {
+        "landed": 6,
+        "attempted": 7
+      },
+      "distance": {
+        "landed": 160,
+        "attempted": 278
+      },
+      "clinch": {
+        "landed": 17,
+        "attempted": 21
+      },
+      "ground": {
+        "landed": 4,
+        "attempted": 6
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 147,
+        "attempted": 284
+      },
+      "total_strikes": {
+        "landed": 159,
+        "attempted": 300
+      },
+      "takedowns": {
+        "landed": 5,
+        "attempted": 18
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 551,
+      "head": {
+        "landed": 91,
+        "attempted": 213
+      },
+      "body": {
+        "landed": 30,
+        "attempted": 37
+      },
+      "leg": {
+        "landed": 26,
+        "attempted": 34
+      },
+      "distance": {
+        "landed": 124,
+        "attempted": 258
+      },
+      "clinch": {
+        "landed": 16,
+        "attempted": 18
+      },
+      "ground": {
+        "landed": 7,
+        "attempted": 8
+      }
+    },
+    "fighter_1_age": 24,
+    "fighter_2_age": 36,
+    "fighter_1_height_cm": 165,
+    "fighter_1_reach_cm": 165,
+    "fighter_2_height_cm": 165,
+    "fighter_2_reach_cm": 170
+  },
+  {
+    "event_name": "UFC 331: Van vs. Pantoja 2",
+    "event_date": "2026-09-19",
+    "category": "Lightweight",
+    "fighter_1": "Arman Tsarukyan",
+    "fighter_2": "Mauricio Ruffy",
+    "winner": "Arman Tsarukyan",
+    "method": "KO/TKOElbow",
+    "round": 1,
+    "time": "4:56",
+    "referee": "Jason Herzog",
+    "fight_url": "http://ufcstats.com/fight-details/fe612d20eec7ef35",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 8,
+        "attempted": 19
+      },
+      "total_strikes": {
+        "landed": 9,
+        "attempted": 20
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 10
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 180,
+      "head": {
+        "landed": 7,
+        "attempted": 14
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 4
+      },
+      "distance": {
+        "landed": 3,
+        "attempted": 13
+      },
+      "clinch": {
+        "landed": 5,
+        "attempted": 6
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 4,
+        "attempted": 10
+      },
+      "total_strikes": {
+        "landed": 22,
+        "attempted": 28
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 6,
+      "head": {
+        "landed": 3,
+        "attempted": 7
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 2,
+        "attempted": 8
+      },
+      "clinch": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 29,
+    "fighter_2_age": 30,
+    "fighter_1_height_cm": 170,
+    "fighter_1_reach_cm": 183,
+    "fighter_2_height_cm": 180,
+    "fighter_2_reach_cm": 190
+  },
+  {
+    "event_name": "UFC 331: Van vs. Pantoja 2",
+    "event_date": "2026-09-19",
+    "category": "Featherweight",
+    "fighter_1": "Patricio Pitbull",
+    "fighter_2": "Dooho Choi",
+    "winner": "Patricio Pitbull",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "3:28",
+    "referee": "Mike Beltran",
+    "fight_url": "http://ufcstats.com/fight-details/f7810c98786c3dd8",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 38,
+        "attempted": 75
+      },
+      "total_strikes": {
+        "landed": 38,
+        "attempted": 75
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 5,
+      "head": {
+        "landed": 29,
+        "attempted": 65
+      },
+      "body": {
+        "landed": 9,
+        "attempted": 9
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 26,
+        "attempted": 60
+      },
+      "clinch": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "ground": {
+        "landed": 9,
+        "attempted": 12
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 20,
+        "attempted": 46
+      },
+      "total_strikes": {
+        "landed": 20,
+        "attempted": 46
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 17,
+        "attempted": 42
+      },
+      "body": {
+        "landed": 3,
+        "attempted": 4
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 18,
+        "attempted": 43
+      },
+      "clinch": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 39,
+    "fighter_2_age": 35,
+    "fighter_1_height_cm": 168,
+    "fighter_1_reach_cm": 170,
+    "fighter_2_height_cm": 178,
+    "fighter_2_reach_cm": 178
+  },
+  {
+    "event_name": "UFC 331: Van vs. Pantoja 2",
+    "event_date": "2026-09-19",
+    "category": "Heavyweight",
+    "fighter_1": "Sean Sharaf",
+    "fighter_2": "Gable Steveson",
+    "winner": "Sean Sharaf",
+    "method": "KO/TKOPunch",
+    "round": 1,
+    "time": "0:12",
+    "referee": "Frank Trigg",
+    "fight_url": "http://ufcstats.com/fight-details/023ce4fa7b7b76f9",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 3,
+        "attempted": 6
+      },
+      "total_strikes": {
+        "landed": 3,
+        "attempted": 6
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 2,
+      "head": {
+        "landed": 3,
+        "attempted": 6
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 4
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 2,
+        "attempted": 2
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "total_strikes": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 33,
+    "fighter_2_age": 26,
+    "fighter_1_height_cm": 190,
+    "fighter_1_reach_cm": 196,
+    "fighter_2_height_cm": 180,
+    "fighter_2_reach_cm": 188
+  },
+  {
+    "event_name": "UFC 331: Van vs. Pantoja 2",
+    "event_date": "2026-09-19",
+    "category": "Light Heavyweight",
+    "fighter_1": "Alonzo Menifield",
+    "fighter_2": "Iwo Baraniewski",
+    "winner": "Alonzo Menifield",
+    "method": "S-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Jonathan Romero",
+    "fight_url": "http://ufcstats.com/fight-details/196c64693a2ce308",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 62,
+        "attempted": 162
+      },
+      "total_strikes": {
+        "landed": 140,
+        "attempted": 246
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 5
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 174,
+      "head": {
+        "landed": 56,
+        "attempted": 155
+      },
+      "body": {
+        "landed": 4,
+        "attempted": 5
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 42,
+        "attempted": 132
+      },
+      "clinch": {
+        "landed": 20,
+        "attempted": 30
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 67,
+        "attempted": 121
+      },
+      "total_strikes": {
+        "landed": 89,
+        "attempted": 146
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 3
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 259,
+      "head": {
+        "landed": 52,
+        "attempted": 104
+      },
+      "body": {
+        "landed": 13,
+        "attempted": 15
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 50,
+        "attempted": 97
+      },
+      "clinch": {
+        "landed": 16,
+        "attempted": 23
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 1
+      }
+    },
+    "fighter_1_age": 38,
+    "fighter_2_age": 27,
+    "fighter_1_height_cm": 183,
+    "fighter_1_reach_cm": 193,
+    "fighter_2_height_cm": 183,
+    "fighter_2_reach_cm": 185
+  },
+  {
+    "event_name": "UFC 331: Van vs. Pantoja 2",
+    "event_date": "2026-09-19",
+    "category": "Bantamweight",
+    "fighter_1": "Marlon Vera",
+    "fighter_2": "Charles Jourdain",
+    "winner": "Marlon Vera",
+    "method": "KO/TKOPunch",
+    "round": 3,
+    "time": "2:02",
+    "referee": "Mike Beltran",
+    "fight_url": "http://ufcstats.com/fight-details/d0361fe28d05a0b5",
+    "stats_fighter_1": {
+      "knockdowns": 3,
+      "sig_strikes": {
+        "landed": 72,
+        "attempted": 128
+      },
+      "total_strikes": {
+        "landed": 80,
+        "attempted": 138
+      },
+      "takedowns": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 135,
+      "head": {
+        "landed": 38,
+        "attempted": 85
+      },
+      "body": {
+        "landed": 22,
+        "attempted": 28
+      },
+      "leg": {
+        "landed": 12,
+        "attempted": 15
+      },
+      "distance": {
+        "landed": 37,
+        "attempted": 81
+      },
+      "clinch": {
+        "landed": 21,
+        "attempted": 25
+      },
+      "ground": {
+        "landed": 14,
+        "attempted": 22
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 83,
+        "attempted": 127
+      },
+      "total_strikes": {
+        "landed": 108,
+        "attempted": 153
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 27,
+        "attempted": 62
+      },
+      "body": {
+        "landed": 38,
+        "attempted": 45
+      },
+      "leg": {
+        "landed": 18,
+        "attempted": 20
+      },
+      "distance": {
+        "landed": 59,
+        "attempted": 94
+      },
+      "clinch": {
+        "landed": 24,
+        "attempted": 33
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 33,
+    "fighter_2_age": 30,
+    "fighter_1_height_cm": 173,
+    "fighter_1_reach_cm": 178,
+    "fighter_2_height_cm": 175,
+    "fighter_2_reach_cm": 175
+  },
+  {
+    "event_name": "UFC 331: Van vs. Pantoja 2",
+    "event_date": "2026-09-19",
+    "category": "Heavyweight",
+    "fighter_1": "Robelis Despaigne",
+    "fighter_2": "Tai Tuivasa",
+    "winner": "Robelis Despaigne",
+    "method": "S-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Jason Herzog",
+    "fight_url": "http://ufcstats.com/fight-details/3f2d637ffb324a51",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 30,
+        "attempted": 69
+      },
+      "total_strikes": {
+        "landed": 83,
+        "attempted": 128
+      },
+      "takedowns": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 308,
+      "head": {
+        "landed": 29,
+        "attempted": 68
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 18,
+        "attempted": 48
+      },
+      "clinch": {
+        "landed": 6,
+        "attempted": 11
+      },
+      "ground": {
+        "landed": 6,
+        "attempted": 10
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 31,
+        "attempted": 68
+      },
+      "total_strikes": {
+        "landed": 54,
+        "attempted": 93
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 6
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 418,
+      "head": {
+        "landed": 17,
+        "attempted": 49
+      },
+      "body": {
+        "landed": 9,
+        "attempted": 9
+      },
+      "leg": {
+        "landed": 5,
+        "attempted": 10
+      },
+      "distance": {
+        "landed": 12,
+        "attempted": 37
+      },
+      "clinch": {
+        "landed": 9,
+        "attempted": 19
+      },
+      "ground": {
+        "landed": 10,
+        "attempted": 12
+      }
+    },
+    "fighter_1_age": 38,
+    "fighter_2_age": 33,
+    "fighter_1_height_cm": 201,
+    "fighter_1_reach_cm": 213,
+    "fighter_2_height_cm": 188,
+    "fighter_2_reach_cm": 190
+  },
+  {
+    "event_name": "UFC 331: Van vs. Pantoja 2",
+    "event_date": "2026-09-19",
+    "category": "Featherweight",
+    "fighter_1": "Michael Aswell Jr.",
+    "fighter_2": "JooSang Yoo",
+    "winner": "Michael Aswell Jr.",
+    "method": "S-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Herb Dean",
+    "fight_url": "http://ufcstats.com/fight-details/d89cc2cb92cd8407",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 70,
+        "attempted": 145
+      },
+      "total_strikes": {
+        "landed": 93,
+        "attempted": 171
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 71,
+      "head": {
+        "landed": 40,
+        "attempted": 111
+      },
+      "body": {
+        "landed": 5,
+        "attempted": 6
+      },
+      "leg": {
+        "landed": 25,
+        "attempted": 28
+      },
+      "distance": {
+        "landed": 62,
+        "attempted": 136
+      },
+      "clinch": {
+        "landed": 8,
+        "attempted": 9
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 46,
+        "attempted": 129
+      },
+      "total_strikes": {
+        "landed": 51,
+        "attempted": 135
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 4
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 138,
+      "head": {
+        "landed": 35,
+        "attempted": 110
+      },
+      "body": {
+        "landed": 4,
+        "attempted": 6
+      },
+      "leg": {
+        "landed": 7,
+        "attempted": 13
+      },
+      "distance": {
+        "landed": 44,
+        "attempted": 126
+      },
+      "clinch": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 25,
+    "fighter_2_age": 32,
+    "fighter_1_height_cm": 173,
+    "fighter_1_reach_cm": 175,
+    "fighter_2_height_cm": 170,
+    "fighter_2_reach_cm": 180
+  },
+  {
+    "event_name": "UFC 331: Van vs. Pantoja 2",
+    "event_date": "2026-09-19",
+    "category": "Middleweight",
+    "fighter_1": "Ryan Gandra",
+    "fighter_2": "Ozzy Diaz",
+    "winner": "Ryan Gandra",
+    "method": "KO/TKOPunch",
+    "round": 1,
+    "time": "2:04",
+    "referee": "Jonathan Romero",
+    "fight_url": "http://ufcstats.com/fight-details/51789f77811b1817",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 16,
+        "attempted": 34
+      },
+      "total_strikes": {
+        "landed": 16,
+        "attempted": 34
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 3,
+      "head": {
+        "landed": 13,
+        "attempted": 29
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 3
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 10,
+        "attempted": 26
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 6,
+        "attempted": 8
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 3,
+        "attempted": 4
+      },
+      "total_strikes": {
+        "landed": 3,
+        "attempted": 4
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 3,
+        "attempted": 4
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 31,
+    "fighter_2_age": 35,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": 188,
+    "fighter_2_height_cm": 193,
+    "fighter_2_reach_cm": 201
+  },
+  {
+    "event_name": "UFC 331: Van vs. Pantoja 2",
+    "event_date": "2026-09-19",
+    "category": "Middleweight",
+    "fighter_1": "Edmen Shahbazyan",
+    "fighter_2": "Brunno Ferreira",
+    "winner": "Edmen Shahbazyan",
+    "method": "U-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Mike Beltran",
+    "fight_url": "http://ufcstats.com/fight-details/9be47241c960d082",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 61,
+        "attempted": 110
+      },
+      "total_strikes": {
+        "landed": 63,
+        "attempted": 112
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 3
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 57,
+      "head": {
+        "landed": 29,
+        "attempted": 66
+      },
+      "body": {
+        "landed": 11,
+        "attempted": 14
+      },
+      "leg": {
+        "landed": 21,
+        "attempted": 30
+      },
+      "distance": {
+        "landed": 56,
+        "attempted": 105
+      },
+      "clinch": {
+        "landed": 4,
+        "attempted": 4
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 1
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 32,
+        "attempted": 108
+      },
+      "total_strikes": {
+        "landed": 33,
+        "attempted": 109
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 16,
+        "attempted": 81
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 7
+      },
+      "leg": {
+        "landed": 15,
+        "attempted": 20
+      },
+      "distance": {
+        "landed": 30,
+        "attempted": 105
+      },
+      "clinch": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 28,
+    "fighter_2_age": 33,
+    "fighter_1_height_cm": 188,
+    "fighter_1_reach_cm": 188,
+    "fighter_2_height_cm": 178,
+    "fighter_2_reach_cm": 183
+  },
+  {
+    "event_name": "UFC 331: Van vs. Pantoja 2",
+    "event_date": "2026-09-19",
+    "category": "Women's Flyweight",
+    "fighter_1": "Casey O'Neill",
+    "fighter_2": "Eduarda Moura",
+    "winner": "Casey O'Neill",
+    "method": "SUBArmbar",
+    "round": 1,
+    "time": "3:22",
+    "referee": "Jason Herzog",
+    "fight_url": "http://ufcstats.com/fight-details/73304588cef4f88b",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 4
+      },
+      "total_strikes": {
+        "landed": 1,
+        "attempted": 4
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 1,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 3
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 4
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 3,
+        "attempted": 7
+      },
+      "total_strikes": {
+        "landed": 13,
+        "attempted": 20
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 1,
+      "reversals": 0,
+      "control_time_seconds": 192,
+      "head": {
+        "landed": 3,
+        "attempted": 7
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 3
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 2,
+        "attempted": 4
+      }
+    },
+    "fighter_1_age": 28,
+    "fighter_2_age": 32,
+    "fighter_1_height_cm": 168,
+    "fighter_1_reach_cm": 175,
+    "fighter_2_height_cm": 168,
+    "fighter_2_reach_cm": 170
+  },
+  {
+    "event_name": "UFC 331: Van vs. Pantoja 2",
+    "event_date": "2026-09-19",
+    "category": "Featherweight",
+    "fighter_1": "Joanderson Brito",
+    "fighter_2": "Giga Chikadze",
+    "winner": "Joanderson Brito",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "1:57",
+    "referee": "Frank Trigg",
+    "fight_url": "http://ufcstats.com/fight-details/2e35163040eb3189",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 20,
+        "attempted": 27
+      },
+      "total_strikes": {
+        "landed": 24,
+        "attempted": 31
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 39,
+      "head": {
+        "landed": 18,
+        "attempted": 25
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 3,
+        "attempted": 8
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 17,
+        "attempted": 19
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 7,
+        "attempted": 12
+      },
+      "total_strikes": {
+        "landed": 13,
+        "attempted": 18
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 3,
+        "attempted": 8
+      },
+      "body": {
+        "landed": 4,
+        "attempted": 4
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 7,
+        "attempted": 12
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 31,
+    "fighter_2_age": 38,
+    "fighter_1_height_cm": 173,
+    "fighter_1_reach_cm": 183,
+    "fighter_2_height_cm": 183,
+    "fighter_2_reach_cm": 188
   }
 ]
