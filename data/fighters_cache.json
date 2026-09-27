@@ -22061,5 +22061,45 @@
     "stance": "Southpaw",
     "dob": "2002-12-04",
     "debut_date": "2026-09-12"
+  },
+  "Luis Hernandez": {
+    "height_cm": 175,
+    "weight_lbs": 185,
+    "reach_cm": 185,
+    "stance": "Southpaw",
+    "dob": "1996-08-22",
+    "debut_date": "2026-09-26"
+  },
+  "Ilimbek Akylbek": {
+    "height_cm": null,
+    "weight_lbs": 135,
+    "reach_cm": null,
+    "stance": "Orthodox",
+    "dob": "2003-09-01",
+    "debut_date": "2026-09-26"
+  },
+  "Mahammadali Osmanli": {
+    "height_cm": null,
+    "weight_lbs": 135,
+    "reach_cm": null,
+    "stance": "Southpaw",
+    "dob": "2004-08-05",
+    "debut_date": "2026-09-26"
+  },
+  "Tina Black": {
+    "height_cm": 163,
+    "weight_lbs": 115,
+    "reach_cm": 160,
+    "stance": "Orthodox",
+    "dob": "1996-05-06",
+    "debut_date": "2026-09-26"
+  },
+  "Melissa Amaya": {
+    "height_cm": null,
+    "weight_lbs": 115,
+    "reach_cm": null,
+    "stance": "Orthodox",
+    "dob": "1994-11-27",
+    "debut_date": "2026-09-26"
   }
 }

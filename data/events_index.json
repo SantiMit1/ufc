@@ -4732,5 +4732,11 @@
     "date": "2026-09-19",
     "url": "http://ufcstats.com/event-details/8a0a35e7c74bebcc",
     "scrapped": true
+  },
+  {
+    "name": "UFC Fight Night: Rosas Jr. vs. Barcelos",
+    "date": "2026-09-26",
+    "url": "http://ufcstats.com/event-details/7e654edcddd71550",
+    "scrapped": true
   }
 ]
