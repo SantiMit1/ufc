@@ -914533,5 +914533,1447 @@
     "fighter_1_reach_cm": 163,
     "fighter_2_height_cm": 157,
     "fighter_2_reach_cm": 150
+  },
+  {
+    "event_name": "UFC 332: Silva vs. Wang",
+    "event_date": "2026-10-03",
+    "category": "Women's Flyweight",
+    "fighter_1": "Natalia Silva",
+    "fighter_2": "Wang Cong",
+    "winner": "Natalia Silva",
+    "method": "U-DEC",
+    "round": 5,
+    "time": "5:00",
+    "referee": "Marc Goddard",
+    "fight_url": "http://ufcstats.com/fight-details/3f804eec9183e597",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 109,
+        "attempted": 216
+      },
+      "total_strikes": {
+        "landed": 133,
+        "attempted": 240
+      },
+      "takedowns": {
+        "landed": 3,
+        "attempted": 5
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 252,
+      "head": {
+        "landed": 64,
+        "attempted": 155
+      },
+      "body": {
+        "landed": 28,
+        "attempted": 39
+      },
+      "leg": {
+        "landed": 17,
+        "attempted": 22
+      },
+      "distance": {
+        "landed": 93,
+        "attempted": 195
+      },
+      "clinch": {
+        "landed": 14,
+        "attempted": 16
+      },
+      "ground": {
+        "landed": 2,
+        "attempted": 5
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 98,
+        "attempted": 206
+      },
+      "total_strikes": {
+        "landed": 147,
+        "attempted": 259
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 159,
+      "head": {
+        "landed": 45,
+        "attempted": 119
+      },
+      "body": {
+        "landed": 19,
+        "attempted": 31
+      },
+      "leg": {
+        "landed": 34,
+        "attempted": 56
+      },
+      "distance": {
+        "landed": 87,
+        "attempted": 195
+      },
+      "clinch": {
+        "landed": 10,
+        "attempted": 10
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 1
+      }
+    },
+    "fighter_1_age": 29,
+    "fighter_2_age": 34,
+    "fighter_1_height_cm": 163,
+    "fighter_1_reach_cm": 165,
+    "fighter_2_height_cm": 168,
+    "fighter_2_reach_cm": 168
+  },
+  {
+    "event_name": "UFC 332: Silva vs. Wang",
+    "event_date": "2026-10-03",
+    "category": "Bantamweight",
+    "fighter_1": "Payton Talbott",
+    "fighter_2": "Deiveson Figueiredo",
+    "winner": "Payton Talbott",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "2:09",
+    "referee": "Jason Herzog",
+    "fight_url": "http://ufcstats.com/fight-details/514366f770553cc9",
+    "stats_fighter_1": {
+      "knockdowns": 2,
+      "sig_strikes": {
+        "landed": 25,
+        "attempted": 44
+      },
+      "total_strikes": {
+        "landed": 27,
+        "attempted": 46
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 12,
+      "head": {
+        "landed": 18,
+        "attempted": 37
+      },
+      "body": {
+        "landed": 5,
+        "attempted": 5
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 17,
+        "attempted": 33
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 8,
+        "attempted": 11
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 5,
+        "attempted": 6
+      },
+      "total_strikes": {
+        "landed": 5,
+        "attempted": 6
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 22,
+      "head": {
+        "landed": 3,
+        "attempted": 4
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 5,
+        "attempted": 6
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 28,
+    "fighter_2_age": 38,
+    "fighter_1_height_cm": 178,
+    "fighter_1_reach_cm": 178,
+    "fighter_2_height_cm": 165,
+    "fighter_2_reach_cm": 173
+  },
+  {
+    "event_name": "UFC 332: Silva vs. Wang",
+    "event_date": "2026-10-03",
+    "category": "Lightweight",
+    "fighter_1": "Esteban Ribovics",
+    "fighter_2": "King Green",
+    "winner": "Esteban Ribovics",
+    "method": "KO/TKOPunch",
+    "round": 1,
+    "time": "4:08",
+    "referee": "Herb Dean",
+    "fight_url": "http://ufcstats.com/fight-details/c93d7f60674df307",
+    "stats_fighter_1": {
+      "knockdowns": 3,
+      "sig_strikes": {
+        "landed": 35,
+        "attempted": 71
+      },
+      "total_strikes": {
+        "landed": 41,
+        "attempted": 79
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 31,
+      "head": {
+        "landed": 25,
+        "attempted": 56
+      },
+      "body": {
+        "landed": 4,
+        "attempted": 6
+      },
+      "leg": {
+        "landed": 6,
+        "attempted": 9
+      },
+      "distance": {
+        "landed": 28,
+        "attempted": 56
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "ground": {
+        "landed": 7,
+        "attempted": 13
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 27,
+        "attempted": 49
+      },
+      "total_strikes": {
+        "landed": 29,
+        "attempted": 51
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 4,
+      "head": {
+        "landed": 11,
+        "attempted": 23
+      },
+      "body": {
+        "landed": 11,
+        "attempted": 18
+      },
+      "leg": {
+        "landed": 5,
+        "attempted": 8
+      },
+      "distance": {
+        "landed": 24,
+        "attempted": 46
+      },
+      "clinch": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 30,
+    "fighter_2_age": 40,
+    "fighter_1_height_cm": 178,
+    "fighter_1_reach_cm": 175,
+    "fighter_2_height_cm": 178,
+    "fighter_2_reach_cm": 180
+  },
+  {
+    "event_name": "UFC 332: Silva vs. Wang",
+    "event_date": "2026-10-03",
+    "category": "Welterweight",
+    "fighter_1": "Roberto Soldic",
+    "fighter_2": "Khaos Williams",
+    "winner": "Roberto Soldic",
+    "method": "U-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Mike Beltran",
+    "fight_url": "http://ufcstats.com/fight-details/a7c8722ad85eee5f",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 94,
+        "attempted": 162
+      },
+      "total_strikes": {
+        "landed": 138,
+        "attempted": 213
+      },
+      "takedowns": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 272,
+      "head": {
+        "landed": 68,
+        "attempted": 130
+      },
+      "body": {
+        "landed": 20,
+        "attempted": 25
+      },
+      "leg": {
+        "landed": 6,
+        "attempted": 7
+      },
+      "distance": {
+        "landed": 78,
+        "attempted": 139
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 16,
+        "attempted": 23
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 27,
+        "attempted": 106
+      },
+      "total_strikes": {
+        "landed": 27,
+        "attempted": 106
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 3,
+      "head": {
+        "landed": 12,
+        "attempted": 83
+      },
+      "body": {
+        "landed": 6,
+        "attempted": 14
+      },
+      "leg": {
+        "landed": 9,
+        "attempted": 9
+      },
+      "distance": {
+        "landed": 27,
+        "attempted": 104
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 2
+      }
+    },
+    "fighter_1_age": 31,
+    "fighter_2_age": 32,
+    "fighter_1_height_cm": 178,
+    "fighter_1_reach_cm": 185,
+    "fighter_2_height_cm": 183,
+    "fighter_2_reach_cm": 196
+  },
+  {
+    "event_name": "UFC 332: Silva vs. Wang",
+    "event_date": "2026-10-03",
+    "category": "Middleweight",
+    "fighter_1": "Roman Kopylov",
+    "fighter_2": "Ateba Gautier",
+    "winner": "Roman Kopylov",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "3:12",
+    "referee": "Marc Goddard",
+    "fight_url": "http://ufcstats.com/fight-details/ec45db01699c4b05",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 19,
+        "attempted": 23
+      },
+      "total_strikes": {
+        "landed": 19,
+        "attempted": 23
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 5,
+      "head": {
+        "landed": 16,
+        "attempted": 20
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 12,
+        "attempted": 15
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 7,
+        "attempted": 8
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 7,
+        "attempted": 30
+      },
+      "total_strikes": {
+        "landed": 7,
+        "attempted": 30
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 3,
+        "attempted": 21
+      },
+      "body": {
+        "landed": 4,
+        "attempted": 9
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 7,
+        "attempted": 30
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 34,
+    "fighter_2_age": 24,
+    "fighter_1_height_cm": 183,
+    "fighter_1_reach_cm": 190,
+    "fighter_2_height_cm": 193,
+    "fighter_2_reach_cm": 206
+  },
+  {
+    "event_name": "UFC 332: Silva vs. Wang",
+    "event_date": "2026-10-03",
+    "category": "Flyweight",
+    "fighter_1": "Imanol Rodriguez",
+    "fighter_2": "Alden Coria",
+    "winner": "Imanol Rodriguez",
+    "method": "KO/TKOKick",
+    "round": 1,
+    "time": "3:11",
+    "referee": "Jason Herzog",
+    "fight_url": "http://ufcstats.com/fight-details/54bbe6d1eb248128",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 20,
+        "attempted": 46
+      },
+      "total_strikes": {
+        "landed": 20,
+        "attempted": 46
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 6,
+      "head": {
+        "landed": 12,
+        "attempted": 35
+      },
+      "body": {
+        "landed": 8,
+        "attempted": 10
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 18,
+        "attempted": 41
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 2,
+        "attempted": 5
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 4,
+        "attempted": 17
+      },
+      "total_strikes": {
+        "landed": 4,
+        "attempted": 17
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 3,
+        "attempted": 15
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 4,
+        "attempted": 17
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 26,
+    "fighter_2_age": 28,
+    "fighter_1_height_cm": 163,
+    "fighter_1_reach_cm": 163,
+    "fighter_2_height_cm": 173,
+    "fighter_2_reach_cm": 170
+  },
+  {
+    "event_name": "UFC 332: Silva vs. Wang",
+    "event_date": "2026-10-03",
+    "category": "Middleweight",
+    "fighter_1": "Damian Pinas",
+    "fighter_2": "Andrey Pulyaev",
+    "winner": "Damian Pinas",
+    "method": "KO/TKOPunch",
+    "round": 1,
+    "time": "1:15",
+    "referee": "Herb Dean",
+    "fight_url": "http://ufcstats.com/fight-details/31b85cd63fb291ed",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 5,
+        "attempted": 7
+      },
+      "total_strikes": {
+        "landed": 5,
+        "attempted": 7
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 3,
+      "head": {
+        "landed": 3,
+        "attempted": 4
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 5,
+        "attempted": 7
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 4,
+        "attempted": 11
+      },
+      "total_strikes": {
+        "landed": 4,
+        "attempted": 11
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 1,
+        "attempted": 7
+      },
+      "body": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 4,
+        "attempted": 11
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 24,
+    "fighter_2_age": 29,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": 201,
+    "fighter_2_height_cm": 193,
+    "fighter_2_reach_cm": 198
+  },
+  {
+    "event_name": "UFC 332: Silva vs. Wang",
+    "event_date": "2026-10-03",
+    "category": "Featherweight",
+    "fighter_1": "Marcus McGhee",
+    "fighter_2": "Anthony Romero",
+    "winner": "Marcus McGhee",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "4:58",
+    "referee": "Tyler Tomlinson",
+    "fight_url": "http://ufcstats.com/fight-details/041f9b7dd3542fa6",
+    "stats_fighter_1": {
+      "knockdowns": 2,
+      "sig_strikes": {
+        "landed": 34,
+        "attempted": 75
+      },
+      "total_strikes": {
+        "landed": 35,
+        "attempted": 76
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 61,
+      "head": {
+        "landed": 24,
+        "attempted": 63
+      },
+      "body": {
+        "landed": 6,
+        "attempted": 8
+      },
+      "leg": {
+        "landed": 4,
+        "attempted": 4
+      },
+      "distance": {
+        "landed": 14,
+        "attempted": 43
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 20,
+        "attempted": 32
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 13,
+        "attempted": 37
+      },
+      "total_strikes": {
+        "landed": 13,
+        "attempted": 37
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 4,
+      "head": {
+        "landed": 8,
+        "attempted": 31
+      },
+      "body": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "distance": {
+        "landed": 13,
+        "attempted": 35
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 2
+      }
+    },
+    "fighter_1_age": 36,
+    "fighter_2_age": null,
+    "fighter_1_height_cm": 173,
+    "fighter_1_reach_cm": 175,
+    "fighter_2_height_cm": 165,
+    "fighter_2_reach_cm": 168
+  },
+  {
+    "event_name": "UFC 332: Silva vs. Wang",
+    "event_date": "2026-10-03",
+    "category": "Heavyweight",
+    "fighter_1": "Anthony Wint",
+    "fighter_2": "Lucas Armand",
+    "winner": "Anthony Wint",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "0:23",
+    "referee": "Mike Beltran",
+    "fight_url": "http://ufcstats.com/fight-details/bd673bf80b95d350",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 12,
+        "attempted": 18
+      },
+      "total_strikes": {
+        "landed": 12,
+        "attempted": 18
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 5,
+      "head": {
+        "landed": 9,
+        "attempted": 14
+      },
+      "body": {
+        "landed": 3,
+        "attempted": 4
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 11,
+        "attempted": 17
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 1
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 5
+      },
+      "total_strikes": {
+        "landed": 1,
+        "attempted": 5
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 1,
+        "attempted": 5
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 5
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 31,
+    "fighter_2_age": 30,
+    "fighter_1_height_cm": 180,
+    "fighter_1_reach_cm": 198,
+    "fighter_2_height_cm": 188,
+    "fighter_2_reach_cm": 198
+  },
+  {
+    "event_name": "UFC 332: Silva vs. Wang",
+    "event_date": "2026-10-03",
+    "category": "Heavyweight",
+    "fighter_1": "Johnny Walker",
+    "fighter_2": "Mick Parkin",
+    "winner": "Johnny Walker",
+    "method": "KO/TKOKnee",
+    "round": 1,
+    "time": "3:35",
+    "referee": "Herb Dean",
+    "fight_url": "http://ufcstats.com/fight-details/e92092a37dc1cfc8",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 23,
+        "attempted": 32
+      },
+      "total_strikes": {
+        "landed": 23,
+        "attempted": 32
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 27,
+      "head": {
+        "landed": 6,
+        "attempted": 14
+      },
+      "body": {
+        "landed": 4,
+        "attempted": 4
+      },
+      "leg": {
+        "landed": 13,
+        "attempted": 14
+      },
+      "distance": {
+        "landed": 19,
+        "attempted": 28
+      },
+      "clinch": {
+        "landed": 4,
+        "attempted": 4
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 11,
+        "attempted": 16
+      },
+      "total_strikes": {
+        "landed": 14,
+        "attempted": 19
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 31,
+      "head": {
+        "landed": 2,
+        "attempted": 6
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 9,
+        "attempted": 10
+      },
+      "distance": {
+        "landed": 11,
+        "attempted": 16
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 34,
+    "fighter_2_age": 31,
+    "fighter_1_height_cm": 198,
+    "fighter_1_reach_cm": 208,
+    "fighter_2_height_cm": 193,
+    "fighter_2_reach_cm": 201
+  },
+  {
+    "event_name": "UFC 332: Silva vs. Wang",
+    "event_date": "2026-10-03",
+    "category": "Welterweight",
+    "fighter_1": "Jacobe Smith",
+    "fighter_2": "Bruce Whitehead",
+    "winner": "Jacobe Smith",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "1:32",
+    "referee": "Marc Goddard",
+    "fight_url": "http://ufcstats.com/fight-details/bc35fb29afba68b9",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 11,
+        "attempted": 17
+      },
+      "total_strikes": {
+        "landed": 19,
+        "attempted": 27
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 29,
+      "head": {
+        "landed": 6,
+        "attempted": 12
+      },
+      "body": {
+        "landed": 5,
+        "attempted": 5
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 6,
+        "attempted": 12
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 4,
+        "attempted": 4
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 4,
+        "attempted": 13
+      },
+      "total_strikes": {
+        "landed": 15,
+        "attempted": 24
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 3,
+      "head": {
+        "landed": 3,
+        "attempted": 11
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 3,
+        "attempted": 10
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 3
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 30,
+    "fighter_2_age": 29,
+    "fighter_1_height_cm": 178,
+    "fighter_1_reach_cm": 183,
+    "fighter_2_height_cm": 178,
+    "fighter_2_reach_cm": 185
+  },
+  {
+    "event_name": "UFC 332: Silva vs. Wang",
+    "event_date": "2026-10-03",
+    "category": "Lightweight",
+    "fighter_1": "Alexander Hernandez",
+    "fighter_2": "Rafael Dos Anjos",
+    "winner": "Alexander Hernandez",
+    "method": "KO/TKOPunch",
+    "round": 2,
+    "time": "3:12",
+    "referee": "Mike Beltran",
+    "fight_url": "http://ufcstats.com/fight-details/d0d2339f56681707",
+    "stats_fighter_1": {
+      "knockdowns": 2,
+      "sig_strikes": {
+        "landed": 36,
+        "attempted": 86
+      },
+      "total_strikes": {
+        "landed": 47,
+        "attempted": 97
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 164,
+      "head": {
+        "landed": 27,
+        "attempted": 76
+      },
+      "body": {
+        "landed": 7,
+        "attempted": 8
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 25,
+        "attempted": 63
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 11,
+        "attempted": 22
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 26,
+        "attempted": 59
+      },
+      "total_strikes": {
+        "landed": 32,
+        "attempted": 65
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 20,
+        "attempted": 49
+      },
+      "body": {
+        "landed": 6,
+        "attempted": 10
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 25,
+        "attempted": 58
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 1
+      }
+    },
+    "fighter_1_age": 34,
+    "fighter_2_age": 41,
+    "fighter_1_height_cm": 175,
+    "fighter_1_reach_cm": 183,
+    "fighter_2_height_cm": 173,
+    "fighter_2_reach_cm": 178
+  },
+  {
+    "event_name": "UFC 332: Silva vs. Wang",
+    "event_date": "2026-10-03",
+    "category": "Middleweight",
+    "fighter_1": "Ismail Naurdiev",
+    "fighter_2": "Marvin Vettori",
+    "winner": "Ismail Naurdiev",
+    "method": "U-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Tyler Tomlinson",
+    "fight_url": "http://ufcstats.com/fight-details/bf93e735845cb960",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 74,
+        "attempted": 190
+      },
+      "total_strikes": {
+        "landed": 74,
+        "attempted": 190
+      },
+      "takedowns": {
+        "landed": 3,
+        "attempted": 7
+      },
+      "sub_attempts": 1,
+      "reversals": 0,
+      "control_time_seconds": 70,
+      "head": {
+        "landed": 37,
+        "attempted": 141
+      },
+      "body": {
+        "landed": 9,
+        "attempted": 16
+      },
+      "leg": {
+        "landed": 28,
+        "attempted": 33
+      },
+      "distance": {
+        "landed": 72,
+        "attempted": 187
+      },
+      "clinch": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 76,
+        "attempted": 201
+      },
+      "total_strikes": {
+        "landed": 77,
+        "attempted": 202
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 13,
+      "head": {
+        "landed": 62,
+        "attempted": 182
+      },
+      "body": {
+        "landed": 7,
+        "attempted": 9
+      },
+      "leg": {
+        "landed": 7,
+        "attempted": 10
+      },
+      "distance": {
+        "landed": 76,
+        "attempted": 201
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 30,
+    "fighter_2_age": 33,
+    "fighter_1_height_cm": 178,
+    "fighter_1_reach_cm": 188,
+    "fighter_2_height_cm": 183,
+    "fighter_2_reach_cm": 188
+  },
+  {
+    "event_name": "UFC 332: Silva vs. Wang",
+    "event_date": "2026-10-03",
+    "category": "Welterweight",
+    "fighter_1": "Eric Nolan",
+    "fighter_2": "Court McGee",
+    "winner": "Eric Nolan",
+    "method": "KO/TKOPunch",
+    "round": 3,
+    "time": "3:26",
+    "referee": "Jason Herzog",
+    "fight_url": "http://ufcstats.com/fight-details/e87db876810cbc3c",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 121,
+        "attempted": 246
+      },
+      "total_strikes": {
+        "landed": 125,
+        "attempted": 250
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 21,
+      "head": {
+        "landed": 105,
+        "attempted": 222
+      },
+      "body": {
+        "landed": 15,
+        "attempted": 23
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 100,
+        "attempted": 222
+      },
+      "clinch": {
+        "landed": 21,
+        "attempted": 24
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 98,
+        "attempted": 273
+      },
+      "total_strikes": {
+        "landed": 127,
+        "attempted": 304
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 7
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 102,
+      "head": {
+        "landed": 64,
+        "attempted": 227
+      },
+      "body": {
+        "landed": 18,
+        "attempted": 30
+      },
+      "leg": {
+        "landed": 16,
+        "attempted": 16
+      },
+      "distance": {
+        "landed": 88,
+        "attempted": 258
+      },
+      "clinch": {
+        "landed": 10,
+        "attempted": 15
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 29,
+    "fighter_2_age": 41,
+    "fighter_1_height_cm": 188,
+    "fighter_1_reach_cm": 188,
+    "fighter_2_height_cm": 180,
+    "fighter_2_reach_cm": 190
   }
 ]

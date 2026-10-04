@@ -22101,5 +22101,37 @@
     "stance": "Orthodox",
     "dob": "1994-11-27",
     "debut_date": "2026-09-26"
+  },
+  "Roberto Soldic": {
+    "height_cm": 178,
+    "weight_lbs": 170,
+    "reach_cm": 185,
+    "stance": "Southpaw",
+    "dob": "1995-01-25",
+    "debut_date": "2026-10-03"
+  },
+  "Anthony Romero": {
+    "height_cm": 165,
+    "weight_lbs": 145,
+    "reach_cm": 168,
+    "stance": "Southpaw",
+    "dob": null,
+    "debut_date": "2026-10-03"
+  },
+  "Lucas Armand": {
+    "height_cm": 188,
+    "weight_lbs": 264,
+    "reach_cm": 198,
+    "stance": "Orthodox",
+    "dob": "1995-10-26",
+    "debut_date": "2026-10-03"
+  },
+  "Bruce Whitehead": {
+    "height_cm": 178,
+    "weight_lbs": 170,
+    "reach_cm": 185,
+    "stance": "Switch",
+    "dob": "1996-12-14",
+    "debut_date": "2026-10-03"
   }
 }

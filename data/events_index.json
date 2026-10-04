@@ -4738,5 +4738,11 @@
     "date": "2026-09-26",
     "url": "http://ufcstats.com/event-details/7e654edcddd71550",
     "scrapped": true
+  },
+  {
+    "name": "UFC 332: Silva vs. Wang",
+    "date": "2026-10-03",
+    "url": "http://ufcstats.com/event-details/ad3fdba28a7540cf",
+    "scrapped": true
   }
 ]
