@@ -4744,5 +4744,11 @@
     "date": "2026-10-03",
     "url": "http://ufcstats.com/event-details/ad3fdba28a7540cf",
     "scrapped": true
+  },
+  {
+    "name": "UFC Fight Night: Allen vs. Duncan",
+    "date": "2026-10-10",
+    "url": "http://ufcstats.com/event-details/7f98d9d5a10fa25c",
+    "scrapped": true
   }
 ]
