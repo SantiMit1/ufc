@@ -4750,5 +4750,11 @@
     "date": "2026-10-10",
     "url": "http://ufcstats.com/event-details/7f98d9d5a10fa25c",
     "scrapped": true
+  },
+  {
+    "name": "UFC Fight Night: Buckley vs. Malott",
+    "date": "2026-10-17",
+    "url": "http://ufcstats.com/event-details/55e94a9b525dcf45",
+    "scrapped": true
   }
 ]

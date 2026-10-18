@@ -22133,5 +22133,61 @@
     "stance": "Switch",
     "dob": "1996-12-14",
     "debut_date": "2026-10-03"
+  },
+  "Cristian Perez": {
+    "height_cm": 175,
+    "weight_lbs": 155,
+    "reach_cm": 183,
+    "stance": "Orthodox",
+    "dob": "1999-08-17",
+    "debut_date": "2026-10-17"
+  },
+  "Louis Jourdain": {
+    "height_cm": 175,
+    "weight_lbs": 135,
+    "reach_cm": 175,
+    "stance": "Orthodox",
+    "dob": "1997-03-13",
+    "debut_date": "2026-10-17"
+  },
+  "Nick Galanti": {
+    "height_cm": 185,
+    "weight_lbs": 185,
+    "reach_cm": 190,
+    "stance": "Southpaw",
+    "dob": "1998-06-18",
+    "debut_date": "2026-10-17"
+  },
+  "Joel Faglier": {
+    "height_cm": 188,
+    "weight_lbs": 261,
+    "reach_cm": 185,
+    "stance": "Orthodox",
+    "dob": "2001-01-18",
+    "debut_date": "2026-10-17"
+  },
+  "Javad Mahjoub": {
+    "height_cm": 185,
+    "weight_lbs": 253,
+    "reach_cm": 193,
+    "stance": "Orthodox",
+    "dob": "1991-05-26",
+    "debut_date": "2026-10-17"
+  },
+  "Mackenzie Stiller": {
+    "height_cm": 157,
+    "weight_lbs": 125,
+    "reach_cm": 157,
+    "stance": "Orthodox",
+    "dob": "1999-07-15",
+    "debut_date": "2026-10-17"
+  },
+  "Cody Chovancek": {
+    "height_cm": 173,
+    "weight_lbs": 135,
+    "reach_cm": 170,
+    "stance": "Switch",
+    "dob": "1998-07-24",
+    "debut_date": "2026-10-17"
   }
 }

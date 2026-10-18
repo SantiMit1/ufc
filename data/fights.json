@@ -917211,5 +917211,1344 @@
     "fighter_1_reach_cm": 180,
     "fighter_2_height_cm": 165,
     "fighter_2_reach_cm": 175
+  },
+  {
+    "event_name": "UFC Fight Night: Buckley vs. Malott",
+    "event_date": "2026-10-17",
+    "category": "Welterweight",
+    "fighter_1": "Mike Malott",
+    "fighter_2": "Joaquin Buckley",
+    "winner": "Mike Malott",
+    "method": "KO/TKOKnee",
+    "round": 2,
+    "time": "2:32",
+    "referee": "Marc Goddard",
+    "fight_url": "http://ufcstats.com/fight-details/c20c949ceba035f3",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 37,
+        "attempted": 50
+      },
+      "total_strikes": {
+        "landed": 38,
+        "attempted": 51
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 85,
+      "head": {
+        "landed": 15,
+        "attempted": 24
+      },
+      "body": {
+        "landed": 20,
+        "attempted": 24
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 21,
+        "attempted": 34
+      },
+      "clinch": {
+        "landed": 15,
+        "attempted": 15
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 1
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 14,
+        "attempted": 53
+      },
+      "total_strikes": {
+        "landed": 20,
+        "attempted": 59
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 8,
+      "head": {
+        "landed": 6,
+        "attempted": 45
+      },
+      "body": {
+        "landed": 4,
+        "attempted": 4
+      },
+      "leg": {
+        "landed": 4,
+        "attempted": 4
+      },
+      "distance": {
+        "landed": 10,
+        "attempted": 49
+      },
+      "clinch": {
+        "landed": 4,
+        "attempted": 4
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 34,
+    "fighter_2_age": 32,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": 185,
+    "fighter_2_height_cm": 178,
+    "fighter_2_reach_cm": 193
+  },
+  {
+    "event_name": "UFC Fight Night: Buckley vs. Malott",
+    "event_date": "2026-10-17",
+    "category": "Women's Flyweight",
+    "fighter_1": "Jasmine Jasudavicius",
+    "fighter_2": "Erin Blanchfield",
+    "winner": "Jasmine Jasudavicius",
+    "method": "U-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Jerin Valel",
+    "fight_url": "http://ufcstats.com/fight-details/16f8c3c83d56a25a",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 43,
+        "attempted": 138
+      },
+      "total_strikes": {
+        "landed": 74,
+        "attempted": 180
+      },
+      "takedowns": {
+        "landed": 5,
+        "attempted": 13
+      },
+      "sub_attempts": 3,
+      "reversals": 1,
+      "control_time_seconds": 479,
+      "head": {
+        "landed": 36,
+        "attempted": 129
+      },
+      "body": {
+        "landed": 5,
+        "attempted": 6
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "distance": {
+        "landed": 41,
+        "attempted": 136
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 1
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 62,
+        "attempted": 134
+      },
+      "total_strikes": {
+        "landed": 66,
+        "attempted": 141
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "sub_attempts": 0,
+      "reversals": 1,
+      "control_time_seconds": 14,
+      "head": {
+        "landed": 57,
+        "attempted": 127
+      },
+      "body": {
+        "landed": 4,
+        "attempted": 6
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 60,
+        "attempted": 132
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 1
+      }
+    },
+    "fighter_1_age": 37,
+    "fighter_2_age": 27,
+    "fighter_1_height_cm": 170,
+    "fighter_1_reach_cm": 173,
+    "fighter_2_height_cm": 163,
+    "fighter_2_reach_cm": 168
+  },
+  {
+    "event_name": "UFC Fight Night: Buckley vs. Malott",
+    "event_date": "2026-10-17",
+    "category": "Lightweight",
+    "fighter_1": "Cristian Perez",
+    "fighter_2": "Kyle Nelson",
+    "winner": "Cristian Perez",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "0:27",
+    "referee": "Jason Herzog",
+    "fight_url": "http://ufcstats.com/fight-details/3f8c17d553845f70",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 10,
+        "attempted": 21
+      },
+      "total_strikes": {
+        "landed": 10,
+        "attempted": 21
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 4,
+      "head": {
+        "landed": 8,
+        "attempted": 19
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 5,
+        "attempted": 14
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "ground": {
+        "landed": 5,
+        "attempted": 5
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 5,
+        "attempted": 7
+      },
+      "total_strikes": {
+        "landed": 5,
+        "attempted": 7
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 4,
+        "attempted": 6
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 5,
+        "attempted": 7
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 27,
+    "fighter_2_age": 35,
+    "fighter_1_height_cm": 175,
+    "fighter_1_reach_cm": 183,
+    "fighter_2_height_cm": 180,
+    "fighter_2_reach_cm": 180
+  },
+  {
+    "event_name": "UFC Fight Night: Buckley vs. Malott",
+    "event_date": "2026-10-17",
+    "category": "Middleweight",
+    "fighter_1": "Marc-Andre Barriault",
+    "fighter_2": "Kyle Daukaus",
+    "winner": "Marc-Andre Barriault",
+    "method": "KO/TKOElbows",
+    "round": 1,
+    "time": "4:28",
+    "referee": "Marc Goddard",
+    "fight_url": "http://ufcstats.com/fight-details/250651ba9f60e12f",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 32,
+        "attempted": 46
+      },
+      "total_strikes": {
+        "landed": 43,
+        "attempted": 60
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 28,
+      "head": {
+        "landed": 31,
+        "attempted": 45
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 2,
+        "attempted": 4
+      },
+      "clinch": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "ground": {
+        "landed": 28,
+        "attempted": 40
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 5,
+        "attempted": 11
+      },
+      "total_strikes": {
+        "landed": 14,
+        "attempted": 23
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 3
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 195,
+      "head": {
+        "landed": 4,
+        "attempted": 10
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 4,
+        "attempted": 10
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 36,
+    "fighter_2_age": 33,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": 188,
+    "fighter_2_height_cm": 188,
+    "fighter_2_reach_cm": 193
+  },
+  {
+    "event_name": "UFC Fight Night: Buckley vs. Malott",
+    "event_date": "2026-10-17",
+    "category": "Bantamweight",
+    "fighter_1": "Timmy Cuamba",
+    "fighter_2": "Louis Jourdain",
+    "winner": "Timmy Cuamba",
+    "method": "SUBNeck Crank",
+    "round": 2,
+    "time": "2:48",
+    "referee": "Andy Social",
+    "fight_url": "http://ufcstats.com/fight-details/5192be72d199804c",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 22,
+        "attempted": 50
+      },
+      "total_strikes": {
+        "landed": 44,
+        "attempted": 80
+      },
+      "takedowns": {
+        "landed": 4,
+        "attempted": 4
+      },
+      "sub_attempts": 1,
+      "reversals": 0,
+      "control_time_seconds": 287,
+      "head": {
+        "landed": 15,
+        "attempted": 42
+      },
+      "body": {
+        "landed": 7,
+        "attempted": 8
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 11,
+        "attempted": 35
+      },
+      "clinch": {
+        "landed": 3,
+        "attempted": 4
+      },
+      "ground": {
+        "landed": 8,
+        "attempted": 11
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 9,
+        "attempted": 36
+      },
+      "total_strikes": {
+        "landed": 21,
+        "attempted": 49
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 1,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 2,
+        "attempted": 18
+      },
+      "body": {
+        "landed": 3,
+        "attempted": 7
+      },
+      "leg": {
+        "landed": 4,
+        "attempted": 11
+      },
+      "distance": {
+        "landed": 9,
+        "attempted": 35
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 27,
+    "fighter_2_age": 29,
+    "fighter_1_height_cm": 175,
+    "fighter_1_reach_cm": 180,
+    "fighter_2_height_cm": 175,
+    "fighter_2_reach_cm": 175
+  },
+  {
+    "event_name": "UFC Fight Night: Buckley vs. Malott",
+    "event_date": "2026-10-17",
+    "category": "Lightweight",
+    "fighter_1": "Mandel Nallo",
+    "fighter_2": "Nate Landwehr",
+    "winner": "Mandel Nallo",
+    "method": "KO/TKOPunches",
+    "round": 2,
+    "time": "0:47",
+    "referee": "Luke Boutin",
+    "fight_url": "http://ufcstats.com/fight-details/49707683a6ebf34c",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 58,
+        "attempted": 100
+      },
+      "total_strikes": {
+        "landed": 58,
+        "attempted": 100
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 1,
+      "reversals": 0,
+      "control_time_seconds": 32,
+      "head": {
+        "landed": 40,
+        "attempted": 77
+      },
+      "body": {
+        "landed": 7,
+        "attempted": 10
+      },
+      "leg": {
+        "landed": 11,
+        "attempted": 13
+      },
+      "distance": {
+        "landed": 56,
+        "attempted": 97
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 2,
+        "attempted": 3
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 13,
+        "attempted": 47
+      },
+      "total_strikes": {
+        "landed": 14,
+        "attempted": 49
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 9,
+        "attempted": 37
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 5
+      },
+      "leg": {
+        "landed": 3,
+        "attempted": 5
+      },
+      "distance": {
+        "landed": 13,
+        "attempted": 46
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 37,
+    "fighter_2_age": 38,
+    "fighter_1_height_cm": 183,
+    "fighter_1_reach_cm": 190,
+    "fighter_2_height_cm": 175,
+    "fighter_2_reach_cm": 183
+  },
+  {
+    "event_name": "UFC Fight Night: Buckley vs. Malott",
+    "event_date": "2026-10-17",
+    "category": "Heavyweight",
+    "fighter_1": "Tanner Boser",
+    "fighter_2": "Jhonata Diniz",
+    "winner": "Tanner Boser",
+    "method": "KO/TKOPunches",
+    "round": 3,
+    "time": "4:26",
+    "referee": "Jason Herzog",
+    "fight_url": "http://ufcstats.com/fight-details/856716a6ee05e0ca",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 44,
+        "attempted": 71
+      },
+      "total_strikes": {
+        "landed": 196,
+        "attempted": 237
+      },
+      "takedowns": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "sub_attempts": 1,
+      "reversals": 0,
+      "control_time_seconds": 618,
+      "head": {
+        "landed": 33,
+        "attempted": 59
+      },
+      "body": {
+        "landed": 8,
+        "attempted": 8
+      },
+      "leg": {
+        "landed": 3,
+        "attempted": 4
+      },
+      "distance": {
+        "landed": 16,
+        "attempted": 38
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 27,
+        "attempted": 32
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 14,
+        "attempted": 45
+      },
+      "total_strikes": {
+        "landed": 28,
+        "attempted": 61
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 8,
+        "attempted": 35
+      },
+      "body": {
+        "landed": 3,
+        "attempted": 4
+      },
+      "leg": {
+        "landed": 3,
+        "attempted": 6
+      },
+      "distance": {
+        "landed": 13,
+        "attempted": 43
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 35,
+    "fighter_2_age": 35,
+    "fighter_1_height_cm": 188,
+    "fighter_1_reach_cm": 190,
+    "fighter_2_height_cm": 193,
+    "fighter_2_reach_cm": 201
+  },
+  {
+    "event_name": "UFC Fight Night: Buckley vs. Malott",
+    "event_date": "2026-10-17",
+    "category": "Middleweight",
+    "fighter_1": "Nick Galanti",
+    "fighter_2": "Julien Leblanc",
+    "winner": "Nick Galanti",
+    "method": "SUBNeck Crank",
+    "round": 1,
+    "time": "1:26",
+    "referee": "Jerin Valel",
+    "fight_url": "http://ufcstats.com/fight-details/b6ab5f1be3d3eb9e",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "total_strikes": {
+        "landed": 3,
+        "attempted": 5
+      },
+      "takedowns": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "sub_attempts": 1,
+      "reversals": 0,
+      "control_time_seconds": 75,
+      "head": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 1
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "total_strikes": {
+        "landed": 3,
+        "attempted": 4
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 28,
+    "fighter_2_age": 34,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": 190,
+    "fighter_2_height_cm": 188,
+    "fighter_2_reach_cm": 188
+  },
+  {
+    "event_name": "UFC Fight Night: Buckley vs. Malott",
+    "event_date": "2026-10-17",
+    "category": "Heavyweight",
+    "fighter_1": "Joel Faglier",
+    "fighter_2": "Javad Mahjoub",
+    "winner": "Joel Faglier",
+    "method": "KO/TKOPunches",
+    "round": 2,
+    "time": "2:11",
+    "referee": "Marc Goddard",
+    "fight_url": "http://ufcstats.com/fight-details/88247eaef34c209b",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 51,
+        "attempted": 76
+      },
+      "total_strikes": {
+        "landed": 52,
+        "attempted": 77
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 2,
+      "head": {
+        "landed": 19,
+        "attempted": 40
+      },
+      "body": {
+        "landed": 26,
+        "attempted": 30
+      },
+      "leg": {
+        "landed": 6,
+        "attempted": 6
+      },
+      "distance": {
+        "landed": 44,
+        "attempted": 67
+      },
+      "clinch": {
+        "landed": 3,
+        "attempted": 4
+      },
+      "ground": {
+        "landed": 4,
+        "attempted": 5
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 2,
+      "sig_strikes": {
+        "landed": 60,
+        "attempted": 114
+      },
+      "total_strikes": {
+        "landed": 67,
+        "attempted": 126
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 3
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 96,
+      "head": {
+        "landed": 54,
+        "attempted": 105
+      },
+      "body": {
+        "landed": 5,
+        "attempted": 7
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 37,
+        "attempted": 79
+      },
+      "clinch": {
+        "landed": 6,
+        "attempted": 11
+      },
+      "ground": {
+        "landed": 17,
+        "attempted": 24
+      }
+    },
+    "fighter_1_age": 25,
+    "fighter_2_age": 35,
+    "fighter_1_height_cm": 188,
+    "fighter_1_reach_cm": 185,
+    "fighter_2_height_cm": 185,
+    "fighter_2_reach_cm": 193
+  },
+  {
+    "event_name": "UFC Fight Night: Buckley vs. Malott",
+    "event_date": "2026-10-17",
+    "category": "Women's Flyweight",
+    "fighter_1": "Katlyn Cerminara",
+    "fighter_2": "Mackenzie Stiller",
+    "winner": "Katlyn Cerminara",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "4:46",
+    "referee": "Luke Boutin",
+    "fight_url": "http://ufcstats.com/fight-details/d9b442194ca25bd9",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 32,
+        "attempted": 71
+      },
+      "total_strikes": {
+        "landed": 35,
+        "attempted": 74
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 15,
+      "head": {
+        "landed": 29,
+        "attempted": 67
+      },
+      "body": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 25,
+        "attempted": 60
+      },
+      "clinch": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "ground": {
+        "landed": 5,
+        "attempted": 8
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 19,
+        "attempted": 58
+      },
+      "total_strikes": {
+        "landed": 19,
+        "attempted": 58
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 9,
+        "attempted": 47
+      },
+      "body": {
+        "landed": 7,
+        "attempted": 8
+      },
+      "leg": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "distance": {
+        "landed": 19,
+        "attempted": 58
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 37,
+    "fighter_2_age": 27,
+    "fighter_1_height_cm": 175,
+    "fighter_1_reach_cm": 173,
+    "fighter_2_height_cm": 157,
+    "fighter_2_reach_cm": 157
+  },
+  {
+    "event_name": "UFC Fight Night: Buckley vs. Malott",
+    "event_date": "2026-10-17",
+    "category": "Bantamweight",
+    "fighter_1": "Steven Koslow",
+    "fighter_2": "Chad Anheliger",
+    "winner": "Steven Koslow",
+    "method": "SUBRear Naked Choke",
+    "round": 3,
+    "time": "4:31",
+    "referee": "Mike Tubbs",
+    "fight_url": "http://ufcstats.com/fight-details/fb6b38c62d1a78be",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 51,
+        "attempted": 88
+      },
+      "total_strikes": {
+        "landed": 97,
+        "attempted": 145
+      },
+      "takedowns": {
+        "landed": 4,
+        "attempted": 4
+      },
+      "sub_attempts": 2,
+      "reversals": 0,
+      "control_time_seconds": 417,
+      "head": {
+        "landed": 34,
+        "attempted": 66
+      },
+      "body": {
+        "landed": 8,
+        "attempted": 11
+      },
+      "leg": {
+        "landed": 9,
+        "attempted": 11
+      },
+      "distance": {
+        "landed": 40,
+        "attempted": 74
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 11,
+        "attempted": 13
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 34,
+        "attempted": 59
+      },
+      "total_strikes": {
+        "landed": 39,
+        "attempted": 66
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 1,
+      "control_time_seconds": 12,
+      "head": {
+        "landed": 25,
+        "attempted": 48
+      },
+      "body": {
+        "landed": 4,
+        "attempted": 4
+      },
+      "leg": {
+        "landed": 5,
+        "attempted": 7
+      },
+      "distance": {
+        "landed": 31,
+        "attempted": 55
+      },
+      "clinch": {
+        "landed": 3,
+        "attempted": 4
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 29,
+    "fighter_2_age": 39,
+    "fighter_1_height_cm": 170,
+    "fighter_1_reach_cm": 175,
+    "fighter_2_height_cm": 168,
+    "fighter_2_reach_cm": 163
+  },
+  {
+    "event_name": "UFC Fight Night: Buckley vs. Malott",
+    "event_date": "2026-10-17",
+    "category": "Women's Bantamweight",
+    "fighter_1": "Chelsea Chandler",
+    "fighter_2": "Melissa Croden",
+    "winner": "Chelsea Chandler",
+    "method": "SUBKimura",
+    "round": 1,
+    "time": "4:52",
+    "referee": "Andy Social",
+    "fight_url": "http://ufcstats.com/fight-details/f07778a744322922",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 12,
+        "attempted": 27
+      },
+      "total_strikes": {
+        "landed": 37,
+        "attempted": 53
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 1,
+      "reversals": 0,
+      "control_time_seconds": 76,
+      "head": {
+        "landed": 4,
+        "attempted": 19
+      },
+      "body": {
+        "landed": 8,
+        "attempted": 8
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 3,
+        "attempted": 16
+      },
+      "clinch": {
+        "landed": 9,
+        "attempted": 11
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 11,
+        "attempted": 29
+      },
+      "total_strikes": {
+        "landed": 27,
+        "attempted": 45
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 3
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 134,
+      "head": {
+        "landed": 5,
+        "attempted": 21
+      },
+      "body": {
+        "landed": 6,
+        "attempted": 8
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 4,
+        "attempted": 16
+      },
+      "clinch": {
+        "landed": 7,
+        "attempted": 13
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 35,
+    "fighter_2_age": 35,
+    "fighter_1_height_cm": 173,
+    "fighter_1_reach_cm": 173,
+    "fighter_2_height_cm": 175,
+    "fighter_2_reach_cm": 173
+  },
+  {
+    "event_name": "UFC Fight Night: Buckley vs. Malott",
+    "event_date": "2026-10-17",
+    "category": "Bantamweight",
+    "fighter_1": "SuYoung You",
+    "fighter_2": "Cody Chovancek",
+    "winner": "SuYoung You",
+    "method": "SUBKimura",
+    "round": 3,
+    "time": "4:19",
+    "referee": "Jason Herzog",
+    "fight_url": "http://ufcstats.com/fight-details/0768a3792443212d",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 5,
+        "attempted": 7
+      },
+      "total_strikes": {
+        "landed": 82,
+        "attempted": 95
+      },
+      "takedowns": {
+        "landed": 6,
+        "attempted": 8
+      },
+      "sub_attempts": 1,
+      "reversals": 1,
+      "control_time_seconds": 709,
+      "head": {
+        "landed": 4,
+        "attempted": 5
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 3,
+        "attempted": 4
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 7
+      },
+      "total_strikes": {
+        "landed": 17,
+        "attempted": 27
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 12,
+      "head": {
+        "landed": 1,
+        "attempted": 6
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 6
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 1
+      }
+    },
+    "fighter_1_age": 30,
+    "fighter_2_age": 28,
+    "fighter_1_height_cm": 168,
+    "fighter_1_reach_cm": 165,
+    "fighter_2_height_cm": 173,
+    "fighter_2_reach_cm": 170
   }
 ]
