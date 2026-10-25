@@ -918550,5 +918550,1447 @@
     "fighter_1_reach_cm": 165,
     "fighter_2_height_cm": 173,
     "fighter_2_reach_cm": 170
+  },
+  {
+    "event_name": "UFC 333: Volkanovski vs. Evloev",
+    "event_date": "2026-10-24",
+    "category": "Featherweight",
+    "fighter_1": "Alexander Volkanovski",
+    "fighter_2": "Movsar Evloev",
+    "winner": "Alexander Volkanovski",
+    "method": "KO/TKOPunches",
+    "round": 2,
+    "time": "4:54",
+    "referee": "Marc Goddard",
+    "fight_url": "http://ufcstats.com/fight-details/ce1388d6c7651d2e",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 56,
+        "attempted": 110
+      },
+      "total_strikes": {
+        "landed": 61,
+        "attempted": 118
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 104,
+      "head": {
+        "landed": 48,
+        "attempted": 101
+      },
+      "body": {
+        "landed": 3,
+        "attempted": 4
+      },
+      "leg": {
+        "landed": 5,
+        "attempted": 5
+      },
+      "distance": {
+        "landed": 42,
+        "attempted": 90
+      },
+      "clinch": {
+        "landed": 3,
+        "attempted": 4
+      },
+      "ground": {
+        "landed": 11,
+        "attempted": 16
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 40,
+        "attempted": 65
+      },
+      "total_strikes": {
+        "landed": 62,
+        "attempted": 88
+      },
+      "takedowns": {
+        "landed": 3,
+        "attempted": 7
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 46,
+      "head": {
+        "landed": 28,
+        "attempted": 50
+      },
+      "body": {
+        "landed": 8,
+        "attempted": 9
+      },
+      "leg": {
+        "landed": 4,
+        "attempted": 6
+      },
+      "distance": {
+        "landed": 31,
+        "attempted": 55
+      },
+      "clinch": {
+        "landed": 8,
+        "attempted": 9
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 1
+      }
+    },
+    "fighter_1_age": 38,
+    "fighter_2_age": 32,
+    "fighter_1_height_cm": 168,
+    "fighter_1_reach_cm": 180,
+    "fighter_2_height_cm": 170,
+    "fighter_2_reach_cm": 183
+  },
+  {
+    "event_name": "UFC 333: Volkanovski vs. Evloev",
+    "event_date": "2026-10-24",
+    "category": "Bantamweight",
+    "fighter_1": "Petr Yan",
+    "fighter_2": "Merab Dvalishvili",
+    "winner": "Petr Yan",
+    "method": "U-DEC",
+    "round": 5,
+    "time": "5:00",
+    "referee": "Jason Herzog",
+    "fight_url": "http://ufcstats.com/fight-details/e262f5e588b149a6",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 128,
+        "attempted": 228
+      },
+      "total_strikes": {
+        "landed": 131,
+        "attempted": 231
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "reversals": 1,
+      "control_time_seconds": 23,
+      "head": {
+        "landed": 95,
+        "attempted": 194
+      },
+      "body": {
+        "landed": 18,
+        "attempted": 19
+      },
+      "leg": {
+        "landed": 15,
+        "attempted": 15
+      },
+      "distance": {
+        "landed": 115,
+        "attempted": 210
+      },
+      "clinch": {
+        "landed": 11,
+        "attempted": 16
+      },
+      "ground": {
+        "landed": 2,
+        "attempted": 2
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 131,
+        "attempted": 363
+      },
+      "total_strikes": {
+        "landed": 159,
+        "attempted": 396
+      },
+      "takedowns": {
+        "landed": 5,
+        "attempted": 58
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 114,
+      "head": {
+        "landed": 100,
+        "attempted": 298
+      },
+      "body": {
+        "landed": 8,
+        "attempted": 18
+      },
+      "leg": {
+        "landed": 23,
+        "attempted": 47
+      },
+      "distance": {
+        "landed": 122,
+        "attempted": 350
+      },
+      "clinch": {
+        "landed": 9,
+        "attempted": 13
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 33,
+    "fighter_2_age": 35,
+    "fighter_1_height_cm": 170,
+    "fighter_1_reach_cm": 170,
+    "fighter_2_height_cm": 168,
+    "fighter_2_reach_cm": 173
+  },
+  {
+    "event_name": "UFC 333: Volkanovski vs. Evloev",
+    "event_date": "2026-10-24",
+    "category": "Flyweight",
+    "fighter_1": "Lone'er Kavanagh",
+    "fighter_2": "Ramazan Temirov",
+    "winner": "Lone'er Kavanagh",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "4:28",
+    "referee": "Mike Beltran",
+    "fight_url": "http://ufcstats.com/fight-details/b9004bd72276a190",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 23,
+        "attempted": 44
+      },
+      "total_strikes": {
+        "landed": 23,
+        "attempted": 44
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 1,
+      "head": {
+        "landed": 15,
+        "attempted": 33
+      },
+      "body": {
+        "landed": 3,
+        "attempted": 6
+      },
+      "leg": {
+        "landed": 5,
+        "attempted": 5
+      },
+      "distance": {
+        "landed": 22,
+        "attempted": 43
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 1
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 18,
+        "attempted": 40
+      },
+      "total_strikes": {
+        "landed": 18,
+        "attempted": 40
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 15,
+        "attempted": 36
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 18,
+        "attempted": 40
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 27,
+    "fighter_2_age": 29,
+    "fighter_1_height_cm": 168,
+    "fighter_1_reach_cm": 170,
+    "fighter_2_height_cm": 163,
+    "fighter_2_reach_cm": 160
+  },
+  {
+    "event_name": "UFC 333: Volkanovski vs. Evloev",
+    "event_date": "2026-10-24",
+    "category": "Heavyweight",
+    "fighter_1": "Alexander Volkov",
+    "fighter_2": "Rizvan Kuniev",
+    "winner": "Alexander Volkov",
+    "method": "U-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Marc Goddard",
+    "fight_url": "http://ufcstats.com/fight-details/8788a6dda6e64aff",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 74,
+        "attempted": 150
+      },
+      "total_strikes": {
+        "landed": 82,
+        "attempted": 158
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 1,
+      "reversals": 0,
+      "control_time_seconds": 122,
+      "head": {
+        "landed": 35,
+        "attempted": 99
+      },
+      "body": {
+        "landed": 25,
+        "attempted": 33
+      },
+      "leg": {
+        "landed": 14,
+        "attempted": 18
+      },
+      "distance": {
+        "landed": 66,
+        "attempted": 140
+      },
+      "clinch": {
+        "landed": 8,
+        "attempted": 10
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 51,
+        "attempted": 87
+      },
+      "total_strikes": {
+        "landed": 62,
+        "attempted": 98
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 4
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 4,
+      "head": {
+        "landed": 35,
+        "attempted": 66
+      },
+      "body": {
+        "landed": 7,
+        "attempted": 10
+      },
+      "leg": {
+        "landed": 9,
+        "attempted": 11
+      },
+      "distance": {
+        "landed": 49,
+        "attempted": 85
+      },
+      "clinch": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 38,
+    "fighter_2_age": 34,
+    "fighter_1_height_cm": 201,
+    "fighter_1_reach_cm": 203,
+    "fighter_2_height_cm": 193,
+    "fighter_2_reach_cm": 193
+  },
+  {
+    "event_name": "UFC 333: Volkanovski vs. Evloev",
+    "event_date": "2026-10-24",
+    "category": "Featherweight",
+    "fighter_1": "Aaron Pico",
+    "fighter_2": "Losene Keita",
+    "winner": "Aaron Pico",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "1:14",
+    "referee": "Lukasz Bosacki",
+    "fight_url": "http://ufcstats.com/fight-details/8271c52b2987e021",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 6,
+        "attempted": 10
+      },
+      "total_strikes": {
+        "landed": 12,
+        "attempted": 16
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 37,
+      "head": {
+        "landed": 6,
+        "attempted": 10
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 3
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 4,
+        "attempted": 6
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 2,
+        "attempted": 4
+      },
+      "total_strikes": {
+        "landed": 3,
+        "attempted": 5
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 1,
+        "attempted": 3
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 3
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 1
+      }
+    },
+    "fighter_1_age": 30,
+    "fighter_2_age": 28,
+    "fighter_1_height_cm": 173,
+    "fighter_1_reach_cm": 178,
+    "fighter_2_height_cm": 170,
+    "fighter_2_reach_cm": 183
+  },
+  {
+    "event_name": "UFC 333: Volkanovski vs. Evloev",
+    "event_date": "2026-10-24",
+    "category": "Light Heavyweight",
+    "fighter_1": "Dominick Reyes",
+    "fighter_2": "Azamat Murzakanov",
+    "winner": "Dominick Reyes",
+    "method": "KO/TKOPunch",
+    "round": 1,
+    "time": "2:40",
+    "referee": "Mike Beltran",
+    "fight_url": "http://ufcstats.com/fight-details/c6bcc7e9fb90da47",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 14,
+        "attempted": 24
+      },
+      "total_strikes": {
+        "landed": 14,
+        "attempted": 24
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 4,
+      "head": {
+        "landed": 7,
+        "attempted": 14
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 6,
+        "attempted": 8
+      },
+      "distance": {
+        "landed": 9,
+        "attempted": 18
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 5,
+        "attempted": 6
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 3,
+        "attempted": 7
+      },
+      "total_strikes": {
+        "landed": 3,
+        "attempted": 7
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 2,
+        "attempted": 6
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 3,
+        "attempted": 7
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 36,
+    "fighter_2_age": 37,
+    "fighter_1_height_cm": 193,
+    "fighter_1_reach_cm": 196,
+    "fighter_2_height_cm": 178,
+    "fighter_2_reach_cm": 180
+  },
+  {
+    "event_name": "UFC 333: Volkanovski vs. Evloev",
+    "event_date": "2026-10-24",
+    "category": "Light Heavyweight",
+    "fighter_1": "Abdul Rakhman Yakhyaev",
+    "fighter_2": "Nikita Krylov",
+    "winner": "Abdul Rakhman Yakhyaev",
+    "method": "KO/TKOKnee",
+    "round": 1,
+    "time": "2:38",
+    "referee": "Jason Herzog",
+    "fight_url": "http://ufcstats.com/fight-details/6193cd89b1cd9a9e",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 6,
+        "attempted": 9
+      },
+      "total_strikes": {
+        "landed": 19,
+        "attempted": 24
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 1,
+      "reversals": 0,
+      "control_time_seconds": 44,
+      "head": {
+        "landed": 3,
+        "attempted": 6
+      },
+      "body": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "clinch": {
+        "landed": 4,
+        "attempted": 4
+      },
+      "ground": {
+        "landed": 2,
+        "attempted": 3
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 4,
+        "attempted": 6
+      },
+      "total_strikes": {
+        "landed": 7,
+        "attempted": 9
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 89,
+      "head": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 4
+      },
+      "distance": {
+        "landed": 3,
+        "attempted": 5
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 25,
+    "fighter_2_age": 34,
+    "fighter_1_height_cm": 188,
+    "fighter_1_reach_cm": 198,
+    "fighter_2_height_cm": 190,
+    "fighter_2_reach_cm": 196
+  },
+  {
+    "event_name": "UFC 333: Volkanovski vs. Evloev",
+    "event_date": "2026-10-24",
+    "category": "Middleweight",
+    "fighter_1": "Abus Magomedov",
+    "fighter_2": "Cam Rowston",
+    "winner": "Abus Magomedov",
+    "method": "SUBGuillotine Choke",
+    "round": 1,
+    "time": "1:44",
+    "referee": "Saman Amidi",
+    "fight_url": "http://ufcstats.com/fight-details/69aec85e917d47e6",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 11,
+        "attempted": 15
+      },
+      "total_strikes": {
+        "landed": 11,
+        "attempted": 15
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 1,
+      "reversals": 0,
+      "control_time_seconds": 7,
+      "head": {
+        "landed": 5,
+        "attempted": 7
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 5,
+        "attempted": 6
+      },
+      "distance": {
+        "landed": 11,
+        "attempted": 15
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 1,
+        "attempted": 11
+      },
+      "total_strikes": {
+        "landed": 1,
+        "attempted": 11
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 6,
+      "head": {
+        "landed": 0,
+        "attempted": 8
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 1,
+        "attempted": 11
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 36,
+    "fighter_2_age": 31,
+    "fighter_1_height_cm": 188,
+    "fighter_1_reach_cm": 198,
+    "fighter_2_height_cm": 190,
+    "fighter_2_reach_cm": 198
+  },
+  {
+    "event_name": "UFC 333: Volkanovski vs. Evloev",
+    "event_date": "2026-10-24",
+    "category": "Lightweight",
+    "fighter_1": "Grant Dawson",
+    "fighter_2": "Nurullo Aliev",
+    "winner": "Grant Dawson",
+    "method": "U-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Marc Goddard",
+    "fight_url": "http://ufcstats.com/fight-details/c70b4b6a8a5a3abb",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 95,
+        "attempted": 188
+      },
+      "total_strikes": {
+        "landed": 147,
+        "attempted": 242
+      },
+      "takedowns": {
+        "landed": 5,
+        "attempted": 7
+      },
+      "sub_attempts": 1,
+      "reversals": 0,
+      "control_time_seconds": 378,
+      "head": {
+        "landed": 71,
+        "attempted": 157
+      },
+      "body": {
+        "landed": 16,
+        "attempted": 22
+      },
+      "leg": {
+        "landed": 8,
+        "attempted": 9
+      },
+      "distance": {
+        "landed": 72,
+        "attempted": 155
+      },
+      "clinch": {
+        "landed": 7,
+        "attempted": 11
+      },
+      "ground": {
+        "landed": 16,
+        "attempted": 22
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 65,
+        "attempted": 106
+      },
+      "total_strikes": {
+        "landed": 96,
+        "attempted": 138
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 86,
+      "head": {
+        "landed": 50,
+        "attempted": 88
+      },
+      "body": {
+        "landed": 12,
+        "attempted": 15
+      },
+      "leg": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "distance": {
+        "landed": 61,
+        "attempted": 101
+      },
+      "clinch": {
+        "landed": 4,
+        "attempted": 5
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 32,
+    "fighter_2_age": 25,
+    "fighter_1_height_cm": 178,
+    "fighter_1_reach_cm": 183,
+    "fighter_2_height_cm": 178,
+    "fighter_2_reach_cm": 183
+  },
+  {
+    "event_name": "UFC 333: Volkanovski vs. Evloev",
+    "event_date": "2026-10-24",
+    "category": "Bantamweight",
+    "fighter_1": "Colby Thicknesse",
+    "fighter_2": "Asaf Chopurov",
+    "winner": "Colby Thicknesse",
+    "method": "S-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Mike Beltran",
+    "fight_url": "http://ufcstats.com/fight-details/411ec0a245687c49",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 77,
+        "attempted": 135
+      },
+      "total_strikes": {
+        "landed": 107,
+        "attempted": 171
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 15
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 194,
+      "head": {
+        "landed": 37,
+        "attempted": 88
+      },
+      "body": {
+        "landed": 36,
+        "attempted": 43
+      },
+      "leg": {
+        "landed": 4,
+        "attempted": 4
+      },
+      "distance": {
+        "landed": 27,
+        "attempted": 73
+      },
+      "clinch": {
+        "landed": 50,
+        "attempted": 62
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 54,
+        "attempted": 96
+      },
+      "total_strikes": {
+        "landed": 71,
+        "attempted": 117
+      },
+      "takedowns": {
+        "landed": 8,
+        "attempted": 12
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 301,
+      "head": {
+        "landed": 33,
+        "attempted": 68
+      },
+      "body": {
+        "landed": 18,
+        "attempted": 25
+      },
+      "leg": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "distance": {
+        "landed": 20,
+        "attempted": 50
+      },
+      "clinch": {
+        "landed": 32,
+        "attempted": 43
+      },
+      "ground": {
+        "landed": 2,
+        "attempted": 3
+      }
+    },
+    "fighter_1_age": 27,
+    "fighter_2_age": 24,
+    "fighter_1_height_cm": 170,
+    "fighter_1_reach_cm": 175,
+    "fighter_2_height_cm": 170,
+    "fighter_2_reach_cm": 170
+  },
+  {
+    "event_name": "UFC 333: Volkanovski vs. Evloev",
+    "event_date": "2026-10-24",
+    "category": "Middleweight",
+    "fighter_1": "Abubakar Vagaev",
+    "fighter_2": "Jacob Malkoun",
+    "winner": "Abubakar Vagaev",
+    "method": "U-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Lukasz Bosacki",
+    "fight_url": "http://ufcstats.com/fight-details/23a6bddecfa23fcd",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 71,
+        "attempted": 139
+      },
+      "total_strikes": {
+        "landed": 92,
+        "attempted": 162
+      },
+      "takedowns": {
+        "landed": 6,
+        "attempted": 12
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 127,
+      "head": {
+        "landed": 55,
+        "attempted": 113
+      },
+      "body": {
+        "landed": 5,
+        "attempted": 9
+      },
+      "leg": {
+        "landed": 11,
+        "attempted": 17
+      },
+      "distance": {
+        "landed": 66,
+        "attempted": 123
+      },
+      "clinch": {
+        "landed": 3,
+        "attempted": 9
+      },
+      "ground": {
+        "landed": 2,
+        "attempted": 7
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 106,
+        "attempted": 202
+      },
+      "total_strikes": {
+        "landed": 113,
+        "attempted": 212
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 4
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 12,
+      "head": {
+        "landed": 95,
+        "attempted": 182
+      },
+      "body": {
+        "landed": 11,
+        "attempted": 20
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 103,
+        "attempted": 199
+      },
+      "clinch": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 33,
+    "fighter_2_age": 31,
+    "fighter_1_height_cm": 180,
+    "fighter_1_reach_cm": 185,
+    "fighter_2_height_cm": 175,
+    "fighter_2_reach_cm": 185
+  },
+  {
+    "event_name": "UFC 333: Volkanovski vs. Evloev",
+    "event_date": "2026-10-24",
+    "category": "Featherweight",
+    "fighter_1": "Daniel Santos",
+    "fighter_2": "Bolaji Oki",
+    "winner": "Daniel Santos",
+    "method": "U-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Jason Herzog",
+    "fight_url": "http://ufcstats.com/fight-details/1fa88509d87cc05e",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 76,
+        "attempted": 159
+      },
+      "total_strikes": {
+        "landed": 87,
+        "attempted": 172
+      },
+      "takedowns": {
+        "landed": 2,
+        "attempted": 5
+      },
+      "sub_attempts": 1,
+      "reversals": 0,
+      "control_time_seconds": 100,
+      "head": {
+        "landed": 35,
+        "attempted": 95
+      },
+      "body": {
+        "landed": 19,
+        "attempted": 39
+      },
+      "leg": {
+        "landed": 22,
+        "attempted": 25
+      },
+      "distance": {
+        "landed": 70,
+        "attempted": 151
+      },
+      "clinch": {
+        "landed": 6,
+        "attempted": 8
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 69,
+        "attempted": 107
+      },
+      "total_strikes": {
+        "landed": 70,
+        "attempted": 108
+      },
+      "takedowns": {
+        "landed": 2,
+        "attempted": 3
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 163,
+      "head": {
+        "landed": 45,
+        "attempted": 78
+      },
+      "body": {
+        "landed": 21,
+        "attempted": 26
+      },
+      "leg": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "distance": {
+        "landed": 58,
+        "attempted": 93
+      },
+      "clinch": {
+        "landed": 7,
+        "attempted": 9
+      },
+      "ground": {
+        "landed": 4,
+        "attempted": 5
+      }
+    },
+    "fighter_1_age": 31,
+    "fighter_2_age": 30,
+    "fighter_1_height_cm": 170,
+    "fighter_1_reach_cm": 170,
+    "fighter_2_height_cm": 178,
+    "fighter_2_reach_cm": 185
+  },
+  {
+    "event_name": "UFC 333: Volkanovski vs. Evloev",
+    "event_date": "2026-10-24",
+    "category": "Lightweight",
+    "fighter_1": "Kody Steele",
+    "fighter_2": "Noah Gugnon",
+    "winner": "Kody Steele",
+    "method": "KO/TKOPunches",
+    "round": 1,
+    "time": "3:54",
+    "referee": "Saman Amidi",
+    "fight_url": "http://ufcstats.com/fight-details/02df66c779a72260",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 25,
+        "attempted": 52
+      },
+      "total_strikes": {
+        "landed": 25,
+        "attempted": 52
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 3
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 22,
+      "head": {
+        "landed": 20,
+        "attempted": 45
+      },
+      "body": {
+        "landed": 3,
+        "attempted": 5
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 21,
+        "attempted": 48
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 3,
+        "attempted": 3
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 31,
+        "attempted": 57
+      },
+      "total_strikes": {
+        "landed": 32,
+        "attempted": 58
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 26,
+        "attempted": 51
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 5,
+        "attempted": 6
+      },
+      "distance": {
+        "landed": 26,
+        "attempted": 51
+      },
+      "clinch": {
+        "landed": 5,
+        "attempted": 6
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 31,
+    "fighter_2_age": 26,
+    "fighter_1_height_cm": 175,
+    "fighter_1_reach_cm": 180,
+    "fighter_2_height_cm": 180,
+    "fighter_2_reach_cm": 180
+  },
+  {
+    "event_name": "UFC 333: Volkanovski vs. Evloev",
+    "event_date": "2026-10-24",
+    "category": "Women's Strawweight",
+    "fighter_1": "Iasmin Lucindo",
+    "fighter_2": "Nicolle Caliari",
+    "winner": "Iasmin Lucindo",
+    "method": "U-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Lukasz Bosacki",
+    "fight_url": "http://ufcstats.com/fight-details/4081a5fe66569321",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 31,
+        "attempted": 49
+      },
+      "total_strikes": {
+        "landed": 57,
+        "attempted": 80
+      },
+      "takedowns": {
+        "landed": 3,
+        "attempted": 4
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 567,
+      "head": {
+        "landed": 22,
+        "attempted": 38
+      },
+      "body": {
+        "landed": 7,
+        "attempted": 9
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 11,
+        "attempted": 23
+      },
+      "clinch": {
+        "landed": 7,
+        "attempted": 9
+      },
+      "ground": {
+        "landed": 13,
+        "attempted": 17
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 27,
+        "attempted": 36
+      },
+      "total_strikes": {
+        "landed": 54,
+        "attempted": 67
+      },
+      "takedowns": {
+        "landed": 2,
+        "attempted": 4
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 135,
+      "head": {
+        "landed": 13,
+        "attempted": 19
+      },
+      "body": {
+        "landed": 12,
+        "attempted": 15
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 15,
+        "attempted": 23
+      },
+      "clinch": {
+        "landed": 8,
+        "attempted": 9
+      },
+      "ground": {
+        "landed": 4,
+        "attempted": 4
+      }
+    },
+    "fighter_1_age": 24,
+    "fighter_2_age": 29,
+    "fighter_1_height_cm": 160,
+    "fighter_1_reach_cm": 168,
+    "fighter_2_height_cm": 160,
+    "fighter_2_reach_cm": 157
   }
 ]

@@ -4756,5 +4756,11 @@
     "date": "2026-10-17",
     "url": "http://ufcstats.com/event-details/55e94a9b525dcf45",
     "scrapped": true
+  },
+  {
+    "name": "UFC 333: Volkanovski vs. Evloev",
+    "date": "2026-10-24",
+    "url": "http://ufcstats.com/event-details/cc18abc046b382c9",
+    "scrapped": true
   }
 ]

@@ -22189,5 +22189,13 @@
     "stance": "Switch",
     "dob": "1998-07-24",
     "debut_date": "2026-10-17"
+  },
+  "Asaf Chopurov": {
+    "height_cm": 170,
+    "weight_lbs": 135,
+    "reach_cm": 170,
+    "stance": "Orthodox",
+    "dob": "2001-11-17",
+    "debut_date": "2026-10-24"
   }
 }
