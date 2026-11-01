@@ -4762,5 +4762,11 @@
     "date": "2026-10-24",
     "url": "http://ufcstats.com/event-details/cc18abc046b382c9",
     "scrapped": true
+  },
+  {
+    "name": "UFC Fight Night: Moicano vs. Nolan",
+    "date": "2026-10-31",
+    "url": "http://ufcstats.com/event-details/0a66de3a797cf73a",
+    "scrapped": true
   }
 ]

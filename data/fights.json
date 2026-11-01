@@ -919992,5 +919992,1241 @@
     "fighter_1_reach_cm": 168,
     "fighter_2_height_cm": 160,
     "fighter_2_reach_cm": 157
+  },
+  {
+    "event_name": "UFC Fight Night: Moicano vs. Nolan",
+    "event_date": "2026-10-31",
+    "category": "Lightweight",
+    "fighter_1": "Tom Nolan",
+    "fighter_2": "Renato Moicano",
+    "winner": "Tom Nolan",
+    "method": "KO/TKOElbows",
+    "round": 3,
+    "time": "1:28",
+    "referee": "Dan Miragliotta",
+    "fight_url": "http://ufcstats.com/fight-details/6d7244be5589953c",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 69,
+        "attempted": 92
+      },
+      "total_strikes": {
+        "landed": 177,
+        "attempted": 214
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "reversals": 1,
+      "control_time_seconds": 70,
+      "head": {
+        "landed": 56,
+        "attempted": 78
+      },
+      "body": {
+        "landed": 10,
+        "attempted": 11
+      },
+      "leg": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "distance": {
+        "landed": 28,
+        "attempted": 45
+      },
+      "clinch": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "ground": {
+        "landed": 38,
+        "attempted": 44
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 9,
+        "attempted": 12
+      },
+      "total_strikes": {
+        "landed": 47,
+        "attempted": 60
+      },
+      "takedowns": {
+        "landed": 3,
+        "attempted": 5
+      },
+      "sub_attempts": 1,
+      "reversals": 0,
+      "control_time_seconds": 437,
+      "head": {
+        "landed": 3,
+        "attempted": 5
+      },
+      "body": {
+        "landed": 5,
+        "attempted": 6
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 9,
+        "attempted": 12
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 26,
+    "fighter_2_age": 37,
+    "fighter_1_height_cm": 190,
+    "fighter_1_reach_cm": 185,
+    "fighter_2_height_cm": 180,
+    "fighter_2_reach_cm": 183
+  },
+  {
+    "event_name": "UFC Fight Night: Moicano vs. Nolan",
+    "event_date": "2026-10-31",
+    "category": "Welterweight",
+    "fighter_1": "Jacobe Smith",
+    "fighter_2": "Randy Brown",
+    "winner": "Jacobe Smith",
+    "method": "U-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Herb Dean",
+    "fight_url": "http://ufcstats.com/fight-details/d37d3af2529c3fd5",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 40,
+        "attempted": 66
+      },
+      "total_strikes": {
+        "landed": 153,
+        "attempted": 186
+      },
+      "takedowns": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 533,
+      "head": {
+        "landed": 25,
+        "attempted": 38
+      },
+      "body": {
+        "landed": 8,
+        "attempted": 12
+      },
+      "leg": {
+        "landed": 7,
+        "attempted": 16
+      },
+      "distance": {
+        "landed": 18,
+        "attempted": 37
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 22,
+        "attempted": 29
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 16,
+        "attempted": 37
+      },
+      "total_strikes": {
+        "landed": 39,
+        "attempted": 60
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 5,
+        "attempted": 22
+      },
+      "body": {
+        "landed": 8,
+        "attempted": 10
+      },
+      "leg": {
+        "landed": 3,
+        "attempted": 5
+      },
+      "distance": {
+        "landed": 16,
+        "attempted": 37
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 30,
+    "fighter_2_age": 36,
+    "fighter_1_height_cm": 178,
+    "fighter_1_reach_cm": 183,
+    "fighter_2_height_cm": 190,
+    "fighter_2_reach_cm": 198
+  },
+  {
+    "event_name": "UFC Fight Night: Moicano vs. Nolan",
+    "event_date": "2026-10-31",
+    "category": "Flyweight",
+    "fighter_1": "Cody Durden",
+    "fighter_2": "Ode Osbourne",
+    "winner": "Cody Durden",
+    "method": "U-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Kerry Hatley",
+    "fight_url": "http://ufcstats.com/fight-details/b74a628c5fa4ce55",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 35,
+        "attempted": 47
+      },
+      "total_strikes": {
+        "landed": 73,
+        "attempted": 101
+      },
+      "takedowns": {
+        "landed": 6,
+        "attempted": 8
+      },
+      "sub_attempts": 1,
+      "reversals": 1,
+      "control_time_seconds": 411,
+      "head": {
+        "landed": 33,
+        "attempted": 42
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 5
+      },
+      "distance": {
+        "landed": 8,
+        "attempted": 15
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 27,
+        "attempted": 32
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 15,
+        "attempted": 36
+      },
+      "total_strikes": {
+        "landed": 54,
+        "attempted": 86
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 1,
+      "reversals": 2,
+      "control_time_seconds": 250,
+      "head": {
+        "landed": 8,
+        "attempted": 29
+      },
+      "body": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "leg": {
+        "landed": 4,
+        "attempted": 4
+      },
+      "distance": {
+        "landed": 14,
+        "attempted": 35
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 35,
+    "fighter_2_age": 34,
+    "fighter_1_height_cm": 170,
+    "fighter_1_reach_cm": 170,
+    "fighter_2_height_cm": 170,
+    "fighter_2_reach_cm": 185
+  },
+  {
+    "event_name": "UFC Fight Night: Moicano vs. Nolan",
+    "event_date": "2026-10-31",
+    "category": "Women's Bantamweight",
+    "fighter_1": "Luana Santos",
+    "fighter_2": "Yana Santos",
+    "winner": "Luana Santos",
+    "method": "U-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Chris Tognoni",
+    "fight_url": "http://ufcstats.com/fight-details/d08ad0f685b82b5b",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 15,
+        "attempted": 34
+      },
+      "total_strikes": {
+        "landed": 40,
+        "attempted": 62
+      },
+      "takedowns": {
+        "landed": 5,
+        "attempted": 16
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 455,
+      "head": {
+        "landed": 8,
+        "attempted": 20
+      },
+      "body": {
+        "landed": 4,
+        "attempted": 9
+      },
+      "leg": {
+        "landed": 3,
+        "attempted": 5
+      },
+      "distance": {
+        "landed": 13,
+        "attempted": 30
+      },
+      "clinch": {
+        "landed": 2,
+        "attempted": 4
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 17,
+        "attempted": 54
+      },
+      "total_strikes": {
+        "landed": 97,
+        "attempted": 160
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 241,
+      "head": {
+        "landed": 2,
+        "attempted": 35
+      },
+      "body": {
+        "landed": 9,
+        "attempted": 10
+      },
+      "leg": {
+        "landed": 6,
+        "attempted": 9
+      },
+      "distance": {
+        "landed": 8,
+        "attempted": 44
+      },
+      "clinch": {
+        "landed": 9,
+        "attempted": 10
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 26,
+    "fighter_2_age": 36,
+    "fighter_1_height_cm": 168,
+    "fighter_1_reach_cm": 170,
+    "fighter_2_height_cm": 168,
+    "fighter_2_reach_cm": 173
+  },
+  {
+    "event_name": "UFC Fight Night: Moicano vs. Nolan",
+    "event_date": "2026-10-31",
+    "category": "Welterweight",
+    "fighter_1": "Jean-Paul Lebosnoyani",
+    "fighter_2": "Farman Hasanov",
+    "winner": "Jean-Paul Lebosnoyani",
+    "method": "KO/TKO",
+    "round": 3,
+    "time": "2:11",
+    "referee": "Dan Miragliotta",
+    "fight_url": "http://ufcstats.com/fight-details/a7b3c1386172d083",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 104,
+        "attempted": 186
+      },
+      "total_strikes": {
+        "landed": 119,
+        "attempted": 202
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 0,
+      "head": {
+        "landed": 63,
+        "attempted": 133
+      },
+      "body": {
+        "landed": 23,
+        "attempted": 33
+      },
+      "leg": {
+        "landed": 18,
+        "attempted": 20
+      },
+      "distance": {
+        "landed": 104,
+        "attempted": 185
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 53,
+        "attempted": 156
+      },
+      "total_strikes": {
+        "landed": 55,
+        "attempted": 161
+      },
+      "takedowns": {
+        "landed": 2,
+        "attempted": 6
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 36,
+      "head": {
+        "landed": 45,
+        "attempted": 147
+      },
+      "body": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "leg": {
+        "landed": 5,
+        "attempted": 6
+      },
+      "distance": {
+        "landed": 51,
+        "attempted": 148
+      },
+      "clinch": {
+        "landed": 2,
+        "attempted": 8
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 27,
+    "fighter_2_age": 31,
+    "fighter_1_height_cm": 180,
+    "fighter_1_reach_cm": 183,
+    "fighter_2_height_cm": 180,
+    "fighter_2_reach_cm": 188
+  },
+  {
+    "event_name": "UFC Fight Night: Moicano vs. Nolan",
+    "event_date": "2026-10-31",
+    "category": "Featherweight",
+    "fighter_1": "Dakota Hope",
+    "fighter_2": "Francis Marshall",
+    "winner": "Dakota Hope",
+    "method": "S-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Herb Dean",
+    "fight_url": "http://ufcstats.com/fight-details/b7f8e619c7d9a7de",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 44,
+        "attempted": 111
+      },
+      "total_strikes": {
+        "landed": 72,
+        "attempted": 143
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 3
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 281,
+      "head": {
+        "landed": 30,
+        "attempted": 88
+      },
+      "body": {
+        "landed": 7,
+        "attempted": 11
+      },
+      "leg": {
+        "landed": 7,
+        "attempted": 12
+      },
+      "distance": {
+        "landed": 30,
+        "attempted": 91
+      },
+      "clinch": {
+        "landed": 8,
+        "attempted": 13
+      },
+      "ground": {
+        "landed": 6,
+        "attempted": 7
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 25,
+        "attempted": 61
+      },
+      "total_strikes": {
+        "landed": 62,
+        "attempted": 100
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 5
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 94,
+      "head": {
+        "landed": 14,
+        "attempted": 49
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 11,
+        "attempted": 11
+      },
+      "distance": {
+        "landed": 24,
+        "attempted": 56
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 4
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 1
+      }
+    },
+    "fighter_1_age": 29,
+    "fighter_2_age": 27,
+    "fighter_1_height_cm": 168,
+    "fighter_1_reach_cm": 173,
+    "fighter_2_height_cm": 175,
+    "fighter_2_reach_cm": 183
+  },
+  {
+    "event_name": "UFC Fight Night: Moicano vs. Nolan",
+    "event_date": "2026-10-31",
+    "category": "Welterweight",
+    "fighter_1": "Rodrigo Sezinando",
+    "fighter_2": "Theodor Berggren",
+    "winner": "Rodrigo Sezinando",
+    "method": "KO/TKO",
+    "round": 2,
+    "time": "5:00",
+    "referee": "Kerry Hatley",
+    "fight_url": "http://ufcstats.com/fight-details/8b2fcf7f83bf72b6",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 29,
+        "attempted": 58
+      },
+      "total_strikes": {
+        "landed": 67,
+        "attempted": 116
+      },
+      "takedowns": {
+        "landed": 3,
+        "attempted": 11
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 340,
+      "head": {
+        "landed": 21,
+        "attempted": 49
+      },
+      "body": {
+        "landed": 6,
+        "attempted": 7
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 11,
+        "attempted": 33
+      },
+      "clinch": {
+        "landed": 5,
+        "attempted": 7
+      },
+      "ground": {
+        "landed": 13,
+        "attempted": 18
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 18,
+        "attempted": 37
+      },
+      "total_strikes": {
+        "landed": 52,
+        "attempted": 76
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 120,
+      "head": {
+        "landed": 8,
+        "attempted": 27
+      },
+      "body": {
+        "landed": 8,
+        "attempted": 8
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 11,
+        "attempted": 28
+      },
+      "clinch": {
+        "landed": 6,
+        "attempted": 8
+      },
+      "ground": {
+        "landed": 1,
+        "attempted": 1
+      }
+    },
+    "fighter_1_age": 28,
+    "fighter_2_age": 26,
+    "fighter_1_height_cm": 175,
+    "fighter_1_reach_cm": 180,
+    "fighter_2_height_cm": 180,
+    "fighter_2_reach_cm": 190
+  },
+  {
+    "event_name": "UFC Fight Night: Moicano vs. Nolan",
+    "event_date": "2026-10-31",
+    "category": "Featherweight",
+    "fighter_1": "Julian Erosa",
+    "fighter_2": "JeongYeong Lee",
+    "winner": "Julian Erosa",
+    "method": "KO/TKOPunch",
+    "round": 1,
+    "time": "1:31",
+    "referee": "Chris Tognoni",
+    "fight_url": "http://ufcstats.com/fight-details/52d61656f77f6650",
+    "stats_fighter_1": {
+      "knockdowns": 1,
+      "sig_strikes": {
+        "landed": 16,
+        "attempted": 27
+      },
+      "total_strikes": {
+        "landed": 17,
+        "attempted": 28
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 36,
+      "head": {
+        "landed": 15,
+        "attempted": 26
+      },
+      "body": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 11,
+        "attempted": 20
+      },
+      "clinch": {
+        "landed": 2,
+        "attempted": 4
+      },
+      "ground": {
+        "landed": 3,
+        "attempted": 3
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 9,
+        "attempted": 24
+      },
+      "total_strikes": {
+        "landed": 10,
+        "attempted": 27
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 2,
+      "head": {
+        "landed": 8,
+        "attempted": 22
+      },
+      "body": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "leg": {
+        "landed": 1,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 6,
+        "attempted": 19
+      },
+      "clinch": {
+        "landed": 3,
+        "attempted": 5
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 37,
+    "fighter_2_age": 30,
+    "fighter_1_height_cm": 185,
+    "fighter_1_reach_cm": 188,
+    "fighter_2_height_cm": 178,
+    "fighter_2_reach_cm": 185
+  },
+  {
+    "event_name": "UFC Fight Night: Moicano vs. Nolan",
+    "event_date": "2026-10-31",
+    "category": "Middleweight",
+    "fighter_1": "Zach Reese",
+    "fighter_2": "Mickey Gall",
+    "winner": "Zach Reese",
+    "method": "U-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Herb Dean",
+    "fight_url": "http://ufcstats.com/fight-details/b6cee8bf625cc566",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 110,
+        "attempted": 201
+      },
+      "total_strikes": {
+        "landed": 113,
+        "attempted": 205
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 10,
+      "head": {
+        "landed": 59,
+        "attempted": 130
+      },
+      "body": {
+        "landed": 40,
+        "attempted": 55
+      },
+      "leg": {
+        "landed": 11,
+        "attempted": 16
+      },
+      "distance": {
+        "landed": 98,
+        "attempted": 188
+      },
+      "clinch": {
+        "landed": 12,
+        "attempted": 13
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 67,
+        "attempted": 138
+      },
+      "total_strikes": {
+        "landed": 68,
+        "attempted": 140
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 1,
+      "head": {
+        "landed": 56,
+        "attempted": 126
+      },
+      "body": {
+        "landed": 6,
+        "attempted": 7
+      },
+      "leg": {
+        "landed": 5,
+        "attempted": 5
+      },
+      "distance": {
+        "landed": 63,
+        "attempted": 133
+      },
+      "clinch": {
+        "landed": 4,
+        "attempted": 5
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 32,
+    "fighter_2_age": 34,
+    "fighter_1_height_cm": 193,
+    "fighter_1_reach_cm": 196,
+    "fighter_2_height_cm": 188,
+    "fighter_2_reach_cm": 188
+  },
+  {
+    "event_name": "UFC Fight Night: Moicano vs. Nolan",
+    "event_date": "2026-10-31",
+    "category": "Middleweight",
+    "fighter_1": "Joe Kropschot",
+    "fighter_2": "Nick Klein",
+    "winner": "Joe Kropschot",
+    "method": "SUBTriangle Armbar",
+    "round": 2,
+    "time": "1:25",
+    "referee": "Dan Miragliotta",
+    "fight_url": "http://ufcstats.com/fight-details/f9bda28454d49c78",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 17,
+        "attempted": 24
+      },
+      "total_strikes": {
+        "landed": 32,
+        "attempted": 42
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "sub_attempts": 3,
+      "reversals": 1,
+      "control_time_seconds": 107,
+      "head": {
+        "landed": 6,
+        "attempted": 13
+      },
+      "body": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "leg": {
+        "landed": 9,
+        "attempted": 9
+      },
+      "distance": {
+        "landed": 16,
+        "attempted": 23
+      },
+      "clinch": {
+        "landed": 1,
+        "attempted": 1
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 13,
+        "attempted": 34
+      },
+      "total_strikes": {
+        "landed": 16,
+        "attempted": 37
+      },
+      "takedowns": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 181,
+      "head": {
+        "landed": 8,
+        "attempted": 27
+      },
+      "body": {
+        "landed": 3,
+        "attempted": 5
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 13,
+        "attempted": 34
+      },
+      "clinch": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 31,
+    "fighter_2_age": 31,
+    "fighter_1_height_cm": 190,
+    "fighter_1_reach_cm": 201,
+    "fighter_2_height_cm": 185,
+    "fighter_2_reach_cm": 196
+  },
+  {
+    "event_name": "UFC Fight Night: Moicano vs. Nolan",
+    "event_date": "2026-10-31",
+    "category": "Women's Strawweight",
+    "fighter_1": "Piera Rodriguez",
+    "fighter_2": "Talita Alencar",
+    "winner": "Piera Rodriguez",
+    "method": "U-DEC",
+    "round": 3,
+    "time": "5:00",
+    "referee": "Kerry Hatley",
+    "fight_url": "http://ufcstats.com/fight-details/78b166a244a2b534",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 89,
+        "attempted": 190
+      },
+      "total_strikes": {
+        "landed": 102,
+        "attempted": 203
+      },
+      "takedowns": {
+        "landed": 0,
+        "attempted": 2
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 76,
+      "head": {
+        "landed": 65,
+        "attempted": 157
+      },
+      "body": {
+        "landed": 24,
+        "attempted": 32
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 1
+      },
+      "distance": {
+        "landed": 78,
+        "attempted": 176
+      },
+      "clinch": {
+        "landed": 11,
+        "attempted": 14
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 44,
+        "attempted": 104
+      },
+      "total_strikes": {
+        "landed": 57,
+        "attempted": 120
+      },
+      "takedowns": {
+        "landed": 3,
+        "attempted": 8
+      },
+      "sub_attempts": 0,
+      "reversals": 0,
+      "control_time_seconds": 245,
+      "head": {
+        "landed": 22,
+        "attempted": 76
+      },
+      "body": {
+        "landed": 17,
+        "attempted": 22
+      },
+      "leg": {
+        "landed": 5,
+        "attempted": 6
+      },
+      "distance": {
+        "landed": 33,
+        "attempted": 92
+      },
+      "clinch": {
+        "landed": 3,
+        "attempted": 3
+      },
+      "ground": {
+        "landed": 8,
+        "attempted": 9
+      }
+    },
+    "fighter_1_age": 33,
+    "fighter_2_age": 36,
+    "fighter_1_height_cm": 160,
+    "fighter_1_reach_cm": 160,
+    "fighter_2_height_cm": 155,
+    "fighter_2_reach_cm": 147
+  },
+  {
+    "event_name": "UFC Fight Night: Moicano vs. Nolan",
+    "event_date": "2026-10-31",
+    "category": "Women's Flyweight",
+    "fighter_1": "Lucia Szabova",
+    "fighter_2": "Tainara Lisboa",
+    "winner": "Lucia Szabova",
+    "method": "KO/TKOPunches",
+    "round": 3,
+    "time": "3:20",
+    "referee": "Chris Tognoni",
+    "fight_url": "http://ufcstats.com/fight-details/1bf2edb30de4c976",
+    "stats_fighter_1": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 70,
+        "attempted": 96
+      },
+      "total_strikes": {
+        "landed": 145,
+        "attempted": 186
+      },
+      "takedowns": {
+        "landed": 5,
+        "attempted": 8
+      },
+      "sub_attempts": 1,
+      "reversals": 0,
+      "control_time_seconds": 543,
+      "head": {
+        "landed": 57,
+        "attempted": 80
+      },
+      "body": {
+        "landed": 13,
+        "attempted": 16
+      },
+      "leg": {
+        "landed": 0,
+        "attempted": 0
+      },
+      "distance": {
+        "landed": 15,
+        "attempted": 34
+      },
+      "clinch": {
+        "landed": 12,
+        "attempted": 14
+      },
+      "ground": {
+        "landed": 43,
+        "attempted": 48
+      }
+    },
+    "stats_fighter_2": {
+      "knockdowns": 0,
+      "sig_strikes": {
+        "landed": 14,
+        "attempted": 26
+      },
+      "total_strikes": {
+        "landed": 17,
+        "attempted": 30
+      },
+      "takedowns": {
+        "landed": 1,
+        "attempted": 9
+      },
+      "sub_attempts": 1,
+      "reversals": 0,
+      "control_time_seconds": 133,
+      "head": {
+        "landed": 7,
+        "attempted": 19
+      },
+      "body": {
+        "landed": 5,
+        "attempted": 5
+      },
+      "leg": {
+        "landed": 2,
+        "attempted": 2
+      },
+      "distance": {
+        "landed": 10,
+        "attempted": 22
+      },
+      "clinch": {
+        "landed": 4,
+        "attempted": 4
+      },
+      "ground": {
+        "landed": 0,
+        "attempted": 0
+      }
+    },
+    "fighter_1_age": 28,
+    "fighter_2_age": 35,
+    "fighter_1_height_cm": 170,
+    "fighter_1_reach_cm": 170,
+    "fighter_2_height_cm": 170,
+    "fighter_2_reach_cm": 170
   }
 ]

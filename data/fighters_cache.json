@@ -22197,5 +22197,21 @@
     "stance": "Orthodox",
     "dob": "2001-11-17",
     "debut_date": "2026-10-24"
+  },
+  "Joe Kropschot": {
+    "height_cm": 190,
+    "weight_lbs": 185,
+    "reach_cm": 201,
+    "stance": "Orthodox",
+    "dob": "1995-06-19",
+    "debut_date": "2026-10-31"
+  },
+  "Lucia Szabova": {
+    "height_cm": 170,
+    "weight_lbs": 135,
+    "reach_cm": 170,
+    "stance": "Orthodox",
+    "dob": "1997-12-23",
+    "debut_date": "2026-10-31"
   }
 }
